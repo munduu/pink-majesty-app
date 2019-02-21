@@ -1,0 +1,96 @@
+@media only screen and (max-width: 768px) { 
+    p.home {
+    font-size: 2em;
+    margin-left: 210px;
+    width: 100%;
+}
+
+/*.swiper-slide {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+}*/
+
+} 
+
+@media only screen and (min-width: 580px) {	
+
+/*
+.paginainicial {
+    max-width: 50%;
+}
+*/
+
+}
+
+@media only screen and (max-width: 547px) {	
+p.faq {
+    margin: 50px 0 0 10px;
+    zoom: 0.5;
+}
+
+.panel {
+    width:  auto;
+}
+
+.menu_colab a.list-group-item.allow-badge.widget.btn2 {
+    width: auto;
+}
+
+}
+
+@media only screen and (max-width: 425px) {	
+
+#interna .voltar p {
+    zoom: 0.8;
+    margin-top: 30px;
+}
+
+#interna .voltar img {
+    float: left;
+    width: 20px;
+    height: 17px;
+    margin: 22px 0 22px 22px;
+}
+
+p.faq {
+    zoom: 0.7 !important;
+    margin-top: 35px !important;
+}
+
+.btn_listarPedidos1,
+.btn_listarPedidos2,
+.btn_listarPedidos3 {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+.panel {
+    zoom: 0.8;
+}
+
+p.home {
+    font-size: 1.5em;
+    margin-left: 150px;
+    width: 100%;
+}
+
+/*.swiper-slide {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+}*/
+
+}
+/*
+@media only screen and (min-width: 580px) {	
+
+	div.swiper-container {
+		height:550px;
+	}
+
+}
+/*
