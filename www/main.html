@@ -33,7 +33,7 @@
 		    @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   
 			@viewport { user-zoom: fixed ; min-zoom: 100% ; }
 			
-			@android{calendarTextColor:#F00;}
+			@android{ calendarTextColor: #F00; }
 				
 		</style>
         
@@ -287,65 +287,11 @@
 					}, false);
 				}, false);			
 		</script>
-		
-		<script>
-
-			openFB.init('1745256282451701'); // Defaults to sessionStorage for storing the Facebook token
-
-		//  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
-		//  openFB.init('YOUR_FB_APP_ID', 'http://localhost/openfb/oauthcallback.html', window.localStorage);
-
-			function login() {
-				openFB.login('email',
-						function() {
-							alert('Facebook login succeeded');
-						},
-						function() {
-							alert('Facebook login failed');
-						});
-			}
-
-			function getInfo() {
-				openFB.api({
-					path: '/me',
-					success: function(data) {
-						console.log(JSON.stringify(data));
-						document.getElementById("userName").innerHTML = data.name;
-					},
-					error: errorHandler});
-			}
-
-			function share() {
-				openFB.api({
-					method: 'POST',
-					path: '/me/feed',
-					params: {
-						message: 'Testing Facebook APIs'
-					},
-					success: function(data) {
-						alert('the item was posted on Facebook');
-					},
-					error: errorHandler});
-			}
-
-			function revoke() {
-				openFB.revokePermissions(
-						function() {
-							alert('Permissions revoked');
-						},
-						errorHandler);
-			}
-
-			function errorHandler(error) {
-				alert(error.message);
-			}
-
-		</script>
 				
 		<div class="upage vertical-col left paginainicial hidden fadeIn" id="mainpage">
 			<script>//getVer_LoginIn();</script>
             <div id="logo2">
-				<a href=""><img src="images/logodellas2.png"></a>
+				<img src="images/logodellas2.png">
 			</div>
             <div class="formulariocadastro">
                 <i class="fa fa-envelope-o" aria-hidden="true"></i> <input class="apg_campo" type="email" name="login" id="login" placeholder="E-mail" >
@@ -356,14 +302,14 @@
                     <!--<a class="list-group-item allow-badge widget enviar buttonentrar" alt="principal">ENTRAR</a>-->
 				</div>
                 <div class="senhaentrar">
-					<button class="btn_esqueci" alt="esqueceu_senha" ><a><p>Esqueceu sua senha?</p></a></button>
+					<button class="btn_esqueci" alt="esqueceu_senha" ><a><p style="color:#666;">Esqueceu sua senha?</p></a></button>
 				</div>
 				<div class="cadastrar-se">
                 	<button class="btn2" alt="cadastrar"><div class="buttonentrar">CADASTRE-SE</div></button>
 				</div>
 				<br />
                 <div class="trabalhe">
-                	<button class="btn2" alt="trabalhe_conosco"><div class="buttonentrar">TRABALHE CONOSCO</div></button>
+                	<button class="btn2" alt="trabalhe_conosco"><div class="buttonentrar">CADASTRO DE PROFISSIONAIS</div></button>
 				</div>
 				
 				<!--<button class="btn btn-block" onclick="login()">Facebook</button>-->
@@ -519,7 +465,7 @@
             <header id="interna">
                 <div class="voltar">
                     <p><a><div class="btn2 logout" alt="mainpage">Sair</div></a>
-                    Pink Majesty</p>
+					<div style="display: inline;text-align: center;"><img width="40" height="40" src="images/iconepink_branco.png"></div> Pink Majesty</p>
                 </div>
                 <div class="esquerda">
                     <a style="display:none" class="cidade_atend">Uberaba</a><i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -546,8 +492,10 @@
         	<script>//getVer_LoginIn();</script>
             <header id="interna">
                 <div class="voltar">
-                    <p><!--<a class="btn2 logout" alt="mainpage">Sair</a> alt="mainpage"--><!--<a class="btn2 sair">Sair</a>-->
-                    Pink Majesty</p>
+					<img class="btn2" style="width: 30px; height: 30px; margin-top: -10px;" src="images/iconepink_branco.png">
+					<p style="margin-left: -10px">
+						<div style="text-align: left; margin-left: -60px; margin-top: 20px; color: #fff">Pink Majesty</div>
+					</p>
                 </div>
                 <div class="esquerda">
                     <!--<a class="cidade_atend">Uberaba</a><i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -578,11 +526,11 @@
                             </h4>
                         </div>
                     </button>
-                    <button class="btn2 logout" alt="mainpage">
+                    <button class="btn2 logout buttonentrar" alt="mainpage" style="color:white; width: 100%">
                         <div>
-                            <h4 class="list-group-item-heading" align="center">
+                            <h1 class="list-group-item-heading" align="center">
                                 <b>LOGOUT</b>
-                            </h4>
+                            </h1>
                         </div>
                     </button>
                 </div>
@@ -775,7 +723,7 @@
                     <div class="total">
                     	<p class="v_total" align="center"></p>
                         <a><div class="btn2 cad_agendar" alt="">
-                            <div class="buttonentrar dellas">
+                            <div class="buttonentrar" style="color:white; width: 100%">
                             	<i class="fa fa-shopping-cart" aria-hidden="true"></i> 
                             	Realizar Agendamento
                             </div>

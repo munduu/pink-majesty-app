@@ -3,10 +3,7 @@ body {
     font-family: 'Conv_ufonts.com_humanist-521-light-bt', sans-serif;
     color: #ffffff;
     font-size: 16px;
-    background: #e5e6e8;
-    background: -moz-linear-gradient(top, #e5e6e8 0%, #ffffff 50%, #e5e6e8 100%);
-    background: -webkit-linear-gradient(top, #e5e6e8 0%,#ffffff 50%,#e5e6e8 100%);
-    background: linear-gradient(to bottom, #e5e6e8 0%,#ffffff 50%,#e5e6e8 100%);
+    background: #ffffff;
 }
 
 a {
@@ -41,7 +38,7 @@ label:hover {
 
 header {
     margin: 0px;
-    background-color: #000000;
+    background-color: #ff0c8c;
     text-align: center;
     height: 63px;
     width: 100%;
@@ -196,7 +193,7 @@ footer {
     text-align: center;
     position: fixed;
     bottom: 0;
-    background-color: #000000;
+    background-color: #fff;
     box-sizing: border-box;
 	z-index:9999;
 }
@@ -213,20 +210,20 @@ footer ul li {
 }
 
 footer ul li a {
-    color: #fff;
+    color: #666;
     text-decoration: none;
 }
 
+footer ul li a i {
+    color: #666;
+}
+
 footer ul li a:hover {
-    color: #fff;
+    color: #ec268f;
 }
 
-a.logout{
-	color: #ec268f;
-}
-
-a.logout:hover{
-	color: #ec268f;
+footer ul li a:hover i {
+    color: #ec268f;
 }
 
 a.sair{
@@ -294,7 +291,7 @@ header#interna {
     float: left;
     width: 25px;
     height: 21px;
-    margin: 22px 0 22px 22px;
+    margin: 0;
 }
 
 .voltar p {
@@ -307,12 +304,14 @@ header#interna {
 
 .imageservico {
     text-align: center;
-    border-top: 1px dotted #ccc;
+    border-top: 1px solid #ccc;
     padding: 30px 0 0 0;
+    margin-bottom: 16px;
+    border-radius: 5px;
 }
 
 .imageservico img {
-    width: 260px;
+    width: 100%;
 }
 
 .precoservico {
@@ -648,6 +647,7 @@ i.fa.fa-user {
 .infoservico {
     color: #000;
     text-align: center;
+    margin-bottom: 16px;
 }
 
 .imageservico img {
@@ -681,14 +681,15 @@ i.fa.fa-user {
 
 
 .buttonentrar.dellas {
-    background-color: rgba(103, 103, 103, 0);
-    border: 1px dotted rgba(0, 0, 0, 0);	
+    background-color: #ec268f;
+    border: 1px solid rgba(0, 0, 0, 0);	
+    color: #ffffff;
 }
 
 .buttonentrar.dellas:hover {
-    background-color: #d0d0d0;
-    color: #ec268f;
-    border: 1px dotted #000;
+    background-color: #ec268f;
+    color: #ffffff;
+    border: 1px solid #000;
 }
 
 p.sobreservico {
@@ -870,7 +871,7 @@ i.fa-check-circle {
 
 #logo2 img {
     width: 160px;
-    height: 85px;
+    height: 160px;
 }
 
 .formulariocadastro i.fa.fa-envelope-o {
@@ -889,17 +890,21 @@ i.fa-check-circle {
 }
 
 .buttonentrar {
-    background-color: rgba(103, 103, 103, 0.17);
+    background-color: #ec268f;
     padding: 8px 12px;
     width: 100%;
     margin: auto;
     text-align: center;
     box-sizing: border-box;
-    border: 1px dotted #000000;
+    border: 1px solid #e2e2e2;
     font-size: 0.9em;
     text-transform: uppercase;
-	color: #ec268f;
+	color: #ffffff;
 	border-radius: 10px;
+}
+
+.btn_esqueci {
+    color: #727375;
 }
 
 .buttonentrar a {
@@ -1054,7 +1059,7 @@ button.btn_pagamento {
     margin: auto;
     text-align: center;
     box-sizing: border-box;
-    border: 1px dotted #000000;
+    border: 1px solid #000000;
     font-size: 0.9em;
     text-transform: uppercase;
     color: #ec268f;
@@ -1068,7 +1073,7 @@ button.btn_avaliar {
     margin: auto;
     text-align: center;
     box-sizing: border-box;
-    border: 1px dotted #000000;
+    border: 1px solid #000000;
     font-size: 0.9em;
     text-transform: uppercase;
     color: #ec268f;
@@ -1196,7 +1201,7 @@ input#in_h_ter {
     margin: auto;
     text-align: center;
     box-sizing: border-box;
-    border: 1px dotted #000000;
+    border: 1px solid #000000;
     font-size: 0.9em;
     text-transform: uppercase;
     color: #ffffff;

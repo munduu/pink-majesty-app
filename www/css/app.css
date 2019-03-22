@@ -40,5 +40,5 @@ input, textarea  {
 body {
     /* margin: 0.5rem ; */
     color: black ;
-    background: linear-gradient(to bottom, #e5e6e8 0%,#ffffff 50%,#e5e6e8 100%);
+    /*background: linear-gradient(to bottom, #e5e6e8 0%,#ffffff 50%,#e5e6e8 100%);*/
 }
