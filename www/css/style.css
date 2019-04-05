@@ -76,7 +76,7 @@ header a {
 }
 
 i.fa.fa-map-marker {
-    color: #ec268f;
+    color: #666;
     padding-left: 4px;
 }
 
@@ -179,7 +179,7 @@ nav.navcarrossel a {
 }
 
 div#principal section {
-    padding: 30px;
+    padding: 0px;
 }
 
 /* footer novo pedido */
@@ -402,6 +402,7 @@ div#selecione {
     float: left;
 	width: 75%;
     text-align: left;
+    font-size: 12px;
 }
 
 .editar {
@@ -433,7 +434,7 @@ div#selecione {
 }
 
 .editar img {
-    width: 20px;
+    width: 15px;
 }
 
 .textos a {
@@ -469,26 +470,26 @@ div#selecione {
 }
 
 .imageperfilusuario  img{
-    width: 180px;
+    width: 100px;
 }
 
 #interna .fa-map-marker {
-    font-size: 1.4em;
+    font-size: 1.0em;
 }
 
 #interna .fa-phone {
-    font-size: 1.4em;
-    color: #ec268f;
+    font-size: 1.0em;
+    color: #666;
 }
 
 #interna .fa-envelope {
-    font-size: 1.2em;
-    color: #ec268f;
+    font-size: 1.0em;
+    color: #666;
 }
 
 #interna .fa-user-circle-o {
-    font-size: 1.4em;
-    color: #ec268f;
+    font-size: 0.8em;
+    color: #666;
 }
 
 /* pagina ajuda */
@@ -499,6 +500,10 @@ div#selecione {
     margin-right: auto;
     padding: 10px 0;
     margin-top: 40px;
+}
+
+.swiper-wrapper{
+    margin-top:65px;
 }
 
 #blocos {
@@ -647,7 +652,7 @@ i.fa.fa-user {
 .infoservico {
     color: #000;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
 }
 
 .imageservico img {
@@ -674,7 +679,8 @@ i.fa.fa-user {
 }
 
 .paginaservico {
-    padding: 20px;
+    padding: 0px;
+    margin-top: 5px;
 }
 
 /* pagina sobre o serviço */
@@ -816,7 +822,7 @@ input[type="radio"] {
 }
 
 i.fa.fa-credit-card {
-    color: #ec268f;
+    color: #666;
     padding-left: 4px;
 }
 
@@ -886,7 +892,7 @@ i.fa-check-circle {
     color: #ec268f;
     position: absolute;
     left: 8px;
-    top: 65px;
+    top: 45px;
 }
 
 .buttonentrar {
@@ -1236,3 +1242,10 @@ input#in_h_ter {
     border: 1px solid rgba(0, 0, 0, 0);
 }
 
+
+.titulo_fotos {
+    margin-top: 70px; 
+    margin-bottom: 0px;
+    margin-left: 10px;
+    text-align: left;
+}

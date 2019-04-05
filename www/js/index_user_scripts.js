@@ -7,16 +7,16 @@
  */
  function register_event_handlers()
  {
-	/* COLOQUE AS FUNÇÕES INTERNAS AQUI */
+	/* COLOQUE AS FUNï¿½ï¿½ES INTERNAS AQUI */
 	 
-	//Funções do COOKIE INICIO
+	//Funï¿½ï¿½es do COOKIE INICIO
     function setCookie(cname,cvalue) {
         localStorage.setItem(cname, cvalue);
     }
     function getCookie(cname) {
         return localStorage.getItem(cname);
     }
-    //Funções do COOKIE FINAL 
+    //Funï¿½ï¿½es do COOKIE FINAL 
 	
 	$(".menu_inferior").hide();
 	
@@ -61,7 +61,7 @@
 				},
 				error: function(resultado) {
 					$('.loader').hide();
-					alert('NÃ£o foi possível acessar! #001');
+					alert('NÃ£o foi possï¿½vel acessar! #001');
 					getVer_Login();
 				}
 			});
@@ -150,14 +150,14 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				getLogin(login_email,login_senha,token_id);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#mainpage");
 			}
 		});
 	}	
 	//LOGIN FINAL
 	
-	//VERIFICAÇÃO DE SOLICITACAO INICIO
+	//VERIFICAï¿½ï¿½O DE SOLICITACAO INICIO
 	function getVer_solicitacao(){
 		var id_user = getCookie("id_cliente");	
 		$.ajax({
@@ -183,7 +183,7 @@
 					}
 					if(resultado.tipo == 'Cliente'){
 						$('.novo_pedido2').show();
-						//navigator.notification.alert(resultado.dados, '', 'AtençÃ£o', 'OK'); 
+						//navigator.notification.alert(resultado.dados, '', 'Atenï¿½Ã£o', 'OK'); 
 					}
 					//$('.som').html("<audio src='"+url_geral+"alerta.mp3' preload='auto' autoplay></audio>");*/
 				}else{
@@ -229,7 +229,7 @@
 					}
 					if(resultado.tipo == 'Cliente'){
 						$('.novo_pedido2').show();
-						//navigator.notification.alert(resultado.dados, '', 'AtençÃ£o', 'OK'); 
+						//navigator.notification.alert(resultado.dados, '', 'Atenï¿½Ã£o', 'OK'); 
 					}
 					$('.som').html("<audio src='"+url_geral+"alerta.mp3' preload='auto' autoplay></audio>");
 				}else{
@@ -251,7 +251,7 @@
 		});
 		//navigator.notification.alert('Hello', 'CADASTRAR', 'Error', 'OK'); 
 	}, 10000);//10 segundos
-	//VERIFICAÇÃO DE SOLICITACAO FIM
+	//VERIFICAï¿½ï¿½O DE SOLICITACAO FIM
 	
 	//LISTAR CATEGORIA INICIO
 	function getListar_categorias(){
@@ -280,7 +280,7 @@
         });
 	}
 	//LISTAR CATEGORIA FINAL
-	//LISTAR SERVIÇOS INICIO
+	//LISTAR SERVIï¿½OS INICIO
 	function getListar_servicos(servico){
 		var servico = servico;
 		$.ajax({
@@ -305,8 +305,8 @@
             }
         });
 	}
-	//LISTAR SERVIÇOS FINAL
-	//SERVIÇO DETALHADO INICIO
+	//LISTAR SERVIï¿½OS FINAL
+	//SERVIï¿½O DETALHADO INICIO
 	function getServico_detalhado(servico, det){
 		var servico = servico;
 		var det = det;
@@ -331,7 +331,7 @@
             }
         });
 	}
-	//SERVIÇO DETALHADO FINAL
+	//SERVIï¿½O DETALHADO FINAL
 	//SELECT ENDERECO INICIO
     function getSelect_enderecos(){
 		var user    = getCookie("id_cliente");
@@ -359,7 +359,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				getSelect_enderecos();
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}       
         });
 		return false;
@@ -395,7 +395,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				getSelect_enderecos()
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}       
         });
 		return false;
@@ -431,7 +431,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				getSelect_forma_pg(tipo)
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}
         });
 		return false;
@@ -463,7 +463,7 @@
 		error: function(resultado) {
 			$('.loader').hide();
 			getEstados();
-			//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+			//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 		}       
 	});
 	$.ajax({
@@ -488,7 +488,7 @@
 		error: function(resultado) {
 			$('.loader').hide();
 			getEstados();
-			//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+			//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 		}       
 	});
 	$.ajax({
@@ -513,13 +513,13 @@
 		error: function(resultado) {
 			$('.loader').hide();
 			getEstados();
-			//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+			//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 		}       
 	});
 	return false;		
 	}
 	//SELECT ESTADO FIM
-	//CADASTRO ENDEREÇO INICIO
+	//CADASTRO ENDEREï¿½O INICIO
 	function setEndereco(cep,logradouro,numero,bairro,estado,cidade,complemento,referencia) {	
 	
 		var user    	= getCookie("id_cliente");
@@ -558,13 +558,13 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setEndereco(cep,logradouro,numero,bairro,estado,cidade,complemento,referencia);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#local");
 			}   
         });
 	}
-	//CADASTRO ENDEREÇO FIM
-	//CADASTRO CARTÃO INICIO
+	//CADASTRO ENDEREï¿½O FIM
+	//CADASTRO CARTï¿½O INICIO
 	function setCartao(user,numero_c,cod_seg,mes,ano,nome_impresso,data_nasc_cartao,cpf_titular,tipo_cartao,banco) {	
 	
 		var user    		= user;
@@ -603,12 +603,12 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setCartao(user,numero_c,cod_seg,mes,ano,nome_impresso,data_nasc_cartao,cpf_titular,tipo_cartao,banco);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#local");
 			}   
         });
 	}
-	//CADASTRO CARTÃO FIM
+	//CADASTRO CARTï¿½O FIM
 	//SELECIONANDO ENDERECO DE ATENDIMENTO INICIO
     function setSelect_endereco(id_end){
 		
@@ -635,7 +635,7 @@
             error:function(resultado){
 				$('.loader').hide();
 				setSelect_endereco(id_end)
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
             }
         });
 		return false;
@@ -899,7 +899,7 @@
 				console.log(resultado);
 				$('.loader').hide();
 				setCad_cliente(cpf,nome,tel1,tel2,sexo,data_nasc,email,senham,token_id);
-				alert('NÃ£o foi possível acessar! #002');
+				alert('NÃ£o foi possï¿½vel acessar! #002');
 				//activate_page("#cadastrar");
 			}			
         });
@@ -938,7 +938,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setCad_colaborador(nome,tel1,tel2,data_nasc,email);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#trabalhe_conosco");
 			}			
         });
@@ -1052,7 +1052,7 @@
 			error: function(resultado){
 				$('.loader').hide();
 				setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
         });
@@ -1088,14 +1088,14 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				alert('NÃ£o foi possível acessar! #003');
+				alert('NÃ£o foi possï¿½vel acessar! #003');
 				setCadastrar_agenda_colab(agenda);
 				//activate_page("#cadastrar");
 			}			
         });
 	}
 	//CADASTRO AGENDA COLABORADOR FIM
-	//CONFIRMAÇÃO DE PEDIDO INICIO
+	//CONFIRMAï¿½ï¿½O DE PEDIDO INICIO
 	function setConfirmar_pedido(agenda, situacao, tipo){	
 	
 		var user   			= getCookie('id_cliente');
@@ -1130,12 +1130,12 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setConfirmar_pedido(agenda, situacao, tipo);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
 		});
 	}
-	//CONFIRMAÇÃO DE PEDIDO FIM
+	//CONFIRMAï¿½ï¿½O DE PEDIDO FIM
 	//CADASTRO AVALIACAO INICIO
 	function setCadastrar_avaliacao(ava,avaliacao,desc_serv){
 	
@@ -1168,13 +1168,13 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setCadastrar_avaliacao(ava,avaliacao,desc_serv);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
         });
 	}
 	//CADASTRO AVALIACAO FIM
-	//INFORMAÇÕES CONTA INICIO
+	//INFORMAï¿½ï¿½ES CONTA INICIO
 	function getInfo_Conta(){
 		
 		var user    = getCookie("id_cliente");
@@ -1209,8 +1209,8 @@
 			getVer_Login();
 		}
 	}
-	//INFORMAÇÕES CONTA FINAL
-	//ALTERAÇÕES DO CLIENTE INICIO
+	//INFORMAï¿½ï¿½ES CONTA FINAL
+	//ALTERAï¿½ï¿½ES DO CLIENTE INICIO
 	function getAlteracoes_cliente(tipo){
 		
 		var user     = getCookie("id_cliente");
@@ -1241,8 +1241,8 @@
             }
         });
 	}
-	//ALTERAÇÕES DO CLIENTE FINAL
-	//ALTERAR ENDEREÇO PRINCIPAL INICIO
+	//ALTERAï¿½ï¿½ES DO CLIENTE FINAL
+	//ALTERAR ENDEREï¿½O PRINCIPAL INICIO
 	function setAlterar_endereco(end){
 		
 		var user    = getCookie("id_cliente");
@@ -1274,13 +1274,13 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setAlterar_endereco(end);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
         });
 	}
-	//ALTERAR ENDEREÇO PRINCIPAL FINAL
-	//DELETAR ENDEREÇO INICIO
+	//ALTERAR ENDEREï¿½O PRINCIPAL FINAL
+	//DELETAR ENDEREï¿½O INICIO
 	function setDeletar_endereco(end){
 		
 		var user    = getCookie("id_cliente");
@@ -1311,13 +1311,13 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setDeletar_endereco(end);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
         });
 		
 	}
-	//DELETAR ENDEREÇO FINAL
+	//DELETAR ENDEREï¿½O FINAL
 	//ALTERAR CARTAO PRINCIPAL INICIO
 	function setAlterar_cartao(crt){
 		
@@ -1349,7 +1349,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setAlterar_cartao(crt);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
         });
@@ -1386,7 +1386,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setDeletar_cartao(crt);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
         });
@@ -1434,7 +1434,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setAlterar_email(email);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
         });
@@ -1472,7 +1472,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setAlterar_telefone(tel1,tel2);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}			
         });
 	}
@@ -1508,7 +1508,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setAlterar_nome(nome);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}			
         });
 	}
@@ -1542,7 +1542,7 @@
 			error: function(resultado) {
 				$('.loader').hide();
 				setAtualizar_Cartao(agenda, forma_pg);
-				//navigator.notification.alert('NÃ£o foi possível acessar!', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('NÃ£o foi possï¿½vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}			
         });
 	}
@@ -1665,12 +1665,12 @@
 			error:function(resultado){
 				$('.loader').hide();
 				getVerif_cpf();
-				//navigator.notification.alert('ERRO, verificaçÃ£o de cpf! #001', 'CADASTRAR', 'Error', 'OK');
+				//navigator.notification.alert('ERRO, verificaï¿½Ã£o de cpf! #001', 'CADASTRAR', 'Error', 'OK');
 			}
 		});
 	}
 	//VERIFICAR CPF FIM
-	/* COLOQUE AS FUNÇÕES INTERNAS AQUI */ 
+	/* COLOQUE AS FUNï¿½ï¿½ES INTERNAS AQUI */ 
 	
 	/* button  ESQUECI INICIO */
     $(document).on("click", ".btn_esqueci", function(evt)
@@ -2120,7 +2120,7 @@
 			}
 		}else{
 			if(banco == ''){		
-				alert('SELECIONE um banco para Débito em conta!');
+				alert('SELECIONE um banco para Dï¿½bito em conta!');
 				return false;
 			}else{
 				setCartao(user,numero_c,cod_seg,mes,ano,nome_impresso,data_nasc_cartao,cpf_titular,tipo,banco);
@@ -2540,6 +2540,16 @@
 		activate_page("#area_atend");
     });
 	
+	$(document).on("click", ".lista_servicos_logo", function(evt)
+    {
+		$(".menu_colab").hide();
+		$(".listar_categorias_").show();
+		$(".menu_inferior").show();
+		getListar_categorias();
+		activate_page("#area_atend");
+		activate_page("#principal");
+    });
+
 	$(document).on("click", ".alt_cidat", function(evt)
     {
 		var cod_cidade = $(this).attr('alt');

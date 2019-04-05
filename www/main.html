@@ -291,7 +291,7 @@
 		<div class="upage vertical-col left paginainicial hidden fadeIn" id="mainpage">
 			<script>//getVer_LoginIn();</script>
             <div id="logo2">
-				<img src="images/logodellas2.png">
+				<a href="#" class="lista_servicos_logo"><img src="images/logodellas2.png"></a>
 			</div>
             <div class="formulariocadastro">
                 <i class="fa fa-envelope-o" aria-hidden="true"></i> <input class="apg_campo" type="email" name="login" id="login" placeholder="E-mail" >
@@ -314,7 +314,7 @@
 				
 				<!--<button class="btn btn-block" onclick="login()">Facebook</button>-->
 								
-				<input id="token_id" class="token_id" type="text" />
+				<input id="token_id" class="token_id" type="hidden" />
 				
 			</div>
             <div style="height:8%"></div>
@@ -377,6 +377,7 @@
             <section id="paginacadastro">
             <div class="paginainicial">
                 <div class="formulariocadastro">
+					<h4 align="center">Cadastro</h4>
                     <div class="apeanascadastro">
                     	<input type="tel" class="apg_campo cpf"  maxlength="14"  placeholder="CPF" id="cpf" alt="no">
                         <input type="text" class="apg_campo nome" maxlength="150" placeholder="Nome Completo*" alt="no">
@@ -423,6 +424,7 @@
 			<section id="paginacadastro">
             <div class="paginainicial">
                 <div class="formulariocadastro">
+					<h4 align="center">Cadastro</h4>
                     <div class="apeanascadastro">
                     	<input class="form-control apg_campo nome_c" type="text" size="50" maxlength="150" placeholder="Nome Completo*" alt="no">
                         <input class="form-control apg_campo tel1_c" type="tel" size="30" maxlength="12" placeholder="Telefone" alt="no" >
@@ -492,10 +494,7 @@
         	<script>//getVer_LoginIn();</script>
             <header id="interna">
                 <div class="voltar">
-					<img class="btn2" style="width: 30px; height: 30px; margin-top: -10px;" src="images/iconepink_branco.png">
-					<p style="margin-left: -10px">
-						<div style="text-align: left; margin-left: -60px; margin-top: 20px; color: #fff">Pink Majesty</div>
-					</p>
+					<img class="btn2" style="width: 145px; height: 25px;" src="images/logodellas.png">
                 </div>
                 <div class="esquerda">
                     <!--<a class="cidade_atend">Uberaba</a><i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -781,7 +780,8 @@
             	<section id="paginacadastro">
                     <div class="paginainicial">
                         <div class="formulariocadastro">
-                            <div class="apeanascadastro">
+							<h4 align="center">Selecione o Endereço</h4>
+							<div class="apeanascadastro">
                                 <select class="selectEndereco" id="selectEndereco" style="width:100%">
                                     <option value="" selected="selected">SELECIONE O ENDEREÇO</option>
                                 </select>    
@@ -845,6 +845,7 @@
             <section id="paginacadastro">
                 <div class="paginainicial">
                 	<div class="formulariocadastro">
+						<h4 align="center">Selecionar Data e Hora</h4>
                         <div class="apeanascadastro">
                         	<div>Data : </div>
                             <input id="date_format" class="form-control floating-label" placeholder="Selecione a data">
@@ -874,6 +875,7 @@
             	<section id="paginacadastro">
                     <div class="paginainicial">
                         <div class="formulariocadastro">
+							<h4 align="center">Selecionar Forma de Pagamento</h4>
                             <div class="apeanascadastro">
                 				<select class="selectForma_pg" style="width:100%">
                                     <option value="" selected="selected">SELECIONE A FORMA PG</option>
@@ -950,6 +952,7 @@
 			</header>
             <section id="paginacadastro">
           		<div class="paginainicial">
+					<h4 align="center">Cupom de Desconto</h4>
               		<div class="formulariocadastro">
                 		<div class="apeanascadastro">
 							<input type="text" class="apg_campo cod_cupom" placeholder="Digite o codigo do cupom">
