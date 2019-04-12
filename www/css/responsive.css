@@ -53,6 +53,13 @@ p.faq {
     margin: 22px 0 22px 22px;
 }
 
+#interna .logo_topo img {
+    float: left;
+    width: 20px;
+    height: 17px;
+    margin: 5px 0 2px 5px;
+}
+
 p.faq {
     zoom: 0.7 !important;
     margin-top: 35px !important;

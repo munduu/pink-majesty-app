@@ -493,8 +493,8 @@
 		<div class="upage vertical-col left fadeIn" id="principal">
         	<script>//getVer_LoginIn();</script>
             <header id="interna">
-                <div class="voltar">
-					<img class="btn2" style="width: 145px; height: 25px;" src="images/logodellas.png">
+                <div class="logo_topo">
+					<img class="btn2" style="width: 200px; height: 45px;" src="images/logodellas.png">
                 </div>
                 <div class="esquerda">
                     <!--<a class="cidade_atend">Uberaba</a><i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -503,10 +503,11 @@
                 
 			</header><!-- -->
             
-			<section>
+			<section style="margin:0 auto; padding:20px;">
                 <div class="menu_colab" data-uib="twitter%20bootstrap/list_group" data-ver="1">
                     
-                    <button class="btn2" alt="agenda">
+                    <button style="margin-top:140px;" class="btn2" alt="agenda">
+					<div class="buttonentrar">
                         <div class="novo_pedido" style="display:none;">
                             <h4 class="list-group-item-heading" align="center">
                                 <i class="fa fa-exclamation-circle" aria-hidden="true" style="color:#ec268f; position:absolute; left:90%;"></i>
@@ -517,19 +518,20 @@
                                 <b>AGENDA</b>
                             </h4>
                         </div>
+					</div>
                     </button>
-                    <button class="btn2" alt="horarios">
-                        <div>
+                    <button style="margin-top:40px;" class="btn2" alt="horarios">
+                        <div class="buttonentrar">
                             <h4 class="list-group-item-heading" align="center">
                                 <b>HORARIOS DE ATENDIMENTO</b>
                             </h4>
                         </div>
                     </button>
-                    <button class="btn2 logout buttonentrar" alt="mainpage" style="color:white; width: 100%">
-                        <div>
-                            <h1 class="list-group-item-heading" align="center">
+                    <button style="margin-top:40px;" class="btn2 logout" alt="mainpage">
+                        <div class="buttonentrar">
+                            <h4 class="list-group-item-heading" align="center">
                                 <b>LOGOUT</b>
-                            </h1>
+                            </h4>
                         </div>
                     </button>
                 </div>
@@ -544,7 +546,7 @@
 			</div>-->	
 			
 			<section>
-            	<div class="swiper-wrapper" data-uib="twitter%20bootstrap/list_group" data-ver="1"></div>
+            	<div class="swiper-wrapper listar_categorias_" data-uib="twitter%20bootstrap/list_group" data-ver="1"></div>
             </section>
             <div style="height:8%"></div>
 			
@@ -806,11 +808,11 @@
                                	<input class="apg_campo" placeholder="CEP" name="cep" id="cep" type="tel" onblur="getEndereco()" alt="cep">
                          		<input class="apg_campo" placeholder="Logradouro" id="logradouro" type="text" size="40" maxlength="150">
                              	<input class="apg_campo" placeholder="Numero" id="numero" type="number" size="5">
-                              	<select disabled style="width:100%;" class="estado" placeholder="Estado*" name="estado" id="estado">
+                              	<select style="width:100%;" class="estado" placeholder="Estado*" name="estado" id="estado">
                                		<option value=""></option>
                              	</select>
-                              	<select disabled style="width:100%;" class="cidade" placeholder="Cidade*" name="cidade" id="cidade">
-                               		<option value="" disabled="disabled">Escolha um Estado Primeiro</option>
+                              	<select style="width:100%;" class="cidade" placeholder="Cidade*" name="cidade" id="cidade">
+                               		<option value="">Escolha um Estado Primeiro</option>
                               	</select>
                          		<select style="width:100%;" class="bairro" placeholder="Bairro" name="bairro" id="bairro">
                                  	<option value=""></option>
