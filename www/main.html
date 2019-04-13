@@ -29,12 +29,10 @@
 			}
 		
 			@-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          
-			@viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+			@viewport { width: 100vw ; min-zoom: 100%; zoom: 100% ; }
 		    @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   
 			@viewport { user-zoom: fixed ; min-zoom: 100% ; }
-			
-			@android{ calendarTextColor: #F00; }
-				
+							
 		</style>
         
         
@@ -750,13 +748,13 @@
 			<br />
             <section>
 
-            <div class="btn_listarPedidos3" align="center" style="display:inline-block; width: 37%; height: 25px; background-color: ;">
+            <div class="btn_listarPedidos3" align="center" style="display:inline-block; width: 37%; height: 25px;">
             	<div><i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:#ec268f"></i><br><a>Pedidos Feitos</a></div>
             </div>
-            <div class="btn_listarPedidos1" align="center" style="display:inline-block; width: 30%; height: 25px; background-color: ;">
+            <div class="btn_listarPedidos1" align="center" style="display:inline-block; width: 30%; height: 25px;">
             	<div><i class="fa fa-book" aria-hidden="true" style="color:#ec268f"></i><br><a>Agendados</a></div>
             </div>
-            <div class="btn_listarPedidos2" align="center" style="display:inline-block; width: 30%; height: 25px; background-color: ;">
+            <div class="btn_listarPedidos2" align="center" style="display:inline-block; width: 30%; height: 25px;">
             	<div><i class="fa fa-check-circle-o" aria-hidden="true" style="color:#ec268f"></i><br><a>Concluidos</a></div>
             </div>
             <div class="lista_pedido" style="display:none" data-uib="twitter%20bootstrap/list_group" data-ver="1"></div>	

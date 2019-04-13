@@ -2383,7 +2383,7 @@
     {
 		var agenda 	= $(this).attr('alt');
 		setCadastrar_agenda_colab(agenda);
-		//checkout_ccard(agenda);
+		checkout_ccard(agenda);
         return false;
     });
 	

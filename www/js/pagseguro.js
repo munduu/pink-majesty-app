@@ -32,9 +32,11 @@ function getHash(){
 
 //BANDEIRA DO CARTÃO	
 function getBandeira(lNcartao){	
+	//alert(lNcartao);
 	PagSeguroDirectPayment.getBrand({
 		cardBin: lNcartao,
 		success: function(response) {
+			alert(response);
 			$("input#brandcard").val(response['brand']['name']);
 			//alert('BANDEIRA CARTÃO:'+response['brand']['name']);
 		},
@@ -172,6 +174,8 @@ function setConfirmar_pedido(agenda, situacao, tipo){
 
 //TOKEN CARTÃO
 function checkout_ccard(agenda){
+
+	alert(agenda);
 	
 	var lNcartao   = $('#lNcartao'+agenda).val();
 	var lNmcartao  = $('#lNmcartao'+agenda).val();
@@ -280,11 +284,11 @@ function checkout_ccard(agenda){
 				
 				var cardlink = "pagseguro/source/examples/direct/createTransactionUsingCreditCard.php";
 				
-				//alert(cardlink);
+				alert(cardlink);
 
-				//console.log('token_card:'+token_card+' hash:'+hash_user+' session:'+session+' produto:'+id_produto+' cliente:'+id_cliente+' evento:'+id_evento+' id_endereco:'+id_endereco+' total:'+total+' '+cardlink+' Agenda:'+agenda);
+				console.log('token_card:'+token_card+' hash:'+hash_user+' session:'+session+' produto:'+id_produto+' cliente:'+id_cliente+' evento:'+id_evento+' id_endereco:'+id_endereco+' total:'+total+' '+cardlink+' Agenda:'+agenda);
 				
-				//alert('token_card:'+token_card);
+				alert('token_card:'+token_card);
 				
 				log_pagseguro(lNcartao, lNmcartao, lMesVenc, lAnoVenc, lCodigoSeg, token_card, hash_user, session, id_produto, id_cliente, id_endereco, total);
 				
