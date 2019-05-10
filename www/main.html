@@ -424,12 +424,35 @@
                 <div class="formulariocadastro">
 					<h4 align="center">Cadastro</h4>
                     <div class="apeanascadastro">
-                    	<input class="form-control apg_campo nome_c" type="text" size="50" maxlength="150" placeholder="Nome Completo*" alt="no">
+						<input class="form-control apg_campo nome_c" type="text" size="50" maxlength="150" placeholder="Nome Completo*" alt="no">
+						<input class="form-control apg_campo cpf_c" type="text" size="50" maxlength="150" placeholder="CPF" alt="no">
                         <input class="form-control apg_campo tel1_c" type="tel" size="30" maxlength="12" placeholder="Telefone" alt="no" >
                         <input class="form-control apg_campo tel2_c" type="tel" size="30" maxlength="13" placeholder="Celular*" alt="no" >
                         <input class="form-control apg_campo data_nasc_c" type="tel" placeholder="Data Nascimento*" alt="no" maxlength="10" onkeyup="somenteNumerosdata(this);" ng-model="numero.valor">
                         <input class="form-control apg_campo email_c" type="email" size="30" maxlength="50" placeholder="E-mail*" alt="no">
-                        <div align="center" class="coment">* campos obrigatórios</div>
+						<br>
+
+						<legend style="font-size:14px;">Qual serviço você realiza?*</legend>      
+						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Manicure & Pedicure"> Manicure & Pedicure</label><br>
+						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Depilação a Cera"> Depilação a Cera</label><br>
+						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Maquiagem"> Maquiagem</label><br>
+						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Massagens"> Massagens</label><br>
+						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Design de Sobrancelhas"> Design de Sobrancelhas</label><br>
+						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Corte e Modelagem de Cabelos"> Corte e Modelagem de Cabelos</label><br>
+						<br>
+
+						<legend style="font-size:14px;">Quanto tempo você tem nos serviços acima?*</legend>      
+						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="Menos de 12 meses"> Menos de 12 meses</label></p>   
+						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="1 ano"> 1 ano</label></p>      
+						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="2 anos"> 2 anos</label></p>
+						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="3 anos"> 3 anos</label></p>
+						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="4 a 5 anos"> 4 a 5 anos</label></p>
+						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="Mais de 5 anos"> Mais de 5 anos</label></p> 
+						<br>
+
+						<p><label style="display: inline !important; padding: 10px;"><input style="width:15px; height:15px;" type="checkbox" id="termosuso_c" value="termos" /> Li e concordo com os <a style="color:#ec268f" href="https://www.pinkmajesty.com/home" target="_blank">termos de uso</a></label></p>
+
+						<div align="center" class="coment">* campos obrigatórios</div>
                 	</div> 
                      <div class="entrar">
                         <button class="btn2 cad_colab"><div class="buttonentrar">Enviar</div></button>
@@ -665,7 +688,7 @@
                 <div class="servico_detalhado" data-uib="twitter%20bootstrap/list_group" data-ver="1"></div>
                 
                 <div id="selecione">
-                    <div id="interna">
+                    <div id="interna" class="editar btn2" alt="local">
                         <div class="icones local">
                             <img src="images/iconemarker.png">
                         </div>
@@ -673,12 +696,12 @@
                             <h1>Onde será o atendimento?</h1>
                             <a><div class="localSelect"><p>Selecione o local de atendimento</p></div></a>
                         </div>
-                        <div class="editar btn2" alt="local">
+                        <div>
                             <a><img src="images/iconelapis.png"></a>
                         </div>
                     </div>
                     
-                    <div id="interna">
+                    <div id="interna" class="editar btn2" alt="data_hora">
                         <div class="icones calendario">
                             <img src="images/iconecalendario.png">
                         </div>
@@ -686,12 +709,12 @@
                             <h1>Quando quer ser atendida?</h1>
                             <a><div class="dataSelect"><p>Selecione a data do atendimento</p></div></a>
                         </div>
-                        <div class="editar btn2" alt="data_hora">
+                        <div>
                             <a href=""><img src="images/iconelapis.png"></a>
                         </div>
                     </div>
                 	
-                    <div id="interna">
+                    <div id="interna" class="editar btn2" alt="pagamento">
                         <div class="icones cifrao">
                             <img src="images/iconecifrao.png">
                         </div>
@@ -699,12 +722,12 @@
                             <h1>Qual o meio de pagamento?</h1>
                         	<a><div class="pgSelect"><p>Selecione a forma de pagamento</p></div></a>
                         </div>
-                        <div class="editar btn2" alt="pagamento">
+                        <div>
                             <a><img src="images/iconelapis.png"></a>
                         </div>
                     </div>
                 	
-                    <div id="interna">
+                    <div id="interna" class="editar btn2" alt="cupom">
                         <div class="icones cupom">
                             <img src="images/iconecupom.png">
                         </div>
@@ -713,11 +736,13 @@
                             <a><div class="cupomSelect"><p>Insira o seu cupom de desconto</p></div></a>
                         </div>
                         <div class="block">
-                        	<div class="editar btn2" alt="cupom">
+                        	<div>
                             	<a><img src="images/iconelapis.png"></a>
                         	</div>
                         </div>
-                    </div>
+					</div>
+					
+					<div id="interna" style="font-size:12px;"><p><label style="display: inline !important; padding: 10px;"><input style="width:15px; height:15px;" type="checkbox" id="termosusoAgendamento" value="termos" /> Li e concordo com os <a style="color:#ec268f" href="https://www.pinkmajesty.com/home" target="_blank">termos de uso</a></label></p></div>
                 	
                     <div class="total">
                     	<p class="v_total" align="center"></p>
@@ -918,8 +943,8 @@
 								
 								<div id="tipo_cartao_select">
 									<input class="apg_campo nome_impresso" type="text" id="nome_impresso" name="nome_impresso" placeholder="Nome Impresso no Cartão de Crédito" maxlength="30"/>
-									<input class="apg_campo cpf_titular" placeholder="CPF do Titular" type="tel" alt="cpf" id="cpf_titular" maxlength="14">
-									<input class="apg_campo data_nasc_cartao" type="tel" id="data_nasc_cartao" maxlength="10" onkeyup="somenteNumerosdata(this);" ng-model="numero.valor" placeholder="Data Nascimento do Titular">
+									<!--<input class="apg_campo cpf_titular" placeholder="CPF do Titular" type="tel" alt="cpf" id="cpf_titular" maxlength="14">-->
+									<!--<input class="apg_campo data_nasc_cartao" type="tel" id="data_nasc_cartao" maxlength="10" onkeyup="somenteNumerosdata(this);" ng-model="numero.valor" placeholder="Data Nascimento do Titular">-->
 									<input class="apg_campo numero_c" placeholder="Numero do Cartão de Crédito" type="tel" id="numero_c" name="numero_c" maxlength="16"/>
 									<input class="apg_campo datepicker mes" type="number" id="mes" name="mes" size="2" onkeyup="somenteNumeros(this);" ng-model="numero.valor" placeholder="Mês de Vencimento ex:01" min="1" max="12"/>                       
 									<input class="apg_campo datepicker ano" type="number" id="ano" name="ano" size="5" onkeyup="somenteNumeros(this);" ng-model="numero.valor" placeholder="Ano de Vencimento ex:2018" min="2017" max="9999"/>
@@ -1062,14 +1087,14 @@
                             </div>
                         </div>
                  	</a>
-                    <a class="chat" id="blocos">
+                    <!--<a class="chat" id="blocos">
                     	<div class="icones perguntas">
                         	<i class="fa fa-comments-o" aria-hidden="true"></i>
                         </div>
                         <div class="texto-ajuda">
                             <h1>Chat</h1>
                         </div>
-                    </a>
+                    </a>-->
             	</div>
             <section>
 			<div style="height:8%"></div>

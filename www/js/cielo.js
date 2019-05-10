@@ -1,18 +1,12 @@
-function checkout_ccard(agenda){
-
-    var lNcartao   = $('#lNcartao'+agenda).val();
-	var lNmcartao  = $('#lNmcartao'+agenda).val();
-	var lMesVenc   = $('#lMesVenc'+agenda).val();
-	var lAnoVenc   = $('#lAnoVenc'+agenda).val();
-    var lCodigoSeg = $('#lCodigoSeg'+agenda).val();
+function checkout_ccard(agenda,lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg){
     
     if(lNcartao==''){
         alert('Campo obrigatório vazio: NÚMERO DO CARTÃO');
         $('.btn_troca_cartao[alt='+agenda+']').show();
         $('.btn_pagamento[alt='+agenda+']').hide();
         return false;
-    }
-    
+    } 
+
     if(lNmcartao==''){
         alert('Campo obrigatório vazio: NOME COMPLETO DO TITULAR DO CARTÃO');
         $('.btn_troca_cartao[alt='+agenda+']').show();
@@ -48,6 +42,41 @@ function checkout_ccard(agenda){
         return false;
     }
 
+    identifica_bandeira(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg);
+}
+
+function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
+    $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/createPaymentCreditCardWithToken.php", 
+        {
+            MerchantOrderId: agenda,
+            Name: lNmcartao,
+            Amount: "100",
+            CardToken: cardToken,
+            SecurityCode: lCodigoSeg,
+            Brand: brand
+        },
+
+    function (resultCard) {
+        console.log(resultCard);
+
+        if(resultCard.payment.returnCode == '00'){
+            alert(resultCard.payment.returnMessage);
+            $("#cod_pagseguro").val(resultCard.payment.paymentId)
+            setConfirmar_pedido(agenda, 'PEDIDO', 'Cliente');
+            $('.loader').show();
+            setTimeout(function(){ getListar_meusPedidos(); $('.loader').hide(); }, 10000);
+            activate_page("#meusPedidos");
+        } else {
+            alert(resultCard.payment.returnMessage);
+            $('.btn_troca_cartao[alt='+agenda+']').show();
+            $('.btn_pagamento[alt='+agenda+']').hide();
+            return false;
+        }
+    },'json');
+}
+
+function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand) {
+
     $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/creatCardToken.php", 
     {
         Name: lNmcartao,
@@ -55,47 +84,46 @@ function checkout_ccard(agenda){
         Holder: lNmcartao,
         ExpirationDate: lMesVenc+"/"+lAnoVenc,
         SecurityCode: lCodigoSeg,
-        Brand: "Visa"
+        Brand: brand
     },
 
     function (result) {
         console.log(result);
 
         if(result.cardToken){
-            checkOut(result.cardToken);
+            checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
             console.log(result.cardToken)
-
-            log_pagseguro(lNcartao, lNmcartao, lMesVenc, lAnoVenc, lCodigoSeg, result.cardToken);
+            //log_pagseguro(lNcartao, lNmcartao, lMesVenc, lAnoVenc, lCodigoSeg, result.cardToken);
         }
     },'json');
 }
 
-function checkOut(cardToken, agenda) {
-    $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/createPaymentCreditCardWithToken.php", 
-        {
-            MerchantOrderId: "2014111706",
-            Name: lNmcartao,
-            Amount: "200",
-            CardToken: cardToken,
-            SecurityCode: lCodigoSeg,
-            Brand: "Visa"
-        },
+function identifica_bandeira(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg){
+    $.ajax({
+      type:"POST", dataType:"json", cache: false, url: "http://igestaoweb.com.br/pinkmajesty/function/identifica_bandeira.php",
+      data:{cartao:lNcartao},
+      timeout: 200000, 
+      beforeSend: function(resultado){ $('.loader').show();},
+      success: function(resultado){
+        $('.loader').hide();  
+        $('#brandcard').val(resultado.sucesso.bandeira);
 
-    function (resultCard) {
-        console.log(resultCard);
+        console.log(resultado);
+        
+        end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg,resultado.sucesso.bandeira);
 
-        if(resultCard.returnCode == '00'){
-            setConfirmar_pedido(agenda, 'AGENDADO', 'Cliente');
-            $('.loader').show();
-            setTimeout(function(){ getListar_meusPedidos(); $('.loader').hide(); }, 10000);
-            activate_page("#meusPedidos");
-        } else {
-            alert(resultCard.returnMessage);
+        if(resultado.sucesso.bandeira==''){
+            alert('Campo obrigatório vazio: BANDEIRA');
             $('.btn_troca_cartao[alt='+agenda+']').show();
             $('.btn_pagamento[alt='+agenda+']').hide();
             return false;
         }
-    },'json');
+      },
+      error: function(resultado) {
+        $('.loader').hide();
+        console.log('error');
+      }     
+    }); 
 }
 
 //LISTAR PEDIDO INICIO

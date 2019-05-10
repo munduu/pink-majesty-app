@@ -906,13 +906,15 @@
 	}
 	//CADASTRO CLIENTE FIM
 	//CADASTRO COLABORADOR INICIO
-	function setCad_colaborador(nome,tel1,tel2,data_nasc,email) {	
+	function setCad_colaborador(nome,tel1,tel2,data_nasc,email,servico,experiencia) {	
 	
 		var nome		= nome;
 		var tel1		= tel1;
 		var tel2		= tel2;
 		var data_nasc	= data_nasc;
 		var email		= email;
+		var servico		= servico;
+		var experiencia = experiencia;
 		
 		$.ajax({
 			type:"POST",
@@ -920,7 +922,7 @@
 			async:true,
 			crossDomain: true,
 			url: url_geral+"cadastrar_colaborador.php",
-			data:{"nome":nome, "tel1":tel1, "tel2":tel2, "data_nasc":data_nasc, "email":email, "token":"H424715433852"},
+			data:{"nome":nome, "tel1":tel1, "tel2":tel2, "data_nasc":data_nasc, "email":email, "servico":servico, "experiencia":experiencia, "token":"H424715433852"},
 			timeout: 100000, 
 			beforeSend: function(resultado){
 				$('.loader').show();
@@ -1044,6 +1046,8 @@
 					setCookie('cod_cupom','');
 					setCookie('cpf_cupom','');
 					activate_page("#principal");
+					console.log(resultado);
+					checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
 				}else{
 					alert(resultado.dados);
 					//activate_page("#cadastrar");
@@ -2289,39 +2293,60 @@
 	
 	$(document).on("click", ".cad_colab", function(evt)
     {
-		var nome_c		= $(".nome_c").val();
-		var tel1_c		= $(".tel1_c").val();
-		var tel2_c		= $(".tel2_c").val();
-		var data_n_c  	= $(".data_nasc_c").val();
-		var email_c		= $(".email_c").val();
-		/*
-		var toMmDdYy = function(input) {
-			var ptrn = /(\d{4})\-(\d{2})\-(\d{2})/;
-			if(!input || !input.match(ptrn)) {
-				return null;
-			}
-			return input.replace(ptrn, '$1/$2/$3');
-		};
-		var data_nasc_c	= toMmDdYy(data_n_c);
-		*/
-		var data_nasc_c	= data_n_c;
-		
-		setCad_colaborador(nome_c,tel1_c,tel2_c,data_nasc_c,email_c);
+
+		if ($('#termosuso_c').prop('checked') == false){
+			alert('Você deve ler e concordar com os nossos Termos de Uso!');
+			return false;
+		} else {
+			var nome_c		= $(".nome_c").val();
+			var tel1_c		= $(".tel1_c").val();
+			var tel2_c		= $(".tel2_c").val();
+			var data_n_c  	= $(".data_nasc_c").val();
+			var email_c		= $(".email_c").val();
+			
+			var servico_c = [];
+			$. each($("input[name='servico_c']:checked"), function(){ servico_c. push($(this). val()); });
+
+			var servico_c = servico_c.toString();
+			var experiencia_c = $("input[name='experiencia_c']:checked").val();
+
+			//alert(servico_c);
+
+			//alert($("input[name='experiencia_c']:checked").val())
+			/*
+			var toMmDdYy = function(input) {
+				var ptrn = /(\d{4})\-(\d{2})\-(\d{2})/;
+				if(!input || !input.match(ptrn)) {
+					return null;
+				}
+				return input.replace(ptrn, '$1/$2/$3');
+			};
+			var data_nasc_c	= toMmDdYy(data_n_c);
+			*/
+			var data_nasc_c	= data_n_c;
+			
+			setCad_colaborador(nome_c,tel1_c,tel2_c,data_nasc_c,email_c, servico_c, experiencia_c);
+		}
 	});
 	
 	$(document).on("click", ".cad_agendar", function(evt)
     {
-		var user   		= getCookie('id_cliente');
-		var servico   	= getCookie('servico');
-		var local   	= getCookie('id_endereco');
-		var data   		= getCookie('data');
-		var hora   		= getCookie('hora');
-		var forma_pg   	= getCookie('forma_pg');
-		var cupom   	= getCookie('cod_cupom');
-		var cpf_cupom	= getCookie('cpf_cupom');
-		var s_valor		= getCookie('s_valor');
-		
-		setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
+		if ($('#termosusoAgendamento').prop('checked') == false){	
+			alert('Você deve ler e concordar com os nossos Termos de Uso!');
+			return false;
+		} else {
+			var user   		= getCookie('id_cliente');
+			var servico   	= getCookie('servico');
+			var local   	= getCookie('id_endereco');
+			var data   		= getCookie('data');
+			var hora   		= getCookie('hora');
+			var forma_pg   	= getCookie('forma_pg');
+			var cupom   	= getCookie('cod_cupom');
+			var cpf_cupom	= getCookie('cpf_cupom');
+			var s_valor		= getCookie('s_valor');
+			
+			setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
+		}
 	});
 	
 	$(document).on("click", ".btn_agenda", function(evt)
@@ -2383,7 +2408,7 @@
     {
 		var agenda 	= $(this).attr('alt');
 		setCadastrar_agenda_colab(agenda);
-		checkout_ccard(agenda);
+		//checkout_ccard(agenda);
         return false;
     });
 	
