@@ -88,105 +88,9 @@
         <!-- MASK-->
         <script src="js/jquery.mask.min.js"></script>
         <!-- MASK-->
-        <script>
-        	$(document).ready(function(){ $(".cpf").mask("999.999.999-99");});
-			$(document).ready(function(){ $(".cpf_titular").mask("999.999.999-99");});
-			$(document).ready(function(){ $(".tel1").mask("99 9999-9999");});
-			$(document).ready(function(){ $(".tel1_c").mask("99 9999-9999");});
-			$(document).ready(function(){ $(".tel2").mask("99 99999-9999");});
-			$(document).ready(function(){ $(".tel2_c").mask("99 99999-9999");});
-			$(document).ready(function(){ $(".data_nasc").mask("99/99/9999");});
-			$(document).ready(function(){ $(".data_nasc_c").mask("99/99/9999");});
-			$(document).ready(function(){ $(".data_nasc_cartao").mask("99/99/9999");});
-			$(document).ready(function(){ $(".numero_c").mask("9999 9999 9999 9999");});
-			//$(document).ready(function(){ $(".valor_troco").mask("999.999.999,00");});
-    	</script>
+        <script src="js/index.js"></script>
             
-        <script>
-			function mascara(t, mask){
-				var i = t.value.length;
-				var saida = mask.substring(1,0);
-				var texto = mask.substring(i);
-				if (texto.substring(0,1) != saida){
-					t.value += texto.substring(0,1);
-				}
-			}
-			/**/
-			function mascara2(o,f){
-				v_obj=o
-				v_fun=f
-				setTimeout("execmascara()",1)
-			}
-			function execmascara(){
-				v_obj.value=v_fun(v_obj.value)
-			}
-			function mtel(v){
-				v=v.replace(/\D/g,"");             //Remove tudo o que não Ã© dígito
-				v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
-				v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
-				return v;
-			}
-			
-			/* FUNÇãO SOMENTE NUMEROS INICIO */
-			function somenteNumeros(num) {
-				var er = /[^0-9.]/;
-				er.lastIndex = 0;
-				var campo = num;
-				if (er.test(campo.value)) {
-				  campo.value = "";
-				}
-			}
-			function somenteNumerosdata(num) {
-				var er = /[^0-9./ /]/;
-				er.lastIndex = 0;
-				var campo = num;
-				if (er.test(campo.value)) {
-				  campo.value = "";
-				}
-			}
-			/* FUNÇãO SOMENTE NUMEROS FIM */
-			
-		</script>
-        
-        <style>		
-		@-webkit-keyframes fadeIn {
-		0% { opacity: 0; }
-		100% { opacity: 1; } 
-		}
-		@-moz-keyframes fadeIn {
-		0% { opacity: 0;}
-		100% { opacity: 1; }
-		}
-		@-o-keyframes fadeIn {
-		0% { opacity: 0; }
-		100% { opacity: 1; }
-		}
-		@keyframes fadeIn {
-		0% { opacity: 0; }
-		100% { opacity: 1; }
-		}
-		.fadeIn {
-		-webkit-animation: fadeIn 1s ease-in-out;
-		-moz-animation: fadeIn 1s ease-in-out;
-		-o-animation: fadeIn 1s ease-in-out;
-		animation: fadeIn 1s ease-in-out;
-		}
-		a{text-decoration:none; color:black;}
-		
-		.dtp div.dtp-date, .dtp div.dtp-time {
-			background:#000;
-			color:#fff;
-		}
-		
-		select:focus {
-			outline-color: #ec268f;
-    		/*outline: none;*/
-		}
-		textarea:focus {
-			outline-color: #ec268f;
-    		/*outline: none;*/
-		}
-		</style>
+		<link rel="stylesheet" href="css/index.css">
         		
 		<script type="text/javascript">
 		document.addEventListener('deviceready', function () {		  
@@ -205,23 +109,6 @@
 			});
 			
 		}, false);
-		
-		function select_tipo_banco(banco){
-			console.log("Banco: "+banco);
-			
-			if(banco==1){
-				$('#tipo_cartao_banco_select').hide();
-				$('#tipo_cartao_select').show();
-			}else if(banco==2){
-				$('#tipo_cartao_banco_select').show();
-				$('#tipo_cartao_select').hide();
-				$('#tipo_dinheiro').hide();
-			}else{
-				$('#tipo_cartao_banco_select').hide();
-				$('#tipo_cartao_select').hide();
-			}
-		
-		}
 		</script>
 
 		<!-- PAGSEGURO -->
@@ -235,11 +122,9 @@
 		<div class="loader"></div>
        
         <script type="application/javascript">
-			$(document).ready(function(evt)
-			{       
-				// Verificar se estÃ¡ conectado à internet (rede)...
+			$(document).ready(function(evt){       
 				if(navigator.connection && navigator.connection.type!="none"){
-						// Informando o tipo de conexão atual...
+					// Informando o tipo de conexão atual...
 					activate_page("#mainpage");
 				}else{
 					// Avisando que não hÃ¡ conexão...
@@ -250,40 +135,34 @@
 		</script>
 		
 		<script type="text/javascript">
-			var cont = 0;
+		var cont = 0;
+		document.addEventListener('deviceready', function() {
 			
-			document.addEventListener('deviceready', function() {
-			
-					$("#app-status-ul").append('<li>deviceready event received</li>');
-					$(document).on("click", ".btn2", function(evt){cont = 0; });
-					$(document).on("click", ".btn_cat", function(evt){cont = 0; });
-					$(document).on("click", ".chat", function(evt){cont = 0; });
-					$(document).on("click", ".logout", function(evt){cont = 1; });
+			$("#app-status-ul").append('<li>deviceready event received</li>');
+			$(document).on("click", ".btn2", function(evt){cont = 0; });
+			$(document).on("click", ".btn_cat", function(evt){cont = 0; });
+			$(document).on("click", ".chat", function(evt){cont = 0; });
+			$(document).on("click", ".logout", function(evt){cont = 1; });
+			var exitApp = false, intval = setInterval(function (){exitApp = false;}, 1000);
+			document.addEventListener("backbutton", function (e){
+				e.preventDefault();
+				if (exitApp) {
+					clearInterval(intval) 
+					(navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
+				} else {
+					exitApp = true
+					history.back(1);
 					
-					var exitApp = false, intval = setInterval(function (){exitApp = false;}, 1000);
-					document.addEventListener("backbutton", function (e){
-						e.preventDefault();
-						if (exitApp) {
-							clearInterval(intval) 
-							(navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
-						}
-						else {
-							exitApp = true
-							history.back(1);
-							
-							var pagina 	= window.location.href;
-							var tags 	= pagina.split("#");
-							var tag 	= tags[1];
-							
-							console.log(tag);
-							
-							if(tag == 'frame' || tag == 'local' || tag == 'data_hora' || tag == 'pagamento' || tag == 'cupom' || tag == 'alt_cli' || tag == 'ajuda'){
-								$( ".menu_inferior" ).show();
-							}
-							
-						} 
-					}, false);
-				}, false);			
+					var pagina 	= window.location.href;
+					var tags 	= pagina.split("#");
+					var tag 	= tags[1];
+					
+					if(tag == 'frame' || tag == 'local' || tag == 'data_hora' || tag == 'pagamento' || tag == 'cupom' || tag == 'alt_cli' || tag == 'ajuda'){
+						$( ".menu_inferior" ).show();
+					}
+				} 
+			}, false);
+		}, false);			
 		</script>
 				
 		<div class="upage vertical-col left paginainicial hidden fadeIn" id="mainpage" style="margin: 0 auto; height: 100%; overflow: hidden;">
@@ -309,9 +188,7 @@
                 <div class="trabalhe">
                 	<button class="btn2" alt="trabalhe_conosco"><div class="buttonentrar">CADASTRO DE PROFISSIONAIS</div></button>
 				</div>
-				
-				<!--<button class="btn btn-block" onclick="login()">Facebook</button>-->
-								
+												
 				<input id="token_id" class="token_id" type="hidden" />
 				
 			</div>
@@ -338,18 +215,9 @@
 					</div>
 
 					<button class="button widget voltar d-margins ion button-positive" data-uib="ionic/button" data-ver="0" id="btnnetwork">&lt;&lt; Voltar</button>
-					<!--<div id="app-status-div">
-						<ul id="app-status-ul">
-							<li></li>
-						</ul>
-					</div>-->
 					<label class="item item-input widget uib_w_6 d-margins" data-uib="ionic/input" data-ver="0"><div class="input-label"></div>
 						<input type="hidden" id="token_id">
 					</label>
-					<!--<div align="center" class="voltar">
-						<p style="font-size:14px"></p>
-					</div>
-					-->
 				</div>
 
 			</div>
@@ -357,7 +225,6 @@
 		<!-- VERIFICA NET -->
         
 		<div class="upage vertical-col hidden fadeIn" id="cadastrar">
-        	<script>//getVer_LoginIn();</script>
 			<header id="interna">
                 <div class="voltar">
                     <button class="btn2" alt="mainpage"><img src="images/iconesetavoltar.png">
@@ -382,11 +249,14 @@
                         <input type="tel"  class="apg_campo tel1" maxlength="12"  placeholder="Telefone" alt="no">
                         <input type="tel"  class="apg_campo tel2" maxlength="13"  placeholder="Celular*" alt="no">
                         <ul class="select-methods" style="list-style-type: none;"><li class="select-method">
-                        <!--<input type="radio" class="sexo" name="sexo" id="M" value="M"><label for="M">Masculino</label><br>-->
                         </li></ul>
-                        <ul class="select-methods" style="list-style-type: none;"><li class="select-method">
-                        <input type="radio" class="sexo" name="sexo" id="F" value="F" checked><label for="F">Feminino</label>
-                        </li></ul>
+						<ul class="select-methods" style="list-style-type: none;">
+							<li class="select-method">
+								<input type="radio" class="sexo" name="sexo" id="F" value="F" checked><label for="F">Feminino</label>
+								<input type="radio" class="sexo" name="sexo" id="M" value="M" checked><label for="M">Masculino</label>
+								<input type="radio" class="sexo" name="sexo" id="O" value="O" checked><label for="O">Outros</label>
+							</li>
+						</ul>
                         <input type="tel" class="apg_campo data_nasc" placeholder="Data Nascimento*" maxlength="10" alt="no" onkeyup="somenteNumerosdata(this);" ng-model="numero.valor">
                         <div align="center"><strong>DADOS DE ACESSO</strong></div>
                         <input type="email" class="apg_campo email" size="30" maxlength="50" placeholder="E-mail*" alt="no">
@@ -422,7 +292,7 @@
 			<section id="paginacadastro">
             <div class="paginainicial">
                 <div class="formulariocadastro">
-					<h4 align="center">Cadastro</h4>
+					<h4 align="center" style="margin:15px;">Cadastro</h4>
                     <div class="apeanascadastro">
 						<input class="form-control apg_campo nome_c" type="text" size="50" maxlength="150" placeholder="Nome Completo*" alt="no">
 						<input class="form-control apg_campo cpf_c" type="text" size="50" maxlength="150" placeholder="CPF" alt="no">
@@ -432,22 +302,42 @@
                         <input class="form-control apg_campo email_c" type="email" size="30" maxlength="50" placeholder="E-mail*" alt="no">
 						<br>
 
-						<legend style="font-size:14px;">Qual serviço você realiza?*</legend>      
-						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Manicure & Pedicure"> Manicure & Pedicure</label><br>
-						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Depilação a Cera"> Depilação a Cera</label><br>
-						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Maquiagem"> Maquiagem</label><br>
-						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Massagens"> Massagens</label><br>
-						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Design de Sobrancelhas"> Design de Sobrancelhas</label><br>
-						<label style="display: inline !important; padding: 5px;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Corte e Modelagem de Cabelos"> Corte e Modelagem de Cabelos</label><br>
+						<legend style="font-family: inherit !important; font-size: 1.1em !important;">Endereço Completo</legend> 
+
+						<input class="form-control apg_campo" placeholder="CEP*" name="cep" id="cep_c" type="tel" onblur="getEnderecoColab()" alt="cep">
+						<input class="form-control apg_campo" placeholder="Logradouro*" id="logradouro_c" type="text" size="40" maxlength="150">
+						<input class="form-control apg_campo" placeholder="Numero*" id="numero_c" type="number" size="5">
+						<input class="form-control apg_campo" placeholder="Cidade*" id="cidade_c" type="text">
+						<input class="form-control apg_campo" placeholder="Estado*" id="estado_c" type="text">
+						<input class="form-control apg_campo" placeholder="Bairro*" id="bairro_c" type="text">
+						<input class="form-control apg_campo" placeholder="Complemento*" id="complemento_c" type="text" maxlength="30">
+						<input class="form-control apg_campo" placeholder="Referencia*" id="referencia_c" type="text" maxlength="30">
+						
 						<br>
 
-						<legend style="font-size:14px;">Quanto tempo você tem nos serviços acima?*</legend>      
-						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="Menos de 12 meses"> Menos de 12 meses</label></p>   
-						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="1 ano"> 1 ano</label></p>      
-						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="2 anos"> 2 anos</label></p>
-						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="3 anos"> 3 anos</label></p>
-						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="4 a 5 anos"> 4 a 5 anos</label></p>
-						<p><label style="display: inline !important; padding: 10px;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="Mais de 5 anos"> Mais de 5 anos</label></p> 
+						<legend style="font-family: inherit !important; font-size: 1.1em !important;">Sexo?*</legend> 
+						<p><label for="F" style="display: inline !important; padding: 10px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="radio" class="sexo" name="sexo" id="F" value="F" checked>Feminino</label></p>
+						<p><label for="M" style="display: inline !important; padding: 10px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="radio" class="sexo" name="sexo" id="M" value="M" checked>Masculino</label></p>
+						<p><label for="O" style="display: inline !important; padding: 10px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="radio" class="sexo" name="sexo" id="O" value="O" checked>Outros</label></p>
+
+						<br>
+
+						<legend style="font-family: inherit !important; font-size: 1.1em !important;">Qual serviço você realiza?*</legend>      
+						<label style="display: inline !important; padding: 5px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Manicure & Pedicure"> Manicure & Pedicure</label><br>
+						<label style="display: inline !important; padding: 5px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Depilação a Cera"> Depilação a Cera</label><br>
+						<label style="display: inline !important; padding: 5px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Maquiagem"> Maquiagem</label><br>
+						<label style="display: inline !important; padding: 5px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Massagens"> Massagens</label><br>
+						<label style="display: inline !important; padding: 5px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Design de Sobrancelhas"> Design de Sobrancelhas</label><br>
+						<label style="display: inline !important; padding: 5px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="checkbox" name="servico_c" value="Corte e Modelagem de Cabelos"> Corte e Modelagem de Cabelos</label><br>
+						<br>
+
+						<legend style="font-family: inherit !important; font-size: 1.1em !important;">Quanto tempo você tem nos serviços acima?*</legend>      
+						<p><label style="display: inline !important; padding: 10px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="Menos de 12 meses"> Menos de 12 meses</label></p>   
+						<p><label style="display: inline !important; padding: 10px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="1 ano"> 1 ano</label></p>      
+						<p><label style="display: inline !important; padding: 10px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="2 anos"> 2 anos</label></p>
+						<p><label style="display: inline !important; padding: 10px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="3 anos"> 3 anos</label></p>
+						<p><label style="display: inline !important; padding: 10px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="4 a 5 anos"> 4 a 5 anos</label></p>
+						<p><label style="display: inline !important; padding: 10px; font-family: inherit !important; font-size: 1.1em !important;"><input style="width:16px; height: 16px;" type="radio" name="experiencia_c" value="Mais de 5 anos"> Mais de 5 anos</label></p> 
 						<br>
 
 						<p><label style="display: inline !important; padding: 10px;"><input style="width:15px; height:15px;" type="checkbox" id="termosuso_c" value="termos" /> Li e concordo com os <a style="color:#ec268f" href="https://www.pinkmajesty.com/home" target="_blank">termos de uso</a></label></p>
@@ -742,7 +632,12 @@
                         </div>
 					</div>
 					
-					<div id="interna" style="font-size:12px;"><p><label style="display: inline !important; padding: 10px;"><input style="width:15px; height:15px;" type="checkbox" id="termosusoAgendamento" value="termos" /> Li e concordo com os <a style="color:#ec268f" href="https://www.pinkmajesty.com/home" target="_blank">termos de uso</a></label></p></div>
+					<div id="interna" style="font-size:12px;"><p><label style="display: inline !important; padding: 10px;"><input style="width:15px; height:15px; margin: 10px;" type="checkbox" id="termosusoAgendamento" value="termos" /> 
+						Li e concordo com os <a style="color:#ec268f" href="https://www.pinkmajesty.com/home" target="_blank">termos de uso
+								</a>
+							</label>
+						</p>
+					</div>
                 	
                     <div class="total">
                     	<p class="v_total" align="center"></p>
@@ -943,7 +838,7 @@
 								
 								<div id="tipo_cartao_select">
 									<input class="apg_campo nome_impresso" type="text" id="nome_impresso" name="nome_impresso" placeholder="Nome Impresso no Cartão de Crédito" maxlength="30"/>
-									<!--<input class="apg_campo cpf_titular" placeholder="CPF do Titular" type="tel" alt="cpf" id="cpf_titular" maxlength="14">-->
+									<input class="apg_campo cpf_titular" placeholder="CPF do Titular" type="tel" alt="cpf" id="cpf_titular" maxlength="14">
 									<!--<input class="apg_campo data_nasc_cartao" type="tel" id="data_nasc_cartao" maxlength="10" onkeyup="somenteNumerosdata(this);" ng-model="numero.valor" placeholder="Data Nascimento do Titular">-->
 									<input class="apg_campo numero_c" placeholder="Numero do Cartão de Crédito" type="tel" id="numero_c" name="numero_c" maxlength="16"/>
 									<input class="apg_campo datepicker mes" type="number" id="mes" name="mes" size="2" onkeyup="somenteNumeros(this);" ng-model="numero.valor" placeholder="Mês de Vencimento ex:01" min="1" max="12"/>                       
@@ -981,7 +876,7 @@
               		<div class="formulariocadastro">
                 		<div class="apeanascadastro">
 							<input type="text" class="apg_campo cod_cupom" placeholder="Digite o codigo do cupom">
-                            <div class="cpf_cup"></div>
+                            <!--<div class="cpf_cup"></div>-->
 					  </div>
                 		<div class="entrar">
                   			<button class="btn2 btn_cupom"><div class="buttonentrar">Avançar</button>
@@ -1286,26 +1181,10 @@ A mesma regra vale para agendamentos de qualquer outro serviço.
         
         <footer class="menu_inferior">
         	<ul class="rodapedellas">
-                <li class="btn2" alt="principal"><a><i class="fa fa-star-o" aria-hidden="true"></i> <p>Novo Pedido</p></a></li>
-                <li class="btn2" alt="meusPedidos">
-                	<div class="novo_pedido2" style="display:none;">
-                        <h4 class="list-group-item-heading" align="center">
-                            <i class="fa fa-exclamation-circle" aria-hidden="true" style="color:#ec268f; position:absolute; bottom: 59%; left: 44%;"></i>
-                        </h4>                        	
-                    </div>
-                    <a><i class="fa fa-heart-o" aria-hidden="true"></i> <p>Meus Pedidos</p></a>
-                </li>
-                <li class="btn2 perfil" alt="minhaConta"><a><img src="images/boca.png"> <p>Minha Conta</p></a></li>
-                <li class="btn2" alt="ajuda">
-                	<div class="nova_conversa" style="display:none;">
-                        <h4 class="list-group-item-heading" align="center">
-                        	
-                            <i class="fa fa-comments" aria-hidden="true" style="color:#ec268f; position:absolute; bottom: 59%; left: 87%;"></i>
-
-                        </h4>                        	
-                    </div>
-                	<a><i class="fa fa-commenting-o" aria-hidden="true"></i> <p>Ajuda</p></a>
-                </li>
+				<li class="btn2 perfil" alt="principal"><a><img src="images/agende_aqui.png"> <p>Agende Aqui</p></a></li>
+				<li class="btn2 perfil" alt="meusPedidos"><a><img src="images/historico.png"> <p>Histórico</p></a></li>
+				<li class="btn2 perfil" alt="minhaConta"><a><img src="images/minha_conta.png"> <p>Minha Conta</p></a></li>
+				<li class="btn2 perfil" alt="ajuda"><a><img src="images/ajuda.png"> <p>Ajuda</p></a></li>
             </ul>
 		</footer>
 		

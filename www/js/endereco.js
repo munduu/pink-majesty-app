@@ -44,3 +44,21 @@ function getEndereco() {
 			});				
 		}
 }
+
+function getEnderecoColab() {
+	// Se o campo CEP não estiver vazio
+				
+	if($.trim($("#cep_c").val()) != ""){
+		$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_c").val(), function(){
+			if(resultadoCEP["resultado"]){
+				$("#logradouro_c").val(unescape(resultadoCEP["tipo_logradouro"])+" "+unescape(resultadoCEP["logradouro"]));
+				$("#bairro_c").val(unescape(resultadoCEP["bairro"]));
+				$("#estado_c").val(unescape(resultadoCEP["uf"]));
+				$("#cidade_c").val(unescape(resultadoCEP["cidade"]));
+				$("#numero_c").focus();
+			}else{
+				navigator.notification.alert('Endereço não encontrado!', 'title', 'Error', 'OK');
+			}
+		});				
+	}
+}

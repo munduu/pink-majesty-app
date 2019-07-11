@@ -79,7 +79,7 @@
 	
 	function getVer_Login_off(){
 		
-		if(getCookie("id_cliente")==''){	
+		/*if(getCookie("id_cliente")==''){	
 			$(".menu_colab").hide();
 			$('.loader').hide();
 			activate_page("#principal");
@@ -88,7 +88,12 @@
 			getListar_categorias();
 		}else{
 			getVer_Login();			
-		}
+		}*/
+		activate_page("#principal");
+		$(".menu_colab").hide();
+		$(".menu_inferior").show();
+		$(".listar_categorias_").show();
+		getListar_categorias();
 	}
 	
 	getVer_Login_off();
@@ -906,15 +911,25 @@
 	}
 	//CADASTRO CLIENTE FIM
 	//CADASTRO COLABORADOR INICIO
-	function setCad_colaborador(nome,tel1,tel2,data_nasc,email,servico,experiencia) {	
+	function setCad_colaborador(nome_c ,tel1_c ,tel2_c , data_nasc_c, email_c, logradouro_c, numero_c, cidade_c, estado_c, bairro_c, complemento_c, referencia_c, sexo_c, servico_c, experiencia_c) {	
 	
-		var nome		= nome;
-		var tel1		= tel1;
-		var tel2		= tel2;
-		var data_nasc	= data_nasc;
-		var email		= email;
-		var servico		= servico;
-		var experiencia = experiencia;
+		var nome		= nome_c;
+		var tel1		= tel1_c;
+		var tel2		= tel2_c;
+		var data_nasc	= data_nasc_c;
+		var email		= email_c;
+
+		var logradouro_c  = logradouro_c;
+		var numero_c	  = numero_c;
+		var cidade_c	  = cidade_c;
+		var estado_c	  = estado_c;
+		var bairro_c	  = bairro_c;
+		var complemento_c = complemento_c;
+		var referencia_c  = referencia_c;
+
+		var sexo		= sexo_c;
+		var servico		= servico_c;
+		var experiencia = experiencia_c;
 		
 		$.ajax({
 			type:"POST",
@@ -922,7 +937,24 @@
 			async:true,
 			crossDomain: true,
 			url: url_geral+"cadastrar_colaborador.php",
-			data:{"nome":nome, "tel1":tel1, "tel2":tel2, "data_nasc":data_nasc, "email":email, "servico":servico, "experiencia":experiencia, "token":"H424715433852"},
+			data:{ 
+				"nome":nome,
+				"tel1":tel1,
+				"tel2":tel2,
+				"data_nasc":data_nasc,
+				"email":email,
+				"logradouro_c":logradouro,
+				"numero_c":numero,
+				"cidade_c":cidade,
+				"estado_c":estado,
+				"bairro_c":bairro,
+				"complemento_c":complemento,
+				"referencia_c":referencia,
+				"sexo":sexo,
+				"servico":servico,
+				"experiencia":experiencia,
+				"token":"H424715433852"
+			},
 			timeout: 100000, 
 			beforeSend: function(resultado){
 				$('.loader').show();
@@ -939,7 +971,7 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setCad_colaborador(nome,tel1,tel2,data_nasc,email);
+				setCad_colaborador(nome_c ,tel1_c ,tel2_c , data_nasc_c, email_c, logradouro_c, numero_c, cidade_c, estado_c, bairro_c, complemento_c, referencia_c, sexo_c, servico_c, experiencia_c);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#trabalhe_conosco");
 			}			
@@ -1595,9 +1627,9 @@
 						setCookie('s_valor',resultado.valor);
 					}else if(resultado.erro == 3){
 						alert('Cupom Ja Utilizado!');
-					}else if(resultado.erro == 5){
+					}/*else if(resultado.erro == 5){
 						alert('CPF Inválido!');
-					}
+					}*/
 					
 				},
 				error:function(resultado){
@@ -2304,28 +2336,26 @@
 			var data_n_c  	= $(".data_nasc_c").val();
 			var email_c		= $(".email_c").val();
 			
+			var logradouro_c  = $(".logradouro_c").val();
+			var numero_c      = $(".numero_c").val();
+			var cidade_c      = $(".cidade_c").val();
+			var estado_c      = $(".estado_c").val();
+			var bairro_c      = $(".bairro_c").val();
+			var complemento_c = $(".complemento_c").val();
+			var referencia_c  = $(".referencia_c").val();
+
+			var sexo_c = sexo_c.toString();
+			var sexo_c = $("input[name='sexo']:checked").val();
+			
 			var servico_c = [];
-			$. each($("input[name='servico_c']:checked"), function(){ servico_c. push($(this). val()); });
+			$.each($("input[name='servico_c']:checked"), function(){ servico_c. push($(this). val()); });
 
 			var servico_c = servico_c.toString();
 			var experiencia_c = $("input[name='experiencia_c']:checked").val();
 
-			//alert(servico_c);
-
-			//alert($("input[name='experiencia_c']:checked").val())
-			/*
-			var toMmDdYy = function(input) {
-				var ptrn = /(\d{4})\-(\d{2})\-(\d{2})/;
-				if(!input || !input.match(ptrn)) {
-					return null;
-				}
-				return input.replace(ptrn, '$1/$2/$3');
-			};
-			var data_nasc_c	= toMmDdYy(data_n_c);
-			*/
 			var data_nasc_c	= data_n_c;
 			
-			setCad_colaborador(nome_c,tel1_c,tel2_c,data_nasc_c,email_c, servico_c, experiencia_c);
+			setCad_colaborador(nome_c ,tel1_c ,tel2_c , data_nasc_c, email_c, logradouro_c, numero_c, cidade_c, estado_c, bairro_c, complemento_c, referencia_c, sexo_c, servico_c, experiencia_c);
 		}
 	});
 	
