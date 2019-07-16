@@ -154,8 +154,7 @@ if($token=='H424715433852'){
 			}else{
 				$fonte = 'font-size: 2em;!important';
 			}
-			
-			
+		
 			$dados.= '
 			<a class="btn2 infoservico" style="text-decoration:none">
 				<div id="produto_total">

@@ -1477,6 +1477,54 @@
 	}
 	
 	//ALTERAR EMAIL FINAL
+	//ALTERAR EMAIL INICIO
+	function setAlterar_pass(pass){
+		
+		var user    = getCookie("id_cliente");
+		
+		$.ajax({
+			type:"POST",
+			dataType:"json",
+			async:true,
+			crossDomain: true,
+			url: url_geral+"alterar_email.php",
+            data:{"token":"H424715433852","user":user,"email":email},
+			timeout: 100000, 
+			beforeSend: function(resultado){
+				$('.loader').show();
+            },
+            success: function(resultado){
+				$('.loader').hide();
+				if(resultado.erro==2){	
+					alert(resultado.dados);
+					setCookie('id_cliente','');
+					setCookie('tipo','');
+					setCookie('id_endereco','');
+					setCookie('data','');
+					setCookie('hora','');
+					setCookie('forma_pg','');
+					setCookie('cod_cupom','');
+					setCookie('cpf_cupom','');
+					setCookie('servico','');
+					setCookie('s_valor','');
+					$(".menu_inferior").hide();
+					activate_page("#mainpage");
+				}else{
+					alert(resultado.dados);
+					//activate_page("#cadastrar");
+				}
+				getListar_meusPedidos();
+            },
+			error: function(resultado) {
+				$('.loader').hide();
+				setAlterar_email(email);
+				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
+				//activate_page("#cadastrar");
+			}			
+        });
+	}
+	
+	//ALTERAR EMAIL FINAL
 	//ALTERAR TELEFONE INICIO
 	function setAlterar_telefone(tel1,tel2){
 		
@@ -1935,7 +1983,11 @@
 				$(".menu_colab").show();
 			}			
 		}
-		
+
+		if(funcao == 'alterar_pass'){
+			getAlteracoes_cliente('6');
+			$( ".menu_inferior" ).hide();
+		}
 		if(funcao == 'alterar_crt'){
 			getAlteracoes_cliente('5');
 			$( ".menu_inferior" ).hide();
@@ -2513,6 +2565,13 @@
 		var email 	= $('.email_alterar').val();
 		setAlterar_email(email);
         return false;
+	});
+	
+	$(document).on("click", ".alt_pass", function(evt)
+    {
+		var pass 	= $('.pass_alterar').val();
+		setAlterar_pass(pass);
+        return false;
     });
 	
 	$(document).on("click", ".alt_tel", function(evt)
@@ -2641,8 +2700,8 @@
 		if(ano >2999) {
 			$(this).val('2999');
 		}
-    });
-	
+	});
+		
 	$('#data_busca1').bootstrapMaterialDatePicker
 	({ 
 		weekStart: 0, format: 'DD/MM/YYYY',

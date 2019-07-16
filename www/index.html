@@ -3,8 +3,27 @@
   <head>
    <title>tittle</title>
    <script>
-     window.location='./main.html';
+     setTimeout(
+        function(){
+          window.location='./main.html';
+        },
+     3000);
    </script>
+   <style>
+    body{
+      background-image:url('./images/splashscreen.png');
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center;
+      width: 100%;
+      height: 100%;
+      min-height: 1450px;
+    }
+    html{
+      background-color: #E2CCD2;
+    }
+   </style>
+  </head>
   <body>
   </body>
 </html>

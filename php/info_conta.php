@@ -126,6 +126,21 @@ if($token=='H424715433852'){
 				*/
 			$dados.= '
 			</div>
+
+			<a class="btn2" alt="alt_cli" id="alterar_pass">	
+			<div id="interna">
+				<div class="icones senha">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+				</div>
+				<div class="textos">
+					<h1>Senha</h1>
+					<p style="padding:10px 0;">******</p>
+				</div>
+				<div class="editar">
+				 <img src="images/iconelapis.png">
+				</div>';
+			$dados.= '
+			</div></a>
 			
 			<a class="btn2" alt="alt_cli" id="alterar_end">	
 				<div id="interna">
