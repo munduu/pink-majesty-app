@@ -156,7 +156,7 @@
 				$('.loader').hide();
 				getLogin(login_email,login_senha,token_id);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
-				//activate_page("#mainpage");
+				activate_page("#mainpage");
 			}
 		});
 	}	
@@ -794,7 +794,7 @@
                 },
             error:function(resultado){
 				$('.loader').hide();
-				getListar_meusPedidos();
+				//getListar_meusPedidos();
 				//navigator.notification.alert('ERRO, ler lista pedidos! #001', 'CADASTRAR', 'Error', 'OK');
             }
         });
@@ -1079,7 +1079,7 @@
 					setCookie('cpf_cupom','');
 					activate_page("#principal");
 					console.log(resultado);
-					checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
+					//checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
 				}else{
 					alert(resultado.dados);
 					//activate_page("#cadastrar");
@@ -1898,19 +1898,20 @@
 					$(".v_total").html('<h1>Total</h1><p id="valor">R$ '+getCookie("s_valor")+'</p>');
 				}
 			}else{
-				getVer_Login();
+				//getVer_Login();
 			}
 		}
 		if(link == 'agenda'){
 			getListar_agenda('','');
 		}
 		if(link == 'meusPedidos'){
-			var user    = getCookie("id_cliente");	
-			if(user){
+			//var user    = getCookie("id_cliente");	
+			getListar_meusPedidos();
+			/*if(user){
 				getListar_meusPedidos();
 			}else{
 				getVer_Login();
-			}
+			}*/
 		}
 		if(link == 'minhaConta'){
 			$( ".menu_inferior" ).show();
@@ -2180,7 +2181,6 @@
 		var info_data = date_format.split(" ");
 		//navigator.notification.alert(info_data[2]);
 		
-		
 		if(info_data[2] == 'Janeiro'){	var mes = '01';}           
 		if(info_data[2] == 'Fevereiro'){var mes = '02';}
 		if(info_data[2] == 'Março'){	var mes = '03';}
@@ -2438,7 +2438,7 @@
     {
 		var agenda 	= $(this).attr('alt');
 		setCadastrar_agenda_colab(agenda);
-		//checkout_ccard(agenda);
+		checkout_ccard(agenda);
         return false;
     });
 	
@@ -2563,7 +2563,7 @@
 		var user    = getCookie("id_cliente");	
 		if(user){
 			$( ".menu_inferior" ).hide();
-			var url_geral2  = "http://dellasbeleza.com.br/app/chat/index.php";
+			var url_geral2  = "http://igestaoweb.com.br/pinkmajesty/app_new/chat/index.php";
 			var token_id    = localStorage.getItem("token_id");
 			var idu 		= getCookie('id_cliente');
 			//navigator.notification.alert('sasasas', '', 'ALERTA', 'OK');

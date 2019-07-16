@@ -1,48 +1,11 @@
-function checkout_ccard(agenda,lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg){
-    
-    if(lNcartao==''){
-        alert('Campo obrigatório vazio: NÚMERO DO CARTÃO');
-        $('.btn_troca_cartao[alt='+agenda+']').show();
-        $('.btn_pagamento[alt='+agenda+']').hide();
-        return false;
-    } 
-
-    if(lNmcartao==''){
-        alert('Campo obrigatório vazio: NOME COMPLETO DO TITULAR DO CARTÃO');
-        $('.btn_troca_cartao[alt='+agenda+']').show();
-        $('.btn_pagamento[alt='+agenda+']').hide();
-        return false;
-    }
-    
-    if(lMesVenc==''){
-        alert('Campo obrigatório vazio: MÊS VENCIMENTO DO CARTÃO');
-        $('.btn_troca_cartao[alt='+agenda+']').show();
-        $('.btn_pagamento[alt='+agenda+']').hide();
-        return false;
-    }
-    
-    if(lAnoVenc==''){
-        alert('Campo obrigatório vazio: ANO VENCIMENTO DO CARTÃO');
-        $('.btn_troca_cartao[alt='+agenda+']').show();
-        $('.btn_pagamento[alt='+agenda+']').hide();
-        return false;
-    }
-    
-    if(lAnoVenc.length<4){
-        alert('Campo obrigatório vazio: ANO VENCIMENTO DO CARTÃO DEVE CONTAR 4 DIGITOS');
-        $('.btn_troca_cartao[alt='+agenda+']').show();
-        $('.btn_pagamento[alt='+agenda+']').hide();
-        return false;
-    }
-    
-    if(lCodigoSeg==''){
-        alert('Campo obrigatório vazio: CÓDIGO SEGURANÇA DO CARTÃO');
-        $('.btn_troca_cartao[alt='+agenda+']').show();
-        $('.btn_pagamento[alt='+agenda+']').hide();
-        return false;
-    }
-
-    identifica_bandeira(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg);
+function checkout_ccard(agenda){
+    $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/getCard.php", { agenda: agenda, token: "H424715433852" },
+    function (result) {
+        console.log(result);
+        if(result.success == true){
+            identifica_bandeira(agenda, result.lNcartao, result.lNmcartao, result.lMesVenc, result.lAnoVenc, result.lCodigoSeg);
+        }
+    },'json');
 }
 
 function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
@@ -93,7 +56,7 @@ function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand
         if(result.cardToken){
             checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
             console.log(result.cardToken)
-            //log_pagseguro(lNcartao, lNmcartao, lMesVenc, lAnoVenc, lCodigoSeg, result.cardToken);
+            setConfirmar_pedido(agenda, 'AGENDADO', '');
         }
     },'json');
 }
@@ -185,6 +148,10 @@ function getListar_meusPedidos(){
 }
 //LISTAR PEDIDO FINAL
 
+function getCookie(cname) {
+    return localStorage.getItem(cname);
+}
+
 //CONFIRMAÇÃO DE PEDIDO INICIO
 function setConfirmar_pedido(agenda, situacao, tipo){	
 
@@ -212,7 +179,6 @@ var cod_pagseguro	= $("#cod_pagseguro").val();
             console.log(resultado);
             
             if(resultado.erro==2){
-                alert('Pagamento processado, aguardando confirmação da Operadora.');
                 activate_page("#meusPedidos");
             }else{
                 alert('Pagamento processado, aguardando confirmação da Operadora.');
