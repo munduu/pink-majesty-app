@@ -96,7 +96,6 @@
 			$(".menu_inferior").show();
 			$(".listar_categorias_").show();
 			getListar_categorias();
-
 		}
 	}
 	
