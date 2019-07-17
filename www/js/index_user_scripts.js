@@ -78,22 +78,26 @@
 	//VERIFICA SE JA ESTA LOGADO FIM
 	
 	function getVer_Login_off(){
-		
-		/*if(getCookie("id_cliente")==''){	
-			$(".menu_colab").hide();
-			$('.loader').hide();
+		if(getCookie("tipo") == 'Cliente'){
 			activate_page("#principal");
+			$(".menu_colab").hide();
 			$(".menu_inferior").show();
-			setCookie('tipo','Cliente');
+			$(".listar_categorias_").show();
 			getListar_categorias();
-		}else{
-			getVer_Login();			
-		}*/
-		activate_page("#principal");
-		$(".menu_colab").hide();
-		$(".menu_inferior").show();
-		$(".listar_categorias_").show();
-		getListar_categorias();
+		} else if(getCookie("tipo") == 'Profissional'){
+			activate_page("#principal");
+			$(".menu_inferior").hide();
+			$(".listar_categorias_").hide();
+			$(".menu_colab").show();
+			$('.loader').hide();
+		} else {
+			activate_page("#principal");
+			$(".menu_colab").hide();
+			$(".menu_inferior").show();
+			$(".listar_categorias_").show();
+			getListar_categorias();
+
+		}
 	}
 	
 	getVer_Login_off();
@@ -1487,8 +1491,8 @@
 			dataType:"json",
 			async:true,
 			crossDomain: true,
-			url: url_geral+"alterar_email.php",
-            data:{"token":"H424715433852","user":user,"email":email},
+			url: url_geral+"alterar_pass.php",
+            data:{"token":"H424715433852","user":user,"pass":pass},
 			timeout: 100000, 
 			beforeSend: function(resultado){
 				$('.loader').show();

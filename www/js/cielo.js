@@ -25,7 +25,7 @@ function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
         if(resultCard.payment.returnCode == '00'){
             alert(resultCard.payment.returnMessage);
             $("#cod_pagseguro").val(resultCard.payment.paymentId)
-            setConfirmar_pedido(agenda, 'PEDIDO', 'Cliente');
+            setConfirmar_pedido(agenda, 'PEDIDO', 'Profissional');
             $('.loader').show();
             setTimeout(function(){ getListar_meusPedidos(); $('.loader').hide(); }, 10000);
             activate_page("#meusPedidos");
@@ -56,7 +56,7 @@ function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand
         if(result.cardToken){
             checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
             console.log(result.cardToken)
-            setConfirmar_pedido(agenda, 'AGENDADO', '');
+            setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
         }
     },'json');
 }
