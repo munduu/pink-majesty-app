@@ -13,7 +13,7 @@ function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
         {
             MerchantOrderId: agenda,
             Name: lNmcartao,
-            Amount: "100",
+            Amount: "200",
             CardToken: cardToken,
             SecurityCode: lCodigoSeg,
             Brand: brand
