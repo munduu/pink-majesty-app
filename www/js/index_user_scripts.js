@@ -318,12 +318,13 @@
 	function getServico_detalhado(servico, det){
 		var servico = servico;
 		var det = det;
+		var user = getCookie("id_cliente");
 		$.ajax({
 			type:"POST",
 			async:true,
 			crossDomain: true,
 			url:url_geral+"servico_detalhado.php",
-            data:{"servico":servico,"token":"H424715433852"},
+            data:{"user":user, "servico":servico,"token":"H424715433852"},
             timeout: 100000,
                 beforeSend: function(resultado){ 
                     $('.loader').show();
@@ -1949,7 +1950,7 @@
 					$(".v_total").html('<h1>Total</h1><p id="valor">R$ '+getCookie("s_valor")+'</p>');
 				}
 			}else{
-				//getVer_Login();
+				getVer_Login();
 			}
 		}
 		if(link == 'agenda'){

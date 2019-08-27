@@ -272,7 +272,7 @@ footer i {
 .precoservico h1 {
     /*font-family: "Times New Roman", Times, serif;*/
     color: #ec268f;
-    font-size: 2em;
+    font-size: 1.3em;
 }
 .precoservico_pacote h1 {
     /*font-family: 'Conv_Angelface', sans-serif;*/
@@ -1243,6 +1243,7 @@ input#in_h_ter {
 
 
 .titulo_fotos {
+    font-size: 24px;
     margin-top: 70px; 
     margin-bottom: 0px;
     margin-left: 10px;
