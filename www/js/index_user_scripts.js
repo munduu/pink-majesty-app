@@ -1218,36 +1218,38 @@
 	function getInfo_Conta(){
 		
 		var user    = getCookie("id_cliente");
+
+		console.log(user);
 		
-		if(user){
+		//if(user){
 		
-			$.ajax({
-				type:"POST",
-				async:true,
-				crossDomain: true,
-				url:url_geral+"info_conta.php",
-				data:{"token":"H424715433852", "user":user},
-				timeout: 100000,
-					beforeSend: function(resultado){ 
-						$('.loader').show();
-					},
-					success: function(resultado){
-						$('.loader').hide();
-						$(".info_conta").html(resultado);
-					},
-				error:function(resultado){
+		$.ajax({
+			type:"POST",
+			async:true,
+			crossDomain: true,
+			url:url_geral+"info_conta.php",
+			data:{"token":"H424715433852", "user":user},
+			timeout: 100000,
+				beforeSend: function(resultado){ 
+					$('.loader').show();
+				},
+				success: function(resultado){
 					$('.loader').hide();
-					getInfo_Conta();
-					/*
-					$('.error').show();
-					$('.error').html('ERRO, ler lista de servicos! #001');
-					*/
-				}
-			});
+					$(".info_conta").html(resultado);
+				},
+			error:function(resultado){
+				$('.loader').hide();
+				getInfo_Conta();
+				/*
+				$('.error').show();
+				$('.error').html('ERRO, ler lista de servicos! #001');
+				*/
+			}
+		});
 			
-		}else{
-			getVer_Login();
-		}
+		//}else{
+			//getVer_Login();
+		//}
 	}
 	//INFORMA��ES CONTA FINAL
 	//ALTERA��ES DO CLIENTE INICIO
@@ -1957,6 +1959,17 @@
 			getListar_agenda('','');
 		}
 		if(link == 'meusPedidos'){
+
+			$(".rodape_principal").attr("src","images/agende_aqui.png");
+			$(".rodape_meusPedidos").attr("src","images/historico2.png");
+			$(".rodape_minhaConta").attr("src","images/minha_conta.png");
+			$(".rodape_ajuda").attr("src","images/ajuda.png");
+
+			$(".rodape_principal").css("color","#333333");
+			$(".rodape_meusPedidos").css("color","#ec268f");
+			$(".rodape_minhaConta").css("color","#333333");
+			$(".rodape_ajuda").css("color","#333333");
+
 			//var user    = getCookie("id_cliente");	
 			getListar_meusPedidos();
 			/*if(user){
@@ -1966,15 +1979,48 @@
 			}*/
 		}
 		if(link == 'minhaConta'){
+			
+			$(".rodape_principal").attr("src","images/agende_aqui.png");
+			$(".rodape_meusPedidos").attr("src","images/historico.png");
+			$(".rodape_minhaConta").attr("src","images/minha_conta2.png");
+			$(".rodape_ajuda").attr("src","images/ajuda.png");
+
+			$(".rodape_principal").css("color","#333333");
+			$(".rodape_meusPedidos").css("color","#333333");
+			$(".rodape_minhaConta").css("color","#ec268f");
+			$(".rodape_ajuda").css("color","#333333");
+
 			$( ".menu_inferior" ).show();
 			getInfo_Conta();
 		}
 		if(link == 'facebook'){}
 		if(link == 'ajuda'){
+			
+			$(".rodape_principal").attr("src","images/agende_aqui.png");
+			$(".rodape_meusPedidos").attr("src","images/historico.png");
+			$(".rodape_minhaConta").attr("src","images/minha_conta.png");
+			$(".rodape_ajuda").attr("src","images/ajuda2.png");
+
+			$(".rodape_principal").css("color","#333333");
+			$(".rodape_meusPedidos").css("color","#333333");
+			$(".rodape_minhaConta").css("color","#333333");
+			$(".rodape_ajuda").css("color","#ec268f");
+
 			$( ".menu_inferior" ).show();
 		}
 		
 		if(link=='principal'){
+			
+			$(".rodape_principal").attr("src","images/agende_aqui2.png");
+			$(".rodape_meusPedidos").attr("src","images/historico.png");
+			$(".rodape_minhaConta").attr("src","images/minha_conta.png");
+			$(".rodape_ajuda").attr("src","images/ajuda.png");
+
+			$(".rodape_principal").css("color","#ec268f");
+			$(".rodape_meusPedidos").css("color","#333333");
+			$(".rodape_minhaConta").css("color","#333333");
+			$(".rodape_ajuda").css("color","#333333");
+
 			if(getCookie("tipo") == 'Cliente' || getCookie("tipo") == null){
 				$(".esquerda").show();
 				$(".menu_colab").hide();
@@ -2471,6 +2517,8 @@
 		$(".lista_pedido3").hide();
 		$(".lista_pedido2").hide();
 		$(".lista_pedido").show();
+		$(".agenda_button").css("color", "#333333");
+		$(".agenda_button1").css("color", "#ec268f");
 		return false;
 	});
 	
@@ -2479,6 +2527,8 @@
 		$(".lista_pedido3").hide();
 		$(".lista_pedido2").show();
 		$(".lista_pedido").hide();	
+		$(".agenda_button").css("color", "#333333");
+		$(".agenda_button2").css("color", "#ec268f");
         return false;
     });
 	
@@ -2486,7 +2536,9 @@
     {
 		$(".lista_pedido3").show();
 		$(".lista_pedido2").hide();
-		$(".lista_pedido").hide();	
+		$(".lista_pedido").hide();
+		$(".agenda_button").css("color", "#333333");
+		$(".agenda_button3").css("color", "#ec268f");
         return false;
     });
 	
@@ -2666,6 +2718,15 @@
 		getListar_categorias();
 		activate_page("#area_atend");
 		activate_page("#principal");
+		$(".rodape_principal").attr("src","images/agende_aqui2.png");
+		$(".rodape_meusPedidos").attr("src","images/historico.png");
+		$(".rodape_minhaConta").attr("src","images/minha_conta.png");
+		$(".rodape_ajuda").attr("src","images/ajuda.png");
+
+		$(".rodape_principal").css("color","#ec268f");
+		$(".rodape_meusPedidos").css("color","#333333");
+		$(".rodape_minhaConta").css("color","#333333");
+		$(".rodape_ajuda").css("color","#333333");
     });
 
 	$(document).on("click", ".alt_cidat", function(evt)

@@ -30,7 +30,7 @@ input:-webkit-autofill {
 
 label:hover {
     outline: none !important;
-    border: 1px solid #ff0c8c !important;
+    /*border: 1px solid #ff0c8c !important;*/
 }
 
 /* header novo pedido */
@@ -378,14 +378,14 @@ div#selecione {
 }
 
 #interna .textos p {
-    color: #bcbdbf;
+    color: #333333;
     margin: 0;
-    font-size: 0.9em;
+    font-size: 1.3em;
     margin-bottom: 15px;
 }
 
 #interna .textos h1 {
-    color: #727375;
+    color: #ec268f;
     font-size: 1.2em;
     margin-bottom: 0px;
 }
@@ -475,21 +475,22 @@ div#selecione {
 
 #interna .fa-map-marker {
     font-size: 1.0em;
+    color: #ec268f;
 }
 
 #interna .fa-phone {
     font-size: 1.0em;
-    color: #666;
+    color: #ec268f;
 }
 
 #interna .fa-envelope {
     font-size: 1.0em;
-    color: #666;
+    color: #ec268f;
 }
 
 #interna .fa-user-circle-o {
     font-size: 0.8em;
-    color: #666;
+    color: #ec268f;
 }
 
 /* pagina ajuda */
@@ -822,7 +823,7 @@ input[type="radio"] {
 }
 
 i.fa.fa-credit-card {
-    color: #666;
+    color: #ec268f;
     padding-left: 4px;
 }
 
