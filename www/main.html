@@ -81,7 +81,8 @@
 		<script type="text/javascript" src="https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/js/material.min.js"></script>
 		<!--<script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>-->
 		<script type="text/javascript" src="bootstrap/js/moment-with-locales.min.js"></script>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap-material-datetimepicker.css">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap-material-datetimepicker.css">
+		<link rel="stylesheet" href="css/wickedpicker.css">
    		<script src="bootstrap/js/bootstrap-material-datetimepicker.js"></script> 
 		<!--DATETIMER-->
         
@@ -118,7 +119,7 @@
 	</head>
 
 	<body>
-    	
+		<script type="text/javascript" src="js/wickedpicker.js"></script>
 		<div class="loader"></div>
        
         <script type="application/javascript">
@@ -131,6 +132,9 @@
 					activate_page("#sem_net");
 					$( ".menu_inferior" ).hide();
 				}
+
+				var timepicker = $('.timepicker').wickedpicker({twentyFour: true}); 
+				console.log(timepicker.wickedpicker('time'));
 			});
 		</script>
 		
@@ -771,11 +775,12 @@
             <section id="paginacadastro">
                 <div class="paginainicial">
                 	<div class="formulariocadastro">
-						<h4 align="center">Selecionar Data e Hora</h4>
+						<h4 align="center">Selecionar Hora e Data</h4>
                         <div class="apeanascadastro">
-                        	<div>Data : </div>
-                            <input id="date_format" class="form-control floating-label" placeholder="Selecione a data">
-                            
+                        	<div>Hora : </div>
+							<input id="hour_format" class="form-control floating-label timepicker" placeholder="Selecione hora">
+							<div>Data : </div>
+                            <input id="date_format" class="form-control floating-label" placeholder="Selecione data">
                         </div>
                         <div class="entrar">
                         	<button class="btn2 btn-data-hora"><div class="buttonentrar">Avançar</div></button>

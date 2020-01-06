@@ -1893,11 +1893,12 @@
 			//navigator.notification.alert(d2.getMinutes(), '', '', 'OK');
 			$('#date_format').bootstrapMaterialDatePicker
 			({
-				format: 'dddd DD MMMM YYYY - HH:mm',
+				format: 'dddd DD MMMM YYYY',
 				lang  :	'pt-br',
 				switchOnClick : true,
 				minDate: d2,
-				currentDate: d2
+				currentDate: d2,
+				time: false
 			});
 			$('.dtp-btn-cancel').hide();			
 		}
@@ -2279,7 +2280,8 @@
 	$(document).on("click", ".btn-data-hora", function(evt)
     {
 		var user   		= getCookie('id_cliente');
-		var date_format = $("#date_format").val();
+		var date_format = $("#date_format").val() + " " + $("#hour_format").val();
+		console.log(date_format);
 		var info_data = date_format.split(" ");
 		//navigator.notification.alert(info_data[2]);
 		
@@ -2297,13 +2299,13 @@
 		if(info_data[2] == 'Dezembro'){	var mes = '12';}
 		var data = info_data[3]+'/'+mes+'/'+info_data[1];
 		var data_f = info_data[1]+'/'+mes+'/'+info_data[3];
-		var hora = info_data[5];
+		var hora = info_data[4]+':'+info_data[6];
 		
 		//navigator.notification.alert(hora);
 		
 		//var data    	= $(".data").val();
 		//var hora  	= $(".hora").val();
-		
+		//console.log(data,data_f,hora);
 		getHora_atendimento(data,data_f,hora);
 	});
 	
