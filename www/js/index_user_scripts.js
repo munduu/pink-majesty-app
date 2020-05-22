@@ -70,7 +70,7 @@
 			$('.loader').hide();
 			$(".menu_inferior").hide();
 			activate_page("#mainpage");
-			console.log('Cheguemos!');
+			//console.log('Cheguemos!');
 		}
 			
 	}
@@ -304,7 +304,7 @@
             success: function(resultado){
 				$('.loader').hide();
                 $(".listar_servicos").html(resultado);
-				console.log('aki: '+resultado+' s:'+servico);
+				//console.log('aki: '+resultado+' s:'+servico);
             },
             error:function(resultado){
 				$('.loader').hide();
@@ -1219,7 +1219,7 @@
 		
 		var user    = getCookie("id_cliente");
 
-		console.log(user);
+		console.log("id_cliente:"+ user);
 		
 		//if(user){
 		
