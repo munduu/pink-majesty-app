@@ -43,8 +43,8 @@ if($token=='H424715433852'){
 				$tipo		= $ln['tipo'];
 				$bancodd    = $ln['banco'];
 				if($tipo == 1){
-					$n_tipo = 'CREDITO';
-					$cc     = '****'.substr($numero, -4);
+					$n_tipo = 'CREDITO [ '.strtoupper($bancodd).' ]';
+					$cc     = '•••• '.substr($numero, -4);
 				}elseif($tipo == 2){
 					$n_tipo = 'DEBITO ONLINE';
 					$cc     = $bancodd;

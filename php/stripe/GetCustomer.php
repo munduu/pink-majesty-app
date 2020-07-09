@@ -6,7 +6,7 @@ require_once('config.php');
 
 $user   	= anti_sql_injection(strip_tags(trim($_POST['user'])));
 $token        = anti_sql_injection(strip_tags(trim($_REQUEST['token'])));
-//die(md5('teste@teste1.com.br'.'202cb962ac59075b964b07152d234b70'));
+//die(md5('testedaniel@teste.com.br'.'e10adc3949ba59abbe56e057f20f883e'));
 if($token == 'H424715433852'){
 	
     $linha = 0;

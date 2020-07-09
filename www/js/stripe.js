@@ -1,5 +1,6 @@
 function MainStripe(stripe){
     getClient();
+    ListCards();
     var cardButtonAdd = document.getElementById('card-button-add');
     cardButtonAdd.addEventListener('click', function(ev) {
         NewCardStripe(stripe);
@@ -50,6 +51,7 @@ function NewCardStripe(stripe){
     var cardButton = document.getElementById('card-button');
     
     cardButton.addEventListener('click', function(ev) {
+        $('.loader').show();
         setTimeout(function(){
             clientSecret = localStorage.getItem("client_secret");
             console.log("clientSecret:"+clientSecret);
@@ -71,25 +73,37 @@ function NewCardStripe(stripe){
                 if (result.error) {
                 // Display error.message in your UI.
                     alert(result.error.message);
+                    $('.loader').hide();
                 } else {
                     alert("You authorise Pink-Majesty to send instructions to the financial institution that issued your card to take payments from your card account in accordance with the terms of the agreement with you.");
                     ListCards();
+                    $('.loader').hide();
+                    $( document ).ready(function() {
+                        getSelect_forma_pg();
+                        $(".add_cartao").html('<div class="buttonentrar">Adicionar Nova Forma Pagamento</div>');
+                        $(".sel_cartao").show();
+                        $(".cad_cartao").hide();
+                        });
                 }
-                $('.loader').hide();
+                
             });
         }
         ,1100);
+        
     });
 }
 
 function getClientSecretSetupIntent() {
     var response;
     var gateway_id = localStorage.getItem("gateway_id");
-    if (gateway_id == undefined){
-
+    if (!gateway_id){
         return 'erro no gateway_id';
     }
     var user = localStorage.getItem("id_cliente");
+    if (!user){
+        return 'erro no user';
+        getClientSecretSetupIntent();
+    }
     $.ajax({
         type:"POST",
         url:url_geral+"stripe/SetupIntent.php",
@@ -147,7 +161,7 @@ function ListCards(){
         type:"POST",
         url:url_geral+"stripe/ListCards.php",
         data:{"token":"H424715433852", "user":user },
-        timeout: 1000,
+        timeout: 5000,
             beforeSend: function(resultado){ 
                 $('.loader').show();
             },
@@ -161,5 +175,16 @@ function ListCards(){
         }
     });
     return response;
+}
+
+function confirmPayment(stripe ,card){
+    stripe.confirmCardPayment('{PAYMENT_INTENT_CLIENT_SECRET}', {
+    payment_method: '{PAYMENT_METHOD_ID}',
+    })
+    .then(function(result) {
+        console.log(result);
+    // Handle result.error or result.paymentIntent
+    });
+
 }
 

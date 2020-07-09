@@ -1,0 +1,68 @@
+{
+  "_from": "cordova.plugins.diagnostic.api-22@2.3.10-api-22",
+  "_id": "cordova.plugins.diagnostic.api-22@2.3.10-api-22",
+  "_inBundle": false,
+  "_integrity": "sha1-wHfRWnu9pG0lp0B7dJ36XG0C9lw=",
+  "_location": "/cordova.plugins.diagnostic.api-22",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova.plugins.diagnostic.api-22@2.3.10-api-22",
+    "name": "cordova.plugins.diagnostic.api-22",
+    "escapedName": "cordova.plugins.diagnostic.api-22",
+    "rawSpec": "2.3.10-api-22",
+    "saveSpec": null,
+    "fetchSpec": "2.3.10-api-22"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova.plugins.diagnostic.api-22/-/cordova.plugins.diagnostic.api-22-2.3.10-api-22.tgz",
+  "_shasum": "c077d15a7bbda46d25a7407b749dfa5c6d02f65c",
+  "_spec": "cordova.plugins.diagnostic.api-22@2.3.10-api-22",
+  "_where": "C:\\Git Hub\\pink-majesty-app",
+  "author": {
+    "name": "Dave Alden"
+  },
+  "bugs": {
+    "url": "https://github.com/dpa99c/cordova-diagnostic-plugin/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova.plugins.diagnostic",
+    "platforms": [
+      "android",
+      "ios",
+      "windows"
+    ]
+  },
+  "cordova_name": "Diagnostic",
+  "deprecated": false,
+  "description": "Cordova/Phonegap plugin to check the state of Location/WiFi/Camera/Bluetooth device settings.",
+  "homepage": "https://github.com/dpa99c/cordova-diagnostic-plugin#readme",
+  "issue": "https://github.com/dpa99c/cordova-diagnostic-plugin/issues",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova",
+    "android",
+    "ios",
+    "windows",
+    "phonegap",
+    "diagnostic",
+    "wifi",
+    "location",
+    "gps",
+    "camera",
+    "bluetooth",
+    "settings"
+  ],
+  "license": "MIT",
+  "name": "cordova.plugins.diagnostic.api-22",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpa99c/cordova-diagnostic-plugin.git"
+  },
+  "version": "2.3.10-api-22"
+}
