@@ -90,12 +90,12 @@
 			$(".listar_categorias_").hide();
 			$(".menu_colab").show();
 			$('.loader').hide();
-		} else {
+		} else {/*
 			activate_page("#principal");
 			$(".menu_colab").hide();
 			$(".menu_inferior").show();
 			$(".listar_categorias_").show();
-			getListar_categorias();
+			getListar_categorias();*/
 		}
 	}
 	

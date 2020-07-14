@@ -82,7 +82,8 @@ if($token == 'H424715433852'){
             }
             $lista[] = $cardDetails;
           }
-          $dados = "Updated Cards on database";
+          $dados = $lista;
+          //$dados = "Updated Cards on database";
           //$log = "New SetupIntentClient_Secret:".$client_secret;
           //salvaLog($log,$email);
       } else {
