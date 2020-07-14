@@ -6,8 +6,10 @@ require_once('../function/log.php');
 require_once('../function/function.php');
 require_once('config.php');
 
-$user   	= anti_sql_injection(strip_tags(trim($_POST['user'])));
-$token        = anti_sql_injection(strip_tags(trim($_REQUEST['token'])));
+$user   	             = anti_sql_injection(strip_tags(trim($_POST['user'])));
+$token                 = anti_sql_injection(strip_tags(trim($_REQUEST['token'])));
+$amount                = anti_sql_injection(strip_tags(trim($_POST['amount'])));
+$payment_method        = anti_sql_injection(strip_tags(trim($_POST['payment_method'])));
 //die(md5('teste@teste1.com.br'.'202cb962ac59075b964b07152d234b70'));
 if($token == 'H424715433852'){
 	
@@ -28,15 +30,17 @@ if($token == 'H424715433852'){
 	if($linha > 0){
         $intent = \Stripe\PaymentIntent::create([
             'customer' => $gateway_id,
-            'amount' => 2000,
-            'currency' => 'usd',
+            'payment_method' => $payment_method,
+            'amount' => $amount,
+            'currency' => 'BRL',
+            'confirm' => true,
           ]);
-          die(var_dump($intent));
-        if (!empty($intent->client_secret)){
-            $client_secret = $intent->client_secret;
-            $log = "New SetupIntentClient_Secret:".$client_secret;
+          //die(var_dump($intent));
+        if (!empty($intent->id)){
+            $id = $intent->id;
+            $log = "New PaymentIntent:".$id;
             salvaLog($log,$email);
-            $dados = array('client_secret' => $client_secret);
+            $dados = array('payment_intent' => $id);
         } else {
           $error = 2;
           $dados = $intent;

@@ -1,15 +1,25 @@
+
+(function()
+{
+ "use strict";
+ $( document ).ready(function() {
+    var stripe = Stripe('pk_test_HwOzl6pIove5P3TZopMpaOsg001qQzh3P6');
+    MainStripe(stripe);
+    });
+
 function MainStripe(stripe){
-    getClient()
+    var user    = localStorage.getItem("id_cliente");
+    getClient(user)
     .then(function(getClient){
         console.log("1 - getClient done");
         console.log(getClient);
-        ListCards()
+        ListCards(user)
         .then(function(ListCards){
             console.log("2 - ListCards done");
             console.log(ListCards);
             var cardButtonAdd = document.getElementById('card-button-add');
-            cardButtonAdd.addEventListener('click', function(cardButtonAdd) {
-                getClientSecretSetupIntent(getClient)
+            cardButtonAdd.addEventListener('click', function() {
+                getClientSecretSetupIntent(user)
                 .then(function(getClientSecretSetupIntent){
                     console.log("3 - getClientSecretSetupIntent done");
                     console.log(getClientSecretSetupIntent);
@@ -51,7 +61,7 @@ function getClient(user = false){
             url:url_geral+"stripe/GetCustomer.php",
             data:{"token":"H424715433852", "user":user },
             timeout: 1000,
-                beforeSend: function(resultado){ 
+                beforeSend: function(){ 
                     $('.loader').show();
                 },
                 success: function(resultado){
@@ -90,7 +100,7 @@ function ListCards(user = false){
             url:url_geral+"stripe/ListCards.php",
             data:{"token":"H424715433852", "user":user },
             timeout: 5000,
-                beforeSend: function(resultado){ 
+                beforeSend: function(){ 
                     $('.loader').show();
                 },
                 success: function(resultado){
@@ -111,20 +121,16 @@ function ListCards(user = false){
  * Cria um SetupIntent para cadastro de novo cartão
  * na API do Stripe
  * 
- * @param {string} gateway_id Token de identificação do 
+ * @param {string} user Token de identificação do 
  *      usuário na API do Stripe
  * @return {Promise.<string>} Quando resolve retorna
  *      uma string com token do SetupIntent. Se falhar
  *      retorna string com o erro.
  */
-function getClientSecretSetupIntent(gateway_id = false) {
+function getClientSecretSetupIntent(user = false) {
     var response;
-    if (!gateway_id){
-        var gateway_id = localStorage.getItem("gateway_id");
-    }
-    var user = localStorage.getItem("id_cliente");
     if (!user){
-        getClientSecretSetupIntent();
+        var user = localStorage.getItem("id_cliente");
     }
     return new Promise ((resolve , reject) => {
         $.ajax({
@@ -132,7 +138,7 @@ function getClientSecretSetupIntent(gateway_id = false) {
             url:url_geral+"stripe/SetupIntent.php",
             data:{"token":"H424715433852", "user":user },
             timeout: 2000,
-                beforeSend: function(resultado){ 
+                beforeSend: function(){ 
                     $('.loader').show();
                 },
                 success: function(resultado){
@@ -153,6 +159,7 @@ function getClientSecretSetupIntent(gateway_id = false) {
         });
     });
 }
+
 
 //cria novo cartão
 function NewCardStripe(stripe,clientSecret = false){
@@ -197,7 +204,7 @@ function NewCardStripe(stripe,clientSecret = false){
     var cardZipCode = document.getElementById('zip-code');
     var cardButton = document.getElementById('card-button');
     
-    cardButton.addEventListener('click', function(ev) {
+    cardButton.addEventListener('click', function() {
         $('.loader').show();
         setTimeout(function(){
             if(!clientSecret){
@@ -226,7 +233,7 @@ function NewCardStripe(stripe,clientSecret = false){
                     alert("You authorise Pink-Majesty to send instructions to the financial institution that issued your card to take payments from your card account in accordance with the terms of the agreement with you.");
                     ListCards().then( function (ListCards){
                         $('.loader').hide();
-                        updatedSelect();
+                        updatedSelectCards();
                         $(".add_cartao").html('<div class="buttonentrar">Adicionar Nova Forma Pagamento</div>');
                         $(".sel_cartao").show();
                         $(".cad_cartao").hide();
@@ -242,7 +249,7 @@ function NewCardStripe(stripe,clientSecret = false){
     });
 }
 //SELECT FORMA DE PAGAMENTO INICIO
-function updatedSelect(tipo = 2){
+function updatedSelectCards(tipo = 2){
     var user    = localStorage.getItem("id_cliente");
     $.ajax({
         type:"POST",
@@ -251,7 +258,7 @@ function updatedSelect(tipo = 2){
         url:url_geral+"lista_forma_pg.php",
         data:{"user":user,"tipo_order":tipo,"token":"H424715433852"},
         timeout: 100000,
-            beforeSend: function(resultado){ 
+            beforeSend: function(){ 
             $('.loader').show();
         },
         success: function(resultado){
@@ -273,14 +280,54 @@ function updatedSelect(tipo = 2){
 };
 //SELECT FORMA DE PAGAMENTO FIM
 
-function confirmPayment(stripe ,PAYMENT_INTENT_CLIENT_SECRET){
-    stripe.confirmCardPayment('{PAYMENT_INTENT_CLIENT_SECRET}', {
-    payment_method: '{PAYMENT_METHOD_ID}',
-    })
-    .then(function(result) {
-        console.log(result);
-    // Handle result.error or result.paymentIntent
+/**
+ * Cria um PaymentIntent para cadastro de novo pagamento
+ * na API do Stripe com confirmação
+ * 
+ * @param {string} payment_method Token de identificação do 
+ *      PaymentIntent na API do Stripe
+ * @param {string} user Token de identificação do 
+ *      usuário na API do Stripe
+ *  @param {string} amount Valor de cobrança do pagamento
+ * @return {Promise.<string>} Quando resolve retorna
+ *      uma string com token do PaymentIntent. Se falhar
+ *      retorna string com o erro.
+ */
+function getPaymentIntent(payment_method, user = false ,amount = 500) {
+    var response;
+    if (!user){
+        var user = localStorage.getItem("id_cliente");
+    }
+    return new Promise ((resolve , reject) => {
+        $.ajax({
+            type:"POST",
+            url:url_geral+"stripe/PaymentIntent.php",
+            data:{
+                "token":"H424715433852",
+                "user": user ,
+                "amount": amount ,
+                "payment_method": payment_method ,
+              },
+            timeout: 2000,
+                beforeSend: function(){ 
+                    $('.loader').show();
+                },
+                success: function(resultado){
+                    $('.loader').hide();
+                    if (resultado['dados']['payment_intent']){
+                        response = resultado['dados']['payment_intent'];
+                        localStorage.setItem("payment_intent", response);
+                        resolve(response);
+                    } else {
+                        response = resultado['dados'];
+                        reject(response);
+                    }
+                },
+            error:function(resultado){
+                $('.loader').hide();
+                reject(resultado);
+            }
+        });
     });
-
 }
-
+})();
