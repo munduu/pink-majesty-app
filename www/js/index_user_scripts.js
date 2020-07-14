@@ -1087,7 +1087,7 @@
 				$('.loader').hide();
 				if(resultado.erro==2){
 					alert(resultado.dados);
-					getPaymentIntent(forma_pg);
+					
 					setCookie('id_endereco','');
 					setCookie('data','');
 					setCookie('hora','');

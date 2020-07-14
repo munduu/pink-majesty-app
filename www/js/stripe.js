@@ -30,6 +30,26 @@ function MainStripe(stripe){
                     });
             });
 
+            $(document).on("click", ".cad_agendar", function(evt)
+            {
+                var forma_pg = localStorage.getItem('forma_pg');
+                console.log(forma_pg);
+                if (forma_pg){
+                    setTimeout(function(){
+                        if ($('#termosusoAgendamento').prop('checked') == false){	
+                            return false;
+                        } else {
+                            getPaymentIntent(forma_pg).then(function(resultado){
+                                console.log(resultado);
+                            },function(erro){
+                                console.log("erro getPaymentIntent");
+                                console.log(erro);
+                            });
+                        }
+                    },1000);
+                }
+            });
+
         }, error => {
             console.log("2 - ListCards fail")
             console.log(error);
@@ -38,7 +58,8 @@ function MainStripe(stripe){
         }, error => {
             console.log("1 - getClient fail")
             console.log(error);
-        }); 
+        });
+
 }
 
 /**
@@ -320,11 +341,13 @@ function getPaymentIntent(payment_method, user = false ,amount = 500) {
                         resolve(response);
                     } else {
                         response = resultado['dados'];
+                        console.log("Erro 1");
                         reject(response);
                     }
                 },
             error:function(resultado){
                 $('.loader').hide();
+                console.log("Erro 2");
                 reject(resultado);
             }
         });

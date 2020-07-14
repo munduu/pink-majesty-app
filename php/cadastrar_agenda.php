@@ -64,7 +64,7 @@ if(empty($user) or empty($servico) or empty($local) or empty($data) or empty($ho
 		VALUES ('$id_cliente', '$cpf', '$servico', '$local', '$data','$hora','$hora_fim', '$forma_pg', '$cupom', '$valor', '$ln[venda]', 'ativo', 'PEDIDO', '$data_atual', '$hora_atual')"
 		;
 		mysql_select_db($database_localhost, $localhost);
-		$Result1 = mysql_query($insertSQL, $localhost) or die(mysql_error("erro!"));
+		$Result1 = mysql_query($insertSQL, $localhost) or die(mysql_error());
 		salvaLog("Add tb_agenda",$_SESSION['nomeu']);
 
 		$sqla        = "SELECT id FROM tb_agenda WHERE id_cliente='$id_cliente' AND servico='$servico' AND local='$local' AND  data='$data' AND  hora_ini='$hora' AND  hora_fim='$hora_fim' AND forma_pg='$forma_pg' ORDER BY id DESC LIMIT 1";
