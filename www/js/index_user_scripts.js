@@ -574,6 +574,7 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
+				console.log(resultado);
 				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx009");
 				//setEndereco(cep,logradouro,numero,bairro,estado,cidade,complemento,referencia);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
