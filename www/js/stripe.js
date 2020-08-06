@@ -36,15 +36,62 @@ function MainStripe(stripe){
                 console.log(forma_pg);
                 if (forma_pg){
                     setTimeout(function(){
-                        if ($('#termosusoAgendamento').prop('checked') == false){	
-                            return false;
+                        if (
+                          $("#termosusoAgendamento").prop("checked") == false
+                        ) {
+                          return false;
                         } else {
-                            getPaymentIntent(forma_pg).then(function(resultado){
-                                console.log(resultado);
-                            },function(erro){
-                                console.log("erro getPaymentIntent");
-                                console.log(erro);
-                            });
+                          getPaymentIntent(forma_pg).then(
+                            function (resultado) {
+                              let payment_intent = resultado;
+                              setTimeout(function () {
+                                // Testativa 1
+                                getWebhookResponse(user, payment_intent).then(
+                                  function (resultado) {
+                                    //Confirmar
+                                    console.log(resultado);
+                                  },
+                                  function (erro) {
+                                    setTimeout(function () {
+                                      //Tentativa 2
+                                      getWebhookResponse(
+                                        user,
+                                        payment_intent
+                                      ).then(
+                                        function (resultado) {
+                                          //Confirmar
+                                          console.log(resultado);
+                                        },
+                                        function (erro) {
+                                          setTimeout(function () {
+                                            //Tentativa 3
+                                            getWebhookResponse(
+                                              user,
+                                              payment_intent
+                                            ).then(
+                                              function (resultado) {
+                                                //Confirmar
+                                                console.log(resultado);
+                                              },
+                                              function (erro) {
+                                                //Não foi possível confirmar seu pagamento
+                                                console.log(erro);
+                                              }
+                                            );
+                                          }, 3000);
+                                        }
+                                      );
+                                    }, 3000);
+                                  }
+                                );
+                              }, 1000);
+                              console.log(resultado);
+                            },
+                            function (erro) {
+                              console.log("erro getPaymentIntent");
+                              console.log(erro);
+                            }
+                          );
                         }
                     },1000);
                 }
@@ -309,7 +356,7 @@ function updatedSelectCards(tipo = 2){
  *      PaymentIntent na API do Stripe
  * @param {string} user Token de identificação do 
  *      usuário na API do Stripe
- *  @param {string} amount Valor de cobrança do pagamento
+ * @param {string} amount Valor de cobrança do pagamento
  * @return {Promise.<string>} Quando resolve retorna
  *      uma string com token do PaymentIntent. Se falhar
  *      retorna string com o erro.
@@ -341,13 +388,57 @@ function getPaymentIntent(payment_method, user = false ,amount = 500) {
                         resolve(response);
                     } else {
                         response = resultado['dados'];
-                        console.log("Erro 1");
                         reject(response);
                     }
                 },
             error:function(resultado){
                 $('.loader').hide();
-                console.log("Erro 2");
+                reject(resultado);
+            }
+        });
+    });
+}
+
+/**
+ * Busca no banco se há entrada do webhook relacionando o
+ * cliente e o payment_intent
+ * 
+ * @param {string} user Token de identificação do 
+ *      usuário na API do Stripe
+ * @param {string} amount Valor de cobrança do pagamento
+ * @return {Promise.<string>} Quando resolve retorna
+ *      um JSON com os dados do webhook. Se falhar
+ *      retorna string com o erro.
+ */
+function getWebhookResponse(user = false , payment_intent) {
+    var response;
+    if (!user){
+        var user = localStorage.getItem("id_cliente");
+    }
+    return new Promise ((resolve , reject) => {
+        $.ajax({
+            type:"POST",
+            url:url_geral+"stripe/GetWebhookResponse.php",
+            data:{
+                "token":"H424715433852",
+                "user": user ,
+                "payment_method": payment_intent,
+              },
+            timeout: 2000,
+                beforeSend: function(){ 
+                    $('.loader').show();
+                },
+                success: function(resultado){
+                    $('.loader').hide();
+                    if (resultado['dados']){
+                        response = resultado['dados'];
+                        resolve(resultado);
+                    } else {
+                        reject(resultado);
+                    }
+                },
+            error:function(resultado){
+                $('.loader').hide();
                 reject(resultado);
             }
         });
