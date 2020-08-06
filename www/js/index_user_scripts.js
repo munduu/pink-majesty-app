@@ -2493,7 +2493,7 @@
 	});
 	
 	$(document).on("click", ".cad_agendar", function(evt)
-    {
+    { /* IMPLEMENTADO NO STRIPE
 		if ($('#termosusoAgendamento').prop('checked') == false){	
 			alert('Você deve ler e concordar com os nossos Termos de Uso!');
 			return false;
@@ -2509,7 +2509,7 @@
 			var s_valor		= getCookie('s_valor');
 			
 			setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
-		}
+		}*/
 	});
 	
 	$(document).on("click", ".btn_agenda", function(evt)

@@ -32,6 +32,7 @@ function MainStripe(stripe){
 
             $(document).on("click", ".cad_agendar", function(evt)
             {
+                $('.loader').show();
                 var forma_pg = localStorage.getItem('forma_pg');
                 console.log(forma_pg);
                 if (forma_pg){
@@ -39,6 +40,7 @@ function MainStripe(stripe){
                         if (
                           $("#termosusoAgendamento").prop("checked") == false
                         ) {
+                          alert('Você deve ler e concordar com os nossos Termos de Uso!');
                           return false;
                         } else {
                           getPaymentIntent(forma_pg).then(
@@ -49,6 +51,8 @@ function MainStripe(stripe){
                                 getWebhookResponse(user, payment_intent).then(
                                   function (resultado) {
                                     //Confirmar
+                                    confirmPayment();
+                                    $('.loader').hide();
                                     console.log(resultado);
                                   },
                                   function (erro) {
@@ -60,21 +64,27 @@ function MainStripe(stripe){
                                       ).then(
                                         function (resultado) {
                                           //Confirmar
+                                          confirmPayment();
+                                          $('.loader').hide();
                                           console.log(resultado);
                                         },
                                         function (erro) {
                                           setTimeout(function () {
                                             //Tentativa 3
+                                            $('.loader').hide();
                                             getWebhookResponse(
                                               user,
                                               payment_intent
                                             ).then(
                                               function (resultado) {
                                                 //Confirmar
+                                                confirmPayment();
                                                 console.log(resultado);
                                               },
                                               function (erro) {
                                                 //Não foi possível confirmar seu pagamento
+                                                $('.loader').hide();
+                                                alert("Não foi possível confirmar seu pagamento");
                                                 console.log(erro);
                                               }
                                             );
@@ -422,7 +432,7 @@ function getWebhookResponse(user = false , payment_intent) {
             data:{
                 "token":"H424715433852",
                 "user": user ,
-                "payment_method": payment_intent,
+                "payment_intent": payment_intent,
               },
             timeout: 2000,
                 beforeSend: function(){ 
@@ -430,7 +440,7 @@ function getWebhookResponse(user = false , payment_intent) {
                 },
                 success: function(resultado){
                     $('.loader').hide();
-                    if (resultado['dados']){
+                    if (resultado['dados']['payment_intent']){
                         response = resultado['dados'];
                         resolve(resultado);
                     } else {
@@ -442,6 +452,84 @@ function getWebhookResponse(user = false , payment_intent) {
                 reject(resultado);
             }
         });
+    });
+}
+
+/**
+ * Executa as ações de confirmação do pagamento da
+ * taxa inicial. (Cadastra na agenda)
+ * @param {string} user Token de identificação do 
+ *      usuário na API do Pink Majesty
+ * @return {Promise.<string>} Quando resolve retorna
+ *      uma string com o custumer id na API do Stripe
+ *      Se falhar retorna string com o erro.
+ */
+function confirmPayment(){
+var user   		= localStorage.getItem('id_cliente');
+var servico   	= localStorage.getItem('servico');
+var local   	= localStorage.getItem('id_endereco');
+var data   		= localStorage.getItem('data');
+var hora   		= localStorage.getItem('hora');
+var forma_pg   	= localStorage.getItem('forma_pg');
+var cupom   	= localStorage.getItem('cod_cupom');
+var cpf_cupom	= localStorage.getItem('cpf_cupom');
+var s_valor		= localStorage.getItem('s_valor');
+
+setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
+}
+
+
+function setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor){
+	
+    var user		= user; 
+    var servico		= servico; 
+    var local		= local; 
+    var data		= data; 
+    var hora		= hora; 
+    var forma_pg	= forma_pg; 
+    var cupom		= cupom;
+    var cpf_cupom	= cpf_cupom;
+    var s_valor		= s_valor;
+    console.log(forma_pg);
+    $.ajax({
+        type:"POST",
+        dataType:"json",
+        async:true,
+        crossDomain: true,
+        url: url_geral+"cadastrar_agenda.php",
+        data:{"user":user, "servico":servico, "local":local, "data":data, "hora":hora, "forma_pg":forma_pg, "cupom":cupom, "cpf":cpf_cupom, "s_valor":s_valor, "token":"H424715433852"},
+        timeout: 100000, 
+        beforeSend: function(resultado){
+            $('.loader').show();
+        },
+        success: function(resultado){
+            $('.loader').hide();
+            if(resultado.erro==2){
+                alert(resultado.dados);
+                
+                localStorage.setItem('id_endereco','');
+                localStorage.setItem('data','');
+                localStorage.setItem('hora','');
+                localStorage.setItem('forma_pg','');
+                localStorage.setItem('cod_cupom','');
+                localStorage.setItem('cpf_cupom','');
+                activate_page("#principal");
+                console.log(resultado);
+                //checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
+                
+            }else{
+                alert(resultado.dados);
+                //activate_page("#cadastrar");
+            }
+        },
+        error: function(resultado){
+            $('.loader').hide();
+            alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx013");
+            console.log(resultado);
+            //setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
+            //navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
+            //activate_page("#cadastrar");
+        }			
     });
 }
 })();

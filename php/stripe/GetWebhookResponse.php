@@ -27,10 +27,11 @@ if($token == 'H424715433852'){
 		}
 	}
 	if($linha > 0){
-      $sql 		= "SELECT * FROM `tb_webhook` WHERE `payment_intent`='$payment_intent' ORDER BY `id` DESC LIMIT 1";
+      $sql 		= "SELECT * FROM `tb_webhook` WHERE `payment_intent`='$payment_intent' AND `cliente_id`='$id_cliente' AND `status`='paid' ORDER BY `id` DESC LIMIT 1";
       $resultado 	= mysql_query($sql) or die(mysql_error());
       while($ln = mysql_fetch_assoc($resultado)){
-        $dados[] = $ln;
+        $dados['payment_intent'] = $ln['payment_intent'];
+        $dados['valor'] = $ln['valor'];
       }
     }else{
 		$error = 3;
