@@ -34,6 +34,7 @@ if($token == 'H424715433852'){
             'amount' => $amount,
             'currency' => 'BRL',
             'confirm' => true,
+            'setup_future_usage' => 'off_session',
           ]);
           //die(var_dump($intent));
         if (!empty($intent->id)){

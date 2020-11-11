@@ -20,11 +20,14 @@ if(!empty($json->object)){
     if($json->object == 'event'){
         echo $type = $json->type;
         echo "\n";
-        if ($type == "payment_intent.succeeded") {
+        echo $type2 = substr($type,0,14);
+        echo "\n";
+        if ($type2 == "payment_intent") {
             $charge = $json->data->object->charges->data[0];
             $payment_intent = $json->data->object->id;
             $amount = $charge->amount;
             $customer = $charge->customer;
+            $payment_method = $charge->payment_method;
             $type = $status = ($charge->paid == true) ? 'paid' : $charge->status;
             http_response_code(200);
         } else {
@@ -54,7 +57,7 @@ $sql = "SELECT * FROM tb_login WHERE gateway_id = '$customer' ORDER BY id";
         }
     }
     
-$sql = "INSERT INTO `tb_webhook`(`cliente_id`, `customer`,`payment_intent`, `valor`, `status`, `log`) VALUES ('$id_cliente','$customer','$payment_intent','$amount', '$type','$log')";
+$sql = "INSERT INTO `tb_webhook`(`cliente_id`, `customer`,`payment_intent`, `payment_method`,`valor`, `status`, `log`) VALUES ('$id_cliente','$customer','$payment_intent', '$payment_method','$amount', '$type','$log')";
         $resultado 	= mysql_query($sql) or die(mysql_error());
         http_response_code(200);
 

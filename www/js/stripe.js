@@ -43,6 +43,7 @@ function MainStripe(stripe){
                           alert('Você deve ler e concordar com os nossos Termos de Uso!');
                           return false;
                         } else {
+                          $('.loader').show();
                           getPaymentIntent(forma_pg).then(
                             function (resultado) {
                               let payment_intent = resultado;
@@ -51,7 +52,7 @@ function MainStripe(stripe){
                                 getWebhookResponse(user, payment_intent).then(
                                   function (resultado) {
                                     //Confirmar
-                                    confirmPayment();
+                                    confirmPayment(resultado.dados.payment_intent);
                                     $('.loader').hide();
                                     console.log(resultado);
                                   },
@@ -64,7 +65,7 @@ function MainStripe(stripe){
                                       ).then(
                                         function (resultado) {
                                           //Confirmar
-                                          confirmPayment();
+                                          confirmPayment(resultado.dados.payment_intent);
                                           $('.loader').hide();
                                           console.log(resultado);
                                         },
@@ -78,7 +79,7 @@ function MainStripe(stripe){
                                             ).then(
                                               function (resultado) {
                                                 //Confirmar
-                                                confirmPayment();
+                                                confirmPayment(resultado.dados.payment_intent);
                                                 console.log(resultado);
                                               },
                                               function (erro) {
@@ -386,7 +387,7 @@ function getPaymentIntent(payment_method, user = false ,amount = 500) {
                 "amount": amount ,
                 "payment_method": payment_method ,
               },
-            timeout: 2000,
+            timeout: 20000,
                 beforeSend: function(){ 
                     $('.loader').show();
                 },
@@ -464,7 +465,7 @@ function getWebhookResponse(user = false , payment_intent) {
  *      uma string com o custumer id na API do Stripe
  *      Se falhar retorna string com o erro.
  */
-function confirmPayment(){
+function confirmPayment(payment_intent){
 var user   		= localStorage.getItem('id_cliente');
 var servico   	= localStorage.getItem('servico');
 var local   	= localStorage.getItem('id_endereco');
@@ -475,11 +476,11 @@ var cupom   	= localStorage.getItem('cod_cupom');
 var cpf_cupom	= localStorage.getItem('cpf_cupom');
 var s_valor		= localStorage.getItem('s_valor');
 
-setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
+setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor,payment_intent);
 }
 
 
-function setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor){
+function setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor,payment_intent){
 	
     var user		= user; 
     var servico		= servico; 
@@ -490,14 +491,15 @@ function setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, 
     var cupom		= cupom;
     var cpf_cupom	= cpf_cupom;
     var s_valor		= s_valor;
-    console.log(forma_pg);
+    var payment_intent = payment_intent;
+    console.log({"user":user, "servico":servico, "local":local, "data":data, "hora":hora, "forma_pg":forma_pg, "cupom":cupom, "cpf":cpf_cupom, "s_valor":s_valor, "token":"H424715433852","payment_intent":payment_intent});
     $.ajax({
         type:"POST",
         dataType:"json",
         async:true,
         crossDomain: true,
         url: url_geral+"cadastrar_agenda.php",
-        data:{"user":user, "servico":servico, "local":local, "data":data, "hora":hora, "forma_pg":forma_pg, "cupom":cupom, "cpf":cpf_cupom, "s_valor":s_valor, "token":"H424715433852"},
+        data:{"user":user, "servico":servico, "local":local, "data":data, "hora":hora, "forma_pg":forma_pg, "cupom":cupom, "cpf":cpf_cupom, "s_valor":s_valor, "token":"H424715433852","payment_intent":payment_intent},
         timeout: 100000, 
         beforeSend: function(resultado){
             $('.loader').show();
