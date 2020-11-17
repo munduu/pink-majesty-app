@@ -8,6 +8,7 @@
 
  function register_event_handlers()
  {
+	$('.loader').hide();
 	/* COLOQUE AS FUN��ES INTERNAS AQUI */
 	 
 	//Fun��es do COOKIE INICIO
@@ -141,6 +142,7 @@
 						$(".menu_colab").hide();
 						$(".listar_categorias_").show();
 						$(".menu_inferior").show();
+						MainStripe();
 					}else if(getCookie("tipo") == 'Profissional'){
 						//$(".esquerda").hide();
 						$(".menu_inferior").hide();
@@ -170,6 +172,7 @@
 	//VERIFICA��O DE SOLICITACAO INICIO
 	function getVer_solicitacao(){
 		var id_user = getCookie("id_cliente");	
+		if(id_user){
 		$.ajax({
 		type:"POST",
 		dataType:"json",
@@ -211,11 +214,12 @@
 				//$('.loader').hide();
 				getListar_servicos(servico);
 			}
-		});
+		});}
 	}
 	getVer_solicitacao();
 	setInterval(function(){ 
 		var id_user = getCookie("id_cliente");	
+		if (id_user){
 		$.ajax({
         type:"POST",
 		async:true,
@@ -258,7 +262,7 @@
 				$('.loader').hide();
 				//getListar_servicos(servico);
 			}
-		});
+		});}
 		//navigator.notification.alert('Hello', 'CADASTRAR', 'Error', 'OK'); 
 	}, 10000);//10 segundos
 	//VERIFICA��O DE SOLICITACAO FIM
