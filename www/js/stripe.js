@@ -1,14 +1,45 @@
 
-(function()
+/*(function()
 {
  "use strict";
- $( document ).ready(function() {
-    var stripe = Stripe('pk_test_HwOzl6pIove5P3TZopMpaOsg001qQzh3P6');
-    MainStripe(stripe);
+//  $( document ).ready(function() {
+//     var stripe = Stripe('pk_test_HwOzl6pIove5P3TZopMpaOsg001qQzh3P6');
+//     MainStripe(stripe);
+//     });
+*/
+function MainStripe(){
+   var user    = localStorage.getItem("id_cliente");
+   $.ajax({
+        type:"POST",
+        url:url_geral+"stripe/GetPublicToken.php",
+        data:{"token":"H424715433852", "user":user },
+        timeout: 1000,
+            beforeSend: function(){ 
+                $('.loader').show();
+            },
+            success: function(resultado){
+                $('.loader').hide();
+                console.log(resultado);
+                if (resultado['erro'] != 0){
+                    alert(resultado['dados']);
+                } else {
+                    response = resultado['dados']['token'];
+                    localStorage.setItem("stripe_token", response);
+                    InitStripe();
+                }
+            },
+        error:function(resultado){
+            $('.loader').hide();
+            response = resultado;
+            console.log(response);
+            alert("Erro de comunicação, verifique sua conexão com a internet.");
+        }
     });
-
-function MainStripe(stripe){
+}
+function InitStripe(){
     var user    = localStorage.getItem("id_cliente");
+    var stripe = Stripe(localStorage.getItem("stripe_token"));
+    
     getClient(user)
     .then(function(getClient){
         console.log("1 - getClient done");
@@ -534,4 +565,4 @@ function setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, 
         }			
     });
 }
-})();
+//})();
