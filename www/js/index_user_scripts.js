@@ -5,8 +5,10 @@
  /*
    hook up event handlers 
  */
+
  function register_event_handlers()
  {
+	$('.loader').hide();
 	/* COLOQUE AS FUN��ES INTERNAS AQUI */
 	 
 	//Fun��es do COOKIE INICIO
@@ -26,7 +28,6 @@
 		var token_id    = $("#token_id").val();
 		
 		if(getCookie("id_cliente")){
-		
 			$.ajax({
 			type:"POST",
 			dataType:"json",
@@ -61,8 +62,9 @@
 				},
 				error: function(resultado) {
 					$('.loader').hide();
-					alert('Não foi poss�vel acessar! #001');
-					getVer_Login();
+					alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...Verifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx001");
+					//alert('Não foi poss�vel acessar! #001');
+					//getVer_Login();
 				}
 			});
 			
@@ -70,7 +72,7 @@
 			$('.loader').hide();
 			$(".menu_inferior").hide();
 			activate_page("#mainpage");
-			console.log('Cheguemos!');
+			//console.log('Cheguemos!');
 		}
 			
 	}
@@ -90,12 +92,12 @@
 			$(".listar_categorias_").hide();
 			$(".menu_colab").show();
 			$('.loader').hide();
-		} else {
+		} else {/*
 			activate_page("#principal");
 			$(".menu_colab").hide();
 			$(".menu_inferior").show();
 			$(".listar_categorias_").show();
-			getListar_categorias();
+			getListar_categorias();*/
 		}
 	}
 	
@@ -140,6 +142,7 @@
 						$(".menu_colab").hide();
 						$(".listar_categorias_").show();
 						$(".menu_inferior").show();
+						MainStripe();
 					}else if(getCookie("tipo") == 'Profissional'){
 						//$(".esquerda").hide();
 						$(".menu_inferior").hide();
@@ -157,7 +160,8 @@
 			},
 			error: function(resultado) {
 				$('.loader').hide();
-				getLogin(login_email,login_senha,token_id);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx002");
+				//getLogin(login_email,login_senha,token_id);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				activate_page("#mainpage");
 			}
@@ -168,6 +172,7 @@
 	//VERIFICA��O DE SOLICITACAO INICIO
 	function getVer_solicitacao(){
 		var id_user = getCookie("id_cliente");	
+		if(id_user){
 		$.ajax({
 		type:"POST",
 		dataType:"json",
@@ -209,11 +214,12 @@
 				//$('.loader').hide();
 				getListar_servicos(servico);
 			}
-		});
+		});}
 	}
 	getVer_solicitacao();
 	setInterval(function(){ 
 		var id_user = getCookie("id_cliente");	
+		if (id_user){
 		$.ajax({
         type:"POST",
 		async:true,
@@ -256,7 +262,7 @@
 				$('.loader').hide();
 				//getListar_servicos(servico);
 			}
-		});
+		});}
 		//navigator.notification.alert('Hello', 'CADASTRAR', 'Error', 'OK'); 
 	}, 10000);//10 segundos
 	//VERIFICA��O DE SOLICITACAO FIM
@@ -304,7 +310,7 @@
             success: function(resultado){
 				$('.loader').hide();
                 $(".listar_servicos").html(resultado);
-				console.log('aki: '+resultado+' s:'+servico);
+				//console.log('aki: '+resultado+' s:'+servico);
             },
             error:function(resultado){
 				$('.loader').hide();
@@ -367,7 +373,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				getSelect_enderecos();
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx003");
+				//getSelect_enderecos();
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}       
         });
@@ -403,7 +410,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				getSelect_enderecos()
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx004");
+				//getSelect_enderecos()
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}       
         });
@@ -439,7 +447,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				getSelect_forma_pg(tipo)
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx005");
+				//getSelect_forma_pg(tipo)
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}
         });
@@ -471,7 +480,8 @@
 		},
 		error: function(resultado) {
 			$('.loader').hide();
-			getEstados();
+			alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx006");
+			//getEstados();
 			//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 		}       
 	});
@@ -496,7 +506,8 @@
 		},
 		error: function(resultado) {
 			$('.loader').hide();
-			getEstados();
+			alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx007");
+			//getEstados();
 			//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 		}       
 	});
@@ -521,7 +532,8 @@
 		},
 		error: function(resultado) {
 			$('.loader').hide();
-			getEstados();
+			alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx008");
+			//getEstados();
 			//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 		}       
 	});
@@ -566,7 +578,9 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setEndereco(cep,logradouro,numero,bairro,estado,cidade,complemento,referencia);
+				console.log(resultado);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx009");
+				//setEndereco(cep,logradouro,numero,bairro,estado,cidade,complemento,referencia);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#local");
 			}   
@@ -611,7 +625,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setCartao(user,numero_c,cod_seg,mes,ano,nome_impresso,data_nasc_cartao,cpf_titular,tipo_cartao,banco);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx010");
+				//setCartao(user,numero_c,cod_seg,mes,ano,nome_impresso,data_nasc_cartao,cpf_titular,tipo_cartao,banco);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#local");
 			}   
@@ -907,8 +922,9 @@
 			error: function(resultado) {
 				console.log(resultado);
 				$('.loader').hide();
-				setCad_cliente(cpf,nome,tel1,tel2,sexo,data_nasc,email,senham,token_id);
-				alert('Não foi poss�vel acessar! #002');
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx011");
+				//setCad_cliente(cpf,nome,tel1,tel2,sexo,data_nasc,email,senham,token_id);
+				//alert('Não foi poss�vel acessar! #002');
 				//activate_page("#cadastrar");
 			}			
         });
@@ -975,7 +991,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setCad_colaborador(nome_c ,tel1_c ,tel2_c , data_nasc_c, email_c, logradouro_c, numero_c, cidade_c, estado_c, bairro_c, complemento_c, referencia_c, sexo_c, servico_c, experiencia_c);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx012");
+				//setCad_colaborador(nome_c ,tel1_c ,tel2_c , data_nasc_c, email_c, logradouro_c, numero_c, cidade_c, estado_c, bairro_c, complemento_c, referencia_c, sexo_c, servico_c, experiencia_c);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#trabalhe_conosco");
 			}			
@@ -1059,7 +1076,7 @@
 		var cupom		= cupom;
 		var cpf_cupom	= cpf_cupom;
 		var s_valor		= s_valor;
-		
+		console.log(forma_pg);
 		$.ajax({
 			type:"POST",
 			dataType:"json",
@@ -1075,6 +1092,7 @@
 				$('.loader').hide();
 				if(resultado.erro==2){
 					alert(resultado.dados);
+					
 					setCookie('id_endereco','');
 					setCookie('data','');
 					setCookie('hora','');
@@ -1084,6 +1102,7 @@
 					activate_page("#principal");
 					console.log(resultado);
 					//checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
+					
 				}else{
 					alert(resultado.dados);
 					//activate_page("#cadastrar");
@@ -1091,7 +1110,9 @@
             },
 			error: function(resultado){
 				$('.loader').hide();
-				setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx013");
+				console.log(resultado);
+				//setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
@@ -1128,8 +1149,9 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				alert('Não foi poss�vel acessar! #003');
-				setCadastrar_agenda_colab(agenda);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx014");
+				//alert('Não foi poss�vel acessar! #003');
+				//setCadastrar_agenda_colab(agenda);
 				//activate_page("#cadastrar");
 			}			
         });
@@ -1169,7 +1191,8 @@
 			},
 			error: function(resultado) {
 				$('.loader').hide();
-				setConfirmar_pedido(agenda, situacao, tipo);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx015");
+				//setConfirmar_pedido(agenda, situacao, tipo);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
@@ -1207,7 +1230,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setCadastrar_avaliacao(ava,avaliacao,desc_serv);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx016");
+				//setCadastrar_avaliacao(ava,avaliacao,desc_serv);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
@@ -1219,9 +1243,9 @@
 		
 		var user    = getCookie("id_cliente");
 
-		console.log(user);
+		console.log("id_cliente:"+ user);
 		
-		//if(user){
+		if(user){
 		
 		$.ajax({
 			type:"POST",
@@ -1247,9 +1271,9 @@
 			}
 		});
 			
-		//}else{
-			//getVer_Login();
-		//}
+		}else{
+			getVer_Login();
+		}
 	}
 	//INFORMA��ES CONTA FINAL
 	//ALTERA��ES DO CLIENTE INICIO
@@ -1315,7 +1339,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setAlterar_endereco(end);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx017");
+				//setAlterar_endereco(end);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
@@ -1352,7 +1377,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setDeletar_endereco(end);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx018");
+				//setDeletar_endereco(end);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
@@ -1390,7 +1416,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setAlterar_cartao(crt);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx019");
+				//setAlterar_cartao(crt);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
@@ -1427,7 +1454,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setDeletar_cartao(crt);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx020");
+				//setDeletar_cartao(crt);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
@@ -1475,7 +1503,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setAlterar_email(email);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx021");
+				//setAlterar_email(email);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
@@ -1523,7 +1552,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setAlterar_email(email);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx022");
+				//setAlterar_email(email);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 				//activate_page("#cadastrar");
 			}			
@@ -1561,7 +1591,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setAlterar_telefone(tel1,tel2);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx023");
+				//setAlterar_telefone(tel1,tel2);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}			
         });
@@ -1597,7 +1628,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setAlterar_nome(nome);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx024");
+				//setAlterar_nome(nome);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}			
         });
@@ -1631,7 +1663,8 @@
             },
 			error: function(resultado) {
 				$('.loader').hide();
-				setAtualizar_Cartao(agenda, forma_pg);
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx025");
+				//setAtualizar_Cartao(agenda, forma_pg);
 				//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 			}			
         });
@@ -1792,7 +1825,8 @@
 			},
 			error: function(resultado) {
 				$('.loader').hide();
-				alert('Não foi possível acessar! #004');
+				alert("Ops :( \n\nTivemos um problema ao comunicar com nosso servidor...\nVerifique sua conexão com a internet e tente novamente mais tarde, se persistir entre em contato com o suporte técnico.\nx026");
+				//alert('Não foi possível acessar! #004');
 				return false;
 			}   
 		});				
@@ -2201,7 +2235,7 @@
     });
 	
 	$(document).on("click", ".btn-cartao", function(evt)
-    {
+    {/*
 		var user   			= getCookie('id_cliente');
 		var numero_c        = $(".numero_c").val();
 		var cod_seg  		= $(".cod_seg").val();
@@ -2228,9 +2262,7 @@
         	}
     	}
 		
-		$(".add_cartao").html('<div class="buttonentrar">Adicionar Nova Forma Pagamento</div>');
-		$(".sel_cartao").show();
-		$(".cad_cartao").hide();
+		
 		y=0;
 				
 		if(tipo==1){
@@ -2266,6 +2298,7 @@
 				setCartao(user,numero_c,cod_seg,mes,ano,nome_impresso,data_nasc_cartao,cpf_titular,tipo,banco);
 			}
 		}
+		*/
 		
     });
 	
@@ -2464,7 +2497,7 @@
 	});
 	
 	$(document).on("click", ".cad_agendar", function(evt)
-    {
+    { /* IMPLEMENTADO NO STRIPE
 		if ($('#termosusoAgendamento').prop('checked') == false){	
 			alert('Você deve ler e concordar com os nossos Termos de Uso!');
 			return false;
@@ -2480,7 +2513,7 @@
 			var s_valor		= getCookie('s_valor');
 			
 			setCadastrar_agenda(user, servico, local, data, hora, forma_pg, cupom, cpf_cupom, s_valor);
-		}
+		}*/
 	});
 	
 	$(document).on("click", ".btn_agenda", function(evt)

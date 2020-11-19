@@ -5,11 +5,11 @@
     //});
 function getEndereco() {
 		// Se o campo CEP não estiver vazio
-					
+		console.log("getEndereco");
 		if($.trim($("#cep").val()) != ""){
 			$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep").val(), function(){
-			
 				if(resultadoCEP["resultado"]){
+					console.log(resultadoCEP["resultado"]);
 					$("#logradouro").val(unescape(resultadoCEP["tipo_logradouro"])+" "+unescape(resultadoCEP["logradouro"]));
 					$("#bairro").val(unescape(resultadoCEP["bairro"]));
 					$("#estado").val(unescape(resultadoCEP["uf"]));

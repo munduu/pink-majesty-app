@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versionCode="58" id="com.pinkmajesty" version="0.1.8" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Pink Majesty</name>
+    <description>Desenvolvido por 4GO</description>
+    <author>4GO</author>
+    <content src="index.html" />
+    <config-file mode="merge" parent="/manifest/application" platform="android">
+        <activity android:launchMode="singleTop" />
+    </config-file>
+    <config-file mode="replace" parent="NSCameraUsageDescription" platform="ios">
+        <string>Use a Camera para enviar suas fotos para o aplicativo.</string>
+    </config-file>
+    <config-file mode="replace" parent="NSPhotoLibraryUsageDescription" platform="ios">
+        <string>Use a Camera para enviar suas fotos para o aplicativo.</string>
+    </config-file>
+    <config-file mode="replace" parent="NSBluetoothPeripheralUsageDescription" platform="ios">
+        <string>Use o Bluetooth para comunicar com o aplicativo.</string>
+    </config-file>
+    <config-file mode="replace" parent="NSMicrophoneUsageDescription" platform="ios">
+        <string>Use o Microfone para comunicar com o aplicativo.</string>
+    </config-file>
+    <config-file parent="aps-environment" target="*.entitlements">
+        <string>production</string>
+    </config-file>
+    <preference name="android-build-tool" value="gradle" />
+    <preference name="phonegap-version" value="cli-6.5.0" />
+    <preference name="xwalkMultipleApk" value="false" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect --ignore-gpu-blacklist " />
+</widget>

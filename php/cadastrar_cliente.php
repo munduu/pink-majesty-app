@@ -48,10 +48,10 @@ if(empty($nome) or empty($tel2) or empty($sexo) or empty($data_nasc) or empty($e
 			$error = 3;
 			$dados = "DADOS DE EMAIL JA CADASTRADOS!";
 		}else{
-			$insertSQL = "INSERT INTO tb_cliente (cpf, nome, tel1, tel2, email, sexo, data_nasc, desconto, status) VALUES ('$cpf', '$nome', '$tel1', '$tel2', '$email','$sexo','$data_nasc', '1', 'ativo')"
-			;
+			$insertSQL = "INSERT INTO tb_cliente (cpf, nome, tel1, tel2, email, sexo, data_nasc, desconto, status) VALUES ('$cpf', '$nome', '$tel1', '$tel2', '$email','$sexo','$data_nasc', '1', 'ativo')";
 			mysql_select_db($database_localhost, $localhost);
-			$Result1 = mysql_query($insertSQL, $localhost) or die(mysql_error("erro!"));
+			//die(var_dump($localhost));
+			$Result1 = mysql_query($insertSQL, $localhost) or die(mysql_error());
 			salvaLog("Add tb_cliente",$_SESSION['nomeu']);
 				
 			$sql = "SELECT id FROM tb_cliente ORDER BY id DESC LIMIT 1";

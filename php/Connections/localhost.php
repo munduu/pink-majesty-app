@@ -1,15 +1,15 @@
 ﻿<?php
-//error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
+error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
 header('Access-Control-Allow-Origin: *');
 
 $hostname_localhost = "localhost";
 
 //LOCALHOST
 $database_localhost = "igestao_pinkmajesty";
-$username_localhost = "igestao_pinkmajesty";
-$password_localhost = "mD2DqMCQU";
+$username_localhost = "root";
+$password_localhost = "";
 
-$url_img = "http://igestaoweb.com.br/pinkmajesty/";
+$url_img = "http://localhost:6969/pink-majesty-app/";
 
 //LOCALHOST
 /*$database_localhost = "igestaow_dellas";
@@ -20,7 +20,7 @@ $password_localhost = "vertrigo";*/
 $f_email='pinkmajesty@igestaoweb.com.br';
 $f_name ='Pink Majesty ';
 $f_smtp ='mail.igestaoweb.com.br';
-$f_senha='pink9s3rv3r';
+$f_senha='';
 
 $autenticacao_google = "AIzaSyCylkqvDALJb6EwYMJkzU8ZlgotufO5tno";
 
@@ -50,8 +50,7 @@ $password_localhost = "atelie9s3rv3r";*/
 
 
 
-$localhost = mysql_pconnect($hostname_localhost, $username_localhost, $password_localhost) or trigger_error(mysql_error("errroooo"),E_USER_ERROR); 
-
+$localhost = mysql_connect($hostname_localhost, $username_localhost, $password_localhost) or trigger_error(mysql_error("errroooo"),E_USER_ERROR); 
 
 
 $host    = $hostname_localhost;

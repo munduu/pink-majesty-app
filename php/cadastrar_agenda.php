@@ -15,6 +15,8 @@ $forma_pg   = anti_sql_injection(strip_tags(trim($_REQUEST['forma_pg'])));
 $cupom		= anti_sql_injection(strip_tags(trim($_REQUEST['cupom'])));
 $cpf		= anti_sql_injection(strip_tags(trim($_REQUEST['cpf'])));
 $valor		= anti_sql_injection(strip_tags(trim($_REQUEST['s_valor'])));
+$payment_intent	= anti_sql_injection(strip_tags(trim($_REQUEST['payment_intent'])));
+
 
 $data_atual = date("Y/m/d");
 $hora_atual = date("H:i");
@@ -60,11 +62,11 @@ if(empty($user) or empty($servico) or empty($local) or empty($data) or empty($ho
 		$hora_fim = date("H:i",  strtotime( "+".$tempo." minute", strtotime($hora) ));
 		
 		$insertSQL = 
-		"INSERT INTO tb_agenda (id_cliente, cpf, servico, local, data, hora_ini, hora_fim, forma_pg, cupom, valor, valor_semdesconto, status, situacao, data_agend, hora_agend) 
-		VALUES ('$id_cliente', '$cpf', '$servico', '$local', '$data','$hora','$hora_fim', '$forma_pg', '$cupom', '$valor', '$ln[venda]', 'ativo', 'PEDIDO', '$data_atual', '$hora_atual')"
+		"INSERT INTO tb_agenda (id_cliente, cpf, servico, local, data, hora_ini, hora_fim, forma_pg, cupom, valor, valor_semdesconto, status, situacao, data_agend, hora_agend, payment_intent) 
+		VALUES ('$id_cliente', '$cpf', '$servico', '$local', '$data','$hora','$hora_fim', '$forma_pg', '$cupom', '$valor', '$ln[venda]', 'ativo', 'PEDIDO', '$data_atual', '$hora_atual','$payment_intent')"
 		;
 		mysql_select_db($database_localhost, $localhost);
-		$Result1 = mysql_query($insertSQL, $localhost) or die(mysql_error("erro!"));
+		$Result1 = mysql_query($insertSQL, $localhost) or die(mysql_error());
 		salvaLog("Add tb_agenda",$_SESSION['nomeu']);
 
 		$sqla        = "SELECT id FROM tb_agenda WHERE id_cliente='$id_cliente' AND servico='$servico' AND local='$local' AND  data='$data' AND  hora_ini='$hora' AND  hora_fim='$hora_fim' AND forma_pg='$forma_pg' ORDER BY id DESC LIMIT 1";
