@@ -1,5 +1,5 @@
 function checkout_ccard(agenda){
-    $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/getCard.php", { agenda: agenda, token: "H424715433852" },
+    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/getCard.php", { agenda: agenda, token: "H424715433852" },
     function (result) {
         console.log(result);
         if(result.success == true){
@@ -9,7 +9,7 @@ function checkout_ccard(agenda){
 }
 
 function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
-    $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/createPaymentCreditCardWithToken.php", 
+    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/createPaymentCreditCardWithToken.php", 
         {
             MerchantOrderId: agenda,
             Name: lNmcartao,
@@ -40,7 +40,7 @@ function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
 
 function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand) {
 
-    $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/creatCardToken.php", 
+    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/creatCardToken.php", 
     {
         Name: lNmcartao,
         CardNumber: lNcartao,
@@ -63,7 +63,7 @@ function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand
 
 function identifica_bandeira(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg){
     $.ajax({
-      type:"POST", dataType:"json", cache: false, url: "http://igestaoweb.com.br/pinkmajesty/function/identifica_bandeira.php",
+      type:"POST", dataType:"json", cache: false, url: "https://igestaoweb.com.br/pinkmajesty/function/identifica_bandeira.php",
       data:{cartao:lNcartao},
       timeout: 200000, 
       beforeSend: function(resultado){ $('.loader').show();},
