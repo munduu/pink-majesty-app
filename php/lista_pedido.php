@@ -192,7 +192,7 @@ if($token=='H424715433852'){
 						if(!empty($id_colaborador)){
 							if(empty($foto)){$foto = 'imagem_teste.gif';}
 							//<img src="'.$url_img.'igestao/imagem_col/'.$foto.'">
-							$url_img = 'http://igestaoweb.com.br/pinkmajesty/imagem_col/';
+							$url_img = 'https://igestaoweb.com.br/pinkmajesty/imagem_col/';
 							$url_bsc = $url_img.''.$foto;
 							$dados.= '
 								<div class="imageservico" style="background-image:url('.$url_bsc.')"></div><br />

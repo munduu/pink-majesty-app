@@ -237,7 +237,7 @@ $msg .='
 
 					  <a href="/" title="Lorem logo">
 
-						<img class="logo" src="http://igestaoweb.com.br/pinkmajesty/img/logodellas" width="100" alt="Lorem logo" />
+						<img class="logo" src="https://igestaoweb.com.br/pinkmajesty/img/logodellas" width="100" alt="Lorem logo" />
 
 					  </a>
 

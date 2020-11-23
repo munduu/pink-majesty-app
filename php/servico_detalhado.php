@@ -5,7 +5,7 @@ require_once('function/log.php');
 
 $token  = anti_sql_injection(strip_tags(trim($_REQUEST['token'])));
 $cliente  = anti_sql_injection(strip_tags(trim($_REQUEST['cliente'])));
-$url_img = "http://igestaoweb.com.br/pinkmajesty/";
+$url_img = "https://igestaoweb.com.br/pinkmajesty/";
 
 if($token=='H424715433852'){
 

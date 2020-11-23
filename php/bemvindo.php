@@ -236,7 +236,7 @@ $msg .='
 
 					  <a href="/" title="Lorem logo">
 
-						<img class="logo" src="http://igestaoweb.com.br/pinkmajesty/img/" width="100" alt="Lorem logo" />
+						<img class="logo" src="https://igestaoweb.com.br/pinkmajesty/img/" width="100" alt="Lorem logo" />
 
 					  </a>
 
@@ -304,7 +304,7 @@ $msg .='
 
 									<p>Para isso basta clicar no link abaixo e ativar seu cadastro!</p>
 
-									<p><a href="http://igestaoweb.com.br/pinkmajesty/app/ativar_cadastro.php?email='.$email.'">Ativar Cadastro</a></p>
+									<p><a href="https://igestaoweb.com.br/pinkmajesty/app/ativar_cadastro.php?email='.$email.'">Ativar Cadastro</a></p>
 
 									<p style="color:rgb(136,136,136);font-family:verdana,geneva,sans-serif;font-size:12.8px">*Esta e uma mensagem automatica, nao responda*</p>
 

@@ -3,7 +3,7 @@ require_once('Connections/localhost.php');
 require_once('function/function.php');
 require_once('function/log.php');
 
-$url_img = "http://igestaoweb.com.br/pinkmajesty/";
+$url_img = "https://igestaoweb.com.br/pinkmajesty/";
 
 $token  = anti_sql_injection(strip_tags(trim($_REQUEST['token'])));
 
