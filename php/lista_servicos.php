@@ -36,7 +36,7 @@ if($token=='H424715433852'){
 					<p>R$ 50,00</p>
 				</div>	
 			</div></a>
-			<img src="http://192.168.1.200:8080/inova/dellas/atributos/categoria_img/'.$img.'">
+			<img src="https://192.168.1.200:8080/inova/dellas/atributos/categoria_img/'.$img.'">
 			*/
 			$titulo_exp = explode(' ',ucfirst(mb_strtolower($titulo,'UTF-8')));
 			if($titulo_exp[0] == 'Pacote'){

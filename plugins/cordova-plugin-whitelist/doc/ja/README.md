@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -35,7 +35,7 @@ WebView 自体に移動に Url を制御します。最上位ナビゲーショ�
 既定では、ナビゲーション、 `file://`の Url にのみ許可されます。その他の他の Url を許可するように、 `config.xml`に`<allow-navigation>`タグを追加する必要があります。
 
     <!-- Allow links to example.com -->
-    <allow-navigation href="http://example.com/*" />
+    <allow-navigation href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -47,7 +47,7 @@ WebView 自体に移動に Url を制御します。最上位ナビゲーショ�
     <allow-navigation href="*" />
     
     <!-- The above is equivalent to these three declarations -->
-    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
     
@@ -63,11 +63,11 @@ WebView 自体に移動に Url を制御します。最上位ナビゲーショ�
 `Config.xml`内の`<allow-intent>`タグは、このようなを追加します。
 
     <!-- Allow links to web pages to open in a browser -->
-    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <allow-intent href="https://*/*" />
     
     <!-- Allow links to example.com to open in a browser -->
-    <allow-intent href="http://example.com/*" />
+    <allow-intent href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -96,14 +96,14 @@ WebView 自体に移動に Url を制御します。最上位ナビゲーショ�
 `Config.xml`内のこのような`<access>`タグを追加します。
 
     <!-- Allow images, xhrs, etc. to google.com -->
-    <access origin="http://google.com" />
+    <access origin="https://google.com" />
     <access origin="https://google.com" />
     
     <!-- Access to the subdomain maps.google.com -->
-    <access origin="http://maps.google.com" />
+    <access origin="https://maps.google.com" />
     
     <!-- Access to all the subdomains on google.com -->
-    <access origin="http://*.google.com" />
+    <access origin="https://*.google.com" />
     
     <!-- Enable requests to content: URLs -->
     <access origin="content:///*" />
@@ -120,7 +120,7 @@ WebView 自体に移動に Url を制御します。最上位ナビゲーショ�
 
 ネットワーク要求コントロール (画像、XHRs 等) (直接 webview) を介して行われることが。
 
-Android と iOS は、ネットワーク要求ホワイト リスト (上記参照) はすべての種類の要求 (例: `< ビデオ >` & Websocket がふさがれていない) をフィルター処理できません。 だから、ホワイト リストに加えてすべてのページに[コンテンツ セキュリティ ポリシー](http://content-security-policy.com/) `< meta >`タグを使用する必要があります。
+Android と iOS は、ネットワーク要求ホワイト リスト (上記参照) はすべての種類の要求 (例: `< ビデオ >` & Websocket がふさがれていない) をフィルター処理できません。 だから、ホワイト リストに加えてすべてのページに[コンテンツ セキュリティ ポリシー](https://content-security-policy.com/) `< meta >`タグを使用する必要があります。
 
 Android 上システム webview 内 CSP サポート キットカットから始まります (しかし横断歩道 WebView を使用してすべてのバージョンで利用可能です)。
 

@@ -20,13 +20,13 @@ body {
 }
 
 /* Recommended for Windows 8 Phone */
-/* SOURCE: http://www.excellentwebworld.com/common-problems-solution-for-windows-phone-8-phonegap */
+/* SOURCE: https://www.excellentwebworld.com/common-problems-solution-for-windows-phone-8-phonegap */
 html {
     -ms-touch-action: pan-x ;
 }
 
 /* Recommended for Windows 8 Phone */
-/* SOURCE: http://www.excellentwebworld.com/common-problems-solution-for-windows-phone-8-phonegap */
+/* SOURCE: https://www.excellentwebworld.com/common-problems-solution-for-windows-phone-8-phonegap */
 body {
     -ms-touch-action: pan-y ;
     -ms-content-zooming: none ;

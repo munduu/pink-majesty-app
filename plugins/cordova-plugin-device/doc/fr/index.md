@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -77,7 +77,7 @@ L'objet `device.model` retourne le nom du modèle de l'appareil/produit. Cette v
     // BlackBerry: Torch 9800      returns "9800"
     // Browser:    Google Chrome   returns "Chrome"
     //             Safari          returns "Safari"
-    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. Voir http://theiphonewiki.com/wiki/index.php?title=Models
+    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. Voir https://theiphonewiki.com/wiki/index.php?title=Models
     //
     var model = device.model;
     
@@ -86,8 +86,8 @@ L'objet `device.model` retourne le nom du modèle de l'appareil/produit. Cette v
 
 *   Retourne le [nom du produit][1] au lieu du [nom du modèle][2], ce qui équivaut souvent au nom de code de production. Par exemple, `Passion` pour le Nexus One et `voles` pour le Motorola Droid.
 
- [1]: http://developer.android.com/reference/android/os/Build.html#PRODUCT
- [2]: http://developer.android.com/reference/android/os/Build.html#MODEL
+ [1]: https://developer.android.com/reference/android/os/Build.html#PRODUCT
+ [2]: https://developer.android.com/reference/android/os/Build.html#MODEL
 
 ### Bizarreries de paciarelli
 
@@ -140,7 +140,7 @@ Appareils Windows Phone 8 rapport de la plate-forme comme`Win32NT`.
 
 Obtenir Universally Unique Identifier de l'appareil ([UUID][3]).
 
- [3]: http://en.wikipedia.org/wiki/Universally_Unique_Identifier
+ [3]: https://en.wikipedia.org/wiki/Universally_Unique_Identifier
 
     var string = device.uuid;
     

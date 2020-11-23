@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -23,7 +23,7 @@
 
 Ce module fournit une vue de navigateur web qui s'affiche lorsque vous appelez `cordova.InAppBrowser.open()`.
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     
 
 Le `cordova.InAppBrowser.open()` fonction est définie pour être un remplacement rapide de la fonction `window.open()`. Les appels existants `window.open()` peuvent utiliser la fenêtre de InAppBrowser, en remplaçant window.open :
@@ -105,8 +105,8 @@ Ouvre une URL dans une nouvelle instance de `InAppBrowser`, l'instance de naviga
       * **allowInlineMediaPlayback**: la valeur `yes` ou `no` pour permettre la lecture du média en ligne HTML5, affichage dans la fenêtre du navigateur plutôt que d'une interface de lecture spécifique au périphérique. L'HTML `video` élément doit également inclure la `webkit-playsinline` attribut (par défaut,`no`)
       * **keyboardDisplayRequiresUserAction**: la valeur `yes` ou `no` pour ouvrir le clavier lorsque les éléments reçoivent le focus par l'intermédiaire de JavaScript `focus()` appel (par défaut,`yes`).
       * **suppressesIncrementalRendering**: la valeur `yes` ou `no` d'attendre que toutes les nouveautés de vue sont reçue avant d'être restitué (par défaut,`no`).
-      * **presentationstyle**: la valeur `pagesheet` , `formsheet` ou `fullscreen` pour définir le [style de présentation](http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle) (par défaut,`fullscreen`).
-      * **transitionstyle**: la valeur `fliphorizontal` , `crossdissolve` ou `coververtical` pour définir le [style de transition](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle) (par défaut,`coververtical`).
+      * **presentationstyle**: la valeur `pagesheet` , `formsheet` ou `fullscreen` pour définir le [style de présentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle) (par défaut,`fullscreen`).
+      * **transitionstyle**: la valeur `fliphorizontal` , `crossdissolve` ou `coververtical` pour définir le [style de transition](https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle) (par défaut,`coververtical`).
       * **toolbarposition**: la valeur `top` ou `bottom` (valeur par défaut est `bottom` ). Causes de la barre d'outils être en haut ou en bas de la fenêtre.
     
     Windows uniquement :
@@ -127,8 +127,8 @@ Ouvre une URL dans une nouvelle instance de `InAppBrowser`, l'instance de naviga
 
 ### Exemple
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
+    var ref2 = cordova.InAppBrowser.open(encodeURI('https://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### Firefox OS Quirks
@@ -227,7 +227,7 @@ les événements `loadstart` et `loaderror` ne sont pas déclenchés.
 
 ### Exemple court
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -260,7 +260,7 @@ les événements `loadstart` et `loaderror` ne sont pas déclenchés.
 
 ### Exemple court
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -287,7 +287,7 @@ les événements `loadstart` et `loaderror` ne sont pas déclenchés.
 
 ### Exemple court
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -310,7 +310,7 @@ les événements `loadstart` et `loaderror` ne sont pas déclenchés.
 
 ### Exemple court
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -343,7 +343,7 @@ les événements `loadstart` et `loaderror` ne sont pas déclenchés.
 
 ### Exemple court
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -382,7 +382,7 @@ En raison de la [documentation MSDN](https://msdn.microsoft.com/en-us/library/wi
 
 ### Exemple court
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

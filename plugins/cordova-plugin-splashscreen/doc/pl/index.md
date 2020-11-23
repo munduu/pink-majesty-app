@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -50,7 +50,7 @@ W pliku config.xml musisz dodać następujące preferencje:
 
 Gdzie foo jest nazwą pliku ekranu powitalnego, najlepiej 9 łatce. Upewnij się dodać pliki splashcreen do katalogu res/xml w odpowiednich folderach. Drugi parametr reprezentuje, jak długo ekranu powitalnego pojawi się w milisekundach. Domyślnie 3000 ms. Aby uzyskać więcej informacji, zobacz [ikony i ekrany powitalne w aplikacjach][1].
 
- [1]: http://cordova.apache.org/docs/en/edge/config_ref_images.md.html
+ [1]: https://cordova.apache.org/docs/en/edge/config_ref_images.md.html
 
 ## splashscreen.Hide
 

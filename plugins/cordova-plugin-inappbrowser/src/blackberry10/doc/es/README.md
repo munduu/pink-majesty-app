@@ -7,7 +7,7 @@
          "License"); you may not use this file except in compliance
          with the License.  You may obtain a copy of the License at
 
-           http://www.apache.org/licenses/LICENSE-2.0
+           https://www.apache.org/licenses/LICENSE-2.0
 
          Unless required by applicable law or agreed to in writing,
          software distributed under the License is distributed on an
@@ -19,6 +19,6 @@
 
 # BlackBerry 10 In-App-Browser Plugin
 
-El en el navegador de aplicación funcionalidad está enteramente dentro de js común. No hay ninguna aplicación nativa necesaria. Para instalar este plugin, siga la [Guía de la interfaz de línea de comandos](http://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-line%20Interface).
+El en el navegador de aplicación funcionalidad está enteramente dentro de js común. No hay ninguna aplicación nativa necesaria. Para instalar este plugin, siga la [Guía de la interfaz de línea de comandos](https://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-line%20Interface).
 
-Si no utiliza la interfaz de línea de comandos de Cordova, siga [Usando Plugman para gestionar Plugins](http://cordova.apache.org/docs/en/edge/guide_plugin_ref_plugman.md.html). ./cordova-plugin-battery-status/README.md ./cordova-plugin-camera/README.md ./cordova-plugin-console/README.md ./cordova-plugin-contacts/README.md ./cordova-plugin-device/README.md ./cordova-plugin-device-motion/README.md ./cordova-plugin-device-orientation/README.md ./cordova-plugin-device-orientation/src/blackberry10/README.md ./cordova-plugin-file/README.md ./cordova-plugin-file-transfer/README.md ./cordova-plugin-geolocation/README.md ./cordova-plugin-globalization/README.md ./cordova-plugin-inappbrowser/README.md ./cordova-plugin-inappbrowser/src/blackberry10/README.md ./cordova-plugin-media/README.md ./cordova-plugin-media-capture/README.md ./cordova-plugin-network-information/README.md ./cordova-plugin-splashscreen/README.md ./cordova-plugin-vibration/README.md
+Si no utiliza la interfaz de línea de comandos de Cordova, siga [Usando Plugman para gestionar Plugins](https://cordova.apache.org/docs/en/edge/guide_plugin_ref_plugman.md.html). ./cordova-plugin-battery-status/README.md ./cordova-plugin-camera/README.md ./cordova-plugin-console/README.md ./cordova-plugin-contacts/README.md ./cordova-plugin-device/README.md ./cordova-plugin-device-motion/README.md ./cordova-plugin-device-orientation/README.md ./cordova-plugin-device-orientation/src/blackberry10/README.md ./cordova-plugin-file/README.md ./cordova-plugin-file-transfer/README.md ./cordova-plugin-geolocation/README.md ./cordova-plugin-globalization/README.md ./cordova-plugin-inappbrowser/README.md ./cordova-plugin-inappbrowser/src/blackberry10/README.md ./cordova-plugin-media/README.md ./cordova-plugin-media-capture/README.md ./cordova-plugin-network-information/README.md ./cordova-plugin-splashscreen/README.md ./cordova-plugin-vibration/README.md

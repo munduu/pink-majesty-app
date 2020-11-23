@@ -5,7 +5,7 @@ require_once("phpmail/class.phpmailer.php");
 
 $msg .='
 
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 	<html>
 
@@ -386,7 +386,7 @@ $msg .='</table>
 
 					<td class="footNotes" align="right">
 
-					  <a href="https://www.facebook.com/sportbro" title="Facebook"><img src="http://sportbro.com.br/sportbro/img/faceb.png" width="29" alt="Facebook" /></a>
+					  <a href="https://www.facebook.com/sportbro" title="Facebook"><img src="https://sportbro.com.br/sportbro/img/faceb.png" width="29" alt="Facebook" /></a>
 
 					</td>
 

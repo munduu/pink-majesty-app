@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -77,15 +77,15 @@
     // BlackBerry: Torch 9800      returns "9800"
     // Browser:    Google Chrome   returns "Chrome"
     //             Safari          returns "Safari"
-    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. 請參閱 HTTP://theiphonewiki.com/wiki/index.php?title=Models / / var 模型 = device.model ；
+    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. 請參閱 https://theiphonewiki.com/wiki/index.php?title=Models / / var 模型 = device.model ；
     
 
 ### Android 的怪癖
 
 *   獲取[產品名稱][1]而不是[產品型號名稱][2]，這往往是生產代碼名稱。 例如，Nexus One 返回 `Passion` ，和摩托羅拉 Droid 返回`voles`.
 
- [1]: http://developer.android.com/reference/android/os/Build.html#PRODUCT
- [2]: http://developer.android.com/reference/android/os/Build.html#MODEL
+ [1]: https://developer.android.com/reference/android/os/Build.html#PRODUCT
+ [2]: https://developer.android.com/reference/android/os/Build.html#MODEL
 
 ### Tizen 怪癖
 
@@ -138,7 +138,7 @@ Windows Phone 8 設備報告作為平臺`Win32NT`.
 
 獲取設備的通用唯一識別碼 ([UUID][3]).
 
- [3]: http://en.wikipedia.org/wiki/Universally_Unique_Identifier
+ [3]: https://en.wikipedia.org/wiki/Universally_Unique_Identifier
 
     var string = device.uuid;
     

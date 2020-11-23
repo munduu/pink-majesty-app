@@ -8,7 +8,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *   https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -55,7 +55,7 @@ exports.defineAutoTests = function () {
         var iabInstance;
         var originalTimeout;
         var url = 'https://dist.apache.org/repos/dist/dev/cordova/';
-        var badUrl = 'http://bad-uri/';
+        var badUrl = 'https://bad-uri/';
 
         beforeEach(function () {
             // increase timeout to ensure test url could be loaded within test time
@@ -320,8 +320,8 @@ exports.defineManualTests = function (contentEl, createActionButton) {
 
     var info_div = '<h1>InAppBrowser</h1>' +
         '<div id="info">' +
-        'Make sure http://cordova.apache.org and http://google.co.uk and https://www.google.co.uk are white listed. </br>' +
-        'Make sure http://www.apple.com is not in the white list.</br>' +
+        'Make sure https://cordova.apache.org and https://google.co.uk and https://www.google.co.uk are white listed. </br>' +
+        'Make sure https://www.apple.com is not in the white list.</br>' +
         'In iOS, starred <span style="vertical-align:super">*</span> tests will put the app in a state with no way to return. </br>' +
         '<h4>User-Agent: <span id="user-agent"> </span></hr>' +
         '</div>';
@@ -461,7 +461,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
         'Expected result: consistently open browsers with with the appropriate option: hardwareback=defaults to yes then hardwareback=no then hardwareback=defaults to yes. By default hardwareback is yes so pressing back button should navigate backwards in history then close InAppBrowser';
 
     // CB-7490 We need to wrap this code due to Windows security restrictions
-    // see http://msdn.microsoft.com/en-us/library/windows/apps/hh465380.aspx#differences for details
+    // see https://msdn.microsoft.com/en-us/library/windows/apps/hh465380.aspx#differences for details
     if (window.MSApp && window.MSApp.execUnsafeLocalFunction) {
         MSApp.execUnsafeLocalFunction(function() {
             contentEl.innerHTML = info_div + local_tests + white_listed_tests + non_white_listed_tests + page_with_redirects_tests + pdf_url_tests + invalid_url_tests +
@@ -514,61 +514,61 @@ exports.defineManualTests = function (contentEl, createActionButton) {
 
     //White Listed
     createActionButton('* target=Default', function () {
-        doOpen('http://cordova.apache.org');
+        doOpen('https://cordova.apache.org');
     }, 'openWhiteListed');
     createActionButton('* target=Default (window.open)', function () {
-        doHookOpen('http://cordova.apache.org');
+        doHookOpen('https://cordova.apache.org');
     }, 'openWhiteListedHook');
     createActionButton('* target=_self', function () {
-        doOpen('http://cordova.apache.org', '_self');
+        doOpen('https://cordova.apache.org', '_self');
     }, 'openWhiteListedSelf');
     createActionButton('target=_system', function () {
-        doOpen('http://cordova.apache.org', '_system');
+        doOpen('https://cordova.apache.org', '_system');
     }, 'openWhiteListedSystem');
     createActionButton('target=_blank', function () {
-        doOpen('http://cordova.apache.org', '_blank');
+        doOpen('https://cordova.apache.org', '_blank');
     }, 'openWhiteListedBlank');
     createActionButton('target=Random', function () {
-        doOpen('http://cordova.apache.org', 'random_string');
+        doOpen('https://cordova.apache.org', 'random_string');
     }, 'openWhiteListedRandom');
     createActionButton('* target=Random, no location bar', function () {
-        doOpen('http://cordova.apache.org', 'random_string', 'location=no');
+        doOpen('https://cordova.apache.org', 'random_string', 'location=no');
     }, 'openWhiteListedRandomNoLocation');
 
     //Non White Listed
     createActionButton('target=Default', function () {
-        doOpen('http://www.apple.com');
+        doOpen('https://www.apple.com');
     }, 'openNonWhiteListed');
     createActionButton('target=Default (window.open)', function () {
-        doHookOpen('http://www.apple.com');
+        doHookOpen('https://www.apple.com');
     }, 'openNonWhiteListedHook');
     createActionButton('target=_self', function () {
-        doOpen('http://www.apple.com', '_self');
+        doOpen('https://www.apple.com', '_self');
     }, 'openNonWhiteListedSelf');
     createActionButton('target=_system', function () {
-        doOpen('http://www.apple.com', '_system');
+        doOpen('https://www.apple.com', '_system');
     }, 'openNonWhiteListedSystem');
     createActionButton('target=_blank', function () {
-        doOpen('http://www.apple.com', '_blank');
+        doOpen('https://www.apple.com', '_blank');
     }, 'openNonWhiteListedBlank');
     createActionButton('target=Random', function () {
-        doOpen('http://www.apple.com', 'random_string');
+        doOpen('https://www.apple.com', 'random_string');
     }, 'openNonWhiteListedRandom');
     createActionButton('* target=Random, no location bar', function () {
-        doOpen('http://www.apple.com', 'random_string', 'location=no');
+        doOpen('https://www.apple.com', 'random_string', 'location=no');
     }, 'openNonWhiteListedRandomNoLocation');
 
     //Page with redirect
-    createActionButton('http://google.co.uk', function () {
-        doOpen('http://google.co.uk', 'random_string', '', 1);
+    createActionButton('https://google.co.uk', function () {
+        doOpen('https://google.co.uk', 'random_string', '', 1);
     }, 'openRedirect301');
-    createActionButton('http://goo.gl/pUFqg', function () {
-        doOpen('http://goo.gl/pUFqg', 'random_string', '', 2);
+    createActionButton('https://goo.gl/pUFqg', function () {
+        doOpen('https://goo.gl/pUFqg', 'random_string', '', 2);
     }, 'openRedirect302');
 
     //PDF URL
     createActionButton('Remote URL', function () {
-        doOpen('http://www.stluciadance.com/prospectus_file/sample.pdf');
+        doOpen('https://www.stluciadance.com/prospectus_file/sample.pdf');
     }, 'openPDF');
     createActionButton('Local URL', function () {
         doOpen(localpdf, '_blank');
@@ -579,7 +579,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
         doOpen('x-ttp://www.invalid.com/', '_blank');
     }, 'openInvalidScheme');
     createActionButton('Invalid Host', function () {
-        doOpen('http://www.inv;alid.com/', '_blank');
+        doOpen('https://www.inv;alid.com/', '_blank');
     }, 'openInvalidHost');
     createActionButton('Missing Local File', function () {
         doOpen('nonexistent.html', '_blank');
@@ -663,13 +663,13 @@ exports.defineManualTests = function (contentEl, createActionButton) {
 
     // Hardwareback
     createActionButton('no hardwareback (defaults to yes)', function () {
-        doOpen('http://cordova.apache.org', '_blank');
+        doOpen('https://cordova.apache.org', '_blank');
     }, 'openHardwareBackDefault');
     createActionButton('hardwareback=yes', function () {
-        doOpen('http://cordova.apache.org', '_blank', 'hardwareback=yes');
+        doOpen('https://cordova.apache.org', '_blank', 'hardwareback=yes');
     }, 'openHardwareBackYes');
     createActionButton('hardwareback=no', function () {
-        doOpen('http://cordova.apache.org', '_blank', 'hardwareback=no');
+        doOpen('https://cordova.apache.org', '_blank', 'hardwareback=no');
     }, 'openHardwareBackNo');
     createActionButton('no hardwareback -> hardwareback=no -> no hardwareback', function() {
         var ref = cordova.InAppBrowser.open('https://google.com', '_blank', 'location=yes');

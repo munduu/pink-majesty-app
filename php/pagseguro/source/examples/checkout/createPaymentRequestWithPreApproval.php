@@ -8,7 +8,7 @@
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
- http://www.apache.org/licenses/LICENSE-2.0
+ https://www.apache.org/licenses/LICENSE-2.0
 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
@@ -71,7 +71,7 @@ class CreatePaymentRequestWithPreApproval
         );
 
         // Set the url used by PagSeguro to redirect user after checkout process ends
-        $paymentRequest->setRedirectUrl("http://www.lojamodelo.com.br");
+        $paymentRequest->setRedirectUrl("https://www.lojamodelo.com.br");
 
         // Add checkout metadata information
         $paymentRequest->addMetadata('PASSENGER_CPF', '15600944276', 1);
@@ -79,7 +79,7 @@ class CreatePaymentRequestWithPreApproval
         $paymentRequest->addMetadata('PASSENGER_PASSPORT', '23456', 1);
 
         // Another way to set checkout parameters
-        $paymentRequest->addParameter('notificationURL', 'http://www.lojamodelo.com.br/nas');
+        $paymentRequest->addParameter('notificationURL', 'https://www.lojamodelo.com.br/nas');
         $paymentRequest->addParameter('senderBornDate', '07/05/1981');
         $paymentRequest->addIndexedParameter('itemId', '0003', 3);
         $paymentRequest->addIndexedParameter('itemDescription', 'Notebook Preto', 3);
@@ -101,7 +101,7 @@ class CreatePaymentRequestWithPreApproval
         $preApprovalRequest->setPreApprovalMaxTotalAmount('2400.00');
         $preApprovalRequest->setPreApprovalInitialDate('2015-09-09T00:00:00');
         $preApprovalRequest->setPreApprovalFinalDate('2017-09-09T00:00:00');
-        $preApprovalRequest->setReviewURL("http://www.lojateste.com.br/redirect");
+        $preApprovalRequest->setReviewURL("https://www.lojateste.com.br/redirect");
 
         $paymentRequest->setPreApproval($preApprovalRequest);
 

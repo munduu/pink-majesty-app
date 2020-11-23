@@ -9,7 +9,7 @@
  "License"); you may not use this file except in compliance
  with the License.  You may obtain a copy of the License at
  
-     http://www.apache.org/licenses/LICENSE-2.0
+     https://www.apache.org/licenses/LICENSE-2.0
  
  Unless required by applicable law or agreed to in writing,
  software distributed under the License is distributed on an
@@ -97,7 +97,7 @@ if (typeof module === 'object' && typeof require === 'function') {
 define("cordova", function(require, exports, module) {
 
 // Workaround for Windows 10 in hosted environment case
-// http://www.w3.org/html/wg/drafts/html/master/browsers.html#named-access-on-the-window-object
+// https://www.w3.org/html/wg/drafts/html/master/browsers.html#named-access-on-the-window-object
 if (window.cordova && !(window.cordova instanceof HTMLElement)) { // eslint-disable-line no-undef
     throw new Error('cordova already defined');
 }
@@ -410,7 +410,7 @@ base64.toArrayBuffer = function (str) {
 
 // ------------------------------------------------------------------------------
 
-/* This code is based on the performance tests at http://jsperf.com/b64tests
+/* This code is based on the performance tests at https://jsperf.com/b64tests
  * This 12-bit-at-a-time algorithm was the best performing version on all
  * platforms tested.
  */

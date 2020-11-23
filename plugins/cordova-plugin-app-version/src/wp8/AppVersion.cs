@@ -15,7 +15,7 @@ namespace Cordova.Extension.Commands
 			if (Environment.OSVersion.Version.Major <= 8)
 			{
 				// Package.Current.Id is NOT working in Windows Phone 8
-				// Workaround based on http://stackoverflow.com/questions/14371275/how-can-i-get-my-windows-store-apps-title-and-version-info
+				// Workaround based on https://stackoverflow.com/questions/14371275/how-can-i-get-my-windows-store-apps-title-and-version-info
 				version = XDocument.Load("WMAppManifest.xml").Root.Element("App").Attribute("Version").Value;
 			}
 			else
@@ -32,7 +32,7 @@ namespace Cordova.Extension.Commands
 			if (Environment.OSVersion.Version.Major <= 8)
 			{
 				//Windows.ApplicationModel.Package.Current.Id is NOT working in Windows Phone 8
-				//Workaround based on http://stackoverflow.com/questions/14371275/how-can-i-get-my-windows-store-apps-title-and-version-info
+				//Workaround based on https://stackoverflow.com/questions/14371275/how-can-i-get-my-windows-store-apps-title-and-version-info
 				name = XDocument.Load("WMAppManifest.xml").Root.Element("App").Attribute("Title").Value;
 			}
 			else

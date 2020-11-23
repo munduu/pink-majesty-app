@@ -7,7 +7,7 @@
        "License"); you may not use this file except in compliance
        with the License.  You may obtain a copy of the License at
 
-         http://www.apache.org/licenses/LICENSE-2.0
+         https://www.apache.org/licenses/LICENSE-2.0
 
        Unless required by applicable law or agreed to in writing,
        software distributed under the License is distributed on an
@@ -396,7 +396,7 @@ public class InAppBrowser extends CordovaPlugin {
             Intent intent = null;
             intent = new Intent(Intent.ACTION_VIEW);
             // Omitting the MIME type for file: URLs causes "No Activity found to handle Intent".
-            // Adding the MIME type to http: URLs causes them to not be handled by the downloader.
+            // Adding the MIME type to https: URLs causes them to not be handled by the downloader.
             Uri uri = Uri.parse(url);
             if ("file".equals(uri.getScheme())) {
                 intent.setDataAndType(uri, webView.getResourceApi().getMimeType(uri));
@@ -438,7 +438,7 @@ public class InAppBrowser extends CordovaPlugin {
                 });
                 // NB: From SDK 19: "If you call methods on WebView from any thread
                 // other than your app's UI thread, it can cause unexpected results."
-                // http://developer.android.com/guide/webapps/migrating.html#Threads
+                // https://developer.android.com/guide/webapps/migrating.html#Threads
                 childView.loadUrl("about:blank");
 
                 try {
@@ -496,7 +496,7 @@ public class InAppBrowser extends CordovaPlugin {
         imm.hideSoftInputFromWindow(edittext.getWindowToken(), 0);
 
         if (!url.startsWith("http") && !url.startsWith("file:")) {
-            this.inAppWebView.loadUrl("http://" + url);
+            this.inAppWebView.loadUrl("https://" + url);
         } else {
             this.inAppWebView.loadUrl(url);
         }
@@ -1008,7 +1008,7 @@ public class InAppBrowser extends CordovaPlugin {
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
             String newloc = "";
-            if (url.startsWith("http:") || url.startsWith("https:") || url.startsWith("file:")) {
+            if (url.startsWith("https:") || url.startsWith("https:") || url.startsWith("file:")) {
                 newloc = url;
             }
             else
@@ -1016,7 +1016,7 @@ public class InAppBrowser extends CordovaPlugin {
                 // Assume that everything is HTTP at this point, because if we don't specify,
                 // it really should be.  Complain loudly about this!!!
                 LOG.e(LOG_TAG, "Possible Uncaught/Unknown URI");
-                newloc = "http://" + url;
+                newloc = "https://" + url;
             }
 
             // Update the UI if we haven't already

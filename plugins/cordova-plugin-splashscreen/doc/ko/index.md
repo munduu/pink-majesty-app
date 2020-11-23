@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -50,7 +50,7 @@
 
 여기서 foo splashscreen 파일, 선호 9 패치 파일의 이름입니다. 적절 한 폴더 아래 res/xml 디렉토리에 splashcreen 파일을 추가 해야 합니다. 두 번째 매개 변수는 splashscreen 얼마나 밀리초 단위로 표시 됩니다 나타냅니다. 3000 ms 기본값으로 사용 됩니다. 자세한 내용은 [아이콘 및 시작 화면을][1] 참조 하십시오.
 
- [1]: http://cordova.apache.org/docs/en/edge/config_ref_images.md.html
+ [1]: https://cordova.apache.org/docs/en/edge/config_ref_images.md.html
 
 ## splashscreen.hide
 

@@ -8,7 +8,7 @@ function sendMessage($msg,$token_id){
 		'app_id' => "9e1f5f88-069a-44f5-8671-a3ef18a15439",
 		'include_player_ids' => array($token_id),
 		'data' => array("foo" => "bar"),
-		'big_picture' => "http://dellasbeleza.com.br/site/sites/default/files/dellaspanel.png",
+		'big_picture' => "https://dellasbeleza.com.br/site/sites/default/files/dellaspanel.png",
 		'buttons' => array(array("id" => "id1", "text" => "Pedidos")),
 		'contents' => $content
 	);

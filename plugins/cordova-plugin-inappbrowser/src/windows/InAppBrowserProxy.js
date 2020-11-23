@@ -8,7 +8,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *   https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -37,7 +37,7 @@ var browserWrap,
     hardwareBackCallback;
 
 // x-ms-webview is available starting from Windows 8.1 (platformId is 'windows')
-// http://msdn.microsoft.com/en-us/library/windows/apps/dn301831.aspx
+// https://msdn.microsoft.com/en-us/library/windows/apps/dn301831.aspx
 var isWebViewAvailable = cordova.platformId === 'windows';
 
 function attachNavigationEvents(element, callback) {
@@ -56,7 +56,7 @@ function attachNavigationEvents(element, callback) {
 
         element.addEventListener("MSWebViewUnviewableContentIdentified", function (e) {
             // WebView found the content to be not HTML.
-            // http://msdn.microsoft.com/en-us/library/windows/apps/dn609716.aspx
+            // https://msdn.microsoft.com/en-us/library/windows/apps/dn609716.aspx
             callback({ type: "loaderror", url: e.uri, code: e.webErrorStatus, message: "Navigation failed with error code " + e.webErrorStatus}, { keepCallback: true });
         });
 

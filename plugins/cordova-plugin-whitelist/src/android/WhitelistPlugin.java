@@ -7,7 +7,7 @@
        "License"); you may not use this file except in compliance
        with the License.  You may obtain a copy of the License at
 
-         http://www.apache.org/licenses/LICENSE-2.0
+         https://www.apache.org/licenses/LICENSE-2.0
 
        Unless required by applicable law or agreed to in writing,
        software distributed under the License is distributed on an
@@ -75,7 +75,7 @@ public class WhitelistPlugin extends CordovaPlugin {
             } else if (strNode.equals("allow-navigation")) {
                 String origin = xml.getAttributeValue(null, "href");
                 if ("*".equals(origin)) {
-                    allowedNavigations.addWhiteListEntry("http://*/*", false);
+                    allowedNavigations.addWhiteListEntry("https://*/*", false);
                     allowedNavigations.addWhiteListEntry("https://*/*", false);
                     allowedNavigations.addWhiteListEntry("data:*", false);
                 } else {
@@ -94,7 +94,7 @@ public class WhitelistPlugin extends CordovaPlugin {
                         allowedIntents.addWhiteListEntry(origin, (subdomains != null) && (subdomains.compareToIgnoreCase("true") == 0));
                     } else {
                         if ("*".equals(origin)) {
-                            allowedRequests.addWhiteListEntry("http://*/*", false);
+                            allowedRequests.addWhiteListEntry("https://*/*", false);
                             allowedRequests.addWhiteListEntry("https://*/*", false);
                         } else {
                             allowedRequests.addWhiteListEntry(origin, (subdomains != null) && (subdomains.compareToIgnoreCase("true") == 0));

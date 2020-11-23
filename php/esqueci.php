@@ -14,8 +14,8 @@ if($token=='H424715433852'){
 	$bd        = anti_sql_injection('tb_login');
 	$data_hoje = date('Y/m/d');
 	
-	$link_sis  = "http://www.igestaoweb.com.br/pinkmajesty";
-	//$link_sis  = "http://192.168.1.200:8080/inova/dellas";
+	$link_sis  = "https://www.igestaoweb.com.br/pinkmajesty";
+	//$link_sis  = "https://192.168.1.200:8080/inova/dellas";
 	
 	$law = "email='$lEmail'";
 		
@@ -42,7 +42,7 @@ if($token=='H424715433852'){
 			
 			//e-mail  			
 			$msg = "
-				<html xmlns=\"http://www.w3.org/1999/xhtml\">
+				<html xmlns=\"https://www.w3.org/1999/xhtml\">
 				<head>
 				<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" /></head>
 

@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -50,7 +50,7 @@ Dans votre fichier config.xml, vous devez ajouter les préférences suivantes :
 
 Où foo est le nom du fichier splashscreen, préférablement un fichier de 9 correctif. Assurez-vous d'ajouter vos fichiers splashcreen dans votre répertoire res/xml dans les dossiers appropriés. Le deuxième paramètre représente combien de temps le splashscreen apparaîtra en millisecondes. Il est par défaut à 3000 ms. Pour plus d'informations, consultez [icônes et écrans de démarrage][1].
 
- [1]: http://cordova.apache.org/docs/en/edge/config_ref_images.md.html
+ [1]: https://cordova.apache.org/docs/en/edge/config_ref_images.md.html
 
 ## splashscreen.Hide
 

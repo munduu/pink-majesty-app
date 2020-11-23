@@ -1,8 +1,8 @@
 //BANCO LOCAL
-//var url_geral = "http://192.168.1.210:8080/inova/dellas/app/php/";
-//var url_geral = "http://192.168.1.210:8080/inova/apps_inova/Dellas/php/"; 
+//var url_geral = "https://192.168.1.210:8080/inova/dellas/app/php/";
+//var url_geral = "https://192.168.1.210:8080/inova/apps_inova/Dellas/php/"; 
 //link app
-var url_geral = "http://localhost:6969/pink-majesty-app/php/";
+var url_geral = "https://localhost:6969/pink-majesty-app/php/";
 console.log(url_geral);
 //token
 var token     = "H424715433852";

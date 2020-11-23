@@ -7,7 +7,7 @@ function getEndereco() {
 		// Se o campo CEP não estiver vazio
 		console.log("getEndereco");
 		if($.trim($("#cep").val()) != ""){
-			$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep").val(), function(){
+			$.getScript("https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep").val(), function(){
 				if(resultadoCEP["resultado"]){
 					console.log(resultadoCEP["resultado"]);
 					$("#logradouro").val(unescape(resultadoCEP["tipo_logradouro"])+" "+unescape(resultadoCEP["logradouro"]));
@@ -49,7 +49,7 @@ function getEnderecoColab() {
 	// Se o campo CEP não estiver vazio
 				
 	if($.trim($("#cep_c").val()) != ""){
-		$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_c").val(), function(){
+		$.getScript("https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_c").val(), function(){
 			if(resultadoCEP["resultado"]){
 				$("#logradouro_c").val(unescape(resultadoCEP["tipo_logradouro"])+" "+unescape(resultadoCEP["logradouro"]));
 				$("#bairro_c").val(unescape(resultadoCEP["bairro"]));

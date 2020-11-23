@@ -3,11 +3,11 @@
  * @author: fabiomcosta
  * @version: 1.1.3
  *
- * Created by Fabio M. Costa on 2008-09-16. Please report any bug at http://www.meiocodigo.com
+ * Created by Fabio M. Costa on 2008-09-16. Please report any bug at https://www.meiocodigo.com
  *
- * Copyright (c) 2008 Fabio M. Costa http://www.meiocodigo.com
+ * Copyright (c) 2008 Fabio M. Costa https://www.meiocodigo.com
  *
- * The MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * The MIT License (https://www.opensource.org/licenses/mit-license.php)
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -634,7 +634,7 @@
 					&& (selector === true || (typeof selector == 'string' && $formEl.is(selector)));
 			},
 			
-			// http://www.bazon.net/mishoo/articles.epl?art_id=1292
+			// https://www.bazon.net/mishoo/articles.epl?art_id=1292
 			__setRange : function(input, start, end) {
 				if(typeof end == 'undefined') end = start;
 				if (input.setSelectionRange){
@@ -650,7 +650,7 @@
 				}
 			},
 			
-			// adaptation from http://digitarald.de/project/autocompleter/
+			// adaptation from https://digitarald.de/project/autocompleter/
 			__getRange : function(input){
 				if (!$.browser.msie) return {start: input.selectionStart, end: input.selectionEnd};
 				var pos = {start: 0, end: 0},

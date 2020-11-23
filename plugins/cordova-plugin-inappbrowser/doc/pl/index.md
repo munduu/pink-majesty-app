@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -21,7 +21,7 @@
 
 Plugin daje widok przeglądarki sieci web, które są wyświetlane podczas wywoływania `cordova.InAppBrowser.open()`.
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     
 
 `cordova.InAppBrowser.open()` funkcja jest definiowana jako zamiennik dla funkcji `window.open()`. Istniejące wywołania `window.open()` służy okno InAppBrowser, zastępując window.open:
@@ -109,8 +109,8 @@ Otwiera URL w nowe wystąpienie `InAppBrowser`, bieżące wystąpienie przegląd
     
     *   **ukryte**: zestaw `yes` do stworzenia przeglądarki i ładowania strony, ale nie pokazuje go. Loadstop zdarzenie fires po zakończeniu ładowania. Pominąć lub zestaw `no` (domyślnie) do przeglądarki otworzyć i załadować normalnie.
 
- [1]: http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle
- [2]: http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle
+ [1]: https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle
+ [2]: https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle
 
 ### Obsługiwane platformy
 
@@ -124,8 +124,8 @@ Otwiera URL w nowe wystąpienie `InAppBrowser`, bieżące wystąpienie przegląd
 
 ### Przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
+    var ref2 = cordova.InAppBrowser.open(encodeURI('https://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### Firefox OS dziwactwa
@@ -209,7 +209,7 @@ Obiekt zwrócony z wywołania `cordova.InAppBrowser.open`.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -241,7 +241,7 @@ Obiekt zwrócony z wywołania `cordova.InAppBrowser.open`.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -267,7 +267,7 @@ Obiekt zwrócony z wywołania `cordova.InAppBrowser.open`.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -289,7 +289,7 @@ Obiekt zwrócony z wywołania `cordova.InAppBrowser.open`.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -321,7 +321,7 @@ Obiekt zwrócony z wywołania `cordova.InAppBrowser.open`.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -351,7 +351,7 @@ Obiekt zwrócony z wywołania `cordova.InAppBrowser.open`.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

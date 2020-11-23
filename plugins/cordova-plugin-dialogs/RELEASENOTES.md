@@ -8,7 +8,7 @@
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
 # 
-# http://www.apache.org/licenses/LICENSE-2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # 
 # Unless required by applicable law or agreed to in writing,
 # software distributed under the License is distributed on an
@@ -56,7 +56,7 @@
 
 ### 1.2.1 (Apr 15, 2016)
 * [CB-10097](https://issues.apache.org/jira/browse/CB-10097) dialog doesn't show on **iOS** when called from a select list `onChange` event
-* Remove `warning` emoji, as it doesn't correctly display in the docs website: http://cordova.apache.org/docs/en/dev/cordova-plugin-dialogs/index.html
+* Remove `warning` emoji, as it doesn't correctly display in the docs website: https://cordova.apache.org/docs/en/dev/cordova-plugin-dialogs/index.html
 * [CB-10727](https://issues.apache.org/jira/browse/CB-10727) Dialogs plugin has warnings on **iOS**
 * [CB-10636](https://issues.apache.org/jira/browse/CB-10636) Add `JSHint` for plugins
 

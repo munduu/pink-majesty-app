@@ -67,7 +67,7 @@ $data['shippingAddressPostalCode'] = '01452002';
 $data['shippingAddressCity'] = 'Sao Paulo';
 $data['shippingAddressState'] = 'SP';
 $data['shippingAddressCountry'] = 'BRA';
-$data['redirectURL'] = 'http://www.sounoob.com.br/paginaDeAgracedimento';
+$data['redirectURL'] = 'https://www.sounoob.com.br/paginaDeAgracedimento';
 
 $data = http_build_query($data);
 

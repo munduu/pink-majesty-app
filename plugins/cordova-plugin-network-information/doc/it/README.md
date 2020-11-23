@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -21,7 +21,7 @@
 
 [![Build Status](https://travis-ci.org/apache/cordova-plugin-network-information.svg)](https://travis-ci.org/apache/cordova-plugin-network-information)
 
-Questo plugin fornisce un'implementazione di una vecchia versione dell' [API di informazioni di rete](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/). Fornisce informazioni sul dispositivo cellulare e connessione wifi, e se il dispositivo dispone di una connessione internet.
+Questo plugin fornisce un'implementazione di una vecchia versione dell' [API di informazioni di rete](https://www.w3.org/TR/2011/WD-netinfo-api-20110607/). Fornisce informazioni sul dispositivo cellulare e connessione wifi, e se il dispositivo dispone di una connessione internet.
 
 ## Installazione
 

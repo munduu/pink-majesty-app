@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -21,7 +21,7 @@
 
 [![Build Status](https://travis-ci.org/apache/cordova-plugin-network-information.svg)](https://travis-ci.org/apache/cordova-plugin-network-information)
 
-이 플러그인 [네트워크 정보 API](http://www.w3.org/TR/2011/WD-netinfo-api-20110607/)의 이전 버전에 대 한 구현을 제공합니다. 소자의 셀룰러와 와이파이 연결에 대 한 정보를 제공 합니다 장치는 인터넷 연결에 있는지 여부.
+이 플러그인 [네트워크 정보 API](https://www.w3.org/TR/2011/WD-netinfo-api-20110607/)의 이전 버전에 대 한 구현을 제공합니다. 소자의 셀룰러와 와이파이 연결에 대 한 정보를 제공 합니다 장치는 인터넷 연결에 있는지 여부.
 
 ## 설치
 

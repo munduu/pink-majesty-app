@@ -19,9 +19,9 @@
 
 ### 0.1.4
 
-* Return version number, not build number on iOS (thanks to http://www.humancopy.net)
+* Return version number, not build number on iOS (thanks to https://www.humancopy.net)
 * Support for Windows phone 8 (thanks to Cristi Badila / Gediminas Šaltenis)
-* Support for AngularJS as well as jQuery (thanks to Matias Singers, [Red Ape Solutions](http://www.redapesolutions.com/))
+* Support for AngularJS as well as jQuery (thanks to Matias Singers, [Red Ape Solutions](https://www.redapesolutions.com/))
 
 ### 0.1.3
 

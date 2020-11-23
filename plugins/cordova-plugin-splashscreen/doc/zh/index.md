@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -50,7 +50,7 @@
 
 美孚在哪裡閃屏檔，最好是 9 修補程式檔的名稱。 請確保您的 splashcreen 檔添加到 res/xml 目錄下相應的資料夾。 第二個參數表示多久閃屏會顯示以毫秒為單位。 它將預設為 3000 毫秒。 有關更多資訊，請參見 [圖示和啟動畫面][1]。
 
- [1]: http://cordova.apache.org/docs/en/edge/config_ref_images.md.html
+ [1]: https://cordova.apache.org/docs/en/edge/config_ref_images.md.html
 
 ## splashscreen.hide
 

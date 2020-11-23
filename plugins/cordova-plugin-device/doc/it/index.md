@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -77,15 +77,15 @@ Il `device.model` restituisce il nome del modello del dispositivo o del prodotto
     // BlackBerry: Torch 9800      returns "9800"
     // Browser:    Google Chrome   returns "Chrome"
     //             Safari          returns "Safari"
-    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. Vedi http://theiphonewiki.com/wiki/index.php?title=Models / / modello var = device.model;
+    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. Vedi https://theiphonewiki.com/wiki/index.php?title=Models / / modello var = device.model;
     
 
 ### Stranezze Android
 
 *   Ottiene il [nome del prodotto][1] anziché il [nome del modello][2], che è spesso il nome di codice di produzione. Ad esempio, restituisce il Nexus One `Passion` , e Motorola Droid restituisce`voles`.
 
- [1]: http://developer.android.com/reference/android/os/Build.html#PRODUCT
- [2]: http://developer.android.com/reference/android/os/Build.html#MODEL
+ [1]: https://developer.android.com/reference/android/os/Build.html#PRODUCT
+ [2]: https://developer.android.com/reference/android/os/Build.html#MODEL
 
 ### Tizen stranezze
 
@@ -138,7 +138,7 @@ Dispositivi Windows Phone 8 segnalano la piattaforma come`Win32NT`.
 
 Ottenere identificatore del dispositivo univoco universale ([UUID][3]).
 
- [3]: http://en.wikipedia.org/wiki/Universally_Unique_Identifier
+ [3]: https://en.wikipedia.org/wiki/Universally_Unique_Identifier
 
     var string = device.uuid;
     

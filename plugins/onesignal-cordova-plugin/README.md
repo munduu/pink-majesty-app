@@ -7,7 +7,7 @@
 
 ---
 
-[OneSignal](https://onesignal.com/) is a free push notification service for mobile apps. This plugin makes it easy to integrate your [Cordova](http://cordova.apache.org/) based (e.g. [Ionic](http://ionicframework.com/), [PhoneGap](https://phonegap.com/), PhoneGap Build, [Intel XDK](https://software.intel.com/en-us/intel-xdk/documentation) or [Sencha Touch](https://www.sencha.com/products/touch/)) app with OneSignal. 
+[OneSignal](https://onesignal.com/) is a free push notification service for mobile apps. This plugin makes it easy to integrate your [Cordova](https://cordova.apache.org/) based (e.g. [Ionic](https://ionicframework.com/), [PhoneGap](https://phonegap.com/), PhoneGap Build, [Intel XDK](https://software.intel.com/en-us/intel-xdk/documentation) or [Sencha Touch](https://www.sencha.com/products/touch/)) app with OneSignal. 
 
 ![alt text](https://onesignal.com/images/android_and_ios_notification_image.gif)
 

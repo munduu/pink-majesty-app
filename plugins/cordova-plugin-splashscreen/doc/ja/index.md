@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -50,7 +50,7 @@
 
 Foo ができれば 9 パッチファイル splashscreen ファイルの名前です。 解像度/xml ディレクトリの適切なフォルダーの下に splashcreen ファイルを追加することを確認します。 2 番目のパラメーターは、スプラッシュ ・ スクリーンがの表示時間 (ミリ秒単位) を表します。 デフォルトでは 3000 ミリ秒です。 詳細については、[アイコンとスプラッシュ画面][1] を参照してください。
 
- [1]: http://cordova.apache.org/docs/en/edge/config_ref_images.md.html
+ [1]: https://cordova.apache.org/docs/en/edge/config_ref_images.md.html
 
 ## splashscreen.hide
 

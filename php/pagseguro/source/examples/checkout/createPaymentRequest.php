@@ -10,7 +10,7 @@ ob_start();
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
- http://www.apache.org/licenses/LICENSE-2.0
+ https://www.apache.org/licenses/LICENSE-2.0
 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
@@ -137,7 +137,7 @@ class CreatePaymentRequest
         );
 
         // Set the url used by PagSeguro to redirect user after checkout process ends
-        $paymentRequest->setRedirectUrl("http://www.vistatshirt.com");
+        $paymentRequest->setRedirectUrl("https://www.vistatshirt.com");
 
         // Add checkout metadata information
         /*$paymentRequest->addMetadata('PASSENGER_CPF', '15600944276', 1);
@@ -145,7 +145,7 @@ class CreatePaymentRequest
         $paymentRequest->addMetadata('PASSENGER_PASSPORT', '23456', 1);*/
 
         // Another way to set checkout parameters
-        $paymentRequest->addParameter('notificationURL', 'http://www.vistatshirt.com');
+        $paymentRequest->addParameter('notificationURL', 'https://www.vistatshirt.com');
         $paymentRequest->addParameter('senderBornDate', '21/05/1986');
         /*$paymentRequest->addIndexedParameter('itemId', '0003', 3);
         $paymentRequest->addIndexedParameter('itemDescription', 'Notebook Preto', 3);

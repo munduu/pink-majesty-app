@@ -39,7 +39,7 @@ When creating a Github issue **remember to**:
 [https://developers.facebook.com/docs/plugins/like-button](https://developers.facebook.com/docs/plugins/like-button)
 
 - Solution
-    - It won't work for native apps because: [https://developers.facebook.com/docs/ios/like-button/](https://developers.facebook.com/docs/ios/like-button/) is not supported yet. **HOWEVER**; it can be done with the graph API [http://stackoverflow.com/questions/11915269/built-in-like-button-facebook-sdk-3-0](http://stackoverflow.com/questions/11915269/built-in-like-button-facebook-sdk-3-0)
+    - It won't work for native apps because: [https://developers.facebook.com/docs/ios/like-button/](https://developers.facebook.com/docs/ios/like-button/) is not supported yet. **HOWEVER**; it can be done with the graph API [https://stackoverflow.com/questions/11915269/built-in-like-button-facebook-sdk-3-0](https://stackoverflow.com/questions/11915269/built-in-like-button-facebook-sdk-3-0)
     Things you have to take care of are :
 
     1. Your like button must not be the same (graphically) as the Facebook like button
@@ -116,7 +116,7 @@ try {
 ### My Hash Does Not Work, I am Using Windows
 
 - Problem
-    - Windows users have to be careful about openssl-for-windows [http://code.google.com/p/openssl-for-windows/downloads/list](http://code.google.com/p/openssl-for-windows/downloads/list), the latest version, at least on plataform 64bit, does not generate the correct hash that Facebook needs for android apps.
+    - Windows users have to be careful about openssl-for-windows [https://code.google.com/p/openssl-for-windows/downloads/list](https://code.google.com/p/openssl-for-windows/downloads/list), the latest version, at least on plataform 64bit, does not generate the correct hash that Facebook needs for android apps.
 
 - Solution
     - Use one of these versions when creating your hash: **openssl-0.9.8e_X64.zip** or **openssl-0.9.8d_X64.rar**

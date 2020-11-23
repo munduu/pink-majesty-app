@@ -406,7 +406,7 @@ vr.substr(tam - 5, 3) + "," + vr.substr(tam - 2, tam);}
 	// Função única que fará a transação
 	function getEndereco() {
 			if($.trim($("#cep").val()) != ""){
-				$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep").val(), function(){
+				$.getScript("https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep").val(), function(){
 					// o getScript dá um eval no script, então é só ler!
 					//Se o resultado for igual a 1
 					if(resultadoCEP["resultado"]){
@@ -425,7 +425,7 @@ vr.substr(tam - 5, 3) + "," + vr.substr(tam - 2, tam);}
 	
 	function getEndereco2() {
 			if($.trim($("#cep2").val()) != ""){
-				$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep2").val(), function(){
+				$.getScript("https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep2").val(), function(){
 					// o getScript dá um eval no script, então é só ler!
 					//Se o resultado for igual a 1
 					if(resultadoCEP["resultado"]){
@@ -444,7 +444,7 @@ vr.substr(tam - 5, 3) + "," + vr.substr(tam - 2, tam);}
 	
 	function getEndereco_orc() {
 			if($.trim($("#cep_ent").val()) != ""){
-				$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_ent").val(), function(){
+				$.getScript("https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_ent").val(), function(){
 					// o getScript dá um eval no script, então é só ler!
 					//Se o resultado for igual a 1
 			  		if(resultadoCEP["resultado"]){
@@ -463,7 +463,7 @@ vr.substr(tam - 5, 3) + "," + vr.substr(tam - 2, tam);}
 	
 	function getEndereco_orc2() {
 			if($.trim($("#cep_ent2").val()) != ""){
-				$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_ent2").val(), function(){
+				$.getScript("https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_ent2").val(), function(){
 					// o getScript dá um eval no script, então é só ler!
 					//Se o resultado for igual a 1
 			  		if(resultadoCEP["resultado"]){
@@ -482,7 +482,7 @@ vr.substr(tam - 5, 3) + "," + vr.substr(tam - 2, tam);}
 	
 	function getEndereco_dest() {
 			if($.trim($("#cep_dest").val()) != ""){
-				$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_dest").val(), function(){
+				$.getScript("https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_dest").val(), function(){
 					// o getScript dá um eval no script, então é só ler!
 					//Se o resultado for igual a 1
 			  		if(resultadoCEP["resultado"]){
@@ -500,7 +500,7 @@ vr.substr(tam - 5, 3) + "," + vr.substr(tam - 2, tam);}
 	}
 	function getEndereco_ret_dest() {
 			if($.trim($("#cep_ret_dest").val()) != ""){
-				$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_ret_dest").val(), function(){
+				$.getScript("https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_ret_dest").val(), function(){
 					// o getScript dá um eval no script, então é só ler!
 					//Se o resultado for igual a 1
 			  		if(resultadoCEP["resultado"]){
@@ -518,7 +518,7 @@ vr.substr(tam - 5, 3) + "," + vr.substr(tam - 2, tam);}
 	}
 	function getEndereco_ent_dest() {
 			if($.trim($("#cep_ent_dest").val()) != ""){
-				$.getScript("http://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_ent_dest").val(), function(){
+				$.getScript("https://cep.republicavirtual.com.br/web_cep.php?formato=javascript&cep="+$("#cep_ent_dest").val(), function(){
 					// o getScript dá um eval no script, então é só ler!
 					//Se o resultado for igual a 1
 			  		if(resultadoCEP["resultado"]){

@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -56,7 +56,7 @@ Sie müssen in Ihrem `"config.xml"`fügen Sie die folgenden Einstellungen:
     <preference name="SplashMaintainAspectRatio" value="true|false" />
     
 
-Wo Foo ist der Name der Datei Splashscreen, vorzugsweise eine 9-Patch-Datei. Stellen Sie sicher, Splashcreen Dateien zu Ihrem res/xml-Verzeichnis unter den entsprechenden Ordnern hinzuzufügen. Der zweite Parameter stellt dar, wie lange das Splashscreen in Millisekunden angezeigt werden. Es wird standardmäßig auf 3000 ms. Weitere Informationen finden Sie unter [Symbole und Splash-Screens](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html).
+Wo Foo ist der Name der Datei Splashscreen, vorzugsweise eine 9-Patch-Datei. Stellen Sie sicher, Splashcreen Dateien zu Ihrem res/xml-Verzeichnis unter den entsprechenden Ordnern hinzuzufügen. Der zweite Parameter stellt dar, wie lange das Splashscreen in Millisekunden angezeigt werden. Es wird standardmäßig auf 3000 ms. Weitere Informationen finden Sie unter [Symbole und Splash-Screens](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html).
 
 "SplashMaintainAspectRatio" Präferenz ist optional. Wenn wahr, Splash-Screen zeichenbaren nicht gestreckt wird, um den Bildschirm passen, sondern stattdessen einfach "" den Bildschirm, wie CSS abdeckt "Hintergrund-Größe: Schutz vor". Dies ist sehr nützlich, wenn Splash-Bildschirm Bilder können nicht, in keiner Weise, zum Beispiel verzerrt werden wenn sie Landschaft oder Text enthalten. Diese Einstellung funktioniert am besten mit Bildern, die große Margen (sichere Bereiche) haben, die sicher auf Bildschirme mit unterschiedlichen Seitenverhältnissen zugeschnitten werden können.
 
@@ -116,4 +116,4 @@ Zeigt den Begrüßungsbildschirm.
     navigator.splashscreen.show();
     
 
-Ihre Anwendung kann nicht `navigator.splashscreen.show()` aufrufen, bis die app begonnen hat und das `deviceready`-Ereignis ausgelöst hat. Aber da in der Regel der Splash-Screen soll sichtbar sein, bevor die Anwendung gestartet wurde, scheint die Niederlage der Zweck des Begrüßungsbildschirms. Somit einige Konfiguration in der Datei `config.xml` werden automatisch die Splash `show` sofort nach Ihrer app-Start und Bildschirm bevor es voll begonnen hat, und das `deviceready`-Ereignis empfangen. Weitere Informationen zu dieser Konfiguration finden Sie unter [Symbole und Splash-Screens](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html). Aus diesem Grund ist es unwahrscheinlich, dass Sie `navigator.splashscreen.show()` damit den Splash-Screen sichtbar ist für app-Start aufrufen müssen.
+Ihre Anwendung kann nicht `navigator.splashscreen.show()` aufrufen, bis die app begonnen hat und das `deviceready`-Ereignis ausgelöst hat. Aber da in der Regel der Splash-Screen soll sichtbar sein, bevor die Anwendung gestartet wurde, scheint die Niederlage der Zweck des Begrüßungsbildschirms. Somit einige Konfiguration in der Datei `config.xml` werden automatisch die Splash `show` sofort nach Ihrer app-Start und Bildschirm bevor es voll begonnen hat, und das `deviceready`-Ereignis empfangen. Weitere Informationen zu dieser Konfiguration finden Sie unter [Symbole und Splash-Screens](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html). Aus diesem Grund ist es unwahrscheinlich, dass Sie `navigator.splashscreen.show()` damit den Splash-Screen sichtbar ist für app-Start aufrufen müssen.

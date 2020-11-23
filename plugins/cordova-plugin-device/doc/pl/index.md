@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -77,15 +77,15 @@ Pobierz wersję Cordova działa na urządzeniu.
     // BlackBerry: Torch 9800      returns "9800"
     // Browser:    Google Chrome   returns "Chrome"
     //             Safari          returns "Safari"
-    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. Zobacz http://theiphonewiki.com/wiki/index.php?title=Models / / modelu var = device.model;
+    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. Zobacz https://theiphonewiki.com/wiki/index.php?title=Models / / modelu var = device.model;
     
 
 ### Dziwactwa Androida
 
 *   Pobiera [nazwę produktu][1] zamiast [nazwy modelu][2], który często jest nazwą kod produkcji. Na przykład, Nexus One zwraca `Passion` , i zwraca Motorola Droid`voles`.
 
- [1]: http://developer.android.com/reference/android/os/Build.html#PRODUCT
- [2]: http://developer.android.com/reference/android/os/Build.html#MODEL
+ [1]: https://developer.android.com/reference/android/os/Build.html#PRODUCT
+ [2]: https://developer.android.com/reference/android/os/Build.html#MODEL
 
 ### Dziwactwa Tizen
 
@@ -138,7 +138,7 @@ Urządzenia Windows Phone 8 raport platformy jako`Win32NT`.
 
 Się urządzenia uniwersalnie unikatowy identyfikator ([UUID][3]).
 
- [3]: http://en.wikipedia.org/wiki/Universally_Unique_Identifier
+ [3]: https://en.wikipedia.org/wiki/Universally_Unique_Identifier
 
     var string = device.uuid;
     

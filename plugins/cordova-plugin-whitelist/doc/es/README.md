@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -35,7 +35,7 @@ Peculiaridades: en Android también se aplica a iframes para esquemas que son de
 Por defecto, navegaciones solo a direcciones URL `file://` , son permitidas. Para permitir que otros otras URL, debe agregar `< allow-navegación >` etiquetas en el `archivo config.xml`:
 
     <!-- Allow links to example.com -->
-    <allow-navigation href="http://example.com/*" />
+    <allow-navigation href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -47,7 +47,7 @@ Por defecto, navegaciones solo a direcciones URL `file://` , son permitidas. Par
     <allow-navigation href="*" />
     
     <!-- The above is equivalent to these three declarations -->
-    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
     
@@ -63,11 +63,11 @@ Esta lista blanca no se aplica a plugins, sólo los hipervínculos y las llamada
 En `config.xml`, agregar etiquetas `< allow-intent >` , como este:
 
     <!-- Allow links to web pages to open in a browser -->
-    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <allow-intent href="https://*/*" />
     
     <!-- Allow links to example.com to open in a browser -->
-    <allow-intent href="http://example.com/*" />
+    <allow-intent href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -96,14 +96,14 @@ Nota: Le sugerimos que utilice una política de seguridad de contenido (véase a
 En `config.xml`, agregue etiquetas de `< access >` , como este:
 
     <!-- Allow images, xhrs, etc. to google.com -->
-    <access origin="http://google.com" />
+    <access origin="https://google.com" />
     <access origin="https://google.com" />
     
     <!-- Access to the subdomain maps.google.com -->
-    <access origin="http://maps.google.com" />
+    <access origin="https://maps.google.com" />
     
     <!-- Access to all the subdomains on google.com -->
-    <access origin="http://*.google.com" />
+    <access origin="https://*.google.com" />
     
     <!-- Enable requests to content: URLs -->
     <access origin="content:///*" />
@@ -120,7 +120,7 @@ Quirk: Android también permite las solicitudes de https://ssl.gstatic.com/acces
 
 Controles que las peticiones de la red (imágenes, XHRs, etc.) se les permite hacer (vía webview directamente).
 
-En iOS y Android, la red solicitud lista blanca (véase arriba) no es capaz de filtrar todos los tipos de solicitudes (por ejemplo, `< video >` y WebSockets no estén bloqueadas). Así, además de la lista blanca, usted debe utilizar una etiqueta `< meta >` de [Contenido la política de seguridad](http://content-security-policy.com/) en todas las páginas.
+En iOS y Android, la red solicitud lista blanca (véase arriba) no es capaz de filtrar todos los tipos de solicitudes (por ejemplo, `< video >` y WebSockets no estén bloqueadas). Así, además de la lista blanca, usted debe utilizar una etiqueta `< meta >` de [Contenido la política de seguridad](https://content-security-policy.com/) en todas las páginas.
 
 En Android, soporte para CSP en el sistema webview comienza con KitKat (pero está disponible en todas las versiones con WebView de paso de peatones).
 

@@ -15,7 +15,7 @@
 | Copyright (c) 2001-2003, Brent R. Matzelle                                |
 | ------------------------------------------------------------------------- |
 |   License: Distributed under the Lesser General Public License (LGPL)     |
-|            http://www.gnu.org/copyleft/lesser.html                        |
+|            https://www.gnu.org/copyleft/lesser.html                        |
 | This program is distributed in the hope that it will be useful - WITHOUT  |
 | ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or     |
 | FITNESS FOR A PARTICULAR PURPOSE.                                         |
@@ -32,7 +32,7 @@
  * @copyright 2010 - 2012 Jim Jagielski
  * @copyright 2004 - 2009 Andy Prevost
  * @version $Id: class.phpmailer.php 450 2010-06-23 16:46:33Z coolbru $
- * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @license https://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
 if (version_compare(PHP_VERSION, '5.0.0', '<') ) exit("Sorry, this version of PHPMailer will only run on PHP version 5 or greater!\n");
@@ -197,7 +197,7 @@ class PHPMailer {
    */
    
   /**
-    alterar public $Host para SMTP do domínio
+    alterar public $Host para SMTP do domï¿½nio
 */	
   public $Host          = 'smtp.dominio';
 
@@ -558,7 +558,7 @@ class PHPMailer {
    * Static so it can be used without instantiation
    * Tries to use PHP built-in validator in the filter extension (from PHP 5.2), falls back to a reasonably competent regex validator
    * Conforms approximately to RFC2822
-   * @link http://www.hexillion.com/samples/#Regex Original pattern found here
+   * @link https://www.hexillion.com/samples/#Regex Original pattern found here
    * @param string $address The email address to check
    * @return boolean
    * @static
@@ -1234,7 +1234,7 @@ class PHPMailer {
     if($this->XMailer) {
       $result .= $this->HeaderLine('X-Mailer', $this->XMailer);
     } else {
-      $result .= $this->HeaderLine('X-Mailer', 'PHPMailer '.$this->Version.' (http://code.google.com/a/apache-extras.org/p/phpmailer/)');
+      $result .= $this->HeaderLine('X-Mailer', 'PHPMailer '.$this->Version.' (https://code.google.com/a/apache-extras.org/p/phpmailer/)');
     }
 
     if($this->ConfirmReadingTo != '') {
@@ -1777,7 +1777,7 @@ class PHPMailer {
   /**
    * Correctly encodes and wraps long multibyte strings for mail headers
    * without breaking lines within a character.
-   * Adapted from a function by paravoid at http://uk.php.net/manual/en/function.mb-encode-mimeheader.php
+   * Adapted from a function by paravoid at https://uk.php.net/manual/en/function.mb-encode-mimeheader.php
    * @access public
    * @param string $str multi-byte text to wrap encode
    * @return string
@@ -1898,7 +1898,7 @@ class PHPMailer {
 
   /**
    * Encode string to q encoding.
-   * @link http://tools.ietf.org/html/rfc2047
+   * @link https://tools.ietf.org/html/rfc2047
    * @param string $str the text to encode
    * @param string $position Where the text is going to be used, see the RFC for what that means
    * @access public

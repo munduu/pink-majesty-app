@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -79,14 +79,14 @@ El `device.model` devuelve el nombre de modelo del dispositivo o producto. El va
     // BlackBerry: Torch 9800      returns "9800"
     // Browser:    Google Chrome   returns "Chrome"
     //             Safari          returns "Safari"
-    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. See http://theiphonewiki.com/wiki/index.php?title=Models
+    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. See https://theiphonewiki.com/wiki/index.php?title=Models
     //
     var model = device.model;
     
 
 ### Rarezas Android
 
-  * Obtiene el [nombre del producto](http://developer.android.com/reference/android/os/Build.html#PRODUCT) en lugar del [nombre de la modelo](http://developer.android.com/reference/android/os/Build.html#MODEL), que es a menudo el nombre de código de producción. Por ejemplo, el Nexus One devuelve `Passion` y Motorola Droid devuelve `voles`.
+  * Obtiene el [nombre del producto](https://developer.android.com/reference/android/os/Build.html#PRODUCT) en lugar del [nombre de la modelo](https://developer.android.com/reference/android/os/Build.html#MODEL), que es a menudo el nombre de código de producción. Por ejemplo, el Nexus One devuelve `Passion` y Motorola Droid devuelve `voles`.
 
 ### Rarezas Tizen
 
@@ -137,7 +137,7 @@ Dispositivos Windows Phone 8 Informe la plataforma como `Win32NT`.
 
 ## device.uuid
 
-Obtener identificador universalmente única del dispositivo ([UUID](http://en.wikipedia.org/wiki/Universally_Unique_Identifier)).
+Obtener identificador universalmente única del dispositivo ([UUID](https://en.wikipedia.org/wiki/Universally_Unique_Identifier)).
 
     var string = device.uuid;
     

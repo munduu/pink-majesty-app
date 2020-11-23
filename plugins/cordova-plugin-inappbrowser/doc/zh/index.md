@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -21,7 +21,7 @@
 
 這個外掛程式提供了一個 web 瀏覽器視圖，顯示在調用 `cordova.InAppBrowser.open()`.
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     
 
 `cordova.InAppBrowser.open()` 函數被定義為一個臨時替代 `window.open ()` 函數。 現有 `window.open ()` 調用，可以通過替換 window.open 使用 InAppBrowser 視窗：
@@ -109,8 +109,8 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
     
     *   **hidden**： 將設置為 `yes` ，創建瀏覽器並載入頁面，但不是顯示它。 載入完成時，將觸發 loadstop 事件。 省略或被設置為 `no` （預設值），有的瀏覽器打開，以正常方式載入。
 
- [1]: http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle
- [2]: http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle
+ [1]: https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle
+ [2]: https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle
 
 ### 支援的平臺
 
@@ -124,8 +124,8 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
+    var ref2 = cordova.InAppBrowser.open(encodeURI('https://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### 火狐瀏覽器作業系統的怪癖
@@ -209,7 +209,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -241,7 +241,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -267,7 +267,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -289,7 +289,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -321,7 +321,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -351,7 +351,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

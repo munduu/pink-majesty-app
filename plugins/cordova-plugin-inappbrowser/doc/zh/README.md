@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -23,7 +23,7 @@
 
 這個外掛程式提供了一個 web 瀏覽器視圖，顯示在調用 `cordova.InAppBrowser.open()`.
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     
 
 `cordova.InAppBrowser.open()` 函數被定義為一個臨時替代 `window.open ()` 函數。 現有 `window.open ()` 調用，可以通過替換 window.open 使用 InAppBrowser 視窗：
@@ -105,8 +105,8 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
       * **allowInlineMediaPlayback**： 將設置為 `yes` 或 `no` ，讓線在 HTML5 播放媒體，在瀏覽器視窗中，而不是特定于設備播放介面內顯示。 HTML 的 `video` 元素還必須包括 `webkit-playsinline` 屬性 （預設為`no`)
       * **keyboardDisplayRequiresUserAction**： 將設置為 `yes` 或 `no` 時，要打開鍵盤表單元素接收焦點通過 JavaScript 的 `focus()` 調用 （預設為`yes`).
       * **suppressesIncrementalRendering**： 將設置為 `yes` 或 `no` 等待，直到所有新查看的內容正在呈現 （預設為前收到`no`).
-      * **presentationstyle**： 將設置為 `pagesheet` ， `formsheet` 或 `fullscreen` 來設置[演示文稿樣式](http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle)(預設為`fullscreen`).
-      * **transitionstyle**： 將設置為 `fliphorizontal` ， `crossdissolve` 或 `coververtical` 設置[過渡樣式](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle)(預設為`coververtical`).
+      * **presentationstyle**： 將設置為 `pagesheet` ， `formsheet` 或 `fullscreen` 來設置[演示文稿樣式](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle)(預設為`fullscreen`).
+      * **transitionstyle**： 將設置為 `fliphorizontal` ， `crossdissolve` 或 `coververtical` 設置[過渡樣式](https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle)(預設為`coververtical`).
       * **toolbarposition**： 將設置為 `top` 或 `bottom` （預設值是 `bottom` ）。使工具列，則在頂部或底部的視窗。
     
     僅限 Windows：
@@ -127,8 +127,8 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
+    var ref2 = cordova.InAppBrowser.open(encodeURI('https://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### 火狐瀏覽器作業系統的怪癖
@@ -227,7 +227,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -260,7 +260,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -287,7 +287,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -310,7 +310,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -343,7 +343,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -382,7 +382,7 @@ InAppBrowser 預設情況下它自己的 GUI 控制項為使用者提供 （後�
 
 ### 快速的示例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

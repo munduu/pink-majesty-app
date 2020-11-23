@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -56,7 +56,7 @@
     <preference name="SplashMaintainAspectRatio" value="true|false" />
     
 
-美孚在哪裡閃屏檔，最好是 9 修補程式檔的名稱。 請確保您的 splashcreen 檔添加到 res/xml 目錄下相應的資料夾。 第二個參數表示多久閃屏會顯示以毫秒為單位。 它將預設為 3000 毫秒。 有關更多資訊，請參見 [圖示和啟動畫面](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html)。
+美孚在哪裡閃屏檔，最好是 9 修補程式檔的名稱。 請確保您的 splashcreen 檔添加到 res/xml 目錄下相應的資料夾。 第二個參數表示多久閃屏會顯示以毫秒為單位。 它將預設為 3000 毫秒。 有關更多資訊，請參見 [圖示和啟動畫面](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html)。
 
 "SplashMaintainAspectRatio"首選項是可選的。 如果設置為 true，可繪製的初始螢幕不會拉伸以適合螢幕，但相反只是"覆蓋"螢幕，像 CSS"背景-大小: 蓋"。 這是非常有用的不能以任何方式，例如當他們包含文本或風景畸變閃屏圖像時。 此設置適用于有大利潤 (安全區)，可以安全地裁剪不同長寬比與螢幕上的圖像。
 
@@ -116,4 +116,4 @@
     navigator.splashscreen.show();
     
 
-您的應用程式無法調用 `navigator.splashscreen.show()`，直到該應用程式已啟動，且觸發了 `deviceready` 事件。 但是，由於通常的閃屏為了是可見的在您的應用程式啟動之前，這似乎會打敗閃屏的目的。 提供一些配置在 `config.xml` 中的會自動 `show` 初始螢幕您的應用程式啟動後立即和之前它已經完全起步並收到 `deviceready` 事件。 做這種配置的詳細資訊，請參閱 [圖示和啟動畫面](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html)。 出於此原因，不太可能您需要調用 `navigator.splashscreen.show()`，使初始螢幕可見為應用程式啟動。
+您的應用程式無法調用 `navigator.splashscreen.show()`，直到該應用程式已啟動，且觸發了 `deviceready` 事件。 但是，由於通常的閃屏為了是可見的在您的應用程式啟動之前，這似乎會打敗閃屏的目的。 提供一些配置在 `config.xml` 中的會自動 `show` 初始螢幕您的應用程式啟動後立即和之前它已經完全起步並收到 `deviceready` 事件。 做這種配置的詳細資訊，請參閱 [圖示和啟動畫面](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html)。 出於此原因，不太可能您需要調用 `navigator.splashscreen.show()`，使初始螢幕可見為應用程式啟動。

@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -35,7 +35,7 @@ WebView 자체가 탐색할 수 있는 Url을 제어 합니다. 최상위 탐색
 기본적으로 탐색 `file://` Url에만 사용할 수 있습니다. 다른 다른 Url을 허용 하려면 `config.xml`에 `< allow-navigation >` 태그를 추가 해야 합니다.
 
     <!-- Allow links to example.com -->
-    <allow-navigation href="http://example.com/*" />
+    <allow-navigation href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -47,7 +47,7 @@ WebView 자체가 탐색할 수 있는 Url을 제어 합니다. 최상위 탐색
     <allow-navigation href="*" />
     
     <!-- The above is equivalent to these three declarations -->
-    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
     
@@ -63,11 +63,11 @@ App 시스템 열을 게 허용 되는 Url을 제어 합니다. 기본적으로 
 `Config.xml`에이 같은 `< allow-intent >` 태그를 추가 합니다.
 
     <!-- Allow links to web pages to open in a browser -->
-    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <allow-intent href="https://*/*" />
     
     <!-- Allow links to example.com to open in a browser -->
-    <allow-intent href="http://example.com/*" />
+    <allow-intent href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -96,14 +96,14 @@ App 시스템 열을 게 허용 되는 Url을 제어 합니다. 기본적으로 
 `Config.xml`에이 같은 `< access >` 태그를 추가 합니다.
 
     <!-- Allow images, xhrs, etc. to google.com -->
-    <access origin="http://google.com" />
+    <access origin="https://google.com" />
     <access origin="https://google.com" />
     
     <!-- Access to the subdomain maps.google.com -->
-    <access origin="http://maps.google.com" />
+    <access origin="https://maps.google.com" />
     
     <!-- Access to all the subdomains on google.com -->
-    <access origin="http://*.google.com" />
+    <access origin="https://*.google.com" />
     
     <!-- Enable requests to content: URLs -->
     <access origin="content:///*" />
@@ -120,7 +120,7 @@ App 시스템 열을 게 허용 되는 Url을 제어 합니다. 기본적으로 
 
 요청을 네트워크 컨트롤 (이미지, XHRs, 등) (webview 직접)를 통해 할 수 있습니다.
 
-안 드 로이드와 iOS에 네트워크 요청 허용 (위 참조)는 모든 종류의 요청 (예: `< 비디오 >` & WebSockets 차단 되지 않습니다)를 필터링 할 수 없습니다. 그래서, 허용, 뿐만 아니라 귀하의 모든 페이지에 [콘텐츠 보안 정책](http://content-security-policy.com/) `< meta >` 태그를 사용 해야 합니다.
+안 드 로이드와 iOS에 네트워크 요청 허용 (위 참조)는 모든 종류의 요청 (예: `< 비디오 >` & WebSockets 차단 되지 않습니다)를 필터링 할 수 없습니다. 그래서, 허용, 뿐만 아니라 귀하의 모든 페이지에 [콘텐츠 보안 정책](https://content-security-policy.com/) `< meta >` 태그를 사용 해야 합니다.
 
 안 드 로이드, 시스템 webview 내에서 CSP에 대 한 지원을 KitKat 시작 (하지만 횡단 보도 WebView를 사용 하 여 모든 버전에서 사용할 수).
 

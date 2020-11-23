@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -56,7 +56,7 @@ W pliku `config.xml`musisz dodać następujące preferencje:
     <preference name="SplashMaintainAspectRatio" value="true|false" />
     
 
-Gdzie foo jest nazwą pliku ekranu powitalnego, najlepiej 9 łatce. Upewnij się dodać pliki splashcreen do katalogu res/xml w odpowiednich folderach. Drugi parametr reprezentuje, jak długo ekranu powitalnego pojawi się w milisekundach. Domyślnie 3000 ms. Aby uzyskać więcej informacji, zobacz [ikony i ekrany powitalne w aplikacjach](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html).
+Gdzie foo jest nazwą pliku ekranu powitalnego, najlepiej 9 łatce. Upewnij się dodać pliki splashcreen do katalogu res/xml w odpowiednich folderach. Drugi parametr reprezentuje, jak długo ekranu powitalnego pojawi się w milisekundach. Domyślnie 3000 ms. Aby uzyskać więcej informacji, zobacz [ikony i ekrany powitalne w aplikacjach](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html).
 
 "SplashMaintainAspectRatio" preferencji jest opcjonalne. Jeśli zestaw na wartość true, ekran powitalny dolarowe nie jest rozciągnięty do ekranów, ale zamiast po prostu "obejmuje" ekranu, jak CSS "tło-rozmiar: okładka". Jest to bardzo przydatne, kiedy opryskać tęcza obrazy nie zniekształcony w jakikolwiek sposób, na przykład, gdy zawierają one dekoracje lub tekst. To ustawienie działa najlepiej z obrazów, które mają duże marginesy (bezpiecznych obszarów), które mogą być bezpiecznie przycięte na ekrany z różnych proporcji.
 
@@ -116,4 +116,4 @@ Wyświetla ekran powitalny.
     navigator.splashscreen.show();
     
 
-Aplikacja nie można wywołać `navigator.splashscreen.show()`, aż aplikacja została uruchomiona i zdarzenie `deviceready` został zwolniony. Ale ponieważ zazwyczaj opryskać tęcza ma być widoczne przed rozpoczęciem aplikacji, wydaje się sprzeczne z celem ekranu powitalnego. Dostarczanie niektórych konfiguracji w `pliku config.xml` będzie automatycznie `show` splash na ekranie natychmiast po uruchomienie aplikacji i przed pełni rozpoczął i odebrał zdarzenie `deviceready`. Aby uzyskać więcej informacji na robienie tej konfiguracji, zobacz [ikony i ekrany powitalne w aplikacjach](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html). Z tego powodu jest mało prawdopodobne, należy zadzwonić `navigator.splashscreen.show()`, aby wyświetlić ekran powitalny dla uruchamiania aplikacji.
+Aplikacja nie można wywołać `navigator.splashscreen.show()`, aż aplikacja została uruchomiona i zdarzenie `deviceready` został zwolniony. Ale ponieważ zazwyczaj opryskać tęcza ma być widoczne przed rozpoczęciem aplikacji, wydaje się sprzeczne z celem ekranu powitalnego. Dostarczanie niektórych konfiguracji w `pliku config.xml` będzie automatycznie `show` splash na ekranie natychmiast po uruchomienie aplikacji i przed pełni rozpoczął i odebrał zdarzenie `deviceready`. Aby uzyskać więcej informacji na robienie tej konfiguracji, zobacz [ikony i ekrany powitalne w aplikacjach](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html). Z tego powodu jest mało prawdopodobne, należy zadzwonić `navigator.splashscreen.show()`, aby wyświetlić ekran powitalny dla uruchamiania aplikacji.

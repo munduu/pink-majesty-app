@@ -7,7 +7,7 @@
          "License"); you may not use this file except in compliance
          with the License.  You may obtain a copy of the License at
 
-           http://www.apache.org/licenses/LICENSE-2.0
+           https://www.apache.org/licenses/LICENSE-2.0
 
          Unless required by applicable law or agreed to in writing,
          software distributed under the License is distributed on an
@@ -19,9 +19,9 @@
 # BlackBerry 10 In-App-Browser Plugin
 
 The in app browser functionality is entirely contained within common js. There is no native implementation required.
-To install this plugin, follow the [Command-line Interface Guide](http://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-line%20Interface).
+To install this plugin, follow the [Command-line Interface Guide](https://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-line%20Interface).
 
-If you are not using the Cordova Command-line Interface, follow [Using Plugman to Manage Plugins](http://cordova.apache.org/docs/en/edge/guide_plugin_ref_plugman.md.html).
+If you are not using the Cordova Command-line Interface, follow [Using Plugman to Manage Plugins](https://cordova.apache.org/docs/en/edge/guide_plugin_ref_plugman.md.html).
 ./cordova-plugin-battery-status/README.md
 ./cordova-plugin-camera/README.md
 ./cordova-plugin-console/README.md
