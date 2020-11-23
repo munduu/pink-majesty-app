@@ -2679,7 +2679,7 @@
 		var user    = getCookie("id_cliente");	
 		if(user){
 			$( ".menu_inferior" ).hide();
-			var url_geral2  = "http://igestaoweb.com.br/pinkmajesty/app_new/chat/index.php";
+			var url_geral2  = "https://igestaoweb.com.br/pinkmajesty/app_new/chat/index.php";
 			var token_id    = localStorage.getItem("token_id");
 			var idu 		= getCookie('id_cliente');
 			//navigator.notification.alert('sasasas', '', 'ALERTA', 'OK');
