@@ -9,7 +9,7 @@ $(document).ready(function(){
     $(".data_nasc_c").mask("99/99/9999");
     $(".data_nasc_cartao").mask("99/99/9999");
     $(".numero_c").mask("9999 9999 9999 9999");
-
+});
     function mascara(t, mask){
         var i = t.value.length;
         var saida = mask.substring(1,0);
@@ -68,4 +68,3 @@ $(document).ready(function(){
         }
     
     }
-});
