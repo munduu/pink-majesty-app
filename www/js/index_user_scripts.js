@@ -939,13 +939,13 @@
 		var data_nasc	= data_nasc_c;
 		var email		= email_c;
 
-		var logradouro_c  = logradouro_c;
-		var numero_c	  = numero_c;
-		var cidade_c	  = cidade_c;
-		var estado_c	  = estado_c;
-		var bairro_c	  = bairro_c;
-		var complemento_c = complemento_c;
-		var referencia_c  = referencia_c;
+		var logradouro  = logradouro_c;
+		var numero	  = numero_c;
+		var cidade	  = cidade_c;
+		var estado	  = estado_c;
+		var bairro	  = bairro_c;
+		var complemento = complemento_c;
+		var referencia  = referencia_c;
 
 		var sexo		= sexo_c;
 		var servico		= servico_c;
@@ -2480,9 +2480,9 @@
 			var bairro_c      = $(".bairro_c").val();
 			var complemento_c = $(".complemento_c").val();
 			var referencia_c  = $(".referencia_c").val();
-
-			var sexo_c = sexo_c.toString();
 			var sexo_c = $("input[name='sexo']:checked").val();
+			var sexo_c = sexo_c.toString();
+			
 			
 			var servico_c = [];
 			$.each($("input[name='servico_c']:checked"), function(){ servico_c. push($(this). val()); });
