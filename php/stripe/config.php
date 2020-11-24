@@ -1,13 +1,14 @@
 <?php
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
-error_reporting(0);
+ini_set('display_errors', true);
+ini_set('display_startup_errors', true);
+error_reporting(E_ALL);
 include "vendor/autoload.php";
 header("Access-Control-Allow-Origin: *");
 header("Content-type: application/json");
 ob_start();
 //GLOBAL API KEY
-$stripe = \Stripe\Stripe::setApiKey("sk_test_2AItDw6QvoZr2UWxAlntETu500I2Mdm19B");
+define('STRIPE_API_KEY','sk_test_2AItDw6QvoZr2UWxAlntETu500I2Mdm19B');
+$stripe = \Stripe\Stripe::setApiKey(STRIPE_API_KEY);
 //$stripe = \Stripe\Stripe::setApiKey("rk_test_98I5zg9voEEYXMN75Uh18qNG003DQGrIkR");
 function salva_log($path,$log){
     if($path == 'sqlError'){

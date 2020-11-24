@@ -24,6 +24,7 @@ if(!empty($json->object)){
         echo "\n";
         if ($type2 == "payment_intent") {
             $charge = $json->data->object->charges->data[0];
+            $charge_id = $charge->id;
             $payment_intent = $json->data->object->id;
             $amount = $charge->amount;
             $customer = $charge->customer;
@@ -57,7 +58,7 @@ $sql = "SELECT * FROM tb_login WHERE gateway_id = '$customer' ORDER BY id";
         }
     }
     
-$sql = "INSERT INTO `tb_webhook`(`cliente_id`, `customer`,`payment_intent`, `payment_method`,`valor`, `status`, `log`) VALUES ('$id_cliente','$customer','$payment_intent', '$payment_method','$amount', '$type','$log')";
+$sql = "INSERT INTO `tb_webhook`(`cliente_id`, `customer`,`payment_intent`, `payment_method`,`charge`,`valor`, `status`, `log`) VALUES ('$id_cliente','$customer','$payment_intent', '$payment_method','$charge_id','$amount', '$type','$log')";
         $resultado 	= mysql_query($sql) or die(mysql_error());
         http_response_code(200);
 
