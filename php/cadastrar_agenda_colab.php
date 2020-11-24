@@ -21,6 +21,8 @@ if($token=='H424715433852'){
 			$id_colaborador = $ln['id_colaborador'];
 		}
 	}
+
+
 	
 	$sql_ag 		= "SELECT * FROM tb_agenda WHERE id = '$agenda' AND id_colaborador IS NULL ORDER BY id";
 	$resultado_ag 	= mysql_query($sql_ag) or die(mysql_error());
@@ -28,8 +30,21 @@ if($token=='H424715433852'){
 	$linha_ag 		= mysql_num_rows($resultado_ag);
 	$id_cliente		= $ln_ag['id_cliente'];
 	$forma_pg		= $ln_ag['forma_pg'];
+
+	
 	
 	if($linha_ag != 0){
+
+		$hoje = date("Y-m-d H:i:s", strtotime($ln_ag['data']." ".$ln_ag['hora_ini']));
+		$sql_bloqueio_agenda ="SELECT * FROM `tb_horario_colaborador` WHERE `bloqueado_inicio`> '$hoje' AND `bloqueado_fim`< '$hoje' AND status='0' AND `id_colaborador`='$id_colaborador'";
+		$resultado_bloqueio_agenda   = mysql_query($sql_bloqueio_agenda) or die(mysql_error());
+		$linha_bloqueio_agenda       = mysql_num_rows($resultado_bloqueio_agenda);
+		if($linha_bloqueio_agenda > 0){
+			$error = 3;
+			$dados = "Infelizmente não foi possível aceitar esse pedido. Verifique seu horário de atendimento!";
+			echo '{"erro":"'.$error.'","dados":"'.$dados.'","linha":"'.$linha.'"}';
+			die();
+		}  
 		
 		$sql_crt 		= "SELECT * FROM tb_cartoes WHERE id='$forma_pg'";
 		$resultado_crt  = mysql_query($sql_crt) or die(mysql_error());
