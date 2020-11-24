@@ -58,6 +58,7 @@ function InitStripe(){
                 }, error => {
                     console.log("3 - getClientSecretSetupIntent fail")
                     console.log(error);
+                    alert("Não foi possível comunicar com plataforma de pagamentos. Tente logar novamente x3");
                     });
             });
 
@@ -132,6 +133,7 @@ function InitStripe(){
                             function (erro) {
                               console.log("erro getPaymentIntent");
                               console.log(erro);
+                              alert("Não foi possível comunicar com plataforma de pagamentos. Tente reconectar x2");
                             }
                           );
                         }
@@ -142,11 +144,13 @@ function InitStripe(){
         }, error => {
             console.log("2 - ListCards fail")
             console.log(error);
+            alert("Não foi possível comunicar com plataforma de pagamentos. Tente reconectar x1");
         });
 
         }, error => {
             console.log("1 - getClient fail")
             console.log(error);
+            //alert("Não foi possível comunicar com plataforma de pagamentos. Tente reconectar x1")
         });
 
 }
