@@ -168,9 +168,16 @@ $hora_atual = date("H:i");
 												if(($horat_ini >= $horat_ini2 and $horat_ini <= $horat_fim2) or ($hora_ini <= $hora_ini2 and $hora_fim > $hora_ini2)){
 													$block=1;
 												}else{
-													
 													$block = 0;
-													 }						
+												}
+												$id_colaborador = $ln_c2['id'];
+												$hoje = date("Y-m-d H:i:s", strtotime($ln_a2['data']." ".$ln_a2['hora_ini']));
+												$sql_bloqueio_agenda ="SELECT * FROM `tb_horario_colaborador` WHERE `bloqueado_inicio`> '$hoje' AND `bloqueado_fim`< '$hoje' AND status='0' AND `id_colaborador`='$id_colaborador'";
+												$resultado_bloqueio_agenda   = mysql_query($sql_bloqueio_agenda) or die(mysql_error());
+												$linha_bloqueio_agenda       = mysql_num_rows($resultado_bloqueio_agenda);
+												if($linha_bloqueio_agenda > 0){
+												$block=1;
+												} 
 											}			
 										
 										if($block != 1){ //NAO ESTA OCUPADO
