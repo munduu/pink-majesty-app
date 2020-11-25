@@ -19,7 +19,7 @@ if($token=='H424715433852'){
 		}
 	}
 	
-?>
+	$dados.="
 <style>	
 	.select-method + .select-method {
 		margin-left: 25px;
@@ -30,10 +30,10 @@ if($token=='H424715433852'){
 	}
 		
 	.select-methods input:checked + label{
-  		/*outline: 4px solid #21b4d0;*/
+  		
 	}
-</style>
-<?	
+</style>";
+	
 
 //text-small
 
