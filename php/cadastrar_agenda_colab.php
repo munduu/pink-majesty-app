@@ -55,16 +55,16 @@ if($token=='H424715433852'){
 			$situacaoT = 'ACEITO';
 		}elseif($lTipo==3){ //dinheiro
 			$situacaoT = 'AGENDADO';
+		} else {
+			$situacaoT = 'AGENDADO';
 		}
 		
-		$updateSQL = "
-		UPDATE tb_agenda SET id_colaborador='$id_colaborador', situacao='$situacaoT' WHERE id = '$agenda'";
+		$updateSQL = "UPDATE tb_agenda SET id_colaborador='$id_colaborador', situacao='$situacaoT' WHERE id = '$agenda'";
 		mysql_select_db($database_localhost, $localhost);
 		$Result1 = mysql_query($updateSQL, $localhost) or die(mysql_error()); 
 		salvaLog("Alterar tb_agenda ID $id",$_SESSION['email']);
 		
-		$updateSQL2 = "
-		UPDATE tb_login SET notif='1' WHERE id_cliente = '$id_cliente'";
+		$updateSQL2 = "UPDATE tb_login SET notif='1' WHERE id_cliente = '$id_cliente'";
 		mysql_select_db($database_localhost, $localhost);
 		$Result2 = mysql_query($updateSQL2, $localhost) or die(mysql_error()); 
 		salvaLog("Alterar tb_agenda ID $id",$_SESSION['email']);
