@@ -2376,38 +2376,40 @@
 			data_i = '08:00';
 		}
 		if(data_f == '--:--'){
-			data_f = '08:00';
+			data_f = '22:00';
 		}
 		
-		$(".in_"+dia).html('De <br /><input type="text" name="in_h_'+dia+'" id="in_h_'+dia+'" value="'+data_i+'" style="width:70px" />');
-		$(".fm_"+dia).html('Ate <br /><input type="text" name="fm_h_'+dia+'" id="fm_h_'+dia+'" value="'+data_f+'" style="width:70px" />');
+		$(".in_"+dia).html('De <br /><input type="time" name="in_h_'+dia+'" id="in_h_'+dia+'" value="'+data_i+'" style="width:90px" class="form-control floating-label timepicker" />');
+		$(".fm_"+dia).html('Ate <br /><input type="time" name="fm_h_'+dia+'" id="fm_h_'+dia+'" value="'+data_f+'" style="width:90px"  class="form-control floating-label timepicker"/>');
 		$(".btn_"+dia).html('<a class="alt_hora_c" alt="'+dia+'"><div class="buttonentrar">Editar</div></a>');
 		
 		//navigator.notification.alert('#in_h_'+dia, '', 'ALERTA', 'OK');
-		$('#in_h_'+dia).bootstrapMaterialDatePicker
-		({ 
-			date: false,
-			shortTime: false,
-			format: 'HH:mm',
-			switchOnClick : true,
-			minDate : '08:00',
-			maxDate : '22:00',
-			lang  :	'pt-br',
-			clearButton : true,
-			clearText : 'Limpar'
-		});
-		$('#fm_h_'+dia).bootstrapMaterialDatePicker
-		({ 
-			date: false,
-			shortTime: false,
-			format: 'HH:mm',
-			switchOnClick : true,
-			minDate : '08:00',
-			maxDate : '22:00',
-			lang  :	'pt-br',
-			clearButton : true,
-			clearText : 'Limpar'
-		});
+		// $('#in_h_'+dia).bootstrapMaterialDatePicker
+		// ({ 
+		// 	date: false,
+		// 	shortTime: false,
+		// 	format: 'HH:mm',
+		// 	switchOnClick : true,
+		// 	minDate : '08:00',
+		// 	maxDate : '22:00',
+		// 	lang  :	'pt-br',
+		// 	clearButton : true,
+		// 	clearText : 'Limpar'
+		// });
+		//$('#in_h_'+dia).html('<input type="time" id="#in_h_'+dia+'" class="form-control floating-label timepicker">');
+		// $('#fm_h_'+dia).bootstrapMaterialDatePicker
+		// ({ 
+		// 	date: false,
+		// 	shortTime: false,
+		// 	format: 'HH:mm',
+		// 	switchOnClick : true,
+		// 	minDate : '08:00',
+		// 	maxDate : '22:00',
+		// 	lang  :	'pt-br',
+		// 	clearButton : true,
+		// 	clearText : 'Limpar'
+		// });
+		//$('#fm_h_'+dia).html('<input type="time" id="#fm_h_'+dia+'" class="form-control floating-label timepicker">');
 		$('.dtp-btn-cancel').hide();
 	});
 	
