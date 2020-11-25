@@ -150,6 +150,9 @@ function InitStripe(){
         }, error => {
             console.log("1 - getClient fail")
             console.log(error);
+            setTimeout(function(){
+                MainStripe();
+            },5000);
             //alert("Não foi possível comunicar com plataforma de pagamentos. Tente reconectar x1")
         });
 
@@ -174,7 +177,7 @@ function getClient(user = false){
             type:"POST",
             url:url_geral+"stripe/GetCustomer.php",
             data:{"token":"H424715433852", "user":user },
-            timeout: 1000,
+            timeout: 5000,
                 beforeSend: function(){ 
                     $('.loader').show();
                 },
@@ -251,7 +254,7 @@ function getClientSecretSetupIntent(user = false) {
             type:"POST",
             url:url_geral+"stripe/SetupIntent.php",
             data:{"token":"H424715433852", "user":user },
-            timeout: 2000,
+            timeout: 5000,
                 beforeSend: function(){ 
                     $('.loader').show();
                 },
@@ -470,7 +473,7 @@ function getWebhookResponse(user = false , payment_intent) {
                 "user": user ,
                 "payment_intent": payment_intent,
               },
-            timeout: 2000,
+            timeout: 5000,
                 beforeSend: function(){ 
                     $('.loader').show();
                 },
