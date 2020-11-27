@@ -96,20 +96,20 @@ function InitStripe() {
                                                             ).then(
                                                                 function (resultado) {
                                                                     //Confirmar
-                                                                    confirmPayment(resultado.dados.payment_intent);
                                                                     $('.loader').hide();
+                                                                    confirmPayment(resultado.dados.payment_intent);
                                                                     console.log(resultado);
                                                                 },
                                                                 function (erro) {
                                                                     setTimeout(function () {
                                                                         //Tentativa 3
-                                                                        $('.loader').hide();
                                                                         getWebhookResponse(
                                                                             user,
                                                                             payment_intent
                                                                         ).then(
                                                                             function (resultado) {
                                                                                 //Confirmar
+                                                                                $('.loader').hide();
                                                                                 confirmPayment(resultado.dados.payment_intent);
                                                                                 console.log(resultado);
                                                                             },
@@ -120,16 +120,17 @@ function InitStripe() {
                                                                                 console.log(erro);
                                                                             }
                                                                         );
-                                                                    }, 3000);
+                                                                    }, 10000);
                                                                 }
                                                             );
-                                                        }, 3000);
+                                                        }, 5000);
                                                     }
                                                 );
-                                            }, 1000);
+                                            }, 1500);
                                             console.log(resultado);
                                         },
                                         function (erro) {
+                                            $('.loader').hide();
                                             console.log("erro getPaymentIntent");
                                             console.log(erro);
                                             alert("Não foi possível comunicar com plataforma de pagamentos. Tente reconectar x2");
