@@ -6,6 +6,10 @@ require_once('../function/log.php');
 require_once('../function/function.php');
 require_once('config.php');
 
+ini_set('display_errors', '0');
+ini_set('display_startup_errors', '0');
+error_reporting(0);
+
 $user   	= anti_sql_injection(strip_tags(trim($_POST['user'])));
 $token        = anti_sql_injection(strip_tags(trim($_REQUEST['token'])));
 //die(md5('teste@teste1.com.br'.'202cb962ac59075b964b07152d234b70'));
