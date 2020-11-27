@@ -54,11 +54,11 @@ if($token=='H424715433852'){
 				sendMessage($message,$token_id_user);
 			}
 			if($tipo == 'Cliente'){
-				$dados = "PEDIDO AGUARDANDO PAGAMENTO!";
+				// $dados = "PEDIDO AGUARDANDO PAGAMENTO!";
 				
-				$title    = "Dellas Beleza Delivery";
-				$message  = 'PEDIDO AGUARDANDO PAGAMENTO!'; 
-				sendMessage($message,$token_id_user);
+				// $title    = "Dellas Beleza Delivery";
+				// $message  = 'PEDIDO AGUARDANDO PAGAMENTO!'; 
+				// sendMessage($message,$token_id_user);
 			}
 		}else{
 			$error = 5;
