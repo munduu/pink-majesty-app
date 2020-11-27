@@ -83,9 +83,7 @@ if($token=='H424715433852'){
 			if($lTipo==1){ 
 				$message  = 'Seu pedido foi aceito, processando pagamento!';
 				$ped      = 'Estamos processando o pagamento!';
-			}
-			//se for dinheiro
-			if($lTipo==3){ 
+			} else { 
 				$message  = 'Seu pedido foi aceito!';
 				$ped      = 'Pagamento escolhido em dinheiro.';
 			}
