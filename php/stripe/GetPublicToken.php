@@ -22,7 +22,7 @@ if($token == 'H424715433852'){
 		}
 	}
 	if($linha > 0){
-        $dados = array('token'=> 'pk_test_HwOzl6pIove5P3TZopMpaOsg001qQzh3P6');
+        $dados = array('token'=> STRIPE_TOKEN);
     }else{
 		$error = 3;
 		$dados = "FAÇA LOGIN PRIMEIRO!";
