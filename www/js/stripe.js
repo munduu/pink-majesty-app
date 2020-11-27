@@ -346,7 +346,7 @@ function NewCardStripe(stripe, clientSecret = false) {
                     alert(result.error.message);
                     $('.loader').hide();
                 } else {
-                    alert("You authorise Pink-Majesty to send instructions to the financial institution that issued your card to take payments from your card account in accordance with the terms of the agreement with you.");
+                    alert("Você autoriza Pink-Majesty a enviar instruções à instituição financeira que emitiu seu cartão para receber pagamentos de sua conta de cartão de acordo com os termos do acordo com você.");
                     ListCards().then(function (ListCards) {
                         $('.loader').hide();
                         updatedSelectCards();
@@ -354,7 +354,8 @@ function NewCardStripe(stripe, clientSecret = false) {
                         $(".sel_cartao").show();
                         $(".cad_cartao").hide();
                     }, error => {
-                        alert(error);
+                        alert("Houve um erro ao listar seus cartões, feche e abra o aplicativo.")
+                        console.log(error);
                         $('.loader').hide();
                     });
                 }
