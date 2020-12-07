@@ -38,7 +38,9 @@ function MainStripe() {
 }
 function InitStripe() {
     var user = localStorage.getItem("id_cliente");
-    var stripe = Stripe(localStorage.getItem("stripe_token"));
+    var stripe = Stripe(localStorage.getItem("stripe_token"),{
+        locale: 'pt-BR'
+      });
 
     getClient(user)
         .then(function (getClient) {
@@ -320,6 +322,10 @@ function NewCardStripe(stripe, clientSecret = false) {
     var cardholderName = document.getElementById('cardholder-name');
     var cardZipCode = document.getElementById('zip-code');
     var cardButton = document.getElementById('card-button');
+    if((cardholderName == '') || (cardZipCode == '') || (cardholderName == undefined) || (cardZipCode == undefined)){
+        alert("Erro com os dados do cartão... preencha todos os campos.");
+        return;
+    }
 
     cardButton.addEventListener('click', function () {
         $('.loader').show();
@@ -411,7 +417,7 @@ function updatedSelectCards(tipo = 2) {
  *      uma string com token do PaymentIntent. Se falhar
  *      retorna string com o erro.
  */
-function getPaymentIntent(payment_method, user = false, amount = 500) {
+function getPaymentIntent(payment_method, user = false, amount = 100) {
     var response;
     if (!user) {
         var user = localStorage.getItem("id_cliente");
