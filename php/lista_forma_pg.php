@@ -43,20 +43,19 @@ if($token=='H424715433852'){
 				$tipo		= $ln['tipo'];
 				$bancodd    = $ln['banco'];
 				if($tipo == 1){
-					$n_tipo = 'CREDITO ['.strtoupper($bancodd).']';
-					$cc     = ' •••• '.substr($numero, -4);
-					$value	= $ln['id_cartao'];
-				} elseif ($tipo == 2){
+					$n_tipo = 'CREDITO';
+					$cc     = '****'.substr($numero, -4);
+				}elseif($tipo == 2){
 					$n_tipo = 'DEBITO ONLINE';
 					$cc     = $bancodd;
-					$value	= $id;
-				} else {
-					$n_tipo = 'DINHEIRO * * * *';
-					$cc     = '* * * * ';
-					$value	= $id;
+				}elseif($tipo == 3){
+					$n_tipo = 'DINHEIRO';
+					$cc     = '**********';
+				}else{
+					$n_tipo = '';
 				}
 				
-				$dados.= '<option class="pg_'.$value.'" value="'.$value.'">'.$cc.' '.$n_tipo.'</option>';
+				$dados.= '<option class="pg_'.$id.'" value="'.$id.'">'.$cc.' '.$n_tipo.'</option>';
 				$x++;
 			}
 			$dados.= '<option class="pg_'.$id.'" disabled>Apenas Cartão Credito ou Dinheiro</option>';
