@@ -2295,6 +2295,7 @@
 		$(document).on("click", ".select_forma_pg", function (evt) {
 			var user = getCookie('id_cliente');
 			var forma_pg = $(".selectForma_pg").val();
+			console.log({ 'forma_pg': forma_pg });
 			var titulo_pg = $(".pg_" + forma_pg).html();
 
 			setCookie('forma_pg', forma_pg);
