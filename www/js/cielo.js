@@ -1,14 +1,17 @@
-function checkout_ccard(agenda){
-    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/getCard.php", { agenda: agenda, token: "H424715433852" },
-    function (result) {
-        console.log(result);
-        if(result.success == true){
-            identifica_bandeira(agenda, result.lNcartao, result.lNmcartao, result.lMesVenc, result.lAnoVenc, result.lCodigoSeg);
-        }
-    },'json');
+//checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
+function checkout_ccard(agenda,lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg){
+    console.log('checkout_ccard - cielo');
+    //$.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/getCard.php", { agenda: agenda, token: "H424715433852" },
+    //function (result) {
+        //console.log(result);
+        //if(success == true){
+            identifica_bandeira(agenda, lNcartao, lNmcartao, lMesVenc, lAnoVenc, lCodigoSeg);
+        //}
+    //},'json');
 }
 
 function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
+    console.log('checkOut - cielo');
     $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/createPaymentCreditCardWithToken.php", 
         {
             MerchantOrderId: agenda,
