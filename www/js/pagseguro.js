@@ -174,6 +174,8 @@ function setConfirmar_pedido(agenda, situacao, tipo){
 
 //TOKEN CARTÃO
 function checkout_ccard(agenda){
+	console.log('checkout_ccard');
+	/*
 
 	alert(agenda);
 	
@@ -382,7 +384,7 @@ function checkout_ccard(agenda){
 		setConfirmar_pedido(agenda, 'AGENDADO', 'Cliente');
 		activate_page("#meusPedidos");
 	}
-}
+*/}
 //TOKEN CARTÃO
 
 //RETORNO PAGSEGURO
