@@ -1081,7 +1081,9 @@
 						setCookie('cpf_cupom', '');
 						activate_page("#principal");
 						console.log(resultado);
-						//checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
+						//checkout_ccard(resultado.agenda);
+						checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
+
 					} else {
 						alert(resultado.dados);
 						//activate_page("#cadastrar");
