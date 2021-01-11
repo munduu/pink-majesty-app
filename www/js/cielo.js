@@ -74,7 +74,7 @@ function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand
     },
     function (result) {
         console.log(result);
-        setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
+        //setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
         //if(result.error == false){
             //checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
             if((result.Payment.ReturnCode == 6) || (result.Payment.ReturnCode == 4)){
