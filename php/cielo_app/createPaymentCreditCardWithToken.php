@@ -20,7 +20,10 @@ curl_setopt_array($curl, array(
 
 $response = curl_exec($curl);
 $err = curl_error($curl);
-
+$http_code = curl_getinfo($curl,CURLINFO_HTTP_CODE);
+if ($http_code != 200){
+  $err = "HTTP CODE: ".$http_code;
+}
 curl_close($curl);
 
 if ($err) {
