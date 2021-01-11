@@ -74,22 +74,24 @@ function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand
     },
     function (result) {
         console.log(result);
+        setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
         //if(result.error == false){
             //checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
-            if(result.payment.returnCode == 6){
-                alert(result.payment.returnMessage);
-                $("#cod_pagseguro").val(resultCard.payment.paymentId)
+            if((result.Payment.ReturnCode == 6) || (result.Payment.ReturnCode == 4)){
+                alert(result.Payment.ReturnMessage);
+                $("#cod_pagseguro").val(result.Payment.PaymentId)
                 setConfirmar_pedido(agenda, 'PEDIDO', 'Profissional');
                 $('.loader').show();
                 setTimeout(function(){ getListar_meusPedidos(); $('.loader').hide(); }, 10000);
                 activate_page("#meusPedidos");
             } else {
-                alert(result.payment.returnMessage);
+                alert(result.Payment.ReturnMessage);
                 $('.btn_troca_cartao[alt='+agenda+']').show();
                 $('.btn_pagamento[alt='+agenda+']').hide();
-                return false;
+                $('.loader').hide();
+               // activate_page("#meusPedidos");
             }
-            setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
+            
        // } else {
        //     alert("Houve um erro ao processar o seu pagamento")
        // }
@@ -228,7 +230,7 @@ var cod_pagseguro	= $("#cod_pagseguro").val();
         error: function(resultado) {
             $('.loader').hide();
             console.log(resultado);				
-            setConfirmar_pedido(agenda, situacao, tipo);
+            //setConfirmar_pedido(agenda, situacao, tipo);
         }			
     });
 }
