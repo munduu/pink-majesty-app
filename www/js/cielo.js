@@ -12,7 +12,7 @@ function checkout_ccard(agenda,lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg){
 
 function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
     console.log('checkOut - cielo');
-    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/createPaymentCreditCardWithToken.php", 
+    $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/createPaymentCreditCardWithToken.php", 
         {
             MerchantOrderId: agenda,
             Name: lNmcartao,
@@ -25,15 +25,15 @@ function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
     function (resultCard) {
         console.log(resultCard);
 
-        if(resultCard.payment.returnCode == '00'){
-            alert(resultCard.payment.returnMessage);
-            $("#cod_pagseguro").val(resultCard.payment.paymentId)
+        if(resultCard.Payment.ReturnCode == '00'){
+            alert(resultCard.Payment.ReturnMessage);
+            $("#cod_pagseguro").val(resultCard.Payment.PaymentId)
             setConfirmar_pedido(agenda, 'PEDIDO', 'Profissional');
             $('.loader').show();
             setTimeout(function(){ getListar_meusPedidos(); $('.loader').hide(); }, 10000);
             activate_page("#meusPedidos");
         } else {
-            alert(resultCard.payment.returnMessage);
+            alert(resultCard.Payment.ReturnMessage);
             $('.btn_troca_cartao[alt='+agenda+']').show();
             $('.btn_pagamento[alt='+agenda+']').hide();
             return false;
@@ -42,9 +42,29 @@ function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
 }
 
 function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand) {
+    console.log('end_Card - cielo');
+    // $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/creatCardToken.php", 
+    // {
+    //     Name: lNmcartao,
+    //     CardNumber: lNcartao,
+    //     Holder: lNmcartao,
+    //     ExpirationDate: lMesVenc+"/"+lAnoVenc,
+    //     SecurityCode: lCodigoSeg,
+    //     Brand: brand
+    // },
 
-    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/creatCardToken.php", 
+    // function (result) {
+    //     console.log(result);
+
+    //     if(result.cardToken){
+    //         checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
+    //         setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
+    //     }
+    // },'json');
+    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/api.php", 
     {
+        action:'chargeWithCard',
+        MerchantOrderId: agenda,
         Name: lNmcartao,
         CardNumber: lNcartao,
         Holder: lNmcartao,
@@ -52,19 +72,33 @@ function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand
         SecurityCode: lCodigoSeg,
         Brand: brand
     },
-
     function (result) {
         console.log(result);
-
-        if(result.cardToken){
-            checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
-            console.log(result.cardToken)
+        //if(result.error == false){
+            //checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
+            if(result.payment.returnCode == 6){
+                alert(result.payment.returnMessage);
+                $("#cod_pagseguro").val(resultCard.payment.paymentId)
+                setConfirmar_pedido(agenda, 'PEDIDO', 'Profissional');
+                $('.loader').show();
+                setTimeout(function(){ getListar_meusPedidos(); $('.loader').hide(); }, 10000);
+                activate_page("#meusPedidos");
+            } else {
+                alert(result.payment.returnMessage);
+                $('.btn_troca_cartao[alt='+agenda+']').show();
+                $('.btn_pagamento[alt='+agenda+']').hide();
+                return false;
+            }
             setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
-        }
+       // } else {
+       //     alert("Houve um erro ao processar o seu pagamento")
+       // }
     },'json');
 }
 
 function identifica_bandeira(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg){
+    console.log('identifica_bandeira - cielo');
+
     $.ajax({
       type:"POST", dataType:"json", cache: false, url: "https://igestaoweb.com.br/pinkmajesty/function/identifica_bandeira.php",
       data:{cartao:lNcartao},
