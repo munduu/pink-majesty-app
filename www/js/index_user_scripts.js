@@ -2521,13 +2521,14 @@
 		$(document).on("click", ".btn_aceitar", function (evt) {
 			var agenda = $(this).attr('alt');
 			setCadastrar_agenda_colab(agenda);
-			checkout_ccard(agenda);
+			//checkout_ccard(agenda);
+			setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
 			return false;
 		});
 
 		$(document).on("click", ".btn_pagamento", function (evt) {
 			var agenda = $(this).attr('alt');
-			checkout_ccard(agenda);
+			//checkout_ccard(agenda);
 			$('.btn_pagamento').hide();
 			return false;
 		});
