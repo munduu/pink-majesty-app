@@ -1129,7 +1129,7 @@
 				error: function (resultado) {
 					$('.loader').hide();
 					alert('Não foi poss�vel acessar! #003');
-					setCadastrar_agenda_colab(agenda);
+					//setCadastrar_agenda_colab(agenda);
 					//activate_page("#cadastrar");
 				}
 			});
@@ -2207,13 +2207,38 @@
 				}
 			}
 
-			var tipo_cartao_banco = document.getElementsByName("tipo_cartao_banco");
+			// var tipo_cartao_banco = document.getElementsByName("tipo_cartao_banco");
 
-			for (var i = 0; i < tipo_cartao_banco.length; i++) {
-				if (tipo_cartao_banco[i].checked) {
-					var banco = tipo_cartao_banco[i].value;
-				}
-			}
+			// for (var i = 0; i < tipo_cartao_banco.length; i++) {
+			// 	if (tipo_cartao_banco[i].checked) {
+			// 		var banco = tipo_cartao_banco[i].value;
+			// 	}
+			// }
+			var bandeira = null;
+			$.ajax({
+				type:"POST", dataType:"json", cache: false, url: "https://igestaoweb.com.br/pinkmajesty/function/identifica_bandeira.php",
+				data:{cartao:numero_c},
+				timeout: 200000, 
+				beforeSend: function(resultado){ 
+					$('.loader').show();
+				},
+				success: function(resultado){
+				  $('.loader').hide();  
+				  $('#brandcard').val(resultado.sucesso.bandeira);
+				  bandeira = resultado.sucesso.bandeira;
+				  console.log(resultado);
+				  if(bandeira==null){
+					alert('Campo obrigatório vazio: BANDEIRA');
+					bandeira = null;
+					return false;
+					}
+				},
+				error: function(resultado) {
+				  $('.loader').hide();
+				  console.log('error');
+				  bandeira = null;
+				}     
+			  });
 
 			$(".add_cartao").html('<div class="buttonentrar">Adicionar Nova Forma Pagamento</div>');
 			$(".sel_cartao").show();
@@ -2240,17 +2265,18 @@
 					alert('Nome Impresso Não Informado!');
 					return false;
 				} else if (data_nasc_cartao == '') {
-					alert('Data Nadcimento Não Informado!');
+					alert('Data Nacimento Não Informado!');
 					return false;
 				} else {
-					setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, banco);
+					bandeira = $('#brandcard').val();
+					setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, bandeira);
 				}
 			} else {
 				if (banco == '') {
 					alert('SELECIONE um banco para D�bito em conta!');
 					return false;
 				} else {
-					setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, banco);
+					setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, bandeira);
 				}
 			}
 

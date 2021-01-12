@@ -1,4 +1,26 @@
 <?php
+require_once('../Connections/localhost.php');
+function salva_log($path,$log){
+    if($path == 'sqlError'){
+        $backtrace = debug_backtrace();
+        $response['sqlError'] = $log;
+        $response['backtrace'] = $backtrace;
+        $log = $response;
+    }
+    $log = json_encode($log,JSON_PRETTY_PRINT);
+        if (!file_exists(__DIR__.'/log/'.$path)) {
+            mkdir(__DIR__.'/log/'.$path, 0777, true);
+        }
+        $path = __DIR__.'/log/'.$path.'/'.date("YmdHis");
+        $x = 0;
+        while (file_exists($path)) {
+            $path = $path."-$x";
+            $x ++;
+        } 
+    $fp = fopen($path, "x");
+    $escreve = fwrite($fp, $log);
+    return $log;
+} 
 
 // define("API_Cielo_URL", 'https://apisandbox.cieloecommerce.cielo.com.br');
 // define("API_Cielo_MerchantId", '2ba8079d-ca3a-49a4-8141-3fb3a2b384d2');
@@ -15,7 +37,8 @@ define("API_Cielo_MerchantKey", 'LVJVSVKUFEXFKSGEEZCNONUAVXKXEMCFYPMGJWHG');
     Holder: lNmcartao,
     ExpirationDate: lMesVenc+"/"+lAnoVenc,
     SecurityCode: lCodigoSeg,
-    Brand: brand
+    Brand: brand,
+    Amount: Amount,
 */
 header("Access-Control-Allow-Origin: *");
 
@@ -29,6 +52,9 @@ if($_REQUEST['action'] == 'chargeWithCard'){
 
 function chargeWithCard($request = null)
 {
+    if(!empty(valida_cartao($request['CardNumber']))){
+        $request['Brand'] = valida_cartao($request['Brand']);
+    }
     $curl = curl_init();
     
     $post                                            = array();
@@ -38,7 +64,7 @@ function chargeWithCard($request = null)
     $post['Payment']                                 = array();
     $post['Payment']['Type']                         = 'CreditCard';
     $post['Payment']['Capture']                      = true;
-    $post['Payment']['Amount']                       = 200;
+    $post['Payment']['Amount']                       = (!empty($request['Amount']))?$request['Amount']:200;
     $post['Payment']['Installments']                 = 1;
     $post['Payment']['SoftDescriptor']               = 'PINK_MAJESTY';
     $post['Payment']['CreditCard']                   = array();
@@ -66,5 +92,144 @@ function chargeWithCard($request = null)
     $response = curl_exec($curl);
 
     curl_close($curl);
-    echo $response;
+   // echo $response;
+   
+    /*
+        0- aguardando
+        1 - taxa pg
+        2 - total pg
+        3 - taxa pg falha
+        4 - total pg falha
+        5 - cancelamento
+        6 - estorno
+    */	
+
+    $json = json_decode($response,TRUE);
+    echo json_encode($json, JSON_UNESCAPED_UNICODE | JSON_PARTIAL_OUTPUT_ON_ERROR);
+    salva_log('chargeWithCard',array($post,$json));
+    if(!empty($request['MerchantOrderId'])){
+        $agenda         = $request['MerchantOrderId'];
+        $sql_a         	= "SELECT * FROM tb_agenda WHERE id = '$agenda'";
+        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+        $linha_a       	= mysql_num_rows($resultado_a);
+        if($linha_a > 0){
+            $ln_a          	= mysql_fetch_assoc($resultado_a);
+            if(!empty($json['Payment']['ReturnCode'])){
+                if(($json['Payment']['ReturnCode'] == "6") || ($json['Payment']['ReturnCode'] == "4")){
+                    if(empty($request['Amount'])){
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='1' WHERE `id`='$agenda'";
+                        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                    } else {
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='2' WHERE `id`='$agenda'";
+                        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                    }
+                } else {
+                    if(empty($request['Amount'])){
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3' WHERE `id`='$agenda'";
+                        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                    } else {
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4' WHERE `id`='$agenda'";
+                        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                    }
+                }
+            } else {
+                if(empty($request['Amount'])){
+                    $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3' WHERE `id`='$agenda'";
+                    $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                } else {
+                    $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4' WHERE `id`='$agenda'";
+                    $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                }
+            }
+        }
+    }
+}
+function valida_cartao($cartao, $cvc=false){
+	$cartao = preg_replace("/[^0-9]/", "", $cartao);
+	if($cvc) $cvc = preg_replace("/[^0-9]/", "", $cvc);
+
+	$cartoes = array(
+			'Visa'		 => array('len' => array(13,16),    'cvc' => 3),
+			'Master' => array('len' => array(16),       'cvc' => 3),
+			'Diners'	 => array('len' => array(14,16),    'cvc' => 3),
+			'Elo'		 => array('len' => array(16),       'cvc' => 3),
+			'Amex'	 	 => array('len' => array(15),       'cvc' => 4),
+			'Discover'	 => array('len' => array(16),       'cvc' => 4),
+			'Aura'		 => array('len' => array(16),       'cvc' => 3),
+			'JCB'		 => array('len' => array(16),       'cvc' => 3),
+			'Hipercard'  => array('len' => array(13,16,19), 'cvc' => 3),
+	);
+
+	
+	switch($cartao){
+		case (bool) preg_match('/^(636368|438935|504175|451416|636297)/', $cartao) :
+			$bandeira = 'Elo';			
+		break;
+
+		case (bool) preg_match('/^(606282)/', $cartao) :
+			$bandeira = 'Hipercard';			
+		break;
+
+		case (bool) preg_match('/^(5067|4576|4011)/', $cartao) :
+			$bandeira = 'Elo';			
+		break;
+
+		case (bool) preg_match('/^(3841)/', $cartao) :
+			$bandeira = 'Hipercard';			
+		break;
+
+		case (bool) preg_match('/^(6011)/', $cartao) :
+			$bandeira = 'Discover';			
+		break;
+
+		case (bool) preg_match('/^(622)/', $cartao) :
+			$bandeira = 'Discover';			
+		break;
+
+		case (bool) preg_match('/^(301|305)/', $cartao) :
+			$bandeira = 'Diners';			
+		break;
+
+		case (bool) preg_match('/^(34|37)/', $cartao) :
+			$bandeira = 'Amex';			
+		break;
+
+		case (bool) preg_match('/^(36,38)/', $cartao) :
+			$bandeira = 'Diners';			
+		break;
+
+		case (bool) preg_match('/^(64,65)/', $cartao) :
+			$bandeira = 'Discover';			
+		break;
+
+		case (bool) preg_match('/^(50)/', $cartao) :
+			$bandeira = 'Aura';			
+		break;
+
+		case (bool) preg_match('/^(35)/', $cartao) :
+			$bandeira = 'JCB';			
+		break;
+
+		case (bool) preg_match('/^(60)/', $cartao) :
+			$bandeira = 'Hipercard';			
+		break;
+
+		case (bool) preg_match('/^(4)/', $cartao) :
+			$bandeira = 'Visa';			
+		break;
+
+		case (bool) preg_match('/^(5)/', $cartao) :
+			$bandeira = 'Master';			
+		break;
+	}
+
+	$dados_cartao = $cartoes[$bandeira];
+	if(!is_array($dados_cartao)) return array(false, false, false);
+
+	$valid     = true;
+	$valid_cvc = false;
+
+	if(!in_array(strlen($cartao), $dados_cartao['len'])) $valid = false;
+	if($cvc AND strlen($cvc) <= $dados_cartao['cvc'] AND strlen($cvc) !=0) $valid_cvc = true;
+	return $bandeira;
 }

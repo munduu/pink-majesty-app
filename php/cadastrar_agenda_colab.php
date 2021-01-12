@@ -52,7 +52,8 @@ if($token=='H424715433852'){
 		$lTipo			= $ln_crt['tipo'];
 		
 		if($lTipo==1){ //cartao
-			$situacaoT = 'ACEITO';
+			//$situacaoT = 'ACEITO';
+			$situacaoT = 'AGENDADO';
 		}elseif($lTipo==3){ //dinheiro
 			$situacaoT = 'AGENDADO';
 		} else {
