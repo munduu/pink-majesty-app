@@ -1169,7 +1169,7 @@
 				},
 				error: function (resultado) {
 					$('.loader').hide();
-					setConfirmar_pedido(agenda, situacao, tipo);
+					//setConfirmar_pedido(agenda, situacao, tipo);
 					//navigator.notification.alert('Não foi poss�vel acessar!', 'CADASTRAR', 'Error', 'OK');
 					//activate_page("#cadastrar");
 				}

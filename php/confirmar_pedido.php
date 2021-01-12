@@ -181,15 +181,15 @@ if ($token == 'H424715433852') {
 			}
 			if (!empty($json['Payment']['ReturnCode'])) {
 				if (($json['Payment']['ReturnCode'] == "6") || ($json['Payment']['ReturnCode'] == "4")) {
-					$message_pagamento = "\n\nPagamento processado com sucesso";
+					$message_pagamento = "Pagamento processado com sucesso";
 				} else {
-					$message_pagamento = "\n\nErro ao processar o pagamento x1";
+					$message_pagamento = "Erro ao processar o pagamento x1";
 				}
 			} else {
-				$message_pagamento = "\n\nErro ao processar o pagamento x2";
+				$message_pagamento = "Erro ao processar o pagamento x2";
 			}
 		} else {
-			$message_pagamento = "\n\nErro ao processar o pagamento x3";
+			$message_pagamento = "Erro ao processar o pagamento x3";
 		}
 
 
@@ -218,7 +218,7 @@ if ($token == 'H424715433852') {
 			sendMessage($message, $tokens);
 		}
 
-		$msg_alert = "\n\nPedido Finalizado com sucesso! " . $message_pagamento;
+		$msg_alert = "Pedido Finalizado com sucesso! " . $message_pagamento;
 	}
 
 	$dados .= $msg_alert;

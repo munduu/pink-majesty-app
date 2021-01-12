@@ -191,7 +191,7 @@ var cod_pagseguro	= $("#cod_pagseguro").val();
         error: function(resultado) {
             $('.loader').hide();
             console.log(resultado);				
-            setConfirmar_pedido(agenda, situacao, tipo);
+            //setConfirmar_pedido(agenda, situacao, tipo);
         }			
     });
 }
