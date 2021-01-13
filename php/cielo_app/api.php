@@ -44,8 +44,8 @@ header("Access-Control-Allow-Origin: *");
 
 if($_REQUEST['action'] == 'chargeWithCard'){
     chargeWithCard($_REQUEST);
-} elseif($_REQUEST['action'] == 'chargeWithCard2'){
-
+} elseif($_REQUEST['action'] == 'cancelar'){
+    cancelarPagamento($_REQUEST);
 } else {
 
 }
@@ -116,20 +116,25 @@ function chargeWithCard($request = null)
         if($linha_a > 0){
             $ln_a          	= mysql_fetch_assoc($resultado_a);
             if(!empty($json['Payment']['ReturnCode'])){
+                if(!empty($ln_a['payment_intent'])){
+                    $PaymentId = $ln_a['payment_intent'].','.$json['Payment']['PaymentId'];
+                } else {
+                    $PaymentId =  $json['Payment']['PaymentId'];
+                }
                 if(($json['Payment']['ReturnCode'] == "6") || ($json['Payment']['ReturnCode'] == "4")){
                     if(empty($request['Amount'])){
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='1' WHERE `id`='$agenda'";
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='1', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
                         $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                     } else {
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='2' WHERE `id`='$agenda'";
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='2', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
                         $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                     }
                 } else {
                     if(empty($request['Amount'])){
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3' WHERE `id`='$agenda'";
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
                         $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                     } else {
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4' WHERE `id`='$agenda'";
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
                         $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                     }
                 }
@@ -233,4 +238,61 @@ function valida_cartao($cartao, $cvc=false){
 	if(!in_array(strlen($cartao), $dados_cartao['len'])) $valid = false;
 	if($cvc AND strlen($cvc) <= $dados_cartao['cvc'] AND strlen($cvc) !=0) $valid_cvc = true;
 	return $bandeira;
+}
+function cancelarPagamento($request = null){
+    if(!empty($request['MerchantOrderId'])){
+        $msg_return = NULL;
+        $error = 0;
+        $agenda         = $request['MerchantOrderId'];
+        $sql_a         	= "SELECT * FROM tb_agenda WHERE id = '$agenda'";
+        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+        $linha_a       	= mysql_num_rows($resultado_a);
+        if($linha_a > 0){
+            $ln_a          	= mysql_fetch_assoc($resultado_a);
+            $pagamentos = explode(",",$ln_a['payment_intent']);
+            if(!empty($pagamentos)){
+                for($i=0;$i<count($pagamentos);$i++){
+                    $curl = curl_init();
+                    $url = API_Cielo_URL.'/1/sales/'.$pagamentos[$i].'/void';
+                    curl_setopt_array($curl, array(
+                      CURLOPT_URL => $url,
+                      CURLOPT_RETURNTRANSFER => true,
+                      CURLOPT_ENCODING => '',
+                      CURLOPT_MAXREDIRS => 10,
+                      CURLOPT_TIMEOUT => 0,
+                      CURLOPT_FOLLOWLOCATION => true,
+                      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                      CURLOPT_CUSTOMREQUEST => 'PUT',
+                      CURLOPT_HTTPHEADER => array(
+                        'MerchantId: '.API_Cielo_MerchantId,
+                        'Content-Type: application/json',
+                        'Content-Length: 0',
+                        'MerchantKey: '.API_Cielo_MerchantKey
+                        ),
+                    ));
+                    
+                    $response = curl_exec($curl);
+                    curl_close($curl);
+                    $response = json_decode($response,TRUE);
+                    salva_log('cancelarPagamento', $response);
+                    if(!empty($response['ReturnMessage'])){
+                        $msg_return .= $response['ReturnMessage'].' ';
+                    } else {
+                        $msg_return .= $response[0]['Message'].' ';
+                    }
+                    
+                }
+            } else {
+                $msg_return = "Pagamento não encontrado";
+                $error = 1;
+            }
+        } else {
+            $msg_return = "Venda não encontrada";
+            $error = 2;
+        }
+    } else {
+        $msg_return = "Venda não encontrada";
+        $error = 3;
+    }
+    echo json_encode(array('error' => $error, 'msg'=> $msg_return));
 }
