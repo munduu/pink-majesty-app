@@ -22,9 +22,9 @@ function salva_log($path,$log){
     return $log;
 } 
 
-// define("API_Cielo_URL", 'https://apisandbox.cieloecommerce.cielo.com.br');
-// define("API_Cielo_MerchantId", '2ba8079d-ca3a-49a4-8141-3fb3a2b384d2');
-// define("API_Cielo_MerchantKey", 'LVJVSVKUFEXFKSGEEZCNONUAVXKXEMCFYPMGJWHG');
+// define("API_Cielo_URL", 'https://api.cieloecommerce.cielo.com.br/');
+// define("API_Cielo_MerchantId", 'c7944c4f-141e-45f9-b745-f12c92972dfd');
+// define("API_Cielo_MerchantKey", 'd8Msnfs4ueoHbOurODmkhgGPAchVvuQijgf7ePTM');
 
 define("API_Cielo_URL", 'https://apisandbox.cieloecommerce.cielo.com.br');
 define("API_Cielo_MerchantId", '2ba8079d-ca3a-49a4-8141-3fb3a2b384d2');
