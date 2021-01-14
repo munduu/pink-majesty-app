@@ -46,6 +46,13 @@ $token        = anti_sql_injection(strip_tags(trim($_REQUEST['token'])));
 		}
 			
 		if($linha > 0){
+			if(($tipo_cartao == 0) || empty($tipo_cartao)){
+				if(empty($numero_c)){
+					$tipo_cartao = 3;
+				} else {
+					$tipo_cartao =1;
+				}
+			}
 			
 			$insertSQL = 
 			"INSERT INTO tb_cartoes (id_cliente, numero, cod_seg, mes_val, ano_val, nome_impresso, data_nasc, cpf, tipo, banco)
