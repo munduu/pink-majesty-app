@@ -302,7 +302,7 @@
 				success: function (resultado) {
 					$('.loader').hide();
 					$(".listar_servicos").html(resultado);
-					console.log('aki: ' + resultado + ' s:' + servico);
+				//	console.log('aki: ' + resultado + ' s:' + servico);
 				},
 				error: function (resultado) {
 					$('.loader').hide();
@@ -1082,7 +1082,7 @@
 						activate_page("#principal");
 						console.log(resultado);
 						//checkout_ccard(resultado.agenda);
-						checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
+						checkout_ccard(resultado.agenda, resultado.lNcartao, resultado.lNmcartao, resultado.lMesVenc, resultado.lAnoVenc, resultado.lCodigoSeg)
 
 					} else {
 						alert(resultado.dados);
@@ -2206,6 +2206,7 @@
 					var tipo = tipo_cartao[i].value;
 				}
 			}
+			var bandeira = null;
 
 			// var tipo_cartao_banco = document.getElementsByName("tipo_cartao_banco");
 
@@ -2214,31 +2215,31 @@
 			// 		var banco = tipo_cartao_banco[i].value;
 			// 	}
 			// }
-			var bandeira = null;
+			/*var bandeira = null;
 			$.ajax({
-				type:"POST", dataType:"json", cache: false, url: "https://igestaoweb.com.br/pinkmajesty/function/identifica_bandeira.php",
-				data:{cartao:numero_c},
-				timeout: 200000, 
-				beforeSend: function(resultado){ 
+				type: "POST", dataType: "json", cache: false, url: "https://igestaoweb.com.br/pinkmajesty/function/identifica_bandeira.php",
+				data: { cartao: numero_c },
+				timeout: 200000,
+				beforeSend: function (resultado) {
 					$('.loader').show();
 				},
-				success: function(resultado){
-				  $('.loader').hide();  
-				  $('#brandcard').val(resultado.sucesso.bandeira);
-				  bandeira = resultado.sucesso.bandeira;
-				  console.log(resultado);
-				  if(bandeira==null){
-					alert('Campo obrigatório vazio: BANDEIRA');
-					bandeira = null;
-					return false;
+				success: function (resultado) {
+					$('.loader').hide();
+					$('#brandcard').val(resultado.sucesso.bandeira);
+					bandeira = resultado.sucesso.bandeira;
+					console.log(resultado);
+					if (bandeira == null) {
+						//alert('Campo obrigatório vazio: BANDEIRA');
+						bandeira = null;
+						return false;
 					}
 				},
-				error: function(resultado) {
-				  $('.loader').hide();
-				  console.log('error');
-				  bandeira = null;
-				}     
-			  });
+				error: function (resultado) {
+					$('.loader').hide();
+					console.log('error');
+					bandeira = null;
+				}
+			});*/
 
 			$(".add_cartao").html('<div class="buttonentrar">Adicionar Nova Forma Pagamento</div>');
 			$(".sel_cartao").show();
@@ -2272,12 +2273,12 @@
 					setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, bandeira);
 				}
 			} else {
-				if (banco == '') {
-					alert('SELECIONE um banco para D�bito em conta!');
-					return false;
-				} else {
-					setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, bandeira);
-				}
+				// if (banco == '') {
+				// 	alert('SELECIONE um banco para D�bito em conta!');
+				// 	return false;
+				// } else {
+				// 	setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, bandeira);
+				// }
 			}
 
 		});
@@ -2323,7 +2324,7 @@
 		$(document).on("click", ".select_forma_pg", function (evt) {
 			var user = getCookie('id_cliente');
 			var forma_pg = $(".selectForma_pg").val();
-			console.log({ 'forma_pg': forma_pg });
+			//console.log({ 'forma_pg': forma_pg });
 			var titulo_pg = $(".pg_" + forma_pg).html();
 
 			setCookie('forma_pg', forma_pg);
