@@ -2212,7 +2212,7 @@
 			else {
 				tipo = 0;
 			}
-			alert(tipo);
+			//alert(tipo);
 			//var bandeira = null;
 
 			// var tipo_cartao_banco = document.getElementsByName("tipo_cartao_banco");
