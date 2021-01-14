@@ -2199,13 +2199,13 @@
 			var data_nasc_cartao = $(".data_nasc_cartao").val();
 			var cpf_titular = $(".cpf_titular").val();
 
-			//var tipo_cartao = document.getElementsByName("tipo_cartao");
-
-			// for (var i = 0; i < tipo_cartao.length; i++) {
-			// 	if (tipo_cartao[i].checked) {
-			// 		var tipo = tipo_cartao[i].value;
-			// 	}
-			// }
+			var tipo_cartao = document.getElementsByName("tipo_cartao");
+			alert(tipo_cartao.length);
+			for (var i = 0; i < tipo_cartao.length; i++) {
+				if (tipo_cartao[i].checked) {
+					var tipo = tipo_cartao[i].value;
+				}
+			}
 			//var bandeira = null;
 
 			// var tipo_cartao_banco = document.getElementsByName("tipo_cartao_banco");
@@ -2246,7 +2246,7 @@
 			$(".cad_cartao").hide();
 			y = 0;
 
-			//if (tipo == '1') {
+			if (tipo == '1') {
 				if (cpf_titular == '') {
 					alert('CPF do Titular Não Informado!');
 					return false;
@@ -2270,16 +2270,18 @@
 					return false;
 				} else {
 					//bandeira = $('#brandcard').val();
+					alert('Enviando cartão...');
 					setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, null);
 				}
-			//} else {
+			} else {
 				// if (banco == '') {
 				// 	alert('SELECIONE um banco para D�bito em conta!');
 				// 	return false;
 				// } else {
 				// 	setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, bandeira);
 				// }
-			//}
+				setCartao(user, numero_c, cod_seg, mes, ano, nome_impresso, data_nasc_cartao, cpf_titular, tipo, null);
+			}
 
 		});
 
