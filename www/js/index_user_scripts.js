@@ -2200,12 +2200,13 @@
 			var cpf_titular = $(".cpf_titular").val();
 
 			var tipo_cartao = document.getElementsByName("tipo_cartao");
-			alert(tipo_cartao.length);
+			var tipo = null;
 			for (var i = 0; i < tipo_cartao.length; i++) {
 				if (tipo_cartao[i].checked) {
-					var tipo = tipo_cartao[i].value;
+					tipo = tipo_cartao[i].value;
 				}
 			}
+			alert(tipo);
 			//var bandeira = null;
 
 			// var tipo_cartao_banco = document.getElementsByName("tipo_cartao_banco");
