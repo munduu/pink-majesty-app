@@ -115,7 +115,7 @@ function identifica_bandeira(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodig
         end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg,resultado.sucesso.bandeira);
 
         if(resultado.sucesso.bandeira==''){
-            alert('Campo obrigatório vazio: BANDEIRA');
+            //alert('Campo obrigatório vazio: BANDEIRA');
             $('.btn_troca_cartao[alt='+agenda+']').show();
             $('.btn_pagamento[alt='+agenda+']').hide();
             return false;
