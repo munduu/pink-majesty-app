@@ -2201,10 +2201,16 @@
 
 			var tipo_cartao = document.getElementsByName("tipo_cartao");
 			var tipo = null;
-			for (var i = 0; i < tipo_cartao.length; i++) {
-				if (tipo_cartao[i].checked) {
-					tipo = tipo_cartao[i].value;
-				}
+			// for (var i = 0; i < tipo_cartao.length; i++) {
+			// 	if (tipo_cartao[i].checked) {
+			// 		tipo = tipo_cartao[i].value;
+			// 	}
+			// }
+			if( $('input[name=tipo_cartao]:radio:checked').length > 0 ) {
+				tipo = $('input[name=myradiobutton]:radio:checked').val();
+			}
+			else {
+				tipo = 0;
 			}
 			alert(tipo);
 			//var bandeira = null;
