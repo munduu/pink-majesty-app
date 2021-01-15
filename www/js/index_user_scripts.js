@@ -2172,6 +2172,16 @@
 			}
 			)
 		});
+		$(document).on("change", ".tipo_cartao", function (evt) {
+			var tipo = $('input[name=tipo_cartao]:radio:checked').val();
+			//console.log(tipo);
+			if (tipo == 3){
+				$('#tipo_cartao_select').hide();
+			} else {
+				$('#tipo_cartao_select').show();
+			}
+
+		});
 
 		$(document).on("click", ".btn-endereco", function (evt) {
 			var user = getCookie('id_cliente');
@@ -2211,7 +2221,7 @@
 			// 	}
 			// }
 			if( $('input[name=tipo_cartao]:radio:checked').length > 0 ) {
-				tipo = $('input[name=myradiobutton]:radio:checked').val();
+				tipo = $('input[name=tipo_cartao]:radio:checked').val();
 			}
 			else {
 				tipo = 0;
@@ -2299,8 +2309,12 @@
 		$(document).on("click", ".select_endereco", function (evt) {
 			var user = getCookie('id_cliente');
 			var end = $(".selectEndereco").val();
-
-			setSelect_endereco(end);
+			if(end == undefined || end == false || end == null){
+				alert("Selecione um endereço")
+			} else {
+				setSelect_endereco(end);
+			}
+			
 		});
 
 		$(document).on("click", ".btn-data-hora", function (evt) {
@@ -2337,13 +2351,16 @@
 		$(document).on("click", ".select_forma_pg", function (evt) {
 			var user = getCookie('id_cliente');
 			var forma_pg = $(".selectForma_pg").val();
-			//console.log({ 'forma_pg': forma_pg });
-			var titulo_pg = $(".pg_" + forma_pg).html();
-
-			setCookie('forma_pg', forma_pg);
-			$(".pgSelect").html('<p>' + titulo_pg + '</p>');
-			$(".menu_inferior").show();
-			activate_page("#agendamento");
+			if(forma_pg == undefined || forma_pg == false || forma_pg == null){
+				alert("Selecione uma forma de pagamento")
+			} else {
+				//console.log({ 'forma_pg': forma_pg });
+				var titulo_pg = $(".pg_" + forma_pg).html();
+				setCookie('forma_pg', forma_pg);
+				$(".pgSelect").html('<p>' + titulo_pg + '</p>');
+				$(".menu_inferior").show();
+				activate_page("#agendamento");
+			}
 		});
 
 		$(document).on("click", ".btn_cupom", function (evt) {
