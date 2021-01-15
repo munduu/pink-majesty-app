@@ -1859,9 +1859,10 @@
 			//navigator.notification.alert('asas', '', '', '');
 			//navigator.notification.alert($.mobile.activePage.attr('id'), '', '', '');
 			var user = getCookie("id_cliente");
-			if (user) {
-				var funcao = $(this).attr('id');
-				var link = $(this).attr('alt');
+			var funcao = $(this).attr('id');
+			var link = $(this).attr('alt');
+			if (user || link == 'cadastrar' || link == 'trabalhe_conosco') {
+				
 				//navigator.notification.alert($("#principal").length, '', '', 'OK');
 				activate_page("#" + link);
 				if (link == 'servicos') {
