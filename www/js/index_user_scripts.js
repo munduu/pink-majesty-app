@@ -1858,211 +1858,215 @@
 		$(document).on("click", ".btn2", function (evt) {
 			//navigator.notification.alert('asas', '', '', '');
 			//navigator.notification.alert($.mobile.activePage.attr('id'), '', '', '');
-
-			var funcao = $(this).attr('id');
-			var link = $(this).attr('alt');
-			//navigator.notification.alert($("#principal").length, '', '', 'OK');
-			activate_page("#" + link);
-			if (link == 'servicos') {
-				if (funcao != 'srv') {
-					getListar_servicos(funcao);
-				}
-			}
-			if (link == 'local') {
-				$(".menu_inferior").hide();
-				getSelect_enderecos();
-				getEstados();
-			}
-			if (link == 'data_hora') {
-				$(".menu_inferior").hide();
-				var d1 = new Date();
-				var d2 = new Date(d1);
-				var h1 = d1.getMinutes();
-
-				if (h1 == 0) { var minuto = 60; }
-				if (h1 > 0 && h1 <= 15) { var minuto = 60 + (15 - h1); }
-				if (h1 > 15 && h1 <= 30) { var minuto = 60 + (30 - h1); }
-				if (h1 > 30 && h1 <= 45) { var minuto = 60 + (45 - h1); }
-				if (h1 > 45) { var minuto = 60 + (60 - h1) }
-
-				d2.setMinutes(d1.getMinutes() + minuto);
-
-				//navigator.notification.alert(d2.getMinutes(), '', '', 'OK');
-				$('#date_format').bootstrapMaterialDatePicker
-					({
-						format: 'dddd DD MMMM YYYY',
-						lang: 'pt-br',
-						switchOnClick: true,
-						minDate: d2,
-						currentDate: d2,
-						time: false
-					});
-				$('.dtp-btn-cancel').hide();
-			}
-			if (link == 'pagamento') {
-				$(".menu_inferior").hide();
-				$('.select_forma_pg').show();
-				$('.novo_pgt').html('');
-				getSelect_forma_pg(2);
-			}
-			if (link == 'horarios') {
-				getListar_horarios();
-			}
-			if (link == 'cupom') {
-				$(".menu_inferior").hide();
-				getVerif_cpf();
-			}
-			if (link == 'detalhado') {
-				$('.partes_descricao').show();
-				if (funcao != 'dtl') {
-					getServico_detalhado(funcao, link);
-				}
-			}
-			if (link == 'agendamento') {
-				var user = getCookie("id_cliente");
-				if (user) {
-
-					$(".menu_inferior").show();
-					if (funcao != 'agd') {
-						var valor = $(".valor_" + funcao).attr('alt');
-						$('.partes_descricao').hide();
-						setCookie('servico', funcao);
-						setCookie('s_valor', valor);
-
-						setCookie('id_endereco', '');
-						setCookie('data', '');
-						setCookie('hora', '');
-						setCookie('forma_pg', '');
-						setCookie('cod_cupom', '');
-						setCookie('cpf_cupom', '');
-
-						$(".data").val('');
-						$(".hora").val('');
-						//document.getElementById("data").style.backgroundColor = "#ffffff";
-						//document.getElementById("hora").style.backgroundColor = "#ffffff";
-						$(".cod_cupom").val('');
-
-						$(".localSelect").html('<p>Selecione o local de atendimento</p>');
-						$(".dataSelect").html('<p>Selecione a data de atendimento</p>');
-						$(".pgSelect").html('<p>Selecione uma forma de pagamento</p>');
-						$(".cupomSelect").html('<p>Insira seu cupom de desconto</p>');
-
-						$(".v_total").html('<h1>Total</h1><p id="valor">R$ ' + getCookie("s_valor") + '</p>');
+			var user = getCookie("id_cliente");
+			if (user) {
+				var funcao = $(this).attr('id');
+				var link = $(this).attr('alt');
+				//navigator.notification.alert($("#principal").length, '', '', 'OK');
+				activate_page("#" + link);
+				if (link == 'servicos') {
+					if (funcao != 'srv') {
+						getListar_servicos(funcao);
 					}
-				} else {
-					getVer_Login();
 				}
-			}
-			if (link == 'agenda') {
-				getListar_agenda('', '');
-			}
-			if (link == 'meusPedidos') {
-
-				$(".rodape_principal").attr("src", "images/agende_aqui.png");
-				$(".rodape_meusPedidos").attr("src", "images/historico2.png");
-				$(".rodape_minhaConta").attr("src", "images/minha_conta.png");
-				$(".rodape_ajuda").attr("src", "images/ajuda.png");
-
-				$(".rodape_principal").css("color", "#333333");
-				$(".rodape_meusPedidos").css("color", "#ec268f");
-				$(".rodape_minhaConta").css("color", "#333333");
-				$(".rodape_ajuda").css("color", "#333333");
-
-				//var user    = getCookie("id_cliente");	
-				getListar_meusPedidos();
-				/*if(user){
-					getListar_meusPedidos();
-				}else{
-					getVer_Login();
-				}*/
-			}
-			if (link == 'minhaConta') {
-
-				$(".rodape_principal").attr("src", "images/agende_aqui.png");
-				$(".rodape_meusPedidos").attr("src", "images/historico.png");
-				$(".rodape_minhaConta").attr("src", "images/minha_conta2.png");
-				$(".rodape_ajuda").attr("src", "images/ajuda.png");
-
-				$(".rodape_principal").css("color", "#333333");
-				$(".rodape_meusPedidos").css("color", "#333333");
-				$(".rodape_minhaConta").css("color", "#ec268f");
-				$(".rodape_ajuda").css("color", "#333333");
-
-				$(".menu_inferior").show();
-				getInfo_Conta();
-			}
-			if (link == 'facebook') { }
-			if (link == 'ajuda') {
-
-				$(".rodape_principal").attr("src", "images/agende_aqui.png");
-				$(".rodape_meusPedidos").attr("src", "images/historico.png");
-				$(".rodape_minhaConta").attr("src", "images/minha_conta.png");
-				$(".rodape_ajuda").attr("src", "images/ajuda2.png");
-
-				$(".rodape_principal").css("color", "#333333");
-				$(".rodape_meusPedidos").css("color", "#333333");
-				$(".rodape_minhaConta").css("color", "#333333");
-				$(".rodape_ajuda").css("color", "#ec268f");
-
-				$(".menu_inferior").show();
-			}
-
-			if (link == 'principal') {
-
-				$(".rodape_principal").attr("src", "images/agende_aqui2.png");
-				$(".rodape_meusPedidos").attr("src", "images/historico.png");
-				$(".rodape_minhaConta").attr("src", "images/minha_conta.png");
-				$(".rodape_ajuda").attr("src", "images/ajuda.png");
-
-				$(".rodape_principal").css("color", "#ec268f");
-				$(".rodape_meusPedidos").css("color", "#333333");
-				$(".rodape_minhaConta").css("color", "#333333");
-				$(".rodape_ajuda").css("color", "#333333");
-
-				if (getCookie("tipo") == 'Cliente' || getCookie("tipo") == null) {
-					$(".esquerda").show();
-					$(".menu_colab").hide();
-					$(".listar_categorias_").show();
-					$(".menu_inferior").show();
-					getListar_categorias();
-				} else if (getCookie("tipo") == 'Profissional') {
+				if (link == 'local') {
 					$(".menu_inferior").hide();
-					$(".listar_categorias_").hide();
-					$(".menu_colab").show();
+					getSelect_enderecos();
+					getEstados();
 				}
-			}
+				if (link == 'data_hora') {
+					$(".menu_inferior").hide();
+					var d1 = new Date();
+					var d2 = new Date(d1);
+					var h1 = d1.getMinutes();
 
-			if (funcao == 'alterar_pass') {
-				getAlteracoes_cliente('6');
-				$(".menu_inferior").hide();
+					if (h1 == 0) { var minuto = 60; }
+					if (h1 > 0 && h1 <= 15) { var minuto = 60 + (15 - h1); }
+					if (h1 > 15 && h1 <= 30) { var minuto = 60 + (30 - h1); }
+					if (h1 > 30 && h1 <= 45) { var minuto = 60 + (45 - h1); }
+					if (h1 > 45) { var minuto = 60 + (60 - h1) }
+
+					d2.setMinutes(d1.getMinutes() + minuto);
+
+					//navigator.notification.alert(d2.getMinutes(), '', '', 'OK');
+					$('#date_format').bootstrapMaterialDatePicker
+						({
+							format: 'dddd DD MMMM YYYY',
+							lang: 'pt-br',
+							switchOnClick: true,
+							minDate: d2,
+							currentDate: d2,
+							time: false
+						});
+					$('.dtp-btn-cancel').hide();
+				}
+				if (link == 'pagamento') {
+					$(".menu_inferior").hide();
+					$('.select_forma_pg').show();
+					$('.novo_pgt').html('');
+					getSelect_forma_pg(2);
+				}
+				if (link == 'horarios') {
+					getListar_horarios();
+				}
+				if (link == 'cupom') {
+					$(".menu_inferior").hide();
+					getVerif_cpf();
+				}
+				if (link == 'detalhado') {
+					$('.partes_descricao').show();
+					if (funcao != 'dtl') {
+						getServico_detalhado(funcao, link);
+					}
+				}
+				if (link == 'agendamento') {
+					var user = getCookie("id_cliente");
+					if (user) {
+
+						$(".menu_inferior").show();
+						if (funcao != 'agd') {
+							var valor = $(".valor_" + funcao).attr('alt');
+							$('.partes_descricao').hide();
+							setCookie('servico', funcao);
+							setCookie('s_valor', valor);
+
+							setCookie('id_endereco', '');
+							setCookie('data', '');
+							setCookie('hora', '');
+							setCookie('forma_pg', '');
+							setCookie('cod_cupom', '');
+							setCookie('cpf_cupom', '');
+
+							$(".data").val('');
+							$(".hora").val('');
+							//document.getElementById("data").style.backgroundColor = "#ffffff";
+							//document.getElementById("hora").style.backgroundColor = "#ffffff";
+							$(".cod_cupom").val('');
+
+							$(".localSelect").html('<p>Selecione o local de atendimento</p>');
+							$(".dataSelect").html('<p>Selecione a data de atendimento</p>');
+							$(".pgSelect").html('<p>Selecione uma forma de pagamento</p>');
+							$(".cupomSelect").html('<p>Insira seu cupom de desconto</p>');
+
+							$(".v_total").html('<h1>Total</h1><p id="valor">R$ ' + getCookie("s_valor") + '</p>');
+						}
+					} else {
+						getVer_Login();
+					}
+				}
+				if (link == 'agenda') {
+					getListar_agenda('', '');
+				}
+				if (link == 'meusPedidos') {
+
+					$(".rodape_principal").attr("src", "images/agende_aqui.png");
+					$(".rodape_meusPedidos").attr("src", "images/historico2.png");
+					$(".rodape_minhaConta").attr("src", "images/minha_conta.png");
+					$(".rodape_ajuda").attr("src", "images/ajuda.png");
+
+					$(".rodape_principal").css("color", "#333333");
+					$(".rodape_meusPedidos").css("color", "#ec268f");
+					$(".rodape_minhaConta").css("color", "#333333");
+					$(".rodape_ajuda").css("color", "#333333");
+
+					//var user    = getCookie("id_cliente");	
+					getListar_meusPedidos();
+					/*if(user){
+						getListar_meusPedidos();
+					}else{
+						getVer_Login();
+					}*/
+				}
+				if (link == 'minhaConta') {
+
+					$(".rodape_principal").attr("src", "images/agende_aqui.png");
+					$(".rodape_meusPedidos").attr("src", "images/historico.png");
+					$(".rodape_minhaConta").attr("src", "images/minha_conta2.png");
+					$(".rodape_ajuda").attr("src", "images/ajuda.png");
+
+					$(".rodape_principal").css("color", "#333333");
+					$(".rodape_meusPedidos").css("color", "#333333");
+					$(".rodape_minhaConta").css("color", "#ec268f");
+					$(".rodape_ajuda").css("color", "#333333");
+
+					$(".menu_inferior").show();
+					getInfo_Conta();
+				}
+				if (link == 'facebook') { }
+				if (link == 'ajuda') {
+
+					$(".rodape_principal").attr("src", "images/agende_aqui.png");
+					$(".rodape_meusPedidos").attr("src", "images/historico.png");
+					$(".rodape_minhaConta").attr("src", "images/minha_conta.png");
+					$(".rodape_ajuda").attr("src", "images/ajuda2.png");
+
+					$(".rodape_principal").css("color", "#333333");
+					$(".rodape_meusPedidos").css("color", "#333333");
+					$(".rodape_minhaConta").css("color", "#333333");
+					$(".rodape_ajuda").css("color", "#ec268f");
+
+					$(".menu_inferior").show();
+				}
+
+				if (link == 'principal') {
+
+					$(".rodape_principal").attr("src", "images/agende_aqui2.png");
+					$(".rodape_meusPedidos").attr("src", "images/historico.png");
+					$(".rodape_minhaConta").attr("src", "images/minha_conta.png");
+					$(".rodape_ajuda").attr("src", "images/ajuda.png");
+
+					$(".rodape_principal").css("color", "#ec268f");
+					$(".rodape_meusPedidos").css("color", "#333333");
+					$(".rodape_minhaConta").css("color", "#333333");
+					$(".rodape_ajuda").css("color", "#333333");
+
+					if (getCookie("tipo") == 'Cliente' || getCookie("tipo") == null) {
+						$(".esquerda").show();
+						$(".menu_colab").hide();
+						$(".listar_categorias_").show();
+						$(".menu_inferior").show();
+						getListar_categorias();
+					} else if (getCookie("tipo") == 'Profissional') {
+						$(".menu_inferior").hide();
+						$(".listar_categorias_").hide();
+						$(".menu_colab").show();
+					}
+				}
+
+				if (funcao == 'alterar_pass') {
+					getAlteracoes_cliente('6');
+					$(".menu_inferior").hide();
+				}
+				if (funcao == 'alterar_crt') {
+					getAlteracoes_cliente('5');
+					$(".menu_inferior").hide();
+				}
+				if (funcao == 'alterar_end') {
+					getAlteracoes_cliente('4');
+					$(".menu_inferior").hide();
+				}
+				if (funcao == 'alterar_email') {
+					getAlteracoes_cliente('3');
+					$(".menu_inferior").hide();
+				}
+				if (funcao == 'alterar_tel') {
+					getAlteracoes_cliente('2');
+					$(".menu_inferior").hide();
+				}
+				if (funcao == 'alterar_nome') {
+					getAlteracoes_cliente('1');
+					$(".menu_inferior").hide();
+				}
+				/*
+				var pagina 	= window.location.href;
+				var tags 	= pagina.split("#");
+				var tag 	= tags[1];
+				navigator.notification.alert(tag, '', '', 'OK');
+				*/
+			} else {
+				getVer_Login();
 			}
-			if (funcao == 'alterar_crt') {
-				getAlteracoes_cliente('5');
-				$(".menu_inferior").hide();
-			}
-			if (funcao == 'alterar_end') {
-				getAlteracoes_cliente('4');
-				$(".menu_inferior").hide();
-			}
-			if (funcao == 'alterar_email') {
-				getAlteracoes_cliente('3');
-				$(".menu_inferior").hide();
-			}
-			if (funcao == 'alterar_tel') {
-				getAlteracoes_cliente('2');
-				$(".menu_inferior").hide();
-			}
-			if (funcao == 'alterar_nome') {
-				getAlteracoes_cliente('1');
-				$(".menu_inferior").hide();
-			}
-			/*
-			var pagina 	= window.location.href;
-			var tags 	= pagina.split("#");
-			var tag 	= tags[1];
-			navigator.notification.alert(tag, '', '', 'OK');
-			*/
-			return false;
+				return false;
 		});
 
 		$(document).on("click", ".sair", function (evt) {
