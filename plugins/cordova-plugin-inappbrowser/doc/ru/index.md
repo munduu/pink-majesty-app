@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -21,7 +21,7 @@
 
 Этот плагин обеспечивает представление веб-браузера, что показывает при вызове`window.open()`.
 
-    var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('https://apache.org', '_blank', 'location=yes');
     
 
 **Примечание**: InAppBrowser окно ведет себя как стандартный веб-браузер и не может доступ API Cordova.
@@ -82,8 +82,8 @@
     
     *   **скрытые**: значение `yes` для создания браузера и загрузки страницы, но не показать его. Событие loadstop возникает, когда загрузка завершена. Опустить или набор `no` (по умолчанию), чтобы браузер открыть и загрузить нормально.
 
- [1]: http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle
- [2]: http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle
+ [1]: https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle
+ [2]: https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle
 
 ### Поддерживаемые платформы
 
@@ -97,8 +97,8 @@
 
 ### Пример
 
-    var ref = window.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = window.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = window.open('https://apache.org', '_blank', 'location=yes');
+    var ref2 = window.open(encodeURI('https://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### Особенности Firefox OS
@@ -182,7 +182,7 @@
 
 ### Краткий пример
 
-    var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -214,7 +214,7 @@
 
 ### Краткий пример
 
-    var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('https://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -240,7 +240,7 @@
 
 ### Краткий пример
 
-    var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('https://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -262,7 +262,7 @@
 
 ### Краткий пример
 
-    var ref = window.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = window.open('https://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -294,7 +294,7 @@
 
 ### Краткий пример
 
-    var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -324,7 +324,7 @@
 
 ### Краткий пример
 
-    var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

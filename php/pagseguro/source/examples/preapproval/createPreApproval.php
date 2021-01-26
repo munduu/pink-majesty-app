@@ -7,7 +7,7 @@
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
- http://www.apache.org/licenses/LICENSE-2.0
+ https://www.apache.org/licenses/LICENSE-2.0
 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
@@ -74,8 +74,8 @@ class CreatePreApproval
         $preApprovalRequest->setPreApprovalMaxTotalAmount('2400.00');
         $preApprovalRequest->setPreApprovalInitialDate('2015-09-10T00:00:00');
         $preApprovalRequest->setPreApprovalFinalDate('2017-09-07T00:00:00');
-        $preApprovalRequest->setRedirectURL("http://www.lojateste.com.br/redirect");
-        $preApprovalRequest->setReviewURL("http://www.lojateste.com.br/review");
+        $preApprovalRequest->setRedirectURL("https://www.lojateste.com.br/redirect");
+        $preApprovalRequest->setReviewURL("https://www.lojateste.com.br/review");
 
         try {
 

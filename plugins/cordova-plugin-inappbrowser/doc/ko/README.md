@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -23,7 +23,7 @@
 
 이 플러그인 `코르도바를 호출할 때 표시 하는 웹 브라우저 보기를 제공 합니다.InAppBrowser.open()`.
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     
 
 `코르도바입니다.InAppBrowser.open()` 함수 `window.open ()` 함수에 대 한 대체품 정의 됩니다. 기존의 `window.open ()` 호출 window.open을 대체 하 여 InAppBrowser 윈도우를 사용할 수 있습니다.
@@ -105,8 +105,8 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
       * **allowInlineMediaPlayback**: 설정 `yes` 또는 `no` 인라인 HTML5 미디어 재생, 장치 전용 재생 인터페이스 보다는 브라우저 창 내에서 표시할 수 있도록 합니다. HTML의 `video` 요소가 포함 되어야 합니다는 `webkit-playsinline` 특성 (기본값:`no`)
       * **keyboardDisplayRequiresUserAction**: 설정 `yes` 또는 `no` 양식 요소는 자바 스크립트를 통해 포커스를 받을 때 키보드를 열고 `focus()` 전화 (기본값:`yes`).
       * **suppressesIncrementalRendering**: 설정 `yes` 또는 `no` (기본값을 렌더링 하기 전에 모든 새로운 보기 콘텐츠를 받을 때까지 기다려야`no`).
-      * **presentationstyle**: 설정 `pagesheet` , `formsheet` 또는 `fullscreen` [프레 젠 테이 션 스타일](http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle) (기본값을 설정 하려면`fullscreen`).
-      * **transitionstyle**: 설정 `fliphorizontal` , `crossdissolve` 또는 `coververtical` [전환 스타일](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle) (기본값을 설정 하려면`coververtical`).
+      * **presentationstyle**: 설정 `pagesheet` , `formsheet` 또는 `fullscreen` [프레 젠 테이 션 스타일](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle) (기본값을 설정 하려면`fullscreen`).
+      * **transitionstyle**: 설정 `fliphorizontal` , `crossdissolve` 또는 `coververtical` [전환 스타일](https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle) (기본값을 설정 하려면`coververtical`).
       * **toolbarposition**: 설정 `top` 또는 `bottom` (기본값은 `bottom` ). 위쪽 또는 아래쪽 창에 도구 모음을 발생 합니다.
     
     Windows에만 해당:
@@ -127,8 +127,8 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 예를 들어
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
+    var ref2 = cordova.InAppBrowser.open(encodeURI('https://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### 파이어 폭스 OS 단점
@@ -227,7 +227,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -260,7 +260,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -287,7 +287,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -310,7 +310,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -343,7 +343,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -382,7 +382,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

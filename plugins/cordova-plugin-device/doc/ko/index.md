@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -77,15 +77,15 @@
     // BlackBerry: Torch 9800      returns "9800"
     // Browser:    Google Chrome   returns "Chrome"
     //             Safari          returns "Safari"
-    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. Http://theiphonewiki.com/wiki/index.php?title=Models 참조 / / var 모델 = device.model;
+    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. https://theiphonewiki.com/wiki/index.php?title=Models 참조 / / var 모델 = device.model;
     
 
 ### 안 드 로이드 단점
 
 *   어떤은 종종 프로덕션 코드 이름 대신 [제품 모델 이름][1], [제품 이름][2] 을 가져옵니다. 예를 들어 넥서스 하나 반환 합니다 `Passion` , 모토로라 Droid를 반환 합니다`voles`.
 
- [1]: http://developer.android.com/reference/android/os/Build.html#MODEL
- [2]: http://developer.android.com/reference/android/os/Build.html#PRODUCT
+ [1]: https://developer.android.com/reference/android/os/Build.html#MODEL
+ [2]: https://developer.android.com/reference/android/os/Build.html#PRODUCT
 
 ### Tizen 특수
 
@@ -138,7 +138,7 @@ Windows Phone 8 장치 보고 플랫폼으로`Win32NT`.
 
 소자의 보편적으로 고유 식별자 ([UUID][3] 를 얻을합니다).
 
- [3]: http://en.wikipedia.org/wiki/Universally_Unique_Identifier
+ [3]: https://en.wikipedia.org/wiki/Universally_Unique_Identifier
 
     var string = device.uuid;
     

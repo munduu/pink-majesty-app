@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -21,7 +21,7 @@
 
 このプラグインは、古いバージョンの[ネットワーク情報 API][1]の実装を提供します。 デバイスの携帯電話や wifi 接続に関する情報を提供し、かどうか、デバイスがインターネットに接続します。
 
- [1]: http://www.w3.org/TR/2011/WD-netinfo-api-20110607/
+ [1]: https://www.w3.org/TR/2011/WD-netinfo-api-20110607/
 
 ## インストール
 

@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -48,7 +48,7 @@
 
 Где foo это имя файла splashscreen, желательно 9 заплатку. Убедитесь в том добавить ваши splashcreen файлы в папку res/xml в соответствующие папки. Второй параметр представляет, как долго splashscreen появится в миллисекундах. По умолчанию он 3000 МС. Увидеть [иконки и заставки][1] для получения дополнительной информации.
 
- [1]: http://cordova.apache.org/docs/en/edge/config_ref_images.md.html
+ [1]: https://cordova.apache.org/docs/en/edge/config_ref_images.md.html
 
 ## splashscreen.hide
 

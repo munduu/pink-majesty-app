@@ -26,7 +26,7 @@ $voucher = anti_sql_injection(strip_tags(trim($_REQUEST["email"])));
 
 		/*echo "<script language='JavaScript'>alert('Cadastro validado com sucesso!');</script>"; 
 
-		echo "<script language='JavaScript'>location.href='http://sportbro.com.br/sportbro/index_form.php'</script>";*/
+		echo "<script language='JavaScript'>location.href='https://sportbro.com.br/sportbro/index_form.php'</script>";*/
 
 		
 

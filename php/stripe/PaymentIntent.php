@@ -32,7 +32,7 @@ if($token == 'H424715433852'){
             'customer' => $gateway_id,
             'payment_method' => $payment_method,
             'amount' => $amount,
-            'currency' => 'BRL',
+            'currency' => 'EUR',
             'confirm' => true,
             'setup_future_usage' => 'off_session',
           ]);

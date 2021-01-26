@@ -3,7 +3,7 @@
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
 	
-	http://www.apache.org/licenses/LICENSE-2.0
+	https://www.apache.org/licenses/LICENSE-2.0
 	
 	Unless required by applicable law or agreed to in writing, software
 	distributed under the License is distributed on an "AS IS" BASIS,
@@ -26,7 +26,7 @@ using System.Windows.Threading;
 
 
 /*
- *   http://www.idev101.com/code/User_Interface/StatusBar.html
+ *   https://www.idev101.com/code/User_Interface/StatusBar.html
  *   https://developer.apple.com/library/ios/documentation/userexperience/conceptual/transitionguide/Bars.html
  *   https://developer.apple.com/library/ios/documentation/uikit/reference/UIApplication_Class/Reference/Reference.html#//apple_ref/c/econst/UIStatusBarStyleDefault
  * */

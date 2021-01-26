@@ -166,7 +166,7 @@ Copyright 2013 PagSeguro Internet LTDA.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
-http://www.apache.org/licenses/LICENSE-2.0
+https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
@@ -200,19 +200,19 @@ Achou e corrigiu um bug ou tem alguma feature em mente e deseja contribuir?
 * Obs.: Adicione exemplos para sua nova feature. Se seu Pull Request for relacionado a uma versão específica, o Pull Request não deve ser enviado para o branch master e sim para o branch correspondente a versão.
 
 
-  [requisições de assinaturas]: http://download.uol.com.br/pagseguro/docs/pagseguro-assinatura-automatica.pdf
-  [assinaturas]: http://download.uol.com.br/pagseguro/docs/pagseguro-assinatura-automatica.pdf
+  [requisições de assinaturas]: https://download.uol.com.br/pagseguro/docs/pagseguro-assinatura-automatica.pdf
+  [assinaturas]: https://download.uol.com.br/pagseguro/docs/pagseguro-assinatura-automatica.pdf
   [requisições de pagamentos]: https://pagseguro.uol.com.br/v2/guia-de-integracao/api-de-pagamentos.html
   [notificações]: https://pagseguro.uol.com.br/v3/guia-de-integracao/api-de-notificacoes.html
   [Checkout Transparente]: https://pagseguro.uol.com.br/receba-pagamentos.jhtml#checkout-transparent
   [transações por código]: https://pagseguro.uol.com.br/v3/guia-de-integracao/consulta-de-transacoes-por-codigo.html
   [transações por intervalo de datas]: https://pagseguro.uol.com.br/v2/guia-de-integracao/consulta-de-transacoes-por-intervalo-de-datas.html
   [transações abandonadas]: https://pagseguro.uol.com.br/v2/guia-de-integracao/consulta-de-transacoes-abandonadas.html
-  [fórum]: http://forum.pagseguro.uol.com.br/
-  [PHP]: http://www.php.net/
-  [SPL]: http://php.net/manual/en/book.spl.php
-  [cURL]: http://php.net/manual/en/book.curl.php
-  [DOM]: http://php.net/manual/en/book.dom.php
+  [fórum]: https://forum.pagseguro.uol.com.br/
+  [PHP]: https://www.php.net/
+  [SPL]: https://php.net/manual/en/book.spl.php
+  [cURL]: https://php.net/manual/en/book.curl.php
+  [DOM]: https://php.net/manual/en/book.dom.php
   [GitHub]: https://github.com/pagseguro/php/
   [documentação oficial]: https://pagseguro.uol.com.br/v2/guia-de-integracao/tutorial-da-biblioteca-pagseguro-em-php.html
   [Composer]: https://getcomposer.org

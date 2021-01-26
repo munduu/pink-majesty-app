@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -21,7 +21,7 @@
 
 Questo plugin fornisce un'implementazione di una vecchia versione dell' [API di informazioni di rete][1]. Fornisce informazioni sul dispositivo cellulare e connessione wifi, e se il dispositivo dispone di una connessione internet.
 
- [1]: http://www.w3.org/TR/2011/WD-netinfo-api-20110607/
+ [1]: https://www.w3.org/TR/2011/WD-netinfo-api-20110607/
 
 ## Installazione
 

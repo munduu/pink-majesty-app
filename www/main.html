@@ -45,11 +45,9 @@
 		<script src="js/app.js"></script>
 		<script src="js/init-app.js"></script>
 		<script src="xdk/init-dev.js"></script>
-		<script src="js/stripe.js"></script>
 		<script type="application/javascript" src="lib/jquery.min.js"></script>
 		<script type="application/javascript" src="js/index_user_scripts.js"></script>
 		<script type="application/javascript" src="xdk/ad/bs_subpage.js"></script>
-		
 
 		<style>
 			.loader {
@@ -116,15 +114,8 @@
 
 		<!-- PAGSEGURO -->
 		<!--<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>-->
-		<!-- <script type="text/javascript" src="js/cielo.js"></script> -->
-		
-		<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
-		<script type="text/javascript">
-		// $( document ).ready(function() {
-		// var stripe = Stripe('pk_test_HwOzl6pIove5P3TZopMpaOsg001qQzh3P6');
-		// MainStripe(stripe);
-		// });
-		</script>
+		<script type="text/javascript" src="js/cielo.js"></script>
+        
 	</head>
 
 	<body>
@@ -179,7 +170,7 @@
 		</script>
 				
 		<div class="upage vertical-col left paginainicial hidden fadeIn" id="mainpage" style="margin: 0 auto; height: 100%; overflow: hidden;">
-			<script>//getVer_LoginIn();</script>
+			<script>getVer_LoginIn();</script>
 			
             <div id="logo2" style="margin-top:10px;">
 				<a href="#" class="lista_servicos_logo"><img src="images/logodellas2.png"></a>
@@ -726,7 +717,7 @@
                                 </select>    
                             </div>
                             <div class="entrar">
-                                <button class="btn2 select_endereco"><div class="buttonentrar">Avançar</div></button>
+                                <button class="btn2 select_endereco"><div class="buttonentrar">Usar este endereço</div></button>
                             </div>
                             <div class="entrar">
                         		<button class="btn2 add_endereco"><div class="buttonentrar">Adicionar Novo Endereço</div></button>
@@ -822,11 +813,11 @@
                                 </select>
                            	</div>
                             <div class="entrar">
-                        		<button class="btn2 select_forma_pg"><div class="buttonentrar">Avançar</div></button>
+                        		<button class="btn2 select_forma_pg"><div class="buttonentrar">Usar esta forma de pagamento</div></button>
                                 <div class='novo_pgt'></div>
                         	</div>
                             <div class="entrar">
-                            	<button id="card-button-add" class="btn2 add_cartao"><div class="buttonentrar">Adicionar Novo Forma Pagamento</div></button>
+                            	<button class="btn2 add_cartao"><div class="buttonentrar">Adicionar Novo Forma Pagamento</div></button>
                         	</div>
                      	</div>
                   	</div>
@@ -839,9 +830,9 @@
                             <div class="apeanascadastro">
                                 <h4 align="center">Forma de Pagamento</h4>
 								Opções: <br /><br />
-                                <input class="apg_campo tipo_cartao" onclick="select_tipo_banco(this.value);" type="radio" name="tipo_cartao" value="1" checked> Cartão de Crédito<br />
+                                <input class="apg_campo tipo_cartao" type="radio" name="tipo_cartao" value="1" checked> Cartão de Crédito<br />
   								<!--<input class="apg_campo tipo_cartao" onclick="select_tipo_banco(this.value);" type="radio" name="tipo_cartao" value="2"> Débito Online<br />-->
-								<input class="apg_campo tipo_cartao" onclick="select_tipo_banco(this.value);" type="radio" name="tipo_cartao" value="3"> Dinheiro<br />
+								<input class="apg_campo tipo_cartao"type="radio" name="tipo_cartao" value="3"> Dinheiro<br />
 								
 								<div style="display:none;" id="tipo_dinheiro">
 									Troco: <br /><br />
@@ -855,34 +846,22 @@
 									<input class="apg_campo tipo_cartao_banco" type="radio" name="tipo_cartao_banco" value="BRADESCO"> Bradesco<br />
 									<input class="apg_campo tipo_cartao_banco" type="radio" name="tipo_cartao_banco" value="ITAU"> Itau<br />
 								</div>
+								
 								<div id="tipo_cartao_select">
-									<input class="apg_campo" id="cardholder-name" placeholder="CARD HOLDER NAME" type="text">
-									<!-- placeholder for Elements -->
-									<form id="setup-form">
-									<div id="card-element">
-										<div id="cardNumber"></div>
-										<hr style="height:1px;border-width:0;color:rgba(236, 38, 143, 0.45);;background-color:rgba(236, 38, 143, 0.45);">
-										<div id="cardExpiry"></div>
-										<hr style="height:1px;border-width:0;color:rgba(236, 38, 143, 0.45);;background-color:rgba(236, 38, 143, 0.45);">
-										<div id="cardCvc"></div>
-										<hr style="height:1px;border-width:0;color:rgba(236, 38, 143, 0.45);;background-color:rgba(236, 38, 143, 0.45);">
-										<input id="zip-code" placeholder="ZIP CODE" type="text">
-									</div>
-									</form>
-									<!-- <input class="apg_campo nome_impresso" type="text" id="nome_impresso" name="nome_impresso" placeholder="Nome Impresso no Cartão de Crédito" maxlength="30"/>
+									<input class="apg_campo nome_impresso" type="text" id="nome_impresso" name="nome_impresso" placeholder="Nome Impresso no Cartão de Crédito" maxlength="30"/>
 									<input class="apg_campo cpf_titular" placeholder="CPF do Titular" type="tel" alt="cpf" id="cpf_titular" maxlength="14">
-									<input class="apg_campo data_nasc_cartao" type="tel" id="data_nasc_cartao" maxlength="10" onkeyup="somenteNumerosdata(this);" ng-model="numero.valor" placeholder="Data Nascimento do Titular">
+									<!--<input class="apg_campo data_nasc_cartao" type="tel" id="data_nasc_cartao" maxlength="10" onkeyup="somenteNumerosdata(this);" ng-model="numero.valor" placeholder="Data Nascimento do Titular">-->
 									<input class="apg_campo numero_c" placeholder="Numero do Cartão de Crédito" type="tel" id="numero_c" name="numero_c" maxlength="16"/>
-									<input class="apg_campo datepicker mes" type="number" id="mes" name="mes" size="2" onkeyup="somenteNumeros(this);" ng-model="numero.valor" placeholder="Mês de Vencimento ex:01" min="1" max="12"/>                       
-									<input class="apg_campo datepicker ano" type="number" id="ano" name="ano" size="5" onkeyup="somenteNumeros(this);" ng-model="numero.valor" placeholder="Ano de Vencimento ex:2018" min="2017" max="9999"/>
-									<input class="apg_campo cod_seg" placeholder="Codigo de Segurança" type="text" id="cod_seg" name="cod_seg" size="40" maxlength="4" onkeyup="somenteNumeros(this);" ng-model="numero.valor"/> -->
+									<input class="apg_campo datepicker mes" type="number" id="mes" name="mes" size="2" ng-model="numero.valor" placeholder="Mês de Vencimento ex:01" min="1" max="12"/>                       
+									<input class="apg_campo datepicker ano" type="number" id="ano" name="ano" size="5" ng-model="numero.valor" placeholder="Ano de Vencimento ex:2018" min="2017" max="9999"/>
+									<input class="apg_campo cod_seg" placeholder="Codigo de Segurança" type="text" id="cod_seg" name="cod_seg" size="40" maxlength="4" ng-model="numero.valor"/>
 								</div>
                             </div>
                             <div class="entrar">
-                        		<button class="btn2 btn-cartao" id="card-button"><div class="buttonentrar">Cadastrar</div></button>
+                        		<button class="btn2 btn-cartao"><div class="buttonentrar">Cadastrar</div></button>
                         	</div>
                             <div class="entrar">
-                            	<button  class="btn2 add_cartao"><div class="buttonentrar">Adicionar Novo Forma Pagamento</div></button>
+                            	<button class="btn2 add_cartao"><div class="buttonentrar">Adicionar Novo Forma Pagamento</div></button>
                         	</div>
                     	</div>
                   	</div>

@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -49,7 +49,7 @@ En el archivo config.xml, tienes que añadir las siguientes preferencias:
 
 Donde foo es el nombre del archivo splashscreen, preferiblemente un archivo de 9 parche. Asegúrese de agregar tus archivos splashcreen en tu directorio res/xml bajo las carpetas apropiadas. El segundo parámetro representa cuánto aparecerán el splashscreen en milisegundos. Valor predeterminado es ms 3000. Ver [los iconos y salpicadura pantallas][1] para obtener más información.
 
- [1]: http://cordova.apache.org/docs/en/edge/config_ref_images.md.html
+ [1]: https://cordova.apache.org/docs/en/edge/config_ref_images.md.html
 
 ## splashscreen.hide
 

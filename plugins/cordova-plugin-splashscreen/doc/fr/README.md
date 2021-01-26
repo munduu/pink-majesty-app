@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -56,7 +56,7 @@ Dans votre `fichier config.xml`, vous devez ajouter les préférences suivantes 
     <preference name="SplashMaintainAspectRatio" value="true|false" />
     
 
-Où foo est le nom du fichier splashscreen, préférablement un fichier de 9 correctif. Assurez-vous d'ajouter vos fichiers splashcreen dans votre répertoire res/xml dans les dossiers appropriés. Le deuxième paramètre représente combien de temps le splashscreen apparaîtra en millisecondes. Il est par défaut à 3000 ms. Pour plus d'informations, consultez [icônes et écrans de démarrage](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html).
+Où foo est le nom du fichier splashscreen, préférablement un fichier de 9 correctif. Assurez-vous d'ajouter vos fichiers splashcreen dans votre répertoire res/xml dans les dossiers appropriés. Le deuxième paramètre représente combien de temps le splashscreen apparaîtra en millisecondes. Il est par défaut à 3000 ms. Pour plus d'informations, consultez [icônes et écrans de démarrage](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html).
 
 Préférence de « SplashMaintainAspectRatio » est facultative. Si défini à true, écran de démarrage drawable n'est pas étirée pour s'adapter écran, mais plutôt simplement « couvre » l'écran, comme CSS "fond-taille : couverture". Ceci est très utile lorsque images écran de démarrage ne peut pas être déformées en quelque sorte, par exemple lorsqu'ils contiennent des décors ou texte. Ce paramètre fonctionne mieux avec des images qui ont des marges importantes (zones de sécurité) qui peuvent être recadrées en toute sécurité sur les écrans avec des proportions différentes.
 
@@ -116,4 +116,4 @@ Affiche l'écran de démarrage.
     navigator.splashscreen.show();
     
 
-Votre application ne peut pas appeler `navigator.splashscreen.show()` jusqu'à ce que l'application a commencé et l'événement `deviceready` est déclenché. Mais puisqu'en général, l'écran de démarrage est destiné à être visible avant que votre application a commencé, qui semblerait à l'encontre des objectifs de l'écran de démarrage. Fournir une configuration dans le fichier `config.xml` automatiquement `show` le splash projettera immédiatement après votre lancement de l'app et avant qu'il a complètement démarré et a reçu l'événement `deviceready`. Voir les [icônes et les écrans de démarrage](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html) pour plus d'informations sur la conduite de cette configuration. Pour cette raison, il est peu probable que vous devez appeler `navigator.splashscreen.show()` pour rendre l'écran de démarrage visible pour le démarrage de l'application.
+Votre application ne peut pas appeler `navigator.splashscreen.show()` jusqu'à ce que l'application a commencé et l'événement `deviceready` est déclenché. Mais puisqu'en général, l'écran de démarrage est destiné à être visible avant que votre application a commencé, qui semblerait à l'encontre des objectifs de l'écran de démarrage. Fournir une configuration dans le fichier `config.xml` automatiquement `show` le splash projettera immédiatement après votre lancement de l'app et avant qu'il a complètement démarré et a reçu l'événement `deviceready`. Voir les [icônes et les écrans de démarrage](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html) pour plus d'informations sur la conduite de cette configuration. Pour cette raison, il est peu probable que vous devez appeler `navigator.splashscreen.show()` pour rendre l'écran de démarrage visible pour le démarrage de l'application.

@@ -27,6 +27,6 @@ Can you solve the problem yourself? If so see the next section on Pull Requests 
 ## Pull Requests
 
 - Include screenshots and animated GIFs in your pull request whenever possible.
-- Try to follow the [JavaScript](https://github.com/Wizcorp/javascript-styleguide/blob/master/README.md), [Objective-C](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml) or [Java](https://google-styleguide.googlecode.com/svn/trunk/javaguide.html) style guides. Although these are just guides, please at least support continuety (that means **using 4 spaces please**).
+- Try to follow the [JavaScript](https://github.com/Wizcorp/javascript-styleguide/blob/master/README.md), [Objective-C](https://google-styleguide.googlecode.com/svn/trunk/objcguide.xml) or [Java](https://google-styleguide.googlecode.com/svn/trunk/javaguide.html) style guides. Although these are just guides, please at least support continuety (that means **using 4 spaces please**).
 - **Send your pull request to the develop branch.**
 - If you can, provide sample testing code.

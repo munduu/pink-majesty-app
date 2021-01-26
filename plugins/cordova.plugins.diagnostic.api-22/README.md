@@ -74,12 +74,12 @@ Phonegap Build (at the time of writing) does not support API 23, so its users an
 
 The master branch of the plugin is registered in on [npm](https://www.npmjs.com/package/cordova.plugins.diagnostic) as `cordova.plugins.diagnostic`, however this legacy version is registered as `cordova.plugins.diagnostic.api-22`.
 
-## Using the Cordova/Phonegap [CLI](http://docs.phonegap.com/en/edge/guide_cli_index.md.html)
+## Using the Cordova/Phonegap [CLI](https://docs.phonegap.com/en/edge/guide_cli_index.md.html)
 
     $ cordova plugin add cordova.plugins.diagnostic.api-22
     $ phonegap plugin add cordova.plugins.diagnostic.api-22
 
-**NOTE**: Make sure your Cordova CLI version is 5.0.0+ (check with `cordova -v`). Cordova 4.x and below uses the now deprecated [Cordova Plugin Registry](http://plugins.cordova.io) as its plugin repository, so using a version of Cordova 4.x or below will result in installing an [old version](http://plugins.cordova.io/#/package/cordova.plugins.diagnostic) of this plugin.
+**NOTE**: Make sure your Cordova CLI version is 5.0.0+ (check with `cordova -v`). Cordova 4.x and below uses the now deprecated [Cordova Plugin Registry](https://plugins.cordova.io) as its plugin repository, so using a version of Cordova 4.x or below will result in installing an [old version](https://plugins.cordova.io/#/package/cordova.plugins.diagnostic) of this plugin.
 
 ## Using [Cordova Plugman](https://github.com/apache/cordova-plugman)
 
@@ -889,9 +889,9 @@ An example project illustrating use of this legacy version of the plugin can be 
 
 Forked from: [https://github.com/mablack/cordova-diagnostic-plugin](https://github.com/mablack/cordova-diagnostic-plugin)
 
-Original Cordova 2 implementation by: AVANTIC ESTUDIO DE INGENIEROS ([www.avantic.net](http://www.avantic.net/))
+Original Cordova 2 implementation by: AVANTIC ESTUDIO DE INGENIEROS ([www.avantic.net](https://www.avantic.net/))
 
-Windows 10 implementation by [Mike Dailor](https://github.com/mdailor) / [Next Wave Software, Inc.](http://nextwavesoftware.com/)
+Windows 10 implementation by [Mike Dailor](https://github.com/mdailor) / [Next Wave Software, Inc.](https://nextwavesoftware.com/)
 
 # License
 ================

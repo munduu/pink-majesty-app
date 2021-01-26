@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -56,7 +56,7 @@
     <preference name="SplashMaintainAspectRatio" value="true|false" />
     
 
-Foo ができれば 9 パッチファイル splashscreen ファイルの名前です。 解像度/xml ディレクトリの適切なフォルダーの下に splashcreen ファイルを追加することを確認します。 2 番目のパラメーターは、スプラッシュ ・ スクリーンがの表示時間 (ミリ秒単位) を表します。 デフォルトでは 3000 ミリ秒です。 詳細については、[アイコンとスプラッシュ画面](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html) を参照してください。
+Foo ができれば 9 パッチファイル splashscreen ファイルの名前です。 解像度/xml ディレクトリの適切なフォルダーの下に splashcreen ファイルを追加することを確認します。 2 番目のパラメーターは、スプラッシュ ・ スクリーンがの表示時間 (ミリ秒単位) を表します。 デフォルトでは 3000 ミリ秒です。 詳細については、[アイコンとスプラッシュ画面](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html) を参照してください。
 
 "SplashMaintainAspectRatio"の設定はオプションです。 True の場合、スプラッシュ画面描画に設定画面を埋めるために拡大されませんが、代わりに単に「カバー」画面では、CSS のような場合「背景-サイズ: カバー」. これは、たとえば風景またはテキストが含まれている場合、任意の方法でスプラッシュ画面画像が歪むことができない非常に便利です。 この設定は、画面と異なる縦横比で安全にトリミングすることができます大規模なマージン (安全な地域) の画像に適しています。
 
@@ -116,4 +116,4 @@ Foo ができれば 9 パッチファイル splashscreen ファイルの名前�
     navigator.splashscreen.show();
     
 
-アプリが開始され、`deviceready` イベントが発生するまで、アプリケーションは `navigator.splashscreen.show()` を呼び出すことはできません。 しかし、以来、通常スプラッシュ画面アプリ開始前に表示するものですと思われる、スプラッシュ スクリーンの目的の敗北します。 `config.xml` にいくつかの構成を提供するは自動的に `表示` スプラッシュ画面、アプリを起動後すぐに、それが完全に起動し、`deviceready` イベントを受信する前に。 詳細についてはこの構成を行うには、[アイコンとスプラッシュ画面](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html) を参照してください。 この理由のためにアプリ起動時のスプラッシュ スクリーンを確認 `navigator.splashscreen.show()` をコールする必要がある可能性が高いです。
+アプリが開始され、`deviceready` イベントが発生するまで、アプリケーションは `navigator.splashscreen.show()` を呼び出すことはできません。 しかし、以来、通常スプラッシュ画面アプリ開始前に表示するものですと思われる、スプラッシュ スクリーンの目的の敗北します。 `config.xml` にいくつかの構成を提供するは自動的に `表示` スプラッシュ画面、アプリを起動後すぐに、それが完全に起動し、`deviceready` イベントを受信する前に。 詳細についてはこの構成を行うには、[アイコンとスプラッシュ画面](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html) を参照してください。 この理由のためにアプリ起動時のスプラッシュ スクリーンを確認 `navigator.splashscreen.show()` をコールする必要がある可能性が高いです。

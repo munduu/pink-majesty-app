@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -37,7 +37,7 @@ Quirks: on Android it also applies to iframes for non-http(s) schemes.
 By default, navigations only to `file://` URLs, are allowed. To allow others URLs, you must add `<allow-navigation>` tags to your `config.xml`:
 
     <!-- Allow links to example.com -->
-    <allow-navigation href="http://example.com/*" />
+    <allow-navigation href="https://example.com/*" />
 
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -49,7 +49,7 @@ By default, navigations only to `file://` URLs, are allowed. To allow others URL
     <allow-navigation href="*" />
 
     <!-- The above is equivalent to these three declarations -->
-    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
 
@@ -64,11 +64,11 @@ This whitelist does not apply to plugins, only hyperlinks and calls to `window.o
 In `config.xml`, add `<allow-intent>` tags, like this:
 
     <!-- Allow links to web pages to open in a browser -->
-    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <allow-intent href="https://*/*" />
 
     <!-- Allow links to example.com to open in a browser -->
-    <allow-intent href="http://example.com/*" />
+    <allow-intent href="https://example.com/*" />
 
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -95,14 +95,14 @@ Note: We suggest you use a Content Security Policy (see below), which is more se
 In `config.xml`, add `<access>` tags, like this:
 
     <!-- Allow images, xhrs, etc. to google.com -->
-    <access origin="http://google.com" />
+    <access origin="https://google.com" />
     <access origin="https://google.com" />
 
     <!-- Access to the subdomain maps.google.com -->
-    <access origin="http://maps.google.com" />
+    <access origin="https://maps.google.com" />
 
     <!-- Access to all the subdomains on google.com -->
-    <access origin="http://*.google.com" />
+    <access origin="https://*.google.com" />
 
     <!-- Enable requests to content: URLs -->
     <access origin="content:///*" />
@@ -120,7 +120,7 @@ Quirk: Android also allows requests to https://ssl.gstatic.com/accessibility/jav
 ### Content Security Policy
 Controls which network requests (images, XHRs, etc) are allowed to be made (via webview directly).
 
-On Android and iOS, the network request whitelist (see above) is not able to filter all types of requests (e.g. `<video>` & WebSockets are not blocked). So, in addition to the whitelist, you should use a [Content Security Policy](http://content-security-policy.com/) `<meta>` tag on all of your pages.
+On Android and iOS, the network request whitelist (see above) is not able to filter all types of requests (e.g. `<video>` & WebSockets are not blocked). So, in addition to the whitelist, you should use a [Content Security Policy](https://content-security-policy.com/) `<meta>` tag on all of your pages.
 
 On Android, support for CSP within the system webview starts with KitKat (but is available on all versions using Crosswalk WebView).
 

@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -56,7 +56,7 @@ En el `archivo config.xml`, es necesario agregar las siguientes preferencias:
     <preference name="SplashMaintainAspectRatio" value="true|false" />
     
 
-Donde foo es el nombre del archivo splashscreen, preferiblemente un archivo de 9 parche. Asegúrese de agregar tus archivos splashcreen en tu directorio res/xml bajo las carpetas apropiadas. El segundo parámetro representa cuánto aparecerán el splashscreen en milisegundos. Valor predeterminado es ms 3000. Ver [los iconos y salpicadura pantallas](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html) para obtener más información.
+Donde foo es el nombre del archivo splashscreen, preferiblemente un archivo de 9 parche. Asegúrese de agregar tus archivos splashcreen en tu directorio res/xml bajo las carpetas apropiadas. El segundo parámetro representa cuánto aparecerán el splashscreen en milisegundos. Valor predeterminado es ms 3000. Ver [los iconos y salpicadura pantallas](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html) para obtener más información.
 
 Preferencia "SplashMaintainAspectRatio" es opcional. Si establece en true, pantalla dibujable no es estirado para caber la pantalla, pero en su lugar simplemente "cover" la pantalla, como CSS "background-size: cover". Esto es muy útil cuando las imágenes de pantallas splash no distorsionadas de cualquier manera, por ejemplo cuando contienen texto o paisaje. Esta opción funciona mejor con imágenes que tienen bordes grandes (zonas seguras) que pueden ser recortadas con seguridad en pantallas con diferentes relaciones de aspecto.
 
@@ -116,4 +116,4 @@ Muestra la pantalla de bienvenida.
     navigator.splashscreen.show();
     
 
-La aplicación no se puede llamar `navigator.splashscreen.show()` hasta que haya iniciado la aplicación y el `deviceready` evento ha despedido. Pero puesto que normalmente la pantalla está destinada a ser visible antes de que comience su aplicación, que parecería que el propósito de la pantalla de bienvenida. Proporcionar cierta configuración en `config.xml` automáticamente `show` la pantalla de presentación inmediatamente después de su lanzamiento de la aplicación y antes de ser completamente ha iniciado y recibió el `deviceready` evento. Ver [los iconos y salpicadura pantallas](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html) para obtener más información sobre haciendo esta configuración. Por esta razón, es poco probable que necesitas llamar a `navigator.splashscreen.show()` para hacer la pantalla visible para el inicio de la aplicación.
+La aplicación no se puede llamar `navigator.splashscreen.show()` hasta que haya iniciado la aplicación y el `deviceready` evento ha despedido. Pero puesto que normalmente la pantalla está destinada a ser visible antes de que comience su aplicación, que parecería que el propósito de la pantalla de bienvenida. Proporcionar cierta configuración en `config.xml` automáticamente `show` la pantalla de presentación inmediatamente después de su lanzamiento de la aplicación y antes de ser completamente ha iniciado y recibió el `deviceready` evento. Ver [los iconos y salpicadura pantallas](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html) para obtener más información sobre haciendo esta configuración. Por esta razón, es poco probable que necesitas llamar a `navigator.splashscreen.show()` para hacer la pantalla visible para el inicio de la aplicación.

@@ -33,28 +33,38 @@ if($token=='H424715433852'){
 		$dados = 'Selecione a Data';
 	}else{
 		if(!empty($colab)){
-			$sql = "SELECT * FROM tb_horario_colaborador WHERE dia='$dia' AND id_colaborador IN($colab) ORDER BY id ASC";
+			$sql = "SELECT * FROM tb_horario_colaborador WHERE dia='$dia' AND status='1' AND id_colaborador IN($colab) ORDER BY id ASC";
 			$resultado   = mysql_query($sql) or die(mysql_error());
 			$linha       = mysql_num_rows($resultado);
 			if($linha > 0){
 				$hora 		= strtotime($hora);
 				while($ln = mysql_fetch_assoc($resultado)){
-					$id			= $ln['id'];
-					$data_ini	= $ln['data_ini'];
-					$data_fim	= $ln['data_fim'];
-					
-					$hora_ini 	= strtotime($data_ini);
-					$hora_fim 	= strtotime($data_fim);
-					
-					if($hora >= $hora_ini and $hora < $hora_fim){
-						$error = 1;
-						$dados .= 'Data Disponivel';
-					}elseif(empty($hora) and $error != 1){
-						$error = 6;
-						$dados = 'Selecione a Hora';
-					}elseif($error != 1){
+					$id_colaborador = $ln['id_colaborador'];
+					$hoje = date("Y-m-d H:i:s");
+					$sql2 ="SELECT * FROM `tb_horario_colaborador` WHERE `bloqueado_inicio`> '$hoje' AND `bloqueado_fim`< '$hoje' AND status='0' AND `id_colaborador`='$id_colaborador'";
+					$resultado2   = mysql_query($sql2) or die(mysql_error());
+					$linha2       = mysql_num_rows($resultado2);
+					if($linha2 > 0){
 						$error = 5;
 						$dados = 'Hora Indisponivel';
+					} else {
+						$id			= $ln['id'];
+						$data_ini	= $ln['data_ini'];
+						$data_fim	= $ln['data_fim'];
+						
+						$hora_ini 	= strtotime($data_ini);
+						$hora_fim 	= strtotime($data_fim);
+						
+						if($hora >= $hora_ini and $hora < $hora_fim){
+							$error = 1;
+							$dados .= 'Data Disponivel';
+						}elseif(empty($hora) and $error != 1){
+							$error = 6;
+							$dados = 'Selecione a Hora';
+						}elseif($error != 1){
+							$error = 5;
+							$dados = 'Hora Indisponivel';
+						}
 					}
 				}
 			}else{

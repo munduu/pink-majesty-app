@@ -8,7 +8,7 @@
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing,
 # software distributed under the License is distributed on an
@@ -27,7 +27,7 @@ There are multiple ways to contribute: report bugs, improve the docs, and
 contribute code.
 
 For instructions on this, start with the 
-[contribution overview](http://cordova.apache.org/contribute/).
+[contribution overview](https://cordova.apache.org/contribute/).
 
 The details are explained there, but the important items are:
  - Sign and submit an Apache ICLA (Contributor License Agreement).

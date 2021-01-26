@@ -8,7 +8,7 @@
 # "License"); you may not use this file except in compliance
 # with the License.  You may obtain a copy of the License at
 # 
-# http://www.apache.org/licenses/LICENSE-2.0
+# https://www.apache.org/licenses/LICENSE-2.0
 # 
 # Unless required by applicable law or agreed to in writing,
 # software distributed under the License is distributed on an
@@ -176,7 +176,7 @@
 * [wp] plugin must be autoloaded for AutoHideSplashScreen preference to work
 * [CB-6483](https://issues.apache.org/jira/browse/CB-6483) Use splash screen image from manifest on Windows8
 * [CB-6491](https://issues.apache.org/jira/browse/CB-6491) add CONTRIBUTING.md
-* Revert "Merge branch 'tizen' of http://github.com/siovene/cordova-plugin-splashscreen"
+* Revert "Merge branch 'tizen' of https://github.com/siovene/cordova-plugin-splashscreen"
 
 ### 0.3.0 (Apr 17, 2014)
 * Add Tizen support to plugin

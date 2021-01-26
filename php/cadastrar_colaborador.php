@@ -33,7 +33,7 @@ if(empty($nome) or empty($tel2) or empty($data_nasc) or empty($email)){
 }elseif($token=='H424715433852'){
 	
 	$msg = "
-		<html xmlns=\"http://www.w3.org/1999/xhtml\">
+		<html xmlns=\"https://www.w3.org/1999/xhtml\">
 			<head>
 				<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" />
 			</head>

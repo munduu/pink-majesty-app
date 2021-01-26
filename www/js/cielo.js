@@ -1,15 +1,18 @@
-function checkout_ccard(agenda){
-    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/getCard.php", { agenda: agenda, token: "H424715433852" },
-    function (result) {
-        console.log(result);
-        if(result.success == true){
-            identifica_bandeira(agenda, result.lNcartao, result.lNmcartao, result.lMesVenc, result.lAnoVenc, result.lCodigoSeg);
-        }
-    },'json');
+//checkout_ccard(resultado.agenda,resultado.lNcartao,resultado.lNmcartao,resultado.lMesVenc,resultado.lAnoVenc,resultado.lCodigoSeg)
+function checkout_ccard(agenda,lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg){
+    console.log('checkout_ccard - cielo');
+    //$.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/getCard.php", { agenda: agenda, token: "H424715433852" },
+    //function (result) {
+        //console.log(result);
+        //if(success == true){
+            identifica_bandeira(agenda, lNcartao, lNmcartao, lMesVenc, lAnoVenc, lCodigoSeg);
+        //}
+    //},'json');
 }
 
 function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
-    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/createPaymentCreditCardWithToken.php", 
+    console.log('checkOut - cielo');
+    $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/createPaymentCreditCardWithToken.php", 
         {
             MerchantOrderId: agenda,
             Name: lNmcartao,
@@ -22,15 +25,15 @@ function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
     function (resultCard) {
         console.log(resultCard);
 
-        if(resultCard.payment.returnCode == '00'){
-            alert(resultCard.payment.returnMessage);
-            $("#cod_pagseguro").val(resultCard.payment.paymentId)
+        if(resultCard.Payment.ReturnCode == '00'){
+            alert(resultCard.Payment.ReturnMessage);
+            $("#cod_pagseguro").val(resultCard.Payment.PaymentId)
             setConfirmar_pedido(agenda, 'PEDIDO', 'Profissional');
             $('.loader').show();
             setTimeout(function(){ getListar_meusPedidos(); $('.loader').hide(); }, 10000);
             activate_page("#meusPedidos");
         } else {
-            alert(resultCard.payment.returnMessage);
+            alert(resultCard.Payment.ReturnMessage);
             $('.btn_troca_cartao[alt='+agenda+']').show();
             $('.btn_pagamento[alt='+agenda+']').hide();
             return false;
@@ -39,9 +42,29 @@ function checkOut(cardToken, brand, agenda,lNmcartao,lCodigoSeg) {
 }
 
 function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand) {
+    console.log('end_Card - cielo');
+    // $.post("http://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/creatCardToken.php", 
+    // {
+    //     Name: lNmcartao,
+    //     CardNumber: lNcartao,
+    //     Holder: lNmcartao,
+    //     ExpirationDate: lMesVenc+"/"+lAnoVenc,
+    //     SecurityCode: lCodigoSeg,
+    //     Brand: brand
+    // },
 
-    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/creatCardToken.php", 
+    // function (result) {
+    //     console.log(result);
+
+    //     if(result.cardToken){
+    //         checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
+    //         setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
+    //     }
+    // },'json');
+    $.post("https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/api.php", 
     {
+        action:'chargeWithCard',
+        MerchantOrderId: agenda,
         Name: lNmcartao,
         CardNumber: lNcartao,
         Holder: lNmcartao,
@@ -49,19 +72,35 @@ function end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg, brand
         SecurityCode: lCodigoSeg,
         Brand: brand
     },
-
     function (result) {
         console.log(result);
-
-        if(result.cardToken){
-            checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
-            console.log(result.cardToken)
-            setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
-        }
+        //setConfirmar_pedido(agenda, 'AGENDADO', 'Profissional');
+        //if(result.error == false){
+            //checkOut(result.cardToken, brand, agenda,lNmcartao,lCodigoSeg);
+            if((result.Payment.ReturnCode == 6) || (result.Payment.ReturnCode == 4)){
+                alert(result.Payment.ReturnMessage);
+                $("#cod_pagseguro").val(result.Payment.PaymentId)
+                setConfirmar_pedido(agenda, 'PEDIDO', 'Profissional');
+                $('.loader').show();
+                setTimeout(function(){ getListar_meusPedidos(); $('.loader').hide(); }, 10000);
+                activate_page("#meusPedidos");
+            } else {
+                alert(result.Payment.ReturnMessage);
+                $('.btn_troca_cartao[alt='+agenda+']').show();
+                $('.btn_pagamento[alt='+agenda+']').hide();
+                $('.loader').hide();
+               // activate_page("#meusPedidos");
+            }
+            
+       // } else {
+       //     alert("Houve um erro ao processar o seu pagamento")
+       // }
     },'json');
 }
 
 function identifica_bandeira(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg){
+    console.log('identifica_bandeira - cielo');
+
     $.ajax({
       type:"POST", dataType:"json", cache: false, url: "https://igestaoweb.com.br/pinkmajesty/function/identifica_bandeira.php",
       data:{cartao:lNcartao},
@@ -76,7 +115,7 @@ function identifica_bandeira(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodig
         end_Card(agenda, lNcartao,lNmcartao,lMesVenc,lAnoVenc,lCodigoSeg,resultado.sucesso.bandeira);
 
         if(resultado.sucesso.bandeira==''){
-            alert('Campo obrigatório vazio: BANDEIRA');
+            //alert('Campo obrigatório vazio: BANDEIRA');
             $('.btn_troca_cartao[alt='+agenda+']').show();
             $('.btn_pagamento[alt='+agenda+']').hide();
             return false;
@@ -191,7 +230,7 @@ var cod_pagseguro	= $("#cod_pagseguro").val();
         error: function(resultado) {
             $('.loader').hide();
             console.log(resultado);				
-            setConfirmar_pedido(agenda, situacao, tipo);
+            //setConfirmar_pedido(agenda, situacao, tipo);
         }			
     });
 }

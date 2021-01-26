@@ -169,7 +169,7 @@ if($token=='H424715433852'){
 							<i class="fa fa-user-circle" aria-hidden="true"></i> Cliente: '.$nome_cliente.
 							'<br /><br />
 							
-							<a target="_blank" href="http://maps.google.com.br/maps?hl=pt-BR&amp;q='.$logradouro.','.$numero.','.$cidade.', '.$estado.'&amp;um=1&amp;ie=UTF-8&amp;sa=N&amp;tab=wl">
+							<a target="_blank" href="https://maps.google.com.br/maps?hl=pt-BR&amp;q='.$logradouro.','.$numero.','.$cidade.', '.$estado.'&amp;um=1&amp;ie=UTF-8&amp;sa=N&amp;tab=wl">
 							<i class="fa fa-map-marker" aria-hidden="true"></i> '.$logradouro.', nº '.$numero.
 							'<br />
 							'.$nome_bairro.' - '.$cidade.' </a>

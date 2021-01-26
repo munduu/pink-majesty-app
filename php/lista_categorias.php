@@ -30,7 +30,7 @@ if($token=='H424715433852'){
 			$img  		= $ln['img'];
 			$status	    = $ln['status'];
 			
-			//<li class="swiper-slide btn_cat" alt="servicos" id="'.$id.'" style="background-image:url(http://dellasbeleza.com.br/igestao/atributos/categoria_img/'.$img.')">	
+			//<li class="swiper-slide btn_cat" alt="servicos" id="'.$id.'" style="background-image:url(https://dellasbeleza.com.br/igestao/atributos/categoria_img/'.$img.')">	
 			$dados.= '		
 			<li class="btn_cat" alt="servicos" id="'.$id.'" style="list-style-type: none; margin-bottom:5px;">
 				<div class="imageservico" style="background-image:url('.$url_img.'atributos/categoria_img/'.$img.')">	

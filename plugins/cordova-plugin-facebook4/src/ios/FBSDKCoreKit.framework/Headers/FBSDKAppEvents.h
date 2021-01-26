@@ -6,7 +6,7 @@
 //
 // As with any software that integrates with the Facebook platform, your use of
 // this software is subject to the Facebook Developer Principles and Policies
-// [http://developers.facebook.com/policy/]. This copyright notice shall be
+// [https://developers.facebook.com/policy/]. This copyright notice shall be
 // included in all copies or substantial portions of the software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -101,7 +101,7 @@ FBSDK_EXTERN NSString *const FBSDKAppEventParameterNameContentID;
 /*! Parameter key used to specify a generic content type/family for the logged event, e.g. "music", "photo", "video".  Options to use will vary based upon what the app is all about. */
 FBSDK_EXTERN NSString *const FBSDKAppEventParameterNameContentType;
 
-/*! Parameter key used to specify currency used with logged event.  E.g. "USD", "EUR", "GBP".  See ISO-4217 for specific values.  One reference for these is <http://en.wikipedia.org/wiki/ISO_4217>. */
+/*! Parameter key used to specify currency used with logged event.  E.g. "USD", "EUR", "GBP".  See ISO-4217 for specific values.  One reference for these is <https://en.wikipedia.org/wiki/ISO_4217>. */
 FBSDK_EXTERN NSString *const FBSDKAppEventParameterNameCurrency;
 
 /*! Parameter key used to specify a description appropriate to the event being logged.  E.g., the name of the achievement unlocked in the `FBAppEventNameAchievementUnlocked` event. */
@@ -301,7 +301,7 @@ FBSDK_EXTERN NSString *const FBSDKAppEventParameterValueNo;
  will be rounded to the thousandths place (e.g., 12.34567 becomes 12.346).
 
  @param currency          Currency, is denoted as, e.g. "USD", "EUR", "GBP".  See ISO-4217 for
- specific values.  One reference for these is <http://en.wikipedia.org/wiki/ISO_4217>.
+ specific values.  One reference for these is <https://en.wikipedia.org/wiki/ISO_4217>.
 
  @discussion              This event immediately triggers a flush of the `FBSDKAppEvents` event queue, unless the `flushBehavior` is set
  to `FBSDKAppEventsFlushBehaviorExplicitOnly`.
@@ -320,7 +320,7 @@ FBSDK_EXTERN NSString *const FBSDKAppEventParameterValueNo;
  will be rounded to the thousandths place (e.g., 12.34567 becomes 12.346).
 
  @param currency        Currency, is denoted as, e.g. "USD", "EUR", "GBP".  See ISO-4217 for
- specific values.  One reference for these is <http://en.wikipedia.org/wiki/ISO_4217>.
+ specific values.  One reference for these is <https://en.wikipedia.org/wiki/ISO_4217>.
 
  @param parameters      Arbitrary parameter dictionary of characteristics. The keys to this dictionary must
  be NSString's, and the values are expected to be NSString or NSNumber.  Limitations on the number of
@@ -345,7 +345,7 @@ FBSDK_EXTERN NSString *const FBSDKAppEventParameterValueNo;
  will be rounded to the thousandths place (e.g., 12.34567 becomes 12.346).
 
  @param currency        Currency, is denoted as, e.g. "USD", "EUR", "GBP".  See ISO-4217 for
- specific values.  One reference for these is <http://en.wikipedia.org/wiki/ISO_4217>.
+ specific values.  One reference for these is <https://en.wikipedia.org/wiki/ISO_4217>.
 
  @param parameters      Arbitrary parameter dictionary of characteristics. The keys to this dictionary must
  be NSString's, and the values are expected to be NSString or NSNumber.  Limitations on the number of

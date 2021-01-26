@@ -60,12 +60,12 @@ Returns the version number of the app
 
 ## Credits
 
-Written by [Robert (Jamie) Munro](http://twitter.com/rjmunro) at
-[White October](http://whiteoctober.co.uk/)
+Written by [Robert (Jamie) Munro](https://twitter.com/rjmunro) at
+[White October](https://whiteoctober.co.uk/)
 
 Various others have contributed fixes and new features. See the CHANGELOG.md for details.
 
 Original code based on the following Stack Overflow posts:
 
-* [iOS](http://stackoverflow.com/a/14713364/3408)
-* [Android](http://stackoverflow.com/a/3637686/3408)
+* [iOS](https://stackoverflow.com/a/14713364/3408)
+* [Android](https://stackoverflow.com/a/3637686/3408)

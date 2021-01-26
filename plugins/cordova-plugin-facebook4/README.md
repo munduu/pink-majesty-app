@@ -14,7 +14,7 @@ $ cordova plugin add cordova-plugin-facebook4 --save --variable APP_ID="12345678
 
 This is a fork of the [official plugin for Facebook](https://github.com/Wizcorp/phonegap-facebook-plugin/) in Apache Cordova that implements the latest Facebook SDK. Unless noted, this is a drop-in replacement. You don't have to replace your client code.
 
-The Facebook plugin for [Apache Cordova](http://cordova.apache.org/) allows you to use the same JavaScript code in your Cordova application as you use in your web application. However, unlike in the browser, the Cordova application will use the native Facebook app to perform Single Sign On for the user.  If this is not possible then the sign on will degrade gracefully using the standard dialog based authentication.
+The Facebook plugin for [Apache Cordova](https://cordova.apache.org/) allows you to use the same JavaScript code in your Cordova application as you use in your web application. However, unlike in the browser, the Cordova application will use the native Facebook app to perform Single Sign On for the user.  If this is not possible then the sign on will degrade gracefully using the standard dialog based authentication.
 
 ## Compatibility
 
@@ -91,10 +91,10 @@ Share Dialog:
 
 	{
 		method: "share",
-		href: "http://example.com",
+		href: "https://example.com",
 		caption: "Such caption, very feed.",
 		description: "Much description",
-		picture: 'http://example.com/image.png'
+		picture: 'https://example.com/image.png'
 	}
 
 Game request:
@@ -113,9 +113,9 @@ Send Dialog:
 	{
 		method: "send",
 		caption: "Check this out.",
-		link: "http://example.com",
+		link: "https://example.com",
 		description: "The site I told you about",
-		picture: "http://example.com/image.png"
+		picture: "https://example.com/image.png"
 	}
 	
 Share dialog - Open Graph Story: (currently only available on Android, PRs welcome for iOS)
@@ -195,7 +195,7 @@ Events are listed on the [insights page](https://www.facebook.com/insights/)
 
 `logPurchase(Number value, String currency, Function success, Function failure)`
 
-**NOTE:** Both parameters are required. The currency specification is expected to be an [ISO 4217 currency code](http://en.wikipedia.org/wiki/ISO_4217)
+**NOTE:** Both parameters are required. The currency specification is expected to be an [ISO 4217 currency code](https://en.wikipedia.org/wiki/ISO_4217)
 
 ### Manually log activation events
 
@@ -210,8 +210,8 @@ Please check out the [App Invites Overview](https://developers.facebook.com/docs
 Example options:
 
     {
-      url: "http://example.com",
-      picture: "http://example.com/image.png"
+      url: "https://example.com",
+      picture: "https://example.com/image.png"
     }
 
 ## Sample Code
@@ -219,8 +219,8 @@ Example options:
 ```js
 facebookConnectPlugin.appInvite(
     {
-        url: "http://example.com",
-        picture: "http://example.com/image.png"
+        url: "https://example.com",
+        picture: "https://example.com/image.png"
     },
     function(obj){
         if(obj) {

@@ -1,6 +1,6 @@
 //BANCO LOCAL
-//var url_geral = "http://192.168.1.210:8080/inova/dellas/app/php/";
-//var url_geral = "http://192.168.1.210:8080/inova/apps_inova/Dellas/php/";
+//var url_geral = "https://192.168.1.210:8080/inova/dellas/app/php/";
+//var url_geral = "https://192.168.1.210:8080/inova/apps_inova/Dellas/php/";
 //link app
 var url_geral = "https://igestaoweb.com.br/pinkmajesty/app_new/php/";
 

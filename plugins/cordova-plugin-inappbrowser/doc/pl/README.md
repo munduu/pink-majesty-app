@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -23,7 +23,7 @@
 
 Plugin daje widok przeglądarki sieci web, które są wyświetlane podczas wywoływania `cordova.InAppBrowser.open()`.
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     
 
 `cordova.InAppBrowser.open()` funkcja jest definiowana jako zamiennik dla funkcji `window.open()`. Istniejące wywołania `window.open()` służy okno InAppBrowser, zastępując window.open:
@@ -105,8 +105,8 @@ Otwiera URL w nowe wystąpienie `InAppBrowser`, bieżące wystąpienie przegląd
       * **allowInlineMediaPlayback**: zestaw `yes` lub `no` Aby w linii HTML5 odtwarzanie, wyświetlanie w oknie przeglądarki, a nie interfejs odtwarzanie specyficzne dla urządzenia. HTML `video` również musi zawierać element `webkit-playsinline` atrybut (domyślnie`no`)
       * **keyboardDisplayRequiresUserAction**: zestaw `yes` lub `no` Aby otworzyć klawiaturę ekranową, gdy elementy formularza ostrości za pomocą JavaScript `focus()` połączenia (domyślnie`yes`).
       * **suppressesIncrementalRendering**: zestaw `yes` lub `no` czekać, aż wszystkie nowe widok zawartości jest otrzymane przed renderowany (domyślnie`no`).
-      * **presentationstyle**: zestaw `pagesheet` , `formsheet` lub `fullscreen` Aby ustawić [styl prezentacji](http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle) (domyślnie`fullscreen`).
-      * **transitionstyle**: zestaw `fliphorizontal` , `crossdissolve` lub `coververtical` Aby ustawić [styl przejścia](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle) (domyślnie`coververtical`).
+      * **presentationstyle**: zestaw `pagesheet` , `formsheet` lub `fullscreen` Aby ustawić [styl prezentacji](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle) (domyślnie`fullscreen`).
+      * **transitionstyle**: zestaw `fliphorizontal` , `crossdissolve` lub `coververtical` Aby ustawić [styl przejścia](https://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle) (domyślnie`coververtical`).
       * **toolbarposition**: zestaw `top` lub `bottom` (domyślnie `bottom` ). Powoduje, że pasek ma być na górze lub na dole okna.
     
     Windows tylko:
@@ -127,8 +127,8 @@ Otwiera URL w nowe wystąpienie `InAppBrowser`, bieżące wystąpienie przegląd
 
 ### Przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
+    var ref2 = cordova.InAppBrowser.open(encodeURI('https://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### Firefox OS dziwactwa
@@ -227,7 +227,7 @@ wydarzenia `loadstart` i `loaderror` nie są być opalane.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -260,7 +260,7 @@ wydarzenia `loadstart` i `loaderror` nie są być opalane.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -287,7 +287,7 @@ wydarzenia `loadstart` i `loaderror` nie są być opalane.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -310,7 +310,7 @@ wydarzenia `loadstart` i `loaderror` nie są być opalane.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -343,7 +343,7 @@ wydarzenia `loadstart` i `loaderror` nie są być opalane.
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -382,7 +382,7 @@ Ze względu na [MSDN dokumenty](https://msdn.microsoft.com/en-us/library/windows
 
 ### Szybki przykład
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = cordova.InAppBrowser.open('https://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

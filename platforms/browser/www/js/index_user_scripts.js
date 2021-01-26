@@ -2313,7 +2313,7 @@
 		var user   		= getCookie('id_cliente');
 		var forma_pg    = $(".selectForma_pg").val();
 		var titulo_pg   = $(".pg_"+forma_pg).html();
-		
+		console.log({'forma_pg':forma_pg});
 		setCookie('forma_pg',forma_pg);
 		$(".pgSelect").html('<p>' + titulo_pg + '</p>');
 		$( ".menu_inferior" ).show();
@@ -2547,7 +2547,7 @@
     {
 		var agenda 	= $(this).attr('alt');
 		setCadastrar_agenda_colab(agenda);
-		checkout_ccard(agenda);
+		//checkout_ccard(agenda);
         return false;
     });
 	

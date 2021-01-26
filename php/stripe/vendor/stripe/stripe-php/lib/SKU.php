@@ -4,7 +4,7 @@ namespace Stripe;
 
 /**
  * Stores representations of <a
- * href="http://en.wikipedia.org/wiki/Stock_keeping_unit">stock keeping units</a>.
+ * href="https://en.wikipedia.org/wiki/Stock_keeping_unit">stock keeping units</a>.
  * SKUs describe specific product variations, taking into account any combination
  * of: attributes, currency, and cost. For example, a product may be a T-shirt,
  * whereas a specific SKU represents the <code>size: large</code>, <code>color:

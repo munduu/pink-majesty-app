@@ -18,7 +18,7 @@ PHP 5.6.0 and later.
 
 ## Composer
 
-You can install the bindings via [Composer](http://getcomposer.org/). Run the following command:
+You can install the bindings via [Composer](https://getcomposer.org/). Run the following command:
 
 ```bash
 composer require stripe/stripe-php
@@ -215,7 +215,7 @@ go get -u github.com/stripe/stripe-mock
 stripe-mock
 ```
 
-Install dependencies as mentioned above (which will resolve [PHPUnit](http://packagist.org/packages/phpunit/phpunit)), then you can run the test suite:
+Install dependencies as mentioned above (which will resolve [PHPUnit](https://packagist.org/packages/phpunit/phpunit)), then you can run the test suite:
 
 ```bash
 ./vendor/bin/phpunit
@@ -255,8 +255,8 @@ See the "SSL / TLS compatibility issues" paragraph above for full context. If yo
 
 [composer]: https://getcomposer.org/
 [connect]: https://stripe.com/connect
-[curl]: http://curl.haxx.se/docs/caextract.html
+[curl]: https://curl.haxx.se/docs/caextract.html
 [idempotency-keys]: https://stripe.com/docs/api/php#idempotent_requests
 [php-cs-fixer]: https://github.com/FriendsOfPHP/PHP-CS-Fixer
-[psr3]: http://www.php-fig.org/psr/psr-3/
+[psr3]: https://www.php-fig.org/psr/psr-3/
 [stripe-mock]: https://github.com/stripe/stripe-mock

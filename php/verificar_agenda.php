@@ -79,7 +79,7 @@ while($ln = mysql_fetch_assoc($qr)){
 		Acesse o seguinte link e troque sua senha: <a href='$link_sis/asn.php?eml=$email&tmp=$tmp'>$link_sis/asnc.php?eml=$email&tmp=$tmp</a>
 		*/  			
 		$msg = "
-		<html xmlns=\"http://www.w3.org/1999/xhtml\">
+		<html xmlns=\"https://www.w3.org/1999/xhtml\">
 		<head>
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" /></head>
 		<body>
@@ -116,7 +116,7 @@ while($ln = mysql_fetch_assoc($qr)){
 		$mail->ClearAttachments();
 		
 		$msg2 = "
-		<html xmlns=\"http://www.w3.org/1999/xhtml\">
+		<html xmlns=\"https://www.w3.org/1999/xhtml\">
 		<head>
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" /></head>
 		<body>

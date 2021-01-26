@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -56,7 +56,7 @@
     <preference name="SplashMaintainAspectRatio" value="true|false" />
     
 
-여기서 foo splashscreen 파일, 선호 9 패치 파일의 이름입니다. 적절 한 폴더 아래 res/xml 디렉토리에 splashcreen 파일을 추가 해야 합니다. 두 번째 매개 변수는 splashscreen 얼마나 밀리초 단위로 표시 됩니다 나타냅니다. 3000 ms 기본값으로 사용 됩니다. 자세한 내용은 [아이콘 및 시작 화면을](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html) 참조 하십시오.
+여기서 foo splashscreen 파일, 선호 9 패치 파일의 이름입니다. 적절 한 폴더 아래 res/xml 디렉토리에 splashcreen 파일을 추가 해야 합니다. 두 번째 매개 변수는 splashscreen 얼마나 밀리초 단위로 표시 됩니다 나타냅니다. 3000 ms 기본값으로 사용 됩니다. 자세한 내용은 [아이콘 및 시작 화면을](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html) 참조 하십시오.
 
 "SplashMaintainAspectRatio" 취향은 선택 사항입니다. Drawable, 시작 화면 설정 화면에 맞게 확장 되지 하지만 대신 단순히 "커버" CSS 같은 화면 "배경-크기: 덮개". 시작 화면 이미지 예: 풍경 또는 텍스트를 포함 하는 경우 어떤 식으로든에서 왜곡 될 수 없는 경우에 매우 유용 합니다. 이 설정은 큰 여백 (안전 지역) 안전 하 게 다른 종횡비와 화면에 자를 수 있는 이미지에 가장 적합 합니다.
 
@@ -116,4 +116,4 @@
     navigator.splashscreen.show();
     
 
-응용 프로그램 시작 및 `deviceready` 이벤트는 발생 될 때까지 응용 프로그램이 `navigator.splashscreen.show()`을 호출할 수 없습니다. 하지만 그 스플래시 스크린의 목적 것 같다 일반적으로 시작 화면이 당신의 애플 리 케이 션 시작 하기 전에 표시 될 운명이 다, 이후. `config.xml에서` 몇 가지 구성을 제공 하 자동으로 스플래시 `표시` 화면 애플 리 케이 션 출시 직후와 그것은 완벽 하 게 시작 하 고 `deviceready` 이벤트를 받은 전에. 이 구성 하 고 자세한 내용은 [아이콘 및 시작 화면을](http://cordova.apache.org/docs/en/edge/config_ref_images.md.html) 참조 하십시오. 이러한 이유로, 그것은 가능성이 시작 화면은 응용 프로그램 시작에 대 한 표시 되도록 `navigator.splashscreen.show()`를 호출 해야입니다.
+응용 프로그램 시작 및 `deviceready` 이벤트는 발생 될 때까지 응용 프로그램이 `navigator.splashscreen.show()`을 호출할 수 없습니다. 하지만 그 스플래시 스크린의 목적 것 같다 일반적으로 시작 화면이 당신의 애플 리 케이 션 시작 하기 전에 표시 될 운명이 다, 이후. `config.xml에서` 몇 가지 구성을 제공 하 자동으로 스플래시 `표시` 화면 애플 리 케이 션 출시 직후와 그것은 완벽 하 게 시작 하 고 `deviceready` 이벤트를 받은 전에. 이 구성 하 고 자세한 내용은 [아이콘 및 시작 화면을](https://cordova.apache.org/docs/en/edge/config_ref_images.md.html) 참조 하십시오. 이러한 이유로, 그것은 가능성이 시작 화면은 응용 프로그램 시작에 대 한 표시 되도록 `navigator.splashscreen.show()`를 호출 해야입니다.

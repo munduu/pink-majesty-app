@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -35,7 +35,7 @@
 預設情況下，只有到`file://` Url 導航允許。若要允許其他其他 Url，必須將`<allow-navigation>`標籤添加到您的`config.xml`:
 
     <!-- Allow links to example.com -->
-    <allow-navigation href="http://example.com/*" />
+    <allow-navigation href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -47,7 +47,7 @@
     <allow-navigation href="*" />
     
     <!-- The above is equivalent to these three declarations -->
-    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
     
@@ -63,11 +63,11 @@
 在`config.xml`中添加`<allow-intent>`標籤，像這樣:
 
     <!-- Allow links to web pages to open in a browser -->
-    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <allow-intent href="https://*/*" />
     
     <!-- Allow links to example.com to open in a browser -->
-    <allow-intent href="http://example.com/*" />
+    <allow-intent href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -96,14 +96,14 @@
 在`config.xml`中添加`<access>`標記，像這樣:
 
     <!-- Allow images, xhrs, etc. to google.com -->
-    <access origin="http://google.com" />
+    <access origin="https://google.com" />
     <access origin="https://google.com" />
     
     <!-- Access to the subdomain maps.google.com -->
-    <access origin="http://maps.google.com" />
+    <access origin="https://maps.google.com" />
     
     <!-- Access to all the subdomains on google.com -->
-    <access origin="http://*.google.com" />
+    <access origin="https://*.google.com" />
     
     <!-- Enable requests to content: URLs -->
     <access origin="content:///*" />
@@ -120,7 +120,7 @@
 
 網路請求的控制項 (圖像，XHRs 等) 允許 (通過 web 視圖直接)。
 
-對 Android 和 iOS，網路請求白名單 (見上文) 是不能夠過濾所有類型的請求 (例如`<video>` & Websocket 未被阻止)。 那麼，除了白名單中，你應使用[內容安全性原則](http://content-security-policy.com/) `< 元 >`標記您的所有頁面。
+對 Android 和 iOS，網路請求白名單 (見上文) 是不能夠過濾所有類型的請求 (例如`<video>` & Websocket 未被阻止)。 那麼，除了白名單中，你應使用[內容安全性原則](https://content-security-policy.com/) `< 元 >`標記您的所有頁面。
 
 在 android 系統，對 CSP 系統 web 視圖的支援開始奇巧 (但是是上使用 web 視圖人行橫道上的所有版本可用)。
 

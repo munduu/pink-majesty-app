@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -77,15 +77,15 @@
     // BlackBerry: Torch 9800      returns "9800"
     // Browser:    Google Chrome   returns "Chrome"
     //             Safari          returns "Safari"
-    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. Http://theiphonewiki.com/wiki/index.php?title=Models を参照してください//var モデル = device.model;
+    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. https://theiphonewiki.com/wiki/index.php?title=Models を参照してください//var モデル = device.model;
     
 
 ### Android の癖
 
 *   生産コード名は[モデル名][1]の代わりに[製品名][2]を取得します。 たとえば、ネクサス 1 つを返します `Passion` 、Motorola のドロイドを返します`voles`.
 
- [1]: http://developer.android.com/reference/android/os/Build.html#MODEL
- [2]: http://developer.android.com/reference/android/os/Build.html#PRODUCT
+ [1]: https://developer.android.com/reference/android/os/Build.html#MODEL
+ [2]: https://developer.android.com/reference/android/os/Build.html#PRODUCT
 
 ### Tizen の癖
 
@@ -138,7 +138,7 @@ Windows Phone 8 デバイスとプラットフォームを報告します。`Win
 
 デバイスのユニバーサル ・ ユニーク識別子 ([UUID][3]を取得します。).
 
- [3]: http://en.wikipedia.org/wiki/Universally_Unique_Identifier
+ [3]: https://en.wikipedia.org/wiki/Universally_Unique_Identifier
 
     var string = device.uuid;
     

@@ -7,7 +7,7 @@
 #         "License"); you may not use this file except in compliance
 #         with the License.  You may obtain a copy of the License at
 #
-#           http://www.apache.org/licenses/LICENSE-2.0
+#           https://www.apache.org/licenses/LICENSE-2.0
 #
 #         Unless required by applicable law or agreed to in writing,
 #         software distributed under the License is distributed on an
@@ -35,7 +35,7 @@ Dziwactwa: na Android to dotyczy także IFRAME do nie-http (s) systemów.
 Domyślnie, nawigacje tylko do URLi `file://` , są dozwolone. Aby zezwolić na inne adresy URL, należy dodać Tagi `< allow-navigation >` do pliku `config.xml`:
 
     <!-- Allow links to example.com -->
-    <allow-navigation href="http://example.com/*" />
+    <allow-navigation href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -47,7 +47,7 @@ Domyślnie, nawigacje tylko do URLi `file://` , są dozwolone. Aby zezwolić na 
     <allow-navigation href="*" />
     
     <!-- The above is equivalent to these three declarations -->
-    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
     
@@ -63,11 +63,11 @@ Ta biała nie ma zastosowania do pluginów, tylko hiperłącza i wywołania `win
 W `pliku config.xml`dodawanie tagów `< allow-intent >` , jak to:
 
     <!-- Allow links to web pages to open in a browser -->
-    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <allow-intent href="https://*/*" />
     
     <!-- Allow links to example.com to open in a browser -->
-    <allow-intent href="http://example.com/*" />
+    <allow-intent href="https://example.com/*" />
     
     <!-- Wildcards are allowed for the protocol, as a prefix
          to the host, or as a suffix to the path -->
@@ -96,14 +96,14 @@ Uwaga: Zalecamy, że używasz treści polityki bezpieczeństwa (patrz poniżej),
 W `pliku config.xml`dodawanie tagów `< access >` , jak to:
 
     <!-- Allow images, xhrs, etc. to google.com -->
-    <access origin="http://google.com" />
+    <access origin="https://google.com" />
     <access origin="https://google.com" />
     
     <!-- Access to the subdomain maps.google.com -->
-    <access origin="http://maps.google.com" />
+    <access origin="https://maps.google.com" />
     
     <!-- Access to all the subdomains on google.com -->
-    <access origin="http://*.google.com" />
+    <access origin="https://*.google.com" />
     
     <!-- Enable requests to content: URLs -->
     <access origin="content:///*" />
@@ -120,7 +120,7 @@ Cokół: Android pozwala również żądania do https://ssl.gstatic.com/accessib
 
 Formanty, które sieci żądań (obrazy, XHRs, itp.) mogą być wykonane (za pomocą widoku sieci Web bezpośrednio).
 
-Na Androida i iOS biała żądanie sieci (patrz wyżej) nie jest w stanie filtrować wszystkie rodzaje wniosków (np. `< video >` & WebSockets nie są zablokowane). Tak oprócz białej listy, należy użyć tagu `< meta >` [Treści polityki bezpieczeństwa](http://content-security-policy.com/) na wszystkich stronach.
+Na Androida i iOS biała żądanie sieci (patrz wyżej) nie jest w stanie filtrować wszystkie rodzaje wniosków (np. `< video >` & WebSockets nie są zablokowane). Tak oprócz białej listy, należy użyć tagu `< meta >` [Treści polityki bezpieczeństwa](https://content-security-policy.com/) na wszystkich stronach.
 
 Na Android wsparcie dla CSP w ramach systemu widoku sieci Web zaczyna KitKat (ale jest dostępne we wszystkich wersjach przy użyciu widoku sieci Web przejście dla pieszych).
 

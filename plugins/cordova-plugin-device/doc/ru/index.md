@@ -7,7 +7,7 @@
     "License"); you may not use this file except in compliance
     with the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
     Unless required by applicable law or agreed to in writing,
     software distributed under the License is distributed on an
@@ -77,7 +77,7 @@
     // BlackBerry: Torch 9800      returns "9800"
     // Browser:    Google Chrome   returns "Chrome"
     //             Safari          returns "Safari"
-    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. See http://theiphonewiki.com/wiki/index.php?title=Models
+    // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. See https://theiphonewiki.com/wiki/index.php?title=Models
     //
     var model = device.model;
     
@@ -86,8 +86,8 @@
 
 *   Возвращает [имя продукта][1] , а не [имя модели][2], которое часто является производственным кодом. Например, Nexus One из них возвращает `Passion` , и Motorola Droid возвращает `voles`.
 
- [1]: http://developer.android.com/reference/android/os/Build.html#PRODUCT
- [2]: http://developer.android.com/reference/android/os/Build.html#MODEL
+ [1]: https://developer.android.com/reference/android/os/Build.html#PRODUCT
+ [2]: https://developer.android.com/reference/android/os/Build.html#MODEL
 
 ### Особенности Tizen
 
@@ -140,7 +140,7 @@ Windows Phone 7 устройства сообщают платформу как 
 
 Возвращает универсальный уникального идентификатора ([UUID][3] устройства).
 
- [3]: http://en.wikipedia.org/wiki/Universally_Unique_Identifier
+ [3]: https://en.wikipedia.org/wiki/Universally_Unique_Identifier
 
     var string = device.uuid;
     

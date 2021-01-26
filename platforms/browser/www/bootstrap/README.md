@@ -37,16 +37,16 @@ bootstrap-material-datepicker.css => bootstrap-material-date**time**picker.css
 
 ### Prerequisites
 
-jquery [http://jquery.com/download/](http://jquery.com/download/)
+jquery [https://jquery.com/download/](https://jquery.com/download/)
 
-momentjs [http://momentjs.com/](http://momentjs.com/)
+momentjs [https://momentjs.com/](https://momentjs.com/)
 
 Google Material Icon Font `<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">`
 
 
 ### Live Example
 
-[Live example](http://t00rk.github.io/bootstrap-material-datetimepicker/)
+[Live example](https://t00rk.github.io/bootstrap-material-datetimepicker/)
 
 ### Usage
 
