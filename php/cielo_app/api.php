@@ -20,15 +20,60 @@ function salva_log($path,$log){
     $fp = fopen($path, "x");
     $escreve = fwrite($fp, $log);
     return $log;
+}
+
+function sendMessage($title,$text,$id_cliente){
+    $sqlc2 = "SELECT * FROM `tb_login` WHERE `token_id` IS NOT NULL AND `id_cliente`='$id_cliente' ORDER BY `id` ASC";
+    $qrc2 = mysql_query($sqlc2) or die(mysql_error());
+    if (mysql_num_rows($qrc2) > 0){
+        while($ln2 = mysql_fetch_assoc($qrc2)){
+            $token_id = $ln2['token_id'];
+        }
+    }
+    if(!empty($token_id)){
+        $content = array(
+            "en" => $text,
+            );
+            
+        $headings = array(
+            "en" => $title,
+            );
+        
+        $fields = array(
+            'app_id' => "348352f1-636d-4bd7-8cd9-52c82c01c93e",
+            //'included_segments' => array('All'),
+            'include_player_ids' => array($token_id),
+            'data' => array("foo" => "bar"),
+            'big_picture' => "https://igestaoweb.com.br/pinkmajesty/app_new/php/images/logodellas2.png",
+            'buttons' => array(array("id" => "id1", "text" => "Pedidos")),
+            'contents' => $content,
+            'headings' => $headings
+        );
+        
+        $fields = json_encode($fields);
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8',
+                                                'Authorization: Basic YzA2ZGY0ZTQtMzNjYS00MzliLTkzNTAtN2U5NjQ0YzEyYzc0'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+    }
 } 
 
-// define("API_Cielo_URL", 'https://api.cieloecommerce.cielo.com.br/');
-// define("API_Cielo_MerchantId", 'c7944c4f-141e-45f9-b745-f12c92972dfd');
-// define("API_Cielo_MerchantKey", 'd8Msnfs4ueoHbOurODmkhgGPAchVvuQijgf7ePTM');
+define("API_Cielo_URL", 'https://api.cieloecommerce.cielo.com.br/');
+define("API_Cielo_MerchantId", 'c7944c4f-141e-45f9-b745-f12c92972dfd');
+define("API_Cielo_MerchantKey", 'd8Msnfs4ueoHbOurODmkhgGPAchVvuQijgf7ePTM');
 
-define("API_Cielo_URL", 'https://apisandbox.cieloecommerce.cielo.com.br');
-define("API_Cielo_MerchantId", '2ba8079d-ca3a-49a4-8141-3fb3a2b384d2');
-define("API_Cielo_MerchantKey", 'LVJVSVKUFEXFKSGEEZCNONUAVXKXEMCFYPMGJWHG');
+// define("API_Cielo_URL", 'https://apisandbox.cieloecommerce.cielo.com.br');
+// define("API_Cielo_MerchantId", '2ba8079d-ca3a-49a4-8141-3fb3a2b384d2');
+// define("API_Cielo_MerchantKey", 'LVJVSVKUFEXFKSGEEZCNONUAVXKXEMCFYPMGJWHG');
 /*
     action:'checkout',
     MerchantOrderId: agenda,
@@ -115,6 +160,7 @@ function chargeWithCard($request = null)
         $linha_a       	= mysql_num_rows($resultado_a);
         if($linha_a > 0){
             $ln_a          	= mysql_fetch_assoc($resultado_a);
+            $id_cliente     = $ln_a['id_cliente'];
             if(!empty($json['Payment']['ReturnCode'])){
                 if(!empty($ln_a['payment_intent'])){
                     $PaymentId = $ln_a['payment_intent'].','.$json['Payment']['PaymentId'];
@@ -125,26 +171,32 @@ function chargeWithCard($request = null)
                     if(empty($request['Amount'])){
                         $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='1', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
                         $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                        sendMessage('Atualização do Pedido','Pagamento processado com sucesso...',$id_cliente);
                     } else {
                         $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='2', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
                         $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                        sendMessage('Atualização do Pedido','Pagamento processado com sucesso...',$id_cliente);
                     }
                 } else {
                     if(empty($request['Amount'])){
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3', `payment_intent`='$PaymentId', `situacao`='CANCELADO' WHERE `id`='$agenda'";
                         $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                        sendMessage('Atualização do Pedido','Erro ao processar o pagamento, verifique seu cartão.',$id_cliente);
                     } else {
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
+                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4', `payment_intent`='$PaymentId', `situacao`='CANCELADO' WHERE `id`='$agenda'";
                         $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                        sendMessage('Atualização do Pedido','Erro ao processar o pagamento, verifique seu cartão.',$id_cliente);
                     }
                 }
             } else {
                 if(empty($request['Amount'])){
-                    $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3' WHERE `id`='$agenda'";
+                    $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3', `situacao`='CANCELADO' WHERE `id`='$agenda'";
                     $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                    sendMessage('Atualização do Pedido','Erro ao processar o pagamento, verifique seu cartão.',$id_cliente);
                 } else {
-                    $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4' WHERE `id`='$agenda'";
+                    $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4', `situacao`='CANCELADO' WHERE `id`='$agenda'";
                     $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                    sendMessage('Atualização do Pedido','Erro ao processar o pagamento, verifique seu cartão.',$id_cliente);
                 }
             }
         }
