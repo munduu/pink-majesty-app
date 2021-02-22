@@ -98,9 +98,7 @@ if($_REQUEST['action'] == 'chargeWithCard'){
 function chargeWithCard($request = null)
 {
     $log = array();
-    if(!empty(valida_cartao($request['CardNumber']))){
-        $request['Brand'] = valida_cartao($request['Brand']);
-    }
+    $request['Brand'] = valida_cartao($request['CardNumber']);
     $curl = curl_init();
     
     $post                                            = array();
@@ -230,7 +228,7 @@ function valida_cartao($cartao, $cvc=false){
     );
     $brand = 'undefined';
     foreach ( $brands as $_brand => $regex ) {
-        if ( preg_match( $regex, $cartao ) ) {
+        if ( preg_match( $regex, strval($cartao) ) ) {
             $brand = $_brand;
             break;
         }
