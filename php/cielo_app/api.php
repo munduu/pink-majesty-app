@@ -7,17 +7,17 @@ function salva_log($path,$log){
         $response['backtrace'] = $backtrace;
         $log = $response;
     }
-    $log = json_encode($log,JSON_PRETTY_PRINT);
+    $log = json_encode($log,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PARTIAL_OUTPUT_ON_ERROR);
         if (!file_exists(__DIR__.'/log/'.$path)) {
             mkdir(__DIR__.'/log/'.$path, 0777, true);
         }
-        $path = __DIR__.'/log/'.$path.'/'.date("YmdHis");
+        $path = __DIR__.'/log/'.$path.'/'.date("Y m d H i s");
         $x = 0;
         while (file_exists($path)) {
             $path = $path."-$x";
             $x ++;
         } 
-    $fp = fopen($path, "x");
+    $fp = fopen($path.".json", "x");
     $escreve = fwrite($fp, $log);
     return $log;
 }
@@ -67,7 +67,7 @@ function sendMessage($title,$text,$id_cliente){
     }
 } 
 
-define("API_Cielo_URL", 'https://api.cieloecommerce.cielo.com.br/');
+define("API_Cielo_URL", 'https://api.cieloecommerce.cielo.com.br');
 define("API_Cielo_MerchantId", 'c7944c4f-141e-45f9-b745-f12c92972dfd');
 define("API_Cielo_MerchantKey", 'd8Msnfs4ueoHbOurODmkhgGPAchVvuQijgf7ePTM');
 
@@ -97,6 +97,7 @@ if($_REQUEST['action'] == 'chargeWithCard'){
 
 function chargeWithCard($request = null)
 {
+    $log = array();
     if(!empty(valida_cartao($request['CardNumber']))){
         $request['Brand'] = valida_cartao($request['Brand']);
     }
@@ -109,7 +110,7 @@ function chargeWithCard($request = null)
     $post['Payment']                                 = array();
     $post['Payment']['Type']                         = 'CreditCard';
     $post['Payment']['Capture']                      = true;
-    $post['Payment']['Amount']                       = (!empty($request['Amount']))?$request['Amount']:200;
+    $post['Payment']['Amount']                       = (!empty($request['Amount']))?$request['Amount']:100;
     $post['Payment']['Installments']                 = 1;
    // $post['Payment']['SoftDescriptor']               = 'PINK_MAJESTY';
     $post['Payment']['Currency']                     = 'EUR';
@@ -136,8 +137,10 @@ function chargeWithCard($request = null)
         ),
     ));
     $response = curl_exec($curl);
-
+    $httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     curl_close($curl);
+    $log['request_info']['url'] =  API_Cielo_URL.'/1/sales';
+    $log['request_info']['httpcode'] =  $httpcode;
    // echo $response;
    
     /*
@@ -152,7 +155,7 @@ function chargeWithCard($request = null)
 
     $json = json_decode($response,TRUE);
     echo json_encode($json, JSON_UNESCAPED_UNICODE | JSON_PARTIAL_OUTPUT_ON_ERROR);
-    salva_log('chargeWithCard',array($post,$json));
+    
     if(!empty($request['MerchantOrderId'])){
         $agenda         = $request['MerchantOrderId'];
         $sql_a         	= "SELECT * FROM tb_agenda WHERE id = '$agenda'";
@@ -161,48 +164,79 @@ function chargeWithCard($request = null)
         if($linha_a > 0){
             $ln_a          	= mysql_fetch_assoc($resultado_a);
             $id_cliente     = $ln_a['id_cliente'];
-            if(!empty($json['Payment']['ReturnCode'])){
+            if(!empty($json['Payment']['Status'])){
                 if(!empty($ln_a['payment_intent'])){
                     $PaymentId = $ln_a['payment_intent'].','.$json['Payment']['PaymentId'];
                 } else {
                     $PaymentId =  $json['Payment']['PaymentId'];
                 }
-                if(($json['Payment']['ReturnCode'] == "6") || ($json['Payment']['ReturnCode'] == "4")){
+                if((intval($json['Payment']['Status']) == 1) || (intval($json['Payment']['Status']) == 2)){
                     if(empty($request['Amount'])){
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='1', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
-                        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                        $log['update']['sql'] = $sql_a = "UPDATE `tb_agenda` SET `pagamento`='1', `payment_intent`='$PaymentId', `situacao`='PEDIDO' WHERE `id`='$agenda'";
+                        $log['update']['status'] = $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                         sendMessage('Atualização do Pedido','Pagamento processado com sucesso...',$id_cliente);
                     } else {
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='2', `payment_intent`='$PaymentId' WHERE `id`='$agenda'";
-                        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                        $log['update']['sql'] =  $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='2', `payment_intent`='$PaymentId', `situacao`='CONCLUIDO' WHERE `id`='$agenda'";
+                        $log['update']['status'] = $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                         sendMessage('Atualização do Pedido','Pagamento processado com sucesso...',$id_cliente);
                     }
                 } else {
                     if(empty($request['Amount'])){
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3', `payment_intent`='$PaymentId', `situacao`='CANCELADO' WHERE `id`='$agenda'";
-                        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                        $log['update']['sql'] =  $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3', `payment_intent`='$PaymentId', `situacao`='CANCELADO' WHERE `id`='$agenda'";
+                        $log['update']['status'] = $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                         sendMessage('Atualização do Pedido','Erro ao processar o pagamento, verifique seu cartão.',$id_cliente);
                     } else {
-                        $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4', `payment_intent`='$PaymentId', `situacao`='CANCELADO' WHERE `id`='$agenda'";
-                        $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                        $log['update']['sql'] =  $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4', `payment_intent`='$PaymentId', `situacao`='CANCELADO' WHERE `id`='$agenda'";
+                        $log['update']['status'] = $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                         sendMessage('Atualização do Pedido','Erro ao processar o pagamento, verifique seu cartão.',$id_cliente);
                     }
                 }
             } else {
                 if(empty($request['Amount'])){
-                    $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3', `situacao`='CANCELADO' WHERE `id`='$agenda'";
-                    $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                    $log['update']['sql'] =  $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='3', `situacao`='CANCELADO' WHERE `id`='$agenda'";
+                    $log['update']['status'] = $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                     sendMessage('Atualização do Pedido','Erro ao processar o pagamento, verifique seu cartão.',$id_cliente);
                 } else {
-                    $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4', `situacao`='CANCELADO' WHERE `id`='$agenda'";
-                    $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                    $log['update']['sql'] = $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='4', `situacao`='CANCELADO' WHERE `id`='$agenda'";
+                    $log['update']['status'] = $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
                     sendMessage('Atualização do Pedido','Erro ao processar o pagamento, verifique seu cartão.',$id_cliente);
                 }
             }
+        } else {
+            $log['response_info'][] =  "Error: no row in tb_agenda with id = $agenda";
         }
+    } else {
+        $log['response_info'][] =  "Error: no MerchantOrderId";
     }
+
+    salva_log('chargeWithCard',array(
+        'request'=>$post,
+        'processing'=>$log,
+        'response'=>$json
+    ));
 }
 function valida_cartao($cartao, $cvc=false){
+    $brands = array(
+        'Visa'       => '/^4\d{12}(\d{3})?$/',
+        'Master' => '/^(5[1-5]\d{4}|677189)\d{10}$/',
+        'Diners'     => '/^3(0[0-5]|[68]\d)\d{11}$/',
+        'Discover'   => '/^6(?:011|5[0-9]{2})[0-9]{12}$/',
+        'Elo'        => '/^((((636368)|(438935)|(504175)|(451416)|(636297))\d{0,10})|((5067)|(4576)|(4011))\d{0,12})$/',
+        'Amex'       => '/^3[47]\d{13}$/',
+        'JCB'        => '/^(?:2131|1800|35\d{3})\d{11}$/',
+        'Aura'       => '/^(5078\d{2})(\d{2})(\d{11})$/',
+        'Hipercard'  => '/^(606282\d{10}(\d{3})?)|(3841\d{15})$/',
+        'Master'    => '/^(?:5[0678]\d\d|6304|6390|67\d\d)\d{8,15}$/',
+    );
+    $brand = 'undefined';
+    foreach ( $brands as $_brand => $regex ) {
+        if ( preg_match( $regex, $cartao ) ) {
+            $brand = $_brand;
+            break;
+        }
+    }
+    return $brand;
+    /*
 	$cartao = preg_replace("/[^0-9]/", "", $cartao);
 	if($cvc) $cvc = preg_replace("/[^0-9]/", "", $cvc);
 
@@ -289,7 +323,7 @@ function valida_cartao($cartao, $cvc=false){
 
 	if(!in_array(strlen($cartao), $dados_cartao['len'])) $valid = false;
 	if($cvc AND strlen($cvc) <= $dados_cartao['cvc'] AND strlen($cvc) !=0) $valid_cvc = true;
-	return $bandeira;
+	return $bandeira;*/
 }
 function cancelarPagamento($request = null){
     if(!empty($request['MerchantOrderId'])){
@@ -332,7 +366,10 @@ function cancelarPagamento($request = null){
                     } else {
                         $msg_return .= $response[0]['Message'].' ';
                     }
-                    
+                    $id_cliente     = $ln_a['id_cliente'];
+                    $log['update']['sql'] =  $sql_a         	= "UPDATE `tb_agenda` SET `pagamento`='5', `situacao`='CANCELADO' WHERE `id`='$agenda'";
+                    $log['update']['status'] = $resultado_a   	= mysql_query($sql_a) or die(mysql_error());
+                    sendMessage('Atualização do Pedido','Erro ao processar o pagamento, verifique seu cartão.',$id_cliente);
                 }
             } else {
                 $msg_return = "Pagamento não encontrado";
