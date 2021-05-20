@@ -9,7 +9,7 @@ $datai 	= anti_sql_injection(strip_tags(trim($_REQUEST['data1'])));
 $dataf 	= anti_sql_injection(strip_tags(trim($_REQUEST['data2'])));
 $data_atual = date("Y-m-d");
 if(empty($datai)){
-	$datai =  date("Y-m-01");
+	$datai =  date("0000-00-00");
 }
 if(empty($dataf)){
 	$dataf = date("Y-m-31");
@@ -141,7 +141,7 @@ if($token=='H424715433852'){
 			';								
 			*/
 			$dados.= ' 
-			<div align="center">
+			<div align="center" id="colab_'.$id_colaborador.'">
 				<div style="display:inline-block;width:15%;height:50%;"><b>MEDIA : </b></div>
 				<div class="rateYo_media" id="rateYo_media" alt="" style="display:inline-block;width:60%;height:50%;"></div>			
 				<div style="display:inline-block;width:10%;height:50%;">

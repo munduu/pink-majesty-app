@@ -692,8 +692,8 @@
 			}
 			//var today = yyyy+'-'+mm+'-'+dd;
 			var today = dd + '/' + mm + '/' + yyyy;
-			var ini = '01/' + mm + '/' + yyyy;
-			var end = '31/' + mm + '/' + yyyy;
+			var ini = '01/' + '01' + '/' + '2000';
+			var end = '31/' + '12' + '/' + (yyyy+1);
 			if (!data_busca1) {
 				data_busca1 = ini;
 			}

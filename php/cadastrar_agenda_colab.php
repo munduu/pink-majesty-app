@@ -90,7 +90,7 @@ if($token=='H424715433852'){
 			}
 			sendMessage($message,$token_id_user);		
 							
-		require_once('notif_aceito_email.php');
+		//require_once('notif_aceito_email.php');
 		
 	}else{
 		$error = 3;

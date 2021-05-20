@@ -118,80 +118,11 @@ if ($token == 'H424715433852') {
 		mysql_select_db($database_localhost, $localhost);
 		$Result1 = mysql_query($updateSQL, $localhost) or die(mysql_error());
 
-		require_once('notif_agendado_email.php');
+		//require_once('notif_agendado_email.php');
 	}
 
 
 	if ($situacao == 'CONCLUIDO') {
-
-		/*
-		 ENVIAR REQUEST DE CAPTURAR O RESTANTE.
-		*/
-		$sql_forma_pg         	= "SELECT * FROM `tb_cartoes` WHERE `id` = '$forma_pg'";
-		$resultado_forma_pg   	= mysql_query($sql_forma_pg) or die(mysql_error());
-		$linha_forma_pg       	= mysql_num_rows($resultado_forma_pg);
-		if ($linha_forma_pg > 0) {
-			$ln_forma_pg          	= mysql_fetch_assoc($resultado_forma_pg);
-			//die(var_dump($json));
-			$valor  = floatval(str_replace(",",".",$valor));
-			$valor  = intval(100*$valor);
-			$amount = $valor - 200.00;
-			// die(var_dump(array(
-			// 	'action' => 'chargeWithCard',
-			// 	'MerchantOrderId' => $agenda,
-			// 	'Name' => $ln_forma_pg['nome_impresso'],
-			// 	'CardNumber' => $ln_forma_pg['numero'],
-			// 	'Holder' => $ln_forma_pg['nome_impresso'],
-			// 	'ExpirationDate' => $ln_forma_pg['mes_val'].'/'.$ln_forma_pg['ano_val'],
-			// 	'SecurityCode' => $ln_forma_pg['cod_seg'],
-			// 	'Brand' => $bandeira,
-			// 	'Amount' => $amount
-			// )));
-			$curl = curl_init();
-			curl_setopt_array($curl, array(
-				CURLOPT_URL => 'https://igestaoweb.com.br/pinkmajesty/app_new/php/cielo_app/api.php',
-				CURLOPT_RETURNTRANSFER => true,
-				CURLOPT_ENCODING => '',
-				CURLOPT_MAXREDIRS => 10,
-				CURLOPT_TIMEOUT => 0,
-				CURLOPT_FOLLOWLOCATION => true,
-				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-				CURLOPT_CUSTOMREQUEST => 'POST',
-				CURLOPT_POSTFIELDS => 
-				array(
-					'action' => 'chargeWithCard',
-					'MerchantOrderId' => $agenda,
-					'Name' => $ln_forma_pg['nome_impresso'],
-					'CardNumber' => $ln_forma_pg['numero'],
-					'Holder' => $ln_forma_pg['nome_impresso'],
-					'ExpirationDate' => "$ln_forma_pg[mes_val]/$ln_forma_pg[ano_val]",
-					'SecurityCode' => $ln_forma_pg['cod_seg'],
-					'Amount' => $amount
-				),
-			));
-
-			$response = curl_exec($curl);
-			curl_close($curl);
-			$response = substr($response,3);
-			$response = trim($response);
-			$json = json_decode($response, TRUE);
-			if(empty($json)){
-				echo $response;
-				die(json_last_error_msg());
-			}
-			if (!empty($json['Payment']['ReturnCode'])) {
-				if (($json['Payment']['ReturnCode'] == "6") || ($json['Payment']['ReturnCode'] == "4")) {
-					$message_pagamento = "Pagamento processado com sucesso";
-				} else {
-					$message_pagamento = "Erro ao processar o pagamento x1";
-				}
-			} else {
-				$message_pagamento = "Erro ao processar o pagamento x2";
-			}
-		} else {
-			$message_pagamento = "Erro ao processar o pagamento x3";
-		}
-
 
 		//AVISA O CLIENTE PARA AVALIAR
 
@@ -214,11 +145,11 @@ if ($token == 'H424715433852') {
 		if (!empty($tokens)) {
 
 			$title    = "Pink Majesty";
-			$message  = "Pedido #$agenda concluido ... avalie o atendimento! $message_pagamento";
+			$message  = "Pedido #$agenda concluido ... avalie o atendimento!";
 			sendMessage($message, $tokens);
 		}
 
-		$msg_alert = "Pedido Finalizado com sucesso! " . $message_pagamento;
+		$msg_alert = "Pedido Finalizado com sucesso! ";
 	}
 
 	$dados .= $msg_alert;
